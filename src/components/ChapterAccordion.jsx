@@ -11,7 +11,7 @@ import PlotlyBlock from './PlotlyBlock.jsx'
 function generate3DaySchedule(chapter, index) {
   const baseDay = index * 3 + 1
   return [
-    { day: baseDay, title: 'Learn & diagram', task: 'Study the core concepts. If diagrams are provided, review them.' },
+    { day: baseDay, title: 'Learn & diagram', task: 'Study the core concepts. If diagrams are provided, review them 43.' },
     { day: baseDay + 1, title: 'Practice & small build', task: 'Hands-on practice. Implement a tiny demo or replicate an example.' },
     { day: baseDay + 2, title: 'Mini project & reflection', task: 'Create a small end-to-end demo or summary. Note open questions.' }
   ]
