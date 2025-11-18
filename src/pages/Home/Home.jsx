@@ -21,33 +21,35 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { learningPaths } from '../../data/courseContent';
 import { useProgress } from '../../context/ProgressContext';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { completedTopics } = useProgress();
+  const { t } = useTranslation();
 
   const features = [
     {
       icon: <School sx={{ fontSize: 40 }} />,
-      title: 'Comprehensive Content',
-      description: 'Learn everything from basics to advanced Python concepts with detailed explanations and examples.',
+      title: t('home.features.comprehensive.title'),
+      description: t('home.features.comprehensive.description'),
     },
     {
       icon: <Speed sx={{ fontSize: 40 }} />,
-      title: 'Interactive Learning',
-      description: 'Practice with code examples, quizzes, and real-world use cases for hands-on experience.',
+      title: t('home.features.interactive.title'),
+      description: t('home.features.interactive.description'),
     },
     {
       icon: <EmojiEvents sx={{ fontSize: 40 }} />,
-      title: 'Track Progress',
-      description: 'Monitor your learning journey with progress tracking, bookmarks, and achievement badges.',
+      title: t('home.features.trackProgress.title'),
+      description: t('home.features.trackProgress.description'),
     },
     {
       icon: <TrendingUp sx={{ fontSize: 40 }} />,
-      title: 'Best Practices',
-      description: 'Master Python with do\'s, don\'ts, and industry-standard coding practices.',
+      title: t('home.features.bestPractices.title'),
+      description: t('home.features.bestPractices.description'),
     },
   ];
 
@@ -69,7 +71,7 @@ const Home = () => {
           gutterBottom
           fontWeight={700}
         >
-          Master Python Programming 🐍
+          {t('home.heroTitle')}
         </Typography>
         <Typography
           variant={isMobile ? 'h6' : 'h5'}
@@ -77,7 +79,7 @@ const Home = () => {
           paragraph
           sx={{ maxWidth: 800, mx: 'auto', px: 2 }}
         >
-          Your complete guide to learning Python from fundamentals to professional-level development
+          {t('home.heroSubtitle')}
         </Typography>
         <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button
@@ -87,7 +89,7 @@ const Home = () => {
             onClick={() => navigate('/path/beginner')}
             sx={{ px: 4, py: 1.5 }}
           >
-            Start Learning
+            {t('home.startLearning')}
           </Button>
           <Button
             variant="outlined"
@@ -95,14 +97,14 @@ const Home = () => {
             onClick={() => navigate('/progress')}
             sx={{ px: 4, py: 1.5 }}
           >
-            View Progress
+            {t('nav.progress')}
           </Button>
         </Box>
 
         {completedTopics.length > 0 && (
           <Chip
             icon={<EmojiEvents />}
-            label={`${completedTopics.length} Topics Completed!`}
+            label={`${completedTopics.length} ${t('home.topicsCompleted')}!`}
             color="success"
             sx={{ mt: 3 }}
           />
@@ -160,7 +162,7 @@ const Home = () => {
                       navigate(`/path/${path.id}`);
                     }}
                   >
-                    Explore Path
+                    {t('home.explorePaths')}
                   </Button>
                 </CardContent>
               </Card>
@@ -172,7 +174,7 @@ const Home = () => {
       {/* Features */}
       <Box sx={{ mb: 8 }}>
         <Typography variant="h4" gutterBottom fontWeight={600} sx={{ mb: 4 }}>
-          Why Learn Here?
+          {t('home.whyLearnHere')}
         </Typography>
         <Grid container spacing={4}>
           {features.map((feature, index) => (
@@ -217,10 +219,10 @@ const Home = () => {
         }}
       >
         <Typography variant="h4" gutterBottom fontWeight={600}>
-          Ready to Start Your Python Journey?
+          {t('home.cta.title')}
         </Typography>
         <Typography variant="h6" paragraph sx={{ opacity: 0.9 }}>
-          Join thousands of learners mastering Python programming
+          {t('home.cta.subtitle')}
         </Typography>
         <Button
           variant="contained"
@@ -236,7 +238,7 @@ const Home = () => {
           endIcon={<ArrowForward />}
           onClick={() => navigate('/path/beginner')}
         >
-          Begin Learning Now
+          {t('home.cta.button')}
         </Button>
       </Paper>
     </Container>

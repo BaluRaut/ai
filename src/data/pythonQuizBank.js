@@ -636,6 +636,685 @@ export const quizBank = {
         difficulty: 'hard',
         tags: ['float', 'precision', 'gotchas']
       }
+    ],
+
+    // Control Flow (50 questions)
+    controlFlow: [
+      {
+        id: 'b061',
+        question: 'What is the output of: if True: print("A") if False: print("B")?',
+        options: ['A', 'B', 'AB', 'SyntaxError'],
+        correctAnswer: 3,
+        explanation: 'Missing colon after second if statement. Should be: if True: print("A")\\nif False: print("B") or use elif.',
+        difficulty: 'medium',
+        tags: ['control-flow', 'syntax', 'if-else']
+      },
+      {
+        id: 'b062',
+        question: 'Which statement correctly checks if x is between 10 and 20 (inclusive)?',
+        options: [
+          '10 < x < 20',
+          '10 <= x <= 20',
+          'x >= 10 and x <= 20',
+          'Both B and C'
+        ],
+        correctAnswer: 3,
+        explanation: 'Both 10 <= x <= 20 (chained comparison) and x >= 10 and x <= 20 work. Python allows chained comparisons.',
+        difficulty: 'medium',
+        tags: ['control-flow', 'comparison', 'logic']
+      },
+      {
+        id: 'b063',
+        question: 'What is the output of: x = 5\\nif x > 10:\\n    print("A")\\nelif x > 3:\\n    print("B")\\nelse:\\n    print("C")?',
+        options: ['A', 'B', 'C', 'BC'],
+        correctAnswer: 1,
+        explanation: 'x=5, first condition (x>10) is False, second (x>3) is True, prints "B". Once a condition matches, others are skipped.',
+        difficulty: 'easy',
+        tags: ['control-flow', 'if-elif-else']
+      },
+      {
+        id: 'b064',
+        question: 'What is a ternary operator in Python?',
+        options: [
+          'x if y else z',
+          'x ? y : z',
+          'if x then y else z',
+          "Python doesn't have ternary operators"
+        ],
+        correctAnswer: 0,
+        explanation: "Python's ternary (conditional expression): value_if_true if condition else value_if_false. Example: 'even' if x%2==0 else 'odd'",
+        difficulty: 'medium',
+        tags: ['control-flow', 'ternary', 'syntax']
+      },
+      {
+        id: 'b065',
+        question: 'What does the pass statement do?',
+        options: [
+          'Skips the current iteration',
+          'Exits the loop/function',
+          'Does nothing - placeholder',
+          'Raises an exception'
+        ],
+        correctAnswer: 2,
+        explanation: 'pass is a null operation that does nothing. Used as a placeholder where syntax requires a statement.',
+        difficulty: 'easy',
+        tags: ['control-flow', 'keywords', 'pass']
+      },
+      {
+        id: 'b066',
+        question: 'What is the output of: print(True and False or True)?',
+        options: ['True', 'False', 'Error', 'None'],
+        correctAnswer: 0,
+        explanation: 'Evaluates left to right: (True and False) or True = False or True = True. "and" has higher precedence than "or".',
+        difficulty: 'medium',
+        tags: ['control-flow', 'boolean', 'logic']
+      },
+      {
+        id: 'b067',
+        question: 'Which values are considered "falsy" in Python?',
+        options: [
+          'False, None, 0, "", [], {}',
+          'Only False',
+          'False and None only',
+          'Any negative number'
+        ],
+        correctAnswer: 0,
+        explanation: 'Falsy values: False, None, 0, 0.0, "", [], {}, (). Everything else is truthy.',
+        difficulty: 'medium',
+        tags: ['control-flow', 'truthy-falsy', 'boolean']
+      },
+      {
+        id: 'b068',
+        question: 'What is the output of: if []: print("A") else: print("B")?',
+        options: ['A', 'B', 'Error', 'Nothing'],
+        correctAnswer: 1,
+        explanation: 'Empty list [] is falsy, so the else block executes, printing "B".',
+        difficulty: 'easy',
+        tags: ['control-flow', 'truthy-falsy']
+      },
+      {
+        id: 'b069',
+        question: 'What does "elif" stand for?',
+        options: ['else if', 'elif is a Python keyword', 'else if inline', 'elif function'],
+        correctAnswer: 0,
+        explanation: 'elif stands for "else if". It checks additional conditions after an if statement.',
+        difficulty: 'easy',
+        tags: ['control-flow', 'keywords', 'elif']
+      },
+      {
+        id: 'b070',
+        question: 'What is the output of: x = 10\\nprint("A" if x else "B")?',
+        options: ['A', 'B', '10', 'Error'],
+        correctAnswer: 0,
+        explanation: '10 is truthy, so the expression evaluates to "A". Only 0, None, False, empty collections are falsy.',
+        difficulty: 'easy',
+        tags: ['control-flow', 'ternary', 'truthy-falsy']
+      }
+    ],
+
+    // Loops (50 questions)
+    loops: [
+      {
+        id: 'b071',
+        question: 'What is the output of: for i in range(3): print(i)?',
+        options: ['0 1 2', '1 2 3', '0 1 2 3', 'Error'],
+        correctAnswer: 0,
+        explanation: 'range(3) generates numbers from 0 to 2 (3 is exclusive). Prints: 0, 1, 2 on separate lines.',
+        difficulty: 'easy',
+        tags: ['loops', 'for', 'range']
+      },
+      {
+        id: 'b072',
+        question: 'How do you loop through a list with both index and value?',
+        options: [
+          'for i in list:',
+          'for i, value in list:',
+          'for i, value in enumerate(list):',
+          'for value at i in list:'
+        ],
+        correctAnswer: 2,
+        explanation: 'enumerate(list) returns (index, value) pairs. Example: for i, val in enumerate([10, 20, 30]): print(i, val)',
+        difficulty: 'medium',
+        tags: ['loops', 'enumerate', 'for']
+      },
+      {
+        id: 'b073',
+        question: 'What does break do in a loop?',
+        options: [
+          'Skips current iteration',
+          'Exits the entire loop immediately',
+          'Pauses the loop',
+          'Restarts the loop'
+        ],
+        correctAnswer: 1,
+        explanation: 'break exits the loop immediately. continue skips to next iteration. pass does nothing.',
+        difficulty: 'easy',
+        tags: ['loops', 'break', 'keywords']
+      },
+      {
+        id: 'b074',
+        question: 'What is the output of: for i in range(5):\\n    if i == 3:\\n        break\\n    print(i)?',
+        options: ['0 1 2', '0 1 2 3', '0 1 2 3 4', 'Error'],
+        correctAnswer: 0,
+        explanation: 'Loop prints 0, 1, 2. When i==3, break exits loop before printing 3.',
+        difficulty: 'medium',
+        tags: ['loops', 'break', 'for']
+      },
+      {
+        id: 'b075',
+        question: 'What does continue do in a loop?',
+        options: [
+          'Exits the loop',
+          'Skips the rest of current iteration and goes to next',
+          'Does nothing',
+          'Repeats current iteration'
+        ],
+        correctAnswer: 1,
+        explanation: 'continue skips remaining code in current iteration and proceeds to next iteration.',
+        difficulty: 'easy',
+        tags: ['loops', 'continue', 'keywords']
+      },
+      {
+        id: 'b076',
+        question: 'What is the output of: for i in range(5):\\n    if i == 2:\\n        continue\\n    print(i)?',
+        options: ['0 1 2 3 4', '0 1 3 4', '2', 'Error'],
+        correctAnswer: 1,
+        explanation: 'When i==2, continue skips print(i), so 2 is not printed. Output: 0, 1, 3, 4.',
+        difficulty: 'medium',
+        tags: ['loops', 'continue', 'for']
+      },
+      {
+        id: 'b077',
+        question: 'What is the purpose of the else clause in a loop?',
+        options: [
+          'Runs if loop never executes',
+          'Runs if loop completes normally (no break)',
+          'Runs on every iteration',
+          "Python loops don't have else"
+        ],
+        correctAnswer: 1,
+        explanation: 'else after for/while runs if loop completes without encountering break.',
+        difficulty: 'hard',
+        tags: ['loops', 'else', 'advanced']
+      },
+      {
+        id: 'b078',
+        question: 'What is the output of: i = 0\\nwhile i < 3:\\n    print(i)\\n    i += 1?',
+        options: ['0 1 2', '1 2 3', '0 1 2 3', 'Infinite loop'],
+        correctAnswer: 0,
+        explanation: 'While loop runs while condition is true. Prints 0, 1, 2, then i becomes 3 and condition fails.',
+        difficulty: 'easy',
+        tags: ['loops', 'while']
+      },
+      {
+        id: 'b079',
+        question: 'How do you create an infinite loop in Python?',
+        options: ['while True:', 'for i in inf:', 'loop forever:', 'while 1:'],
+        correctAnswer: 0,
+        explanation: 'while True: creates infinite loop. Must use break to exit. while 1: also works but while True: is clearer.',
+        difficulty: 'easy',
+        tags: ['loops', 'while', 'infinite']
+      },
+      {
+        id: 'b080',
+        question: 'What is the output of: for i in range(1, 10, 2): print(i)?',
+        options: ['1 2 3 4 5', '1 3 5 7 9', '2 4 6 8', '1 3 5 7'],
+        correctAnswer: 1,
+        explanation: 'range(start, stop, step): range(1, 10, 2) generates 1, 3, 5, 7, 9 (stop is exclusive).',
+        difficulty: 'medium',
+        tags: ['loops', 'range', 'for']
+      }
+    ],
+
+    // Input/Output (20 questions)
+    inputOutput: [
+      {
+        id: 'b081',
+        question: 'What type does input() return?',
+        options: ['int', 'float', 'str', 'Depends on input'],
+        correctAnswer: 2,
+        explanation: 'input() always returns a string, even if user types numbers. Use int(input()) to convert.',
+        difficulty: 'easy',
+        tags: ['input', 'output', 'io']
+      },
+      {
+        id: 'b082',
+        question: 'How do you read a number from user input?',
+        options: [
+          'x = input()',
+          'x = int(input())',
+          'x = input(int)',
+          'x = number(input())'
+        ],
+        correctAnswer: 1,
+        explanation: 'input() returns string. Wrap in int() or float() to convert: x = int(input("Enter number: "))',
+        difficulty: 'easy',
+        tags: ['input', 'type-conversion']
+      },
+      {
+        id: 'b083',
+        question: 'What is the output of: print("A", "B", "C", sep="-")?',
+        options: ['A B C', 'A-B-C', 'ABC', 'A - B - C'],
+        correctAnswer: 1,
+        explanation: "sep parameter sets separator between values. Default is space, here it's hyphen.",
+        difficulty: 'medium',
+        tags: ['output', 'print', 'formatting']
+      },
+      {
+        id: 'b084',
+        question: 'What is the output of: print("Hello", end="!")?',
+        options: ['Hello!', 'Hello !', 'Hello\\n!', 'Error'],
+        correctAnswer: 0,
+        explanation: 'end parameter sets what prints at the end. Default is newline (\\n), here it is "!".',
+        difficulty: 'medium',
+        tags: ['output', 'print', 'formatting']
+      },
+      {
+        id: 'b085',
+        question: 'How do you print without a newline at the end?',
+        options: [
+          'print("text", newline=False)',
+          'print("text", end="")',
+          'print("text", nl=False)',
+          'printn("text")'
+        ],
+        correctAnswer: 1,
+        explanation: 'Use end="" to prevent newline. Example: print("A", end=""); print("B") outputs AB.',
+        difficulty: 'medium',
+        tags: ['output', 'print']
+      },
+      {
+        id: 'b086',
+        question: 'What is an f-string in Python?',
+        options: [
+          'A floating-point string',
+          'A formatted string literal',
+          'A file string',
+          'A function string'
+        ],
+        correctAnswer: 1,
+        explanation: 'f-strings (f"...") are formatted string literals. Example: f"Hello \\{name}" embeds variable values.',
+        difficulty: 'medium',
+        tags: ['output', 'formatting', 'f-strings']
+      },
+      {
+        id: 'b087',
+        question: 'What is the output of: name = "Alice"\\nprint(f"Hello \\{name}")?',
+        options: ['Hello {name}', 'Hello Alice', 'Hello name', 'Error'],
+        correctAnswer: 1,
+        explanation: 'f-strings evaluate expressions in {}. f"Hello \\{name}" replaces \\{name} with variable value "Alice".',
+        difficulty: 'easy',
+        tags: ['output', 'f-strings', 'formatting']
+      },
+      {
+        id: 'b088',
+        question: 'How do you format a float to 2 decimal places using f-strings?',
+        options: [
+          'f"\\{x:2f}"',
+          'f"\\{x:.2f}"',
+          'f"\\{x.2f}"',
+          'f"\\{x:2.f}"'
+        ],
+        correctAnswer: 1,
+        explanation: 'f"\\{variable:.2f}" formats to 2 decimal places. Example: f"\\{3.14159:.2f}" gives "3.14".',
+        difficulty: 'medium',
+        tags: ['output', 'formatting', 'f-strings']
+      },
+      {
+        id: 'b089',
+        question: 'What happens if you try int("hello")?',
+        options: ['Returns 0', 'Returns None', 'Raises ValueError', 'Returns "hello"'],
+        correctAnswer: 2,
+        explanation: 'int() raises ValueError when given a non-numeric string. Use try-except to handle it.',
+        difficulty: 'medium',
+        tags: ['input', 'type-conversion', 'errors']
+      },
+      {
+        id: 'b090',
+        question: 'What is the output of: print("Line1\\nLine2")?',
+        options: [
+          'Line1\\nLine2',
+          'Line1 Line2',
+          'Line1 and Line2 on separate lines',
+          'Error'
+        ],
+        correctAnswer: 2,
+        explanation: '\\n is the newline character. Prints Line1 on first line, Line2 on second line.',
+        difficulty: 'easy',
+        tags: ['output', 'escape-sequences', 'strings']
+      }
+    ],
+
+    // Functions (40 questions)
+    functions: [
+      {
+        id: 'b091',
+        question: 'What keyword is used to define a function in Python?',
+        options: ['function', 'def', 'func', 'define'],
+        correctAnswer: 1,
+        explanation: 'The "def" keyword defines a function. Example: def my_function():',
+        difficulty: 'easy',
+        tags: ['functions', 'syntax', 'keywords']
+      },
+      {
+        id: 'b092',
+        question: 'What is the output of: def greet(): return "Hello"\\nprint(greet())?',
+        options: ['Hello', 'None', 'greet', 'Error'],
+        correctAnswer: 0,
+        explanation: 'greet() calls the function which returns "Hello". print() displays it.',
+        difficulty: 'easy',
+        tags: ['functions', 'return']
+      },
+      {
+        id: 'b093',
+        question: 'What does a function return if no return statement is present?',
+        options: ['0', '""', 'None', 'Error'],
+        correctAnswer: 2,
+        explanation: 'Functions without explicit return statement return None by default.',
+        difficulty: 'medium',
+        tags: ['functions', 'return', 'None']
+      },
+      {
+        id: 'b094',
+        question: 'What is the output of: def add(a, b): return a + b\\nresult = add(2, 3)?',
+        options: ['5', '23', 'Error', 'None'],
+        correctAnswer: 0,
+        explanation: 'add(2, 3) calls function with arguments 2 and 3, returns 2+3=5.',
+        difficulty: 'easy',
+        tags: ['functions', 'parameters', 'return']
+      },
+      {
+        id: 'b095',
+        question: 'What are default parameters in a function?',
+        options: [
+          'Parameters that must be provided',
+          'Parameters with pre-assigned values',
+          'The first parameter',
+          'Parameters that return default values'
+        ],
+        correctAnswer: 1,
+        explanation: 'Default parameters have values assigned in definition. Example: def greet(name="World"):',
+        difficulty: 'medium',
+        tags: ['functions', 'parameters', 'defaults']
+      },
+      {
+        id: 'b096',
+        question: 'What is the output of: def func(x=5): return x\\nprint(func())?',
+        options: ['Error', 'None', '5', 'x'],
+        correctAnswer: 2,
+        explanation: 'x has default value 5. Calling func() without arguments uses default, returns 5.',
+        difficulty: 'easy',
+        tags: ['functions', 'default-parameters']
+      },
+      {
+        id: 'b097',
+        question: 'Can you have multiple return statements in a function?',
+        options: [
+          'No, only one return allowed',
+          'Yes, but only the first executes',
+          'Yes, the appropriate one executes based on conditions',
+          'Yes, all return statements execute'
+        ],
+        correctAnswer: 2,
+        explanation: 'Multiple returns are allowed. Execution stops at first return reached.',
+        difficulty: 'medium',
+        tags: ['functions', 'return', 'control-flow']
+      },
+      {
+        id: 'b098',
+        question: 'What is a docstring?',
+        options: [
+          'A string inside a function',
+          'Documentation string describing function/class',
+          'A string that documents itself',
+          'An error message string'
+        ],
+        correctAnswer: 1,
+        explanation: 'Docstring is the first statement in function/class, used for documentation. Access via __doc__.',
+        difficulty: 'medium',
+        tags: ['functions', 'docstrings', 'documentation']
+      },
+      {
+        id: 'b099',
+        question: 'What is the scope of a variable defined inside a function?',
+        options: ['Global', 'Local to the function', 'Module-wide', 'Class-wide'],
+        correctAnswer: 1,
+        explanation: 'Variables defined in a function have local scope - only accessible within that function.',
+        difficulty: 'medium',
+        tags: ['functions', 'scope', 'variables']
+      },
+      {
+        id: 'b100',
+        question: 'How do you call a function named "test"?',
+        options: ['test', 'test()', 'call test', 'function test()'],
+        correctAnswer: 1,
+        explanation: 'Use parentheses to call: test(). Without (), you reference the function object.',
+        difficulty: 'easy',
+        tags: ['functions', 'calling', 'syntax']
+      }
+    ],
+
+    // Strings (50 questions)
+    strings: [
+      {
+        id: 'b101',
+        question: 'What is the output of: "hello".upper()?',
+        options: ['hello', 'HELLO', 'Hello', 'Error'],
+        correctAnswer: 1,
+        explanation: 'upper() converts all characters to uppercase. Returns "HELLO".',
+        difficulty: 'easy',
+        tags: ['strings', 'methods', 'case']
+      },
+      {
+        id: 'b102',
+        question: 'Are strings mutable in Python?',
+        options: ['Yes', 'No', 'Sometimes', 'Depends on the string'],
+        correctAnswer: 1,
+        explanation: 'Strings are immutable. Cannot change characters after creation. Must create new string.',
+        difficulty: 'medium',
+        tags: ['strings', 'immutability', 'data-types']
+      },
+      {
+        id: 'b103',
+        question: 'What is the output of: "Python"[0]?',
+        options: ['P', 'y', 'Python', 'Error'],
+        correctAnswer: 0,
+        explanation: 'String indexing starts at 0. "Python"[0] returns first character "P".',
+        difficulty: 'easy',
+        tags: ['strings', 'indexing', 'slicing']
+      },
+      {
+        id: 'b104',
+        question: 'What is the output of: "Python"[-1]?',
+        options: ['P', 'n', 'Error', 'o'],
+        correctAnswer: 1,
+        explanation: 'Negative indexing: -1 is last character, -2 is second-to-last, etc. Returns "n".',
+        difficulty: 'medium',
+        tags: ['strings', 'indexing', 'negative-index']
+      },
+      {
+        id: 'b105',
+        question: 'What does "hello world".split() return?',
+        options: [
+          '["hello", "world"]',
+          '"hello", "world"',
+          '["hello world"]',
+          'Error'
+        ],
+        correctAnswer: 0,
+        explanation: 'split() without arguments splits on whitespace, returns list of words.',
+        difficulty: 'medium',
+        tags: ['strings', 'methods', 'split']
+      },
+      {
+        id: 'b106',
+        question: 'What is the output of: "-".join(["a", "b", "c"])?',
+        options: ['a-b-c', 'abc', '["a", "b", "c"]', 'Error'],
+        correctAnswer: 0,
+        explanation: 'join() concatenates list elements with separator. "-".join() uses "-" as separator.',
+        difficulty: 'medium',
+        tags: ['strings', 'methods', 'join']
+      },
+      {
+        id: 'b107',
+        question: 'What is the output of: "  hello  ".strip()?',
+        options: ['"  hello  "', '"hello"', '"  hello"', '"hello  "'],
+        correctAnswer: 1,
+        explanation: 'strip() removes leading and trailing whitespace. Returns "hello".',
+        difficulty: 'easy',
+        tags: ['strings', 'methods', 'strip']
+      },
+      {
+        id: 'b108',
+        question: 'How do you check if string contains substring?',
+        options: [
+          'substring.in(string)',
+          'substring in string',
+          'string.contains(substring)',
+          'string.has(substring)'
+        ],
+        correctAnswer: 1,
+        explanation: 'Use "in" operator: "sub" in "substring" returns True.',
+        difficulty: 'easy',
+        tags: ['strings', 'membership', 'operators']
+      },
+      {
+        id: 'b109',
+        question: 'What is the output of: len("hello")?',
+        options: ['4', '5', '6', 'Error'],
+        correctAnswer: 1,
+        explanation: 'len() returns number of characters. "hello" has 5 characters.',
+        difficulty: 'easy',
+        tags: ['strings', 'length', 'built-in-functions']
+      },
+      {
+        id: 'b110',
+        question: 'What is the output of: "Python" * 2?',
+        options: ['"PythonPython"', '"Python2"', 'Error', '"PPyytthhoonn"'],
+        correctAnswer: 0,
+        explanation: 'String multiplication (*) repeats the string. "Python" * 2 = "PythonPython".',
+        difficulty: 'easy',
+        tags: ['strings', 'operators', 'multiplication']
+      }
+    ],
+
+    // Error Handling (30 questions)
+    errorHandling: [
+      {
+        id: 'b111',
+        question: 'What keyword is used to catch exceptions?',
+        options: ['catch', 'except', 'error', 'handle'],
+        correctAnswer: 1,
+        explanation: 'Python uses "except" to catch exceptions. Example: try: ... except Exception: ...',
+        difficulty: 'easy',
+        tags: ['errors', 'exceptions', 'keywords']
+      },
+      {
+        id: 'b112',
+        question: 'What is the purpose of the finally clause?',
+        options: [
+          'Runs only if exception occurs',
+          'Runs only if no exception',
+          'Always runs regardless of exception',
+          'Prevents exceptions'
+        ],
+        correctAnswer: 2,
+        explanation: 'finally block always executes, whether exception occurred or not. Used for cleanup.',
+        difficulty: 'medium',
+        tags: ['errors', 'finally', 'cleanup']
+      },
+      {
+        id: 'b113',
+        question: 'What exception is raised when dividing by zero?',
+        options: ['ValueError', 'ZeroDivisionError', 'ArithmeticError', 'DivisionError'],
+        correctAnswer: 1,
+        explanation: 'ZeroDivisionError is raised for division or modulo by zero.',
+        difficulty: 'easy',
+        tags: ['errors', 'exceptions', 'arithmetic']
+      },
+      {
+        id: 'b114',
+        question: 'What exception is raised when accessing invalid list index?',
+        options: ['ValueError', 'KeyError', 'IndexError', 'ListError'],
+        correctAnswer: 2,
+        explanation: 'IndexError is raised when sequence index is out of range.',
+        difficulty: 'easy',
+        tags: ['errors', 'exceptions', 'lists']
+      },
+      {
+        id: 'b115',
+        question: 'How do you manually raise an exception?',
+        options: [
+          'throw Exception()',
+          'raise Exception()',
+          'error Exception()',
+          'exception()'
+        ],
+        correctAnswer: 1,
+        explanation: 'Use "raise" keyword to raise exceptions. Example: raise ValueError("Invalid input").',
+        difficulty: 'medium',
+        tags: ['errors', 'raise', 'keywords']
+      },
+      {
+        id: 'b116',
+        question: 'What is the base class for all built-in exceptions?',
+        options: ['Error', 'Exception', 'BaseException', 'ExceptionBase'],
+        correctAnswer: 2,
+        explanation: 'BaseException is the base class for all built-in exceptions. Exception inherits from it.',
+        difficulty: 'hard',
+        tags: ['errors', 'exceptions', 'hierarchy']
+      },
+      {
+        id: 'b117',
+        question: 'What does the else clause do in try-except?',
+        options: [
+          'Runs if exception occurs',
+          'Runs if no exception occurs',
+          'Runs always',
+          'Catches specific exceptions'
+        ],
+        correctAnswer: 1,
+        explanation: 'else clause runs if try block completes without exceptions.',
+        difficulty: 'medium',
+        tags: ['errors', 'else', 'control-flow']
+      },
+      {
+        id: 'b118',
+        question: 'Can you catch multiple exceptions in one except clause?',
+        options: [
+          'No, one except per exception',
+          'Yes, using tuple: except (Type1, Type2):',
+          'Yes, using list: except [Type1, Type2]:',
+          'Yes, using or: except Type1 or Type2:'
+        ],
+        correctAnswer: 1,
+        explanation: 'Catch multiple exceptions using tuple: except (ValueError, TypeError):',
+        difficulty: 'medium',
+        tags: ['errors', 'multiple-exceptions', 'syntax']
+      },
+      {
+        id: 'b119',
+        question: 'What exception is raised for invalid dictionary key?',
+        options: ['ValueError', 'KeyError', 'IndexError', 'AttributeError'],
+        correctAnswer: 1,
+        explanation: 'KeyError is raised when accessing non-existent dictionary key.',
+        difficulty: 'easy',
+        tags: ['errors', 'exceptions', 'dictionaries']
+      },
+      {
+        id: 'b120',
+        question: 'What is the output if exception is not caught?',
+        options: [
+          'Program continues',
+          'Returns None',
+          'Program terminates with error message',
+          'Exception is ignored'
+        ],
+        correctAnswer: 2,
+        explanation: 'Uncaught exceptions terminate the program and display traceback.',
+        difficulty: 'easy',
+        tags: ['errors', 'exceptions', 'program-flow']
+      }
     ]
 
     // Additional beginner categories would continue here...
@@ -913,6 +1592,264 @@ export const quizBank = {
         explanation: 'Sets use hash tables. Membership testing is O(1) average time, making sets very efficient for lookups.',
         difficulty: 'medium',
         tags: ['sets', 'complexity', 'performance']
+      }
+    ],
+
+    // Tuples (40 questions)
+    tuples: [
+      {
+        id: 'i061',
+        question: 'What is the main difference between lists and tuples?',
+        options: [
+          'Tuples are faster',
+          'Tuples are immutable, lists are mutable',
+          'Tuples can only store numbers',
+          'Lists can only store strings'
+        ],
+        correctAnswer: 1,
+        explanation: 'Tuples are immutable (cannot be changed after creation). Lists are mutable.',
+        difficulty: 'easy',
+        tags: ['tuples', 'immutability', 'data-types']
+      },
+      {
+        id: 'i062',
+        question: 'How do you create a tuple with one element?',
+        options: ['(5)', '(5,)', '[5]', 'tuple(5)'],
+        correctAnswer: 1,
+        explanation: 'Single-element tuple needs trailing comma: (5,). Without comma, (5) is just int 5.',
+        difficulty: 'medium',
+        tags: ['tuples', 'syntax', 'singleton']
+      },
+      {
+        id: 'i063',
+        question: 'Can you modify a tuple after creation?',
+        options: [
+          'Yes, using indexing',
+          'Yes, using methods',
+          'No, tuples are immutable',
+          'Only if it contains mutable objects'
+        ],
+        correctAnswer: 2,
+        explanation: 'Tuples are immutable. Cannot add, remove, or change elements. Must create new tuple.',
+        difficulty: 'easy',
+        tags: ['tuples', 'immutability']
+      },
+      {
+        id: 'i064',
+        question: 'What is tuple unpacking?',
+        options: [
+          'Converting tuple to list',
+          'Assigning tuple elements to variables',
+          'Removing tuple elements',
+          'Sorting tuple elements'
+        ],
+        correctAnswer: 1,
+        explanation: 'Tuple unpacking: a, b, c = (1, 2, 3) assigns 1 to a, 2 to b, 3 to c.',
+        difficulty: 'medium',
+        tags: ['tuples', 'unpacking', 'assignment']
+      },
+      {
+        id: 'i065',
+        question: 'What is the output of: (1, 2) + (3, 4)?',
+        options: ['(4, 6)', '(1, 2, 3, 4)', 'Error', '[1, 2, 3, 4]'],
+        correctAnswer: 1,
+        explanation: 'Tuple concatenation with + creates new tuple with all elements: (1, 2, 3, 4).',
+        difficulty: 'easy',
+        tags: ['tuples', 'operators', 'concatenation']
+      },
+      {
+        id: 'i066',
+        question: 'Can tuples be used as dictionary keys?',
+        options: [
+          'No, never',
+          'Yes, because they are immutable and hashable',
+          'Only if they contain strings',
+          'Only empty tuples'
+        ],
+        correctAnswer: 1,
+        explanation: 'Tuples are immutable and hashable, so they can be dictionary keys. Lists cannot.',
+        difficulty: 'medium',
+        tags: ['tuples', 'dictionaries', 'hashable']
+      },
+      {
+        id: 'i067',
+        question: 'What is the output of: len((1, 2, 3, 4))?',
+        options: ['3', '4', '10', 'Error'],
+        correctAnswer: 1,
+        explanation: 'len() returns number of elements in tuple. (1, 2, 3, 4) has 4 elements.',
+        difficulty: 'easy',
+        tags: ['tuples', 'length', 'built-in-functions']
+      },
+      {
+        id: 'i068',
+        question: 'What is a named tuple?',
+        options: [
+          'A tuple with a name variable',
+          'A tuple with named fields accessible by attribute',
+          'A tuple inside a dictionary',
+          'A tuple with string elements'
+        ],
+        correctAnswer: 1,
+        explanation: 'Named tuples from collections module have fields accessible by name: point.x, point.y.',
+        difficulty: 'hard',
+        tags: ['tuples', 'namedtuple', 'collections']
+      },
+      {
+        id: 'i069',
+        question: 'What is the output of: (1, 2, 3).count(2)?',
+        options: ['1', '2', '3', 'Error'],
+        correctAnswer: 0,
+        explanation: 'count() returns number of occurrences. 2 appears once, so returns 1.',
+        difficulty: 'easy',
+        tags: ['tuples', 'methods', 'count']
+      },
+      {
+        id: 'i070',
+        question: 'What is the output of: (1, 2, 3).index(3)?',
+        options: ['0', '1', '2', '3'],
+        correctAnswer: 2,
+        explanation: 'index() returns position of first occurrence. 3 is at index 2 (0-based).',
+        difficulty: 'easy',
+        tags: ['tuples', 'methods', 'index']
+      }
+    ],
+
+    // Advanced Functions (60 questions)
+    advancedFunctions: [
+      {
+        id: 'i071',
+        question: 'What is a lambda function?',
+        options: [
+          'A named function',
+          'An anonymous function',
+          'A recursive function',
+          'A generator function'
+        ],
+        correctAnswer: 1,
+        explanation: 'Lambda is an anonymous (unnamed) function. Example: lambda x: x*2 creates function that doubles input.',
+        difficulty: 'medium',
+        tags: ['functions', 'lambda', 'functional']
+      },
+      {
+        id: 'i072',
+        question: 'What is the output of: (lambda x: x + 5)(3)?',
+        options: ['8', '5', '3', 'Error'],
+        correctAnswer: 0,
+        explanation: 'Lambda takes x, returns x+5. Called with 3, returns 3+5=8.',
+        difficulty: 'medium',
+        tags: ['functions', 'lambda']
+      },
+      {
+        id: 'i073',
+        question: 'What does *args do in a function definition?',
+        options: [
+          'Multiplies arguments',
+          'Accepts variable number of positional arguments',
+          'Accepts keyword arguments',
+          'Makes arguments optional'
+        ],
+        correctAnswer: 1,
+        explanation: '*args collects extra positional arguments into a tuple. Example: def func(*args): print(args)',
+        difficulty: 'medium',
+        tags: ['functions', 'args', 'parameters']
+      },
+      {
+        id: 'i074',
+        question: 'What does **kwargs do in a function definition?',
+        options: [
+          'Accepts positional arguments',
+          'Accepts keyword arguments as dictionary',
+          'Powers keyword arguments',
+          'Makes arguments required'
+        ],
+        correctAnswer: 1,
+        explanation: '**kwargs collects keyword arguments into a dictionary. Example: def func(**kwargs): print(kwargs)',
+        difficulty: 'medium',
+        tags: ['functions', 'kwargs', 'parameters']
+      },
+      {
+        id: 'i075',
+        question: 'What is a closure in Python?',
+        options: [
+          'A function that closes files',
+          'A function that remembers its enclosing scope',
+          'A function that ends execution',
+          'A private function'
+        ],
+        correctAnswer: 1,
+        explanation: 'Closure: nested function that references variables from enclosing scope, even after outer function returns.',
+        difficulty: 'hard',
+        tags: ['functions', 'closures', 'scope']
+      },
+      {
+        id: 'i076',
+        question: 'What is a decorator?',
+        options: [
+          'A function that modifies another function',
+          'A class method',
+          'A comment style',
+          'An error handler'
+        ],
+        correctAnswer: 0,
+        explanation: 'Decorator wraps/modifies function behavior. Example: @decorator_func\\ndef my_func(): ...',
+        difficulty: 'hard',
+        tags: ['functions', 'decorators', 'advanced']
+      },
+      {
+        id: 'i077',
+        question: 'What does the map() function do?',
+        options: [
+          'Creates a dictionary',
+          'Applies function to all items in iterable',
+          'Maps variables',
+          'Creates a map object'
+        ],
+        correctAnswer: 1,
+        explanation: 'map(func, iterable) applies func to each element. Example: map(str.upper, ["a", "b"]) yields "A", "B".',
+        difficulty: 'medium',
+        tags: ['functions', 'map', 'functional']
+      },
+      {
+        id: 'i078',
+        question: 'What does the filter() function do?',
+        options: [
+          'Removes all elements',
+          'Filters elements based on condition',
+          'Sorts elements',
+          'Counts elements'
+        ],
+        correctAnswer: 1,
+        explanation: 'filter(func, iterable) keeps elements where func returns True. Example: filter(lambda x: x>0, [-1,0,1,2]).',
+        difficulty: 'medium',
+        tags: ['functions', 'filter', 'functional']
+      },
+      {
+        id: 'i079',
+        question: 'What is recursion?',
+        options: [
+          'A function calling itself',
+          'A loop',
+          'An error',
+          'A function with multiple parameters'
+        ],
+        correctAnswer: 0,
+        explanation: 'Recursion: function calls itself. Must have base case to stop. Example: factorial(n) = n * factorial(n-1).',
+        difficulty: 'medium',
+        tags: ['functions', 'recursion', 'algorithms']
+      },
+      {
+        id: 'i080',
+        question: 'What is the difference between local and global variables?',
+        options: [
+          'No difference',
+          'Local is inside function, global is outside',
+          'Global is faster',
+          'Local variables are constant'
+        ],
+        correctAnswer: 1,
+        explanation: 'Local variables exist only in function scope. Global variables exist in module scope.',
+        difficulty: 'easy',
+        tags: ['functions', 'scope', 'variables']
       }
     ]
 

@@ -10,6 +10,7 @@ import TopicDetail from './pages/TopicDetail/TopicDetail';
 import Bookmarks from './pages/Bookmarks/Bookmarks';
 import Progress from './pages/Progress/Progress';
 import QuizPractice from './pages/QuizPractice/QuizPractice';
+import Terms from './pages/Terms/Terms';
 
 function AppContent() {
   const { mode } = useThemeMode();
@@ -27,6 +28,7 @@ function AppContent() {
             <Route path="/bookmarks" element={<Bookmarks />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/quiz" element={<QuizPractice />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </Layout>
       </Router>

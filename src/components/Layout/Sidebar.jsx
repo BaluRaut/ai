@@ -21,18 +21,20 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { learningPaths } from '../../data/courseContent';
 import { useProgress } from '../../context/ProgressContext';
+import { useTranslation } from 'react-i18next';
 
 const Sidebar = ({ open, onClose, isMobile }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { completedTopics } = useProgress();
+  const { t } = useTranslation();
 
   const menuItems = [
-    { text: 'Home', icon: <Home />, path: '/' },
-    { text: 'Quiz Practice', icon: <Quiz />, path: '/quiz' },
-    { text: 'Bookmarks', icon: <BookmarkBorder />, path: '/bookmarks' },
-    { text: 'Progress', icon: <TrendingUp />, path: '/progress' },
-    { text: 'Achievements', icon: <EmojiEvents />, path: '/achievements' },
+    { text: t('nav.home'), icon: <Home />, path: '/' },
+    { text: t('nav.quizPractice'), icon: <Quiz />, path: '/quiz' },
+    { text: t('nav.bookmarks'), icon: <BookmarkBorder />, path: '/bookmarks' },
+    { text: t('nav.progress'), icon: <TrendingUp />, path: '/progress' },
+    { text: t('nav.achievements'), icon: <EmojiEvents />, path: '/achievements' },
   ];
 
   const handleNavigation = (path) => {
@@ -64,7 +66,7 @@ const Sidebar = ({ open, onClose, isMobile }) => {
 
       <Box sx={{ px: 2, mb: 2 }}>
         <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-          Learning Paths
+          {t('nav.learningPaths')}
         </Typography>
       </Box>
 
@@ -93,11 +95,11 @@ const Sidebar = ({ open, onClose, isMobile }) => {
 
       <Box sx={{ px: 2 }}>
         <Typography variant="caption" color="text.secondary" gutterBottom display="block">
-          Your Progress
+          {t('progress.title')}
         </Typography>
         <Chip
           icon={<EmojiEvents />}
-          label={`${completedTopics.length} Topics Completed`}
+          label={`${completedTopics.length} ${t('progress.topicsCompleted')}`}
           size="small"
           color="primary"
           sx={{ mt: 1 }}

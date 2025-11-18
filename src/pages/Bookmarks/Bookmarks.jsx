@@ -12,9 +12,11 @@ import { BookmarkBorder } from '@mui/icons-material';
 import { useProgress } from '../../context/ProgressContext';
 import { courseData, learningPaths } from '../../data/courseContent';
 import TopicCard from '../../components/TopicCard/TopicCard';
+import { useTranslation } from 'react-i18next';
 
 const Bookmarks = () => {
   const { bookmarks } = useProgress();
+  const { t } = useTranslation();
 
   const bookmarkedTopics = [];
   
@@ -34,10 +36,10 @@ const Bookmarks = () => {
           <BookmarkBorder sx={{ fontSize: 48, color: 'primary.main' }} />
           <Box>
             <Typography variant="h4" fontWeight={700}>
-              Your Bookmarks
+              {t('bookmarks.title')}
             </Typography>
             <Typography variant="h6" color="text.secondary">
-              {bookmarkedTopics.length} bookmarked topics
+              {bookmarkedTopics.length} {t('bookmarks.bookmarkedTopics', 'bookmarked topics')}
             </Typography>
           </Box>
         </Box>
@@ -55,10 +57,10 @@ const Bookmarks = () => {
         <Paper sx={{ p: 6, textAlign: 'center' }}>
           <BookmarkBorder sx={{ fontSize: 80, color: 'text.secondary', mb: 2 }} />
           <Typography variant="h5" color="text.secondary" gutterBottom>
-            No Bookmarks Yet
+            {t('bookmarks.noBookmarks')}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Start bookmarking topics you want to revisit later
+            {t('bookmarks.addBookmarks')}
           </Typography>
         </Paper>
       )}

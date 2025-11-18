@@ -12,9 +12,11 @@ import {
 import { TrendingUp, CheckCircle, EmojiEvents, School } from '@mui/icons-material';
 import { useProgress } from '../../context/ProgressContext';
 import { courseData, learningPaths } from '../../data/courseContent';
+import { useTranslation } from 'react-i18next';
 
 const Progress = () => {
   const { completedTopics, quizScores } = useProgress();
+  const { t } = useTranslation();
 
   const pathProgress = learningPaths.map(path => {
     const topics = courseData[path.id]?.topics || [];
@@ -45,10 +47,10 @@ const Progress = () => {
           <TrendingUp sx={{ fontSize: 48, color: 'primary.main' }} />
           <Box>
             <Typography variant="h4" fontWeight={700}>
-              Your Learning Progress
+              {t('progress.title')}
             </Typography>
             <Typography variant="h6" color="text.secondary">
-              Track your Python learning journey
+              {t('progress.subtitle', 'Track your Python learning journey')}
             </Typography>
           </Box>
         </Box>
@@ -61,13 +63,13 @@ const Progress = () => {
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <CheckCircle color="success" sx={{ mr: 1 }} />
-                <Typography variant="h6">Topics Completed</Typography>
+                <Typography variant="h6">{t('progress.topicsCompleted')}</Typography>
               </Box>
               <Typography variant="h3" fontWeight={700} color="success.main">
                 {totalCompleted}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                out of {totalTopics} total
+                {t('progress.outOf', 'out of')} {totalTopics} {t('progress.total', 'total')}
               </Typography>
             </CardContent>
           </Card>
@@ -78,7 +80,7 @@ const Progress = () => {
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <TrendingUp color="primary" sx={{ mr: 1 }} />
-                <Typography variant="h6">Overall Progress</Typography>
+                <Typography variant="h6">{t('progress.overallProgress', 'Overall Progress')}</Typography>
               </Box>
               <Typography variant="h3" fontWeight={700} color="primary.main">
                 {overallProgress.toFixed(0)}%
@@ -97,13 +99,13 @@ const Progress = () => {
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <School color="secondary" sx={{ mr: 1 }} />
-                <Typography variant="h6">Quizzes Taken</Typography>
+                <Typography variant="h6">{t('progress.quizzesTaken')}</Typography>
               </Box>
               <Typography variant="h3" fontWeight={700} color="secondary.main">
                 {quizzesTaken}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                assessments completed
+                {t('progress.assessmentsCompleted', 'assessments completed')}
               </Typography>
             </CardContent>
           </Card>
@@ -114,13 +116,13 @@ const Progress = () => {
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <EmojiEvents color="warning" sx={{ mr: 1 }} />
-                <Typography variant="h6">Average Score</Typography>
+                <Typography variant="h6">{t('progress.averageScore')}</Typography>
               </Box>
               <Typography variant="h3" fontWeight={700} color="warning.main">
                 {averageScore.toFixed(0)}%
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                quiz performance
+                {t('progress.quizPerformance', 'quiz performance')}
               </Typography>
             </CardContent>
           </Card>
@@ -129,7 +131,7 @@ const Progress = () => {
 
       {/* Path Progress */}
       <Typography variant="h5" fontWeight={600} gutterBottom sx={{ mb: 3 }}>
-        Progress by Learning Path
+        {t('progress.progressByPath', 'Progress by Learning Path')}
       </Typography>
       <Grid container spacing={3}>
         {pathProgress.map(path => (
@@ -167,7 +169,7 @@ const Progress = () => {
               />
               
               <Typography variant="body2" color="text.secondary">
-                {path.completedTopics} of {path.totalTopics} topics completed
+                {path.completedTopics} {t('progress.of', 'of')} {path.totalTopics} {t('progress.topicsCompletedLower', 'topics completed')}
               </Typography>
             </Paper>
           </Grid>

@@ -19,12 +19,15 @@ import {
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useThemeMode } from '../../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 const Navbar = ({ onMenuClick }) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const { mode, toggleTheme } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { t } = useTranslation();
 
   return (
     <AppBar position="fixed" elevation={2}>
@@ -67,17 +70,19 @@ const Navbar = ({ onMenuClick }) => {
               startIcon={<Home />}
               onClick={() => navigate('/')}
             >
-              Home
+              {t('nav.home')}
             </Button>
             <Button
               color="inherit"
               startIcon={<BookmarkBorder />}
               onClick={() => navigate('/bookmarks')}
             >
-              Bookmarks
+              {t('nav.bookmarks')}
             </Button>
           </>
         )}
+
+        <LanguageSelector />
 
         <IconButton color="inherit" onClick={toggleTheme}>
           {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}

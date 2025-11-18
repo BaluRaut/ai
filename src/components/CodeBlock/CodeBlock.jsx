@@ -22,6 +22,7 @@ const CodeBlock = ({ code, language = 'python' }) => {
         overflow: 'hidden',
         my: 2,
         boxShadow: 2,
+        maxWidth: '100%',
       }}
     >
       <Box
@@ -63,6 +64,7 @@ const CodeBlock = ({ code, language = 'python' }) => {
               overflow: 'auto',
               fontSize: '0.875rem',
               lineHeight: '1.6',
+              maxWidth: '100%',
             }}
           >
             {tokens.map((line, i) => (

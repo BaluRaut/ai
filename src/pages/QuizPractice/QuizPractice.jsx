@@ -32,8 +32,10 @@ import {
   Timer
 } from '@mui/icons-material';
 import { getRandomQuestions, getQuestionsByDifficulty, getQuestionsByTag, getTotalQuestionCount } from '../../data/pythonQuizBank';
+import { useTranslation } from 'react-i18next';
 
 const QuizPractice = () => {
+  const { t } = useTranslation();
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -170,66 +172,66 @@ const QuizPractice = () => {
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <EmojiEvents sx={{ fontSize: 64, color: 'primary.main', mb: 2 }} />
           <Typography variant="h3" gutterBottom fontWeight="bold">
-            Python Quiz Practice
+            {t('quiz.practiceTitle')}
           </Typography>
           <Typography variant="h6" color="text.secondary" paragraph>
-            Test your Python knowledge with {getTotalQuestionCount()}+ questions!
+            {t('quiz.practiceSubtitle')} {getTotalQuestionCount()}+ {t('quiz.questions')}!
           </Typography>
         </Box>
 
         <Card elevation={3}>
           <CardContent sx={{ p: 4 }}>
             <Typography variant="h5" gutterBottom sx={{ mb: 3 }}>
-              Quiz Settings
+              {t('quiz.quizSettings')}
             </Typography>
 
             <Grid container spacing={3}>
               <Grid item xs={12}>
                 <FormControl fullWidth>
-                  <InputLabel>Number of Questions</InputLabel>
+                  <InputLabel>{t('quiz.numberOfQuestions')}</InputLabel>
                   <Select
                     value={quizSettings.count}
-                    label="Number of Questions"
+                    label={t('quiz.numberOfQuestions')}
                     onChange={(e) => setQuizSettings({...quizSettings, count: e.target.value})}
                   >
-                    <MenuItem value={5}>5 Questions</MenuItem>
-                    <MenuItem value={10}>10 Questions</MenuItem>
-                    <MenuItem value={20}>20 Questions</MenuItem>
-                    <MenuItem value={50}>50 Questions</MenuItem>
-                    <MenuItem value={100}>100 Questions</MenuItem>
+                    <MenuItem value={5}>5 {t('quiz.questions')}</MenuItem>
+                    <MenuItem value={10}>10 {t('quiz.questions')}</MenuItem>
+                    <MenuItem value={20}>20 {t('quiz.questions')}</MenuItem>
+                    <MenuItem value={50}>50 {t('quiz.questions')}</MenuItem>
+                    <MenuItem value={100}>100 {t('quiz.questions')}</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
 
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
-                  <InputLabel>Difficulty Level</InputLabel>
+                  <InputLabel>{t('quiz.difficultyLevel')}</InputLabel>
                   <Select
                     value={quizSettings.difficulty}
-                    label="Difficulty Level"
+                    label={t('quiz.difficultyLevel')}
                     onChange={(e) => setQuizSettings({...quizSettings, difficulty: e.target.value})}
                   >
-                    <MenuItem value="all">All Levels</MenuItem>
-                    <MenuItem value="easy">Easy</MenuItem>
-                    <MenuItem value="medium">Medium</MenuItem>
-                    <MenuItem value="hard">Hard</MenuItem>
+                    <MenuItem value="all">{t('quiz.allLevels')}</MenuItem>
+                    <MenuItem value="easy">{t('quiz.easy')}</MenuItem>
+                    <MenuItem value="medium">{t('quiz.medium')}</MenuItem>
+                    <MenuItem value="hard">{t('quiz.hard')}</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
 
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
-                  <InputLabel>Learning Path</InputLabel>
+                  <InputLabel>{t('quiz.learningPath')}</InputLabel>
                   <Select
                     value={quizSettings.level}
-                    label="Learning Path"
+                    label={t('quiz.learningPath')}
                     onChange={(e) => setQuizSettings({...quizSettings, level: e.target.value})}
                   >
-                    <MenuItem value="all">All Paths</MenuItem>
-                    <MenuItem value="beginner">Beginner</MenuItem>
-                    <MenuItem value="intermediate">Intermediate</MenuItem>
-                    <MenuItem value="advanced">Advanced</MenuItem>
-                    <MenuItem value="expert">Expert</MenuItem>
+                    <MenuItem value="all">{t('quiz.allPaths')}</MenuItem>
+                    <MenuItem value="beginner">{t('quiz.beginner')}</MenuItem>
+                    <MenuItem value="intermediate">{t('quiz.intermediate')}</MenuItem>
+                    <MenuItem value="advanced">{t('quiz.advanced')}</MenuItem>
+                    <MenuItem value="expert">{t('quiz.expert')}</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -242,14 +244,14 @@ const QuizPractice = () => {
               onClick={startQuiz}
               sx={{ mt: 4, py: 2, fontSize: '1.1rem' }}
             >
-              Start Quiz
+              {t('quiz.start')}
             </Button>
           </CardContent>
         </Card>
 
         <Box sx={{ mt: 4, textAlign: 'center' }}>
           <Typography variant="body2" color="text.secondary">
-            💡 Tip: Each question includes detailed explanations to help you learn!
+            {t('quiz.tip')}
           </Typography>
         </Box>
       </Container>
