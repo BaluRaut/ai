@@ -94,7 +94,7 @@ sys.stderr = io.StringIO()
       // Check if code requires packages and load them if needed
       const needsNumpy = code.includes('import numpy') || code.includes('from numpy');
       const needsPandas = code.includes('import pandas') || code.includes('from pandas');
-      const needsMatplotlib = code.includes('import matplotlib') || code.includes('from matplotlib');
+      const needsMatplotlib = code.includes('import matplotlib') || code.includes('from matplotlib') || code.includes('plt.');
       
       if (needsNumpy || needsPandas || needsMatplotlib) {
         const packagesToLoad = [];
@@ -140,10 +140,11 @@ except ImportError:
       const codeToRun = code.replace(/plt\.show\(\)/g, '# plt.show() - removed for inline display');
       await pyodide.runPythonAsync(codeToRun);
 
-      // Capture matplotlib plots if any
+      // Capture matplotlib plots ONLY if matplotlib was used
       let capturedPlots = [];
-      try {
-        const plotData = pyodide.runPython(`
+      if (needsMatplotlib) {
+        try {
+          const plotData = pyodide.runPython(`
 import sys
 plot_result = []
 try:
@@ -166,14 +167,15 @@ except Exception as e:
     # Print error to stderr for debugging
     print(f"Plot capture error: {e}", file=sys.stderr)
 plot_result
-        `);
-        
-        if (plotData && plotData.length > 0) {
-          capturedPlots = Array.from(plotData.toJs());
-          console.log(`Captured ${capturedPlots.length} plot(s)`);
+          `);
+          
+          if (plotData && plotData.length > 0) {
+            capturedPlots = Array.from(plotData.toJs());
+            console.log(`Captured ${capturedPlots.length} plot(s)`);
+          }
+        } catch (plotErr) {
+          console.error('Error capturing plots:', plotErr);
         }
-      } catch (plotErr) {
-        console.error('Error capturing plots:', plotErr);
       }
 
       // Get output

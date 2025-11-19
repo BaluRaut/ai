@@ -576,6 +576,382 @@ arr_rav = arr.ravel()     # View (if possible)
 
 print("Flatten is view?", arr_flat.base is not None)  # False
 print("Ravel is view?", arr_rav.base is not None)     # True`
+      },
+      {
+        title: '11. Advanced Indexing - Fancy and Multi-dimensional',
+        explanation: 'NumPy supports powerful indexing techniques for complex data selection including integer array indexing and multi-dimensional boolean indexing.',
+        code: `import numpy as np
+
+# Create sample data - student scores
+scores = np.array([
+    [85, 92, 78, 95],  # Student 0
+    [70, 88, 92, 85],  # Student 1
+    [95, 91, 87, 93],  # Student 2
+    [60, 75, 70, 68],  # Student 3
+    [88, 94, 96, 90]   # Student 4
+])
+subjects = ['Math', 'Science', 'English', 'History']
+
+print("All Scores:")
+print(scores)
+
+# 1. Fancy Indexing - select specific students
+selected_students = scores[[0, 2, 4]]  # Students 0, 2, 4
+print("\\nSelected students (0, 2, 4):")
+print(selected_students)
+
+# 2. Multi-dimensional fancy indexing
+# Get Math and History scores for students 1 and 3
+students = [1, 3]
+subjects_idx = [0, 3]  # Math=0, History=3
+specific_scores = scores[np.ix_(students, subjects_idx)]
+print("\\nMath and History for students 1, 3:")
+print(specific_scores)
+
+# 3. Boolean indexing with conditions
+high_performers = scores[scores[:, 0] > 80]  # Students with Math > 80
+print("\\nHigh performers (Math > 80):")
+print(high_performers)
+
+# 4. np.where for conditional selection
+# Replace scores < 70 with 70 (minimum passing grade)
+adjusted_scores = scores.copy()
+adjusted_scores = np.where(adjusted_scores < 70, 70, adjusted_scores)
+print("\\nAdjusted scores (minimum 70):")
+print(adjusted_scores)
+
+# 5. argmax, argmin - find indices of extremes
+best_student = np.argmax(scores.mean(axis=1))
+worst_subject_per_student = np.argmin(scores, axis=1)
+print(f"\\nBest student (by average): Student {best_student}")
+print(f"Average score: {scores[best_student].mean():.1f}")
+print(f"Worst subject per student: {worst_subject_per_student}")`
+      },
+      {
+        title: '12. Array Stacking and Splitting',
+        explanation: 'Combine multiple arrays or split arrays into smaller pieces - essential for data manipulation and batch processing.',
+        code: `import numpy as np
+
+# Create sample arrays
+a = np.array([[1, 2],
+              [3, 4]])
+b = np.array([[5, 6],
+              [7, 8]])
+
+print("Array a:")
+print(a)
+print("\\nArray b:")
+print(b)
+
+# 1. Vertical stacking (stack rows)
+v_stack = np.vstack((a, b))
+print("\\nVertical stack (vstack):")
+print(v_stack)
+print(f"Shape: {v_stack.shape}")
+
+# 2. Horizontal stacking (stack columns)
+h_stack = np.hstack((a, b))
+print("\\nHorizontal stack (hstack):")
+print(h_stack)
+print(f"Shape: {h_stack.shape}")
+
+# 3. Depth stacking (3D)
+d_stack = np.dstack((a, b))
+print("\\nDepth stack (dstack):")
+print(d_stack)
+print(f"Shape: {d_stack.shape}")
+
+# 4. Concatenate with axis parameter
+concat_rows = np.concatenate((a, b), axis=0)  # Same as vstack
+concat_cols = np.concatenate((a, b), axis=1)  # Same as hstack
+print("\\nConcatenate axis=0 (rows):")
+print(concat_rows)
+
+# 5. Splitting arrays
+big_array = np.arange(24).reshape(4, 6)
+print("\\nBig array to split:")
+print(big_array)
+
+# Split into 2 parts vertically
+v_split = np.vsplit(big_array, 2)
+print("\\nVertical split (2 parts):")
+for i, arr in enumerate(v_split):
+    print(f"Part {i}: shape {arr.shape}")
+    print(arr)
+
+# Split into 3 parts horizontally
+h_split = np.hsplit(big_array, 3)
+print("\\nHorizontal split (3 parts):")
+for i, arr in enumerate(h_split):
+    print(f"Part {i}: shape {arr.shape}")
+
+# Practical example: Batch processing
+data = np.arange(100)
+batch_size = 10
+batches = np.array_split(data, len(data) // batch_size)
+print(f"\\nSplit 100 items into batches of {batch_size}:")
+print(f"Number of batches: {len(batches)}")
+print(f"First batch: {batches[0]}")`
+      },
+      {
+        title: '13. Universal Functions (ufuncs) - Fast Element-wise Operations',
+        explanation: 'Universal functions operate element-wise on arrays with C-level speed. They support broadcasting and are the key to NumPy performance.',
+        code: `import numpy as np
+
+# Create sample data
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([10, 20, 30, 40, 50])
+
+print("x:", x)
+print("y:", y)
+
+# 1. Basic arithmetic ufuncs
+print("\\n=== Arithmetic ufuncs ===")
+print("Add: x + y =", x + y)
+print("Subtract: y - x =", y - x)
+print("Multiply: x * y =", x * y)
+print("Divide: y / x =", y / x)
+print("Power: x ** 2 =", x ** 2)
+print("Modulo: y % 3 =", y % 3)
+
+# 2. Comparison ufuncs
+print("\\n=== Comparison ufuncs ===")
+print("x > 3:", x > 3)
+print("y == 30:", y == 30)
+print("All x > 0:", np.all(x > 0))
+print("Any y > 100:", np.any(y > 100))
+
+# 3. Mathematical ufuncs
+angles = np.array([0, np.pi/2, np.pi])
+print("\\n=== Math ufuncs ===")
+print("Angles (radians):", angles)
+print("sin(angles):", np.sin(angles))
+print("cos(angles):", np.cos(angles))
+print("exp(x):", np.exp(x))
+print("log(x):", np.log(x))
+print("sqrt(x):", np.sqrt(x))
+
+# 4. Custom ufunc using vectorize
+def complex_function(x):
+    """Function too complex for simple NumPy ops"""
+    if x < 0:
+        return x ** 2
+    elif x < 5:
+        return x * 2
+    else:
+        return x + 10
+
+# Vectorize the function
+vectorized_func = np.vectorize(complex_function)
+data = np.array([-2, 0, 3, 5, 10])
+result = vectorized_func(data)
+print("\\n=== Custom ufunc ===")
+print("Input:", data)
+print("Output:", result)
+
+# 5. Ufunc methods for advanced operations
+a = np.array([1, 2, 3, 4, 5])
+print("\\n=== Ufunc methods ===")
+print("Cumulative sum (accumulate):", np.add.accumulate(a))
+print("Cumulative product:", np.multiply.accumulate(a))
+print("Outer product:", np.multiply.outer([1,2,3], [10,20]))
+
+# Performance comparison
+large_array = np.random.rand(1000000)
+
+# NumPy ufunc (fast)
+import time
+start = time.time()
+result_numpy = np.sqrt(large_array)
+numpy_time = time.time() - start
+
+# Python loop (slow)
+start = time.time()
+result_loop = [np.sqrt(x) for x in large_array]
+loop_time = time.time() - start
+
+print(f"\\nNumPy ufunc time: {numpy_time:.6f}s")
+print(f"Python loop time: {loop_time:.6f}s")
+print(f"Speedup: {loop_time/numpy_time:.1f}x faster!")`
+      },
+      {
+        title: '14. Structured Arrays - Mix Data Types',
+        explanation: 'Structured arrays allow different data types in a single array, similar to database tables or pandas DataFrames.',
+        code: `import numpy as np
+
+# 1. Create structured array with dtype
+dt = np.dtype([
+    ('name', 'U20'),      # Unicode string, max 20 chars
+    ('age', 'i4'),        # 32-bit integer
+    ('weight', 'f8'),     # 64-bit float
+    ('graduated', '?')    # Boolean
+])
+
+# Create array
+students = np.array([
+    ('Alice', 22, 58.5, True),
+    ('Bob', 21, 72.3, False),
+    ('Charlie', 23, 65.8, True),
+    ('Diana', 20, 55.2, False)
+], dtype=dt)
+
+print("Structured Array:")
+print(students)
+print(f"\\nData type: {students.dtype}")
+
+# 2. Access by field name
+print("\\n=== Access by field ===")
+print("Names:", students['name'])
+print("Ages:", students['age'])
+print("Weights:", students['weight'])
+
+# 3. Operations on specific fields
+print("\\n=== Field operations ===")
+print(f"Average age: {students['age'].mean():.1f}")
+print(f"Average weight: {students['weight'].mean():.1f} kg")
+print(f"Graduated count: {students['graduated'].sum()}")
+
+# 4. Filtering with conditions
+print("\\n=== Filtering ===")
+young_students = students[students['age'] < 22]
+print("Students younger than 22:")
+print(young_students['name'])
+
+heavy_students = students[students['weight'] > 60]
+print("\\nStudents heavier than 60kg:")
+for student in heavy_students:
+    print(f"{student['name']}: {student['weight']}kg")
+
+# 5. Record arrays (alternative syntax)
+students_rec = students.view(np.recarray)
+print("\\n=== Record array (attribute access) ===")
+print("Names via attribute:", students_rec.name)
+print("First student age:", students_rec.age[0])
+
+# 6. Adding computed field
+# Calculate BMI (assuming height 1.75m for all)
+heights = np.array([1.68, 1.82, 1.75, 1.62])
+bmi = students['weight'] / (heights ** 2)
+
+# Create new structured array with BMI
+extended_dt = np.dtype(dt.descr + [('bmi', 'f8')])
+extended_students = np.zeros(len(students), dtype=extended_dt)
+
+# Copy existing data
+for name in dt.names:
+    extended_students[name] = students[name]
+extended_students['bmi'] = bmi
+
+print("\\n=== Extended array with BMI ===")
+for student in extended_students:
+    print(f"{student['name']}: BMI = {student['bmi']:.1f}")`
+      },
+      {
+        title: '15. Memory Layout and Performance Optimization',
+        explanation: 'Understanding C-contiguous vs Fortran-contiguous arrays and optimizing memory access patterns for maximum performance.',
+        code: `import numpy as np
+import time
+
+# 1. Row-major (C) vs Column-major (Fortran) order
+print("=== Memory Layout ===")
+c_array = np.array([[1, 2, 3], [4, 5, 6]], order='C')  # Row-major (default)
+f_array = np.array([[1, 2, 3], [4, 5, 6]], order='F')  # Column-major
+
+print("C-order array:")
+print(c_array)
+print(f"C-contiguous: {c_array.flags['C_CONTIGUOUS']}")
+print(f"F-contiguous: {c_array.flags['F_CONTIGUOUS']}")
+
+print("\\nF-order array:")
+print(f_array)
+print(f"C-contiguous: {f_array.flags['C_CONTIGUOUS']}")
+print(f"F-contiguous: {f_array.flags['F_CONTIGUOUS']}")
+
+# 2. Performance impact of memory layout
+size = 5000
+c_matrix = np.random.rand(size, size)
+f_matrix = np.asfortranarray(c_matrix)
+
+print(f"\\n=== Performance test ({size}x{size} matrix) ===")
+
+# Row-wise sum (fast for C-order)
+start = time.time()
+row_sum_c = c_matrix.sum(axis=1)
+time_c_row = time.time() - start
+
+start = time.time()
+row_sum_f = f_matrix.sum(axis=1)
+time_f_row = time.time() - start
+
+print(f"Row-wise sum:")
+print(f"  C-order: {time_c_row:.4f}s")
+print(f"  F-order: {time_f_row:.4f}s")
+print(f"  Ratio: {time_f_row/time_c_row:.2f}x")
+
+# Column-wise sum (fast for F-order)
+start = time.time()
+col_sum_c = c_matrix.sum(axis=0)
+time_c_col = time.time() - start
+
+start = time.time()
+col_sum_f = f_matrix.sum(axis=0)
+time_f_col = time.time() - start
+
+print(f"\\nColumn-wise sum:")
+print(f"  C-order: {time_c_col:.4f}s")
+print(f"  F-order: {time_f_col:.4f}s")
+print(f"  Ratio: {time_c_col/time_f_col:.2f}x")
+
+# 3. Memory usage and strides
+print("\\n=== Memory details ===")
+arr = np.array([[1, 2, 3], [4, 5, 6]], dtype=np.int64)
+print(f"Array shape: {arr.shape}")
+print(f"Array strides: {arr.strides}")
+print(f"Element size: {arr.itemsize} bytes")
+print(f"Total size: {arr.nbytes} bytes")
+
+# Strides explanation
+print("\\nStride meaning:")
+print(f"  To move to next row: {arr.strides[0]} bytes")
+print(f"  To move to next column: {arr.strides[1]} bytes")
+
+# 4. Cache-friendly iteration
+print("\\n=== Cache-friendly patterns ===")
+big_array = np.random.rand(1000, 1000)
+
+# Efficient: iterate in memory order (rows for C-order)
+start = time.time()
+result = 0
+for i in range(big_array.shape[0]):
+    for j in range(big_array.shape[1]):
+        result += big_array[i, j]
+time_row_major = time.time() - start
+
+# Inefficient: iterate against memory order (columns for C-order)
+start = time.time()
+result = 0
+for j in range(big_array.shape[1]):
+    for i in range(big_array.shape[0]):
+        result += big_array[i, j]
+time_col_major = time.time() - start
+
+print(f"Row-major iteration: {time_row_major:.4f}s")
+print(f"Column-major iteration: {time_col_major:.4f}s")
+print(f"Speedup: {time_col_major/time_row_major:.2f}x")
+
+# 5. Best practice: use NumPy operations instead
+start = time.time()
+result_vectorized = big_array.sum()
+time_vectorized = time.time() - start
+
+print(f"\\nVectorized sum: {time_vectorized:.6f}s")
+print(f"Speedup vs loops: {time_row_major/time_vectorized:.0f}x faster!")
+
+print("\\nKey takeaways:")
+print("✓ C-order is default and best for row-wise operations")
+print("✓ F-order (Fortran) is better for column-wise operations")
+print("✓ Iterate in memory order for cache efficiency")
+print("✓ Always prefer vectorized operations over loops")`
       }
     ]
   },
