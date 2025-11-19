@@ -15,6 +15,7 @@ Machine learning enables computers to learn from data without explicit programmi
 Consistent API across algorithms, excellent documentation, production-ready code, and integration with the Python scientific stack.
 
 **Key Concepts:**
+
 - Supervised Learning: Learn from labeled data (classification, regression)
 - Unsupervised Learning: Find patterns in unlabeled data (clustering, dimensionality reduction)
 - Model Selection: Choose and tune the best algorithm for your problem

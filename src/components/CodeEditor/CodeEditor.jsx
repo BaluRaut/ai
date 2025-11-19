@@ -42,8 +42,9 @@ sys.stderr = io.StringIO()
         const needsNumpy = initialCode.includes('import numpy') || initialCode.includes('from numpy');
         const needsPandas = initialCode.includes('import pandas') || initialCode.includes('from pandas');
         const needsMatplotlib = initialCode.includes('import matplotlib') || initialCode.includes('from matplotlib');
+        const needsSklearn = initialCode.includes('from sklearn') || initialCode.includes('import sklearn');
         
-        if (needsNumpy || needsPandas || needsMatplotlib) {
+        if (needsNumpy || needsPandas || needsMatplotlib || needsSklearn) {
           setOutput('Loading required packages...');
           
           try {
@@ -58,6 +59,10 @@ sys.stderr = io.StringIO()
             if (needsMatplotlib) {
               await pyodide.loadPackage('matplotlib');
               setOutput((prev) => prev + '\n✓ Matplotlib loaded');
+            }
+            if (needsSklearn) {
+              await pyodide.loadPackage('scikit-learn');
+              setOutput((prev) => prev + '\n✓ Scikit-learn loaded');
             }
             setOutput((prev) => prev + '\n\nReady to run! Click "Run Code" to execute.\n');
           } catch (pkgErr) {
@@ -95,13 +100,15 @@ sys.stderr = io.StringIO()
       const needsNumpy = code.includes('import numpy') || code.includes('from numpy');
       const needsPandas = code.includes('import pandas') || code.includes('from pandas');
       const needsMatplotlib = code.includes('import matplotlib') || code.includes('from matplotlib') || code.includes('plt.');
+      const needsSklearn = code.includes('from sklearn') || code.includes('import sklearn');
       
-      if (needsNumpy || needsPandas || needsMatplotlib) {
+      if (needsNumpy || needsPandas || needsMatplotlib || needsSklearn) {
         const packagesToLoad = [];
         
         if (needsNumpy) packagesToLoad.push('numpy');
         if (needsPandas) packagesToLoad.push('pandas');
         if (needsMatplotlib) packagesToLoad.push('matplotlib');
+        if (needsSklearn) packagesToLoad.push('scikit-learn');
         
         setOutput('Loading required packages...\n');
         
