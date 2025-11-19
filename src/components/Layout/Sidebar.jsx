@@ -17,6 +17,7 @@ import {
   EmojiEvents,
   TrendingUp,
   Quiz,
+  Feedback,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { learningPaths } from '../../data/courseContent';
@@ -29,6 +30,9 @@ const Sidebar = ({ open, onClose, isMobile }) => {
   const { completedTopics } = useProgress();
   const { t } = useTranslation();
 
+  // Google Form URL - Replace this with your actual Google Form URL
+  const FEEDBACK_FORM_URL = 'https://forms.gle/C4dADEyYM3VBxF7K8';
+
   const menuItems = [
     { text: t('nav.home'), icon: <Home />, path: '/' },
     { text: t('nav.quizPractice'), icon: <Quiz />, path: '/quiz' },
@@ -39,6 +43,13 @@ const Sidebar = ({ open, onClose, isMobile }) => {
 
   const handleNavigation = (path) => {
     navigate(path);
+    if (isMobile) {
+      onClose();
+    }
+  };
+
+  const handleFeedbackClick = () => {
+    window.open(FEEDBACK_FORM_URL, '_blank', 'noopener,noreferrer');
     if (isMobile) {
       onClose();
     }
@@ -60,6 +71,28 @@ const Sidebar = ({ open, onClose, isMobile }) => {
             </ListItemButton>
           </ListItem>
         ))}
+        
+        {/* Feedback Button */}
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={handleFeedbackClick}
+            sx={{
+              bgcolor: 'primary.main',
+              color: 'primary.contrastText',
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
+              mx: 1,
+              borderRadius: 1,
+              mt: 1,
+            }}
+          >
+            <ListItemIcon sx={{ color: 'inherit' }}>
+              <Feedback />
+            </ListItemIcon>
+            <ListItemText primary={t('nav.feedback', 'Give Feedback')} />
+          </ListItemButton>
+        </ListItem>
       </List>
 
       <Divider sx={{ my: 2 }} />

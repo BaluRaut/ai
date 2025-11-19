@@ -16,6 +16,7 @@ import {
   Brightness7,
   Home,
   BookmarkBorder,
+  Feedback,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useThemeMode } from '../../context/ThemeContext';
@@ -28,6 +29,13 @@ const Navbar = ({ onMenuClick }) => {
   const { mode, toggleTheme } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { t } = useTranslation();
+
+  // Google Form URL - Replace this with your actual Google Form URL
+  const FEEDBACK_FORM_URL = 'https://forms.gle/C4dADEyYM3VBxF7K8';
+
+  const handleFeedbackClick = () => {
+    window.open(FEEDBACK_FORM_URL, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <AppBar position="fixed" elevation={2}>
@@ -78,6 +86,17 @@ const Navbar = ({ onMenuClick }) => {
               onClick={() => navigate('/bookmarks')}
             >
               {t('nav.bookmarks')}
+            </Button>
+            <Button
+              color="inherit"
+              startIcon={<Feedback />}
+              onClick={handleFeedbackClick}
+              sx={{ 
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+                '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.2)' }
+              }}
+            >
+              {t('nav.feedback', 'Feedback')}
             </Button>
           </>
         )}

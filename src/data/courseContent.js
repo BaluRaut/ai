@@ -117,19 +117,71 @@ print(message)`,
             question: 'What type of programming language is Python?',
             options: ['Compiled', 'Interpreted', 'Assembly', 'Machine code'],
             correctAnswer: 1,
-            explanation: 'Python is an interpreted language, meaning code is executed line by line without prior compilation.'
+            explanation: 'Python is an interpreted language, meaning code is executed line by line without prior compilation.',
+            difficulty: 'easy'
           },
           {
             question: 'Which symbol is used for single-line comments in Python?',
             options: ['//', '/*', '#', '<!--'],
             correctAnswer: 2,
-            explanation: 'The # symbol is used for single-line comments in Python.'
+            explanation: 'The # symbol is used for single-line comments in Python.',
+            difficulty: 'easy'
           },
           {
             question: 'What is the recommended indentation in Python?',
             options: ['2 spaces', '4 spaces', '1 tab', 'Any amount'],
             correctAnswer: 1,
-            explanation: 'PEP 8 recommends using 4 spaces for indentation.'
+            explanation: 'PEP 8 recommends using 4 spaces for indentation.',
+            difficulty: 'easy'
+          },
+          {
+            question: 'Who created Python?',
+            options: ['Dennis Ritchie', 'Guido van Rossum', 'James Gosling', 'Bjarne Stroustrup'],
+            correctAnswer: 1,
+            explanation: 'Guido van Rossum created Python and released it in 1991.',
+            difficulty: 'easy'
+          },
+          {
+            question: 'What is the file extension for Python files?',
+            options: ['.python', '.py', '.pt', '.pyt'],
+            correctAnswer: 1,
+            explanation: 'Python files use the .py extension.',
+            difficulty: 'easy'
+          },
+          {
+            question: 'Which of these is NOT a Python keyword?',
+            options: ['if', 'while', 'switch', 'for'],
+            correctAnswer: 2,
+            explanation: 'Python does not have a switch statement. Use if-elif-else instead.',
+            difficulty: 'medium'
+          },
+          {
+            question: 'What does PEP stand for?',
+            options: ['Python Enhancement Proposal', 'Python Executable Program', 'Python Error Protocol', 'Python Extension Pack'],
+            correctAnswer: 0,
+            explanation: 'PEP stands for Python Enhancement Proposal, which are design documents for Python.',
+            difficulty: 'medium'
+          },
+          {
+            question: 'Which version of Python is recommended for new projects?',
+            options: ['Python 2.7', 'Python 3.x', 'Python 1.5', 'Either 2 or 3'],
+            correctAnswer: 1,
+            explanation: 'Python 3.x is recommended as Python 2 reached end of life in 2020.',
+            difficulty: 'easy'
+          },
+          {
+            question: 'What is the Zen of Python?',
+            options: ['A meditation app', 'Python design principles', 'A debugging tool', 'A code editor'],
+            correctAnswer: 1,
+            explanation: 'The Zen of Python (PEP 20) is a collection of 19 guiding principles for Python design. Type "import this" to see it.',
+            difficulty: 'medium'
+          },
+          {
+            question: 'How do you start the Python interactive interpreter?',
+            options: ['python', 'start python', 'run python', 'execute python'],
+            correctAnswer: 0,
+            explanation: 'Type "python" or "python3" in the command line to start the interactive interpreter.',
+            difficulty: 'easy'
           }
         ]
       },

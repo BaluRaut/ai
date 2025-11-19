@@ -38,10 +38,12 @@ import {
   Download,
 } from '@mui/icons-material';
 import { learningPaths, courseData } from '../../data/courseContent';
+import extendedQuizzes from '../../data/extendedQuizzes';
 import CodeBlock from '../../components/CodeBlock/CodeBlock';
+import CodeEditor from '../../components/CodeEditor/CodeEditor';
 import Quiz from '../../components/Quiz/Quiz';
 import { useProgress } from '../../context/ProgressContext';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useTranslation } from 'react-i18next';
@@ -59,6 +61,13 @@ const TopicDetail = () => {
   const topics = courseData[pathId]?.topics || [];
   const topic = topics.find(t => t.id === topicId);
   const currentIndex = topics.findIndex(t => t.id === topicId);
+
+  // Merge basic quizzes with extended quizzes
+  const allQuizzes = useMemo(() => {
+    const basicQuiz = topic?.quiz || [];
+    const extendedQuiz = extendedQuizzes[topicId] || [];
+    return [...basicQuiz, ...extendedQuiz];
+  }, [topic, topicId]);
 
   if (!topic || !path) {
     return (
@@ -528,15 +537,18 @@ data/cache/
                 <Typography variant="body2" paragraph>
                   {exercise.description}
                 </Typography>
-                {exercise.hints && (
+                {exercise.hints && Array.isArray(exercise.hints) && exercise.hints.length > 0 && (
                   <Box sx={{ mt: 2, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
                     <Typography variant="subtitle2" gutterBottom>
-                      💡 Hints:
+                      💡 {t('topic.hints', 'Hints')}:
                     </Typography>
                     <List dense>
                       {exercise.hints.map((hint, i) => (
                         <ListItem key={i}>
-                          <ListItemText primary={hint} />
+                          <ListItemText 
+                            primary={hint}
+                            primaryTypographyProps={{ variant: 'body2' }}
+                          />
                         </ListItem>
                       ))}
                     </List>
@@ -570,8 +582,38 @@ data/cache/
         </Paper>
       )}
 
+      {/* Interactive Code Editor */}
+      <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
+        <Typography variant="h5" fontWeight={600} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Code /> Try It Yourself - Interactive Python Editor
+        </Typography>
+        <Typography variant="body2" color="text.secondary" paragraph>
+          Write and run Python code directly in your browser. Experiment with the concepts you've learned!
+        </Typography>
+        <CodeEditor 
+          initialCode={
+            topic.content.codeExamples && topic.content.codeExamples.length > 0 
+              ? topic.content.codeExamples[0].code 
+              : `# Write your Python code here
+print("Hello, Python!")
+
+# Try some examples:
+# Variables
+name = "Learner"
+age = 25
+print(f"My name is {name} and I am {age} years old")
+
+# Lists
+fruits = ["apple", "banana", "cherry"]
+print("Fruits:", fruits)
+`
+          }
+          height="500px"
+        />
+      </Paper>
+
       {/* Quiz Section */}
-      {topic.quiz && (
+      {allQuizzes.length > 0 && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           {!showQuiz ? (
             <Box sx={{ textAlign: 'center', py: 4 }}>
@@ -588,11 +630,11 @@ data/cache/
                 onClick={() => setShowQuiz(true)}
                 startIcon={<QuizIcon />}
               >
-                Start Quiz ({topic.quiz.length} Questions)
+                Start Quiz ({allQuizzes.length} Questions)
               </Button>
             </Box>
           ) : (
-            <Quiz questions={topic.quiz} topicId={topicId} />
+            <Quiz questions={allQuizzes} topicId={topicId} />
           )}
         </Paper>
       )}
