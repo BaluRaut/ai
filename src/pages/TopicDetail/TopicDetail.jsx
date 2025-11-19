@@ -576,6 +576,20 @@ data/cache/
                   {example.explanation}
                 </Typography>
                 <CodeBlock code={example.code} />
+                {example.output && (
+                  <Box sx={{ mt: 2, p: 2, bgcolor: 'background.default', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}>
+                    <Typography variant="subtitle2" fontWeight={600} gutterBottom>
+                      Output:
+                    </Typography>
+                    {example.output.type === 'image' && example.output.url ? (
+                      <Box component="img" src={example.output.url} alt={example.title} sx={{ maxWidth: '100%', height: 'auto', borderRadius: 1 }} />
+                    ) : (
+                      <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+                        {example.output.description || example.output}
+                      </Typography>
+                    )}
+                  </Box>
+                )}
               </AccordionDetails>
             </Accordion>
           ))}
