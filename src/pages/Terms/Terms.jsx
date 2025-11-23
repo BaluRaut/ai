@@ -5,7 +5,7 @@ const Terms = () => {
   const { t } = useTranslation();
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: 4, minHeight: '100vh', bgcolor: 'background.default' }}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography variant="h3" fontWeight={700} gutterBottom>
           {t('terms.title', 'Terms & Conditions')}

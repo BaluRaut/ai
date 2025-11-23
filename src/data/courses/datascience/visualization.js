@@ -711,6 +711,657 @@ print(f"Max: {max_val:.2f} on {df['Value'].idxmax().date()}")`,
         output: {
           description: 'Three stacked time series plots: Top shows daily stock prices (light gray) with overlaid 7-day (blue) and 30-day (red) moving averages showing an upward trend from 2023-2024. Middle displays monthly statistics as green bars (mean) with red and blue line markers showing monthly max/min values. Bottom compares 2023 vs 2024 side-by-side, plotting values against day of year (1-365) to visualize seasonal patterns across both years.'
         }
+      },
+      {
+        title: '9. 3D Plotting - Surface and Scatter',
+        explanation: `3D plots visualize three variables simultaneously. Use for surfaces, topography, or multi-dimensional relationships. While powerful, use sparingly as 2D projections often communicate better.`,
+        code: `import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+
+# Create figure with 3D subplots
+fig = plt.figure(figsize=(14, 5))
+
+# 1. 3D Scatter Plot
+ax1 = fig.add_subplot(131, projection='3d')
+
+# Generate random 3D data
+np.random.seed(42)
+n = 100
+x = np.random.rand(n) * 10
+y = np.random.rand(n) * 10
+z = np.sin(x) + np.cos(y) + np.random.randn(n) * 0.5
+colors = z
+
+scatter = ax1.scatter(x, y, z, c=colors, cmap='viridis', s=50, alpha=0.6)
+ax1.set_title('3D Scatter Plot', fontweight='bold')
+ax1.set_xlabel('X axis')
+ax1.set_ylabel('Y axis')
+ax1.set_zlabel('Z axis')
+plt.colorbar(scatter, ax=ax1, label='Z value')
+
+# 2. 3D Surface Plot
+ax2 = fig.add_subplot(132, projection='3d')
+
+# Create mesh grid
+x_surf = np.linspace(-5, 5, 50)
+y_surf = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x_surf, y_surf)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+# Plot surface
+surf = ax2.plot_surface(X, Y, Z, cmap='coolwarm', alpha=0.8, 
+                        edgecolor='none', linewidth=0, antialiased=True)
+ax2.set_title('3D Surface Plot', fontweight='bold')
+ax2.set_xlabel('X axis')
+ax2.set_ylabel('Y axis')
+ax2.set_zlabel('Z axis')
+plt.colorbar(surf, ax=ax2, shrink=0.5)
+
+# 3. 3D Wireframe
+ax3 = fig.add_subplot(133, projection='3d')
+
+# Create different function
+x_wire = np.linspace(-3, 3, 30)
+y_wire = np.linspace(-3, 3, 30)
+X_wire, Y_wire = np.meshgrid(x_wire, y_wire)
+Z_wire = X_wire * np.exp(-X_wire**2 - Y_wire**2)
+
+# Plot wireframe
+ax3.plot_wireframe(X_wire, Y_wire, Z_wire, color='darkblue', alpha=0.5, linewidth=0.8)
+ax3.set_title('3D Wireframe Plot', fontweight='bold')
+ax3.set_xlabel('X axis')
+ax3.set_ylabel('Y axis')
+ax3.set_zlabel('Z axis')
+
+plt.tight_layout()
+plt.show()
+
+print("3D plotting tips:")
+print("- Rotate plots interactively in Jupyter/IDE")
+print("- Use view_init(elev, azim) to set viewing angle")
+print("- Consider 2D projections for clarity")`,
+        output: {
+          description: 'Three 3D visualizations side-by-side: Left shows a 3D scatter plot with 100 colorful points distributed in space, colored by Z-value using viridis colormap. Center displays a smooth surface plot with wave-like pattern (sin of distance from origin), rendered in coolwarm colors from blue valleys to red peaks. Right shows a wireframe of a peaked function with dark blue mesh lines creating a transparent 3D grid structure.'
+        }
+      },
+      {
+        title: '10. Advanced Subplots - GridSpec and Complex Layouts',
+        explanation: `GridSpec provides fine-grained control over subplot layouts, allowing you to create complex dashboard-style figures with varying subplot sizes.`,
+        code: `import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import numpy as np
+import seaborn as sns
+
+# Create figure
+fig = plt.figure(figsize=(14, 10))
+
+# Create GridSpec with 3 rows and 3 columns
+gs = gridspec.GridSpec(3, 3, figure=fig, hspace=0.3, wspace=0.3)
+
+# Generate sample data
+np.random.seed(42)
+data1 = np.random.randn(1000)
+data2 = np.random.randn(1000) * 2 + 5
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Large plot spanning top 2 rows
+ax1 = fig.add_subplot(gs[0:2, :])  # Rows 0-1, all columns
+ax1.plot(x, y1, label='sin(x)', linewidth=2, color='blue')
+ax1.plot(x, y2, label='cos(x)', linewidth=2, color='red')
+ax1.fill_between(x, y1, y2, alpha=0.3, color='gray')
+ax1.set_title('Main Plot - Large Span (2 rows x 3 cols)', fontsize=14, fontweight='bold')
+ax1.set_xlabel('X')
+ax1.set_ylabel('Y')
+ax1.legend()
+ax1.grid(True, alpha=0.3)
+
+# Bottom left - small plot
+ax2 = fig.add_subplot(gs[2, 0])
+ax2.hist(data1, bins=30, color='skyblue', edgecolor='black', alpha=0.7)
+ax2.set_title('Histogram 1', fontsize=10)
+ax2.set_xlabel('Value')
+ax2.set_ylabel('Frequency')
+
+# Bottom middle - small plot
+ax3 = fig.add_subplot(gs[2, 1])
+ax3.hist(data2, bins=30, color='salmon', edgecolor='black', alpha=0.7)
+ax3.set_title('Histogram 2', fontsize=10)
+ax3.set_xlabel('Value')
+ax3.set_ylabel('Frequency')
+
+# Bottom right - small plot
+ax4 = fig.add_subplot(gs[2, 2])
+ax4.scatter(data1[:100], data2[:100], alpha=0.5, c=range(100), cmap='viridis')
+ax4.set_title('Scatter', fontsize=10)
+ax4.set_xlabel('Data 1')
+ax4.set_ylabel('Data 2')
+
+plt.suptitle('Advanced Layout with GridSpec', fontsize=16, fontweight='bold', y=0.995)
+plt.show()
+
+# Example 2: Nested GridSpec for even more complex layouts
+fig2 = plt.figure(figsize=(12, 8))
+
+# Outer grid: 1 row, 2 columns
+gs_outer = gridspec.GridSpec(1, 2, figure=fig2, wspace=0.3)
+
+# Left side: single plot
+ax_left = fig2.add_subplot(gs_outer[0, 0])
+ax_left.plot(x, np.exp(-x/10)*np.sin(2*x), linewidth=2, color='purple')
+ax_left.set_title('Left: Single Plot', fontweight='bold')
+ax_left.grid(True, alpha=0.3)
+
+# Right side: nested grid (2x2)
+gs_nested = gridspec.GridSpecFromSubplotSpec(2, 2, subplot_spec=gs_outer[0, 1], hspace=0.4, wspace=0.4)
+
+for i in range(2):
+    for j in range(2):
+        ax = fig2.add_subplot(gs_nested[i, j])
+        data = np.random.randn(50) * (i+1) + (j*2)
+        ax.boxplot(data, vert=True)
+        ax.set_title(f'Box ({i},{j})', fontsize=9)
+        ax.set_ylabel('Value')
+
+plt.suptitle('Nested GridSpec Layout', fontsize=14, fontweight='bold')
+plt.show()
+
+print("GridSpec advantages:")
+print("- Create dashboard-style layouts")
+print("- Span subplots across multiple rows/columns")
+print("- Nest grids within grids for complex designs")`,
+        output: {
+          description: 'First figure shows complex dashboard layout: top 2/3 has large plot with overlapping sin/cos waves with gray fill between them. Bottom row has 3 smaller plots side-by-side (2 histograms showing different distributions, 1 colorful scatter plot). Second figure demonstrates nested layout: left half has single purple damped oscillation plot, right half contains 2x2 grid of box plots with varying distributions.'
+        }
+      },
+      {
+        title: '11. Interactive Elements and Annotations',
+        explanation: `Add annotations, arrows, text boxes, and shapes to highlight key insights. Essential for presentations and reports to draw attention to important features.`,
+        code: `import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Rectangle, Circle, Arrow, FancyBboxPatch
+
+# Generate data
+np.random.seed(42)
+x = np.linspace(0, 10, 100)
+y = np.sin(x) + np.random.randn(100) * 0.2
+y_smooth = np.sin(x)
+
+# Create figure
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+
+# 1. Annotations with arrows
+ax1 = axes[0, 0]
+ax1.plot(x, y_smooth, linewidth=2, color='blue', label='y = sin(x)')
+ax1.scatter(x, y, alpha=0.3, color='gray', s=20)
+ax1.set_title('Annotations with Arrows', fontweight='bold')
+
+# Annotate peak
+peak_idx = np.argmax(y_smooth)
+ax1.annotate('Maximum Point', 
+            xy=(x[peak_idx], y_smooth[peak_idx]),
+            xytext=(x[peak_idx]+2, y_smooth[peak_idx]-0.5),
+            arrowprops=dict(arrowstyle='->', color='red', lw=2),
+            fontsize=11, color='red', fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='yellow', alpha=0.7))
+
+# Annotate minimum
+min_idx = np.argmin(y_smooth)
+ax1.annotate('Minimum\\nPoint', 
+            xy=(x[min_idx], y_smooth[min_idx]),
+            xytext=(x[min_idx]-2, y_smooth[min_idx]+0.5),
+            arrowprops=dict(arrowstyle='fancy', color='green', lw=2),
+            fontsize=11, color='green', fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='lightgreen', alpha=0.7))
+
+ax1.grid(True, alpha=0.3)
+ax1.legend()
+
+# 2. Highlighted regions
+ax2 = axes[0, 1]
+sales = np.random.randint(50, 150, 12) + np.array([0, 5, 10, 15, 20, 25, 30, 35, 30, 25, 20, 15])
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+ax2.plot(months, sales, marker='o', linewidth=2, markersize=8, color='darkblue')
+ax2.set_title('Highlighted Regions', fontweight='bold')
+ax2.set_ylabel('Sales ($K)')
+
+# Highlight Q2 (Apr-Jun)
+ax2.axvspan(3, 6, alpha=0.2, color='green', label='Q2 - High Growth')
+
+# Highlight Q4 (Oct-Dec)
+ax2.axvspan(9, 12, alpha=0.2, color='red', label='Q4 - Decline')
+
+# Add horizontal line for target
+ax2.axhline(y=120, color='orange', linestyle='--', linewidth=2, label='Target')
+
+# Text box
+ax2.text(1.5, 140, 'Peak Season', fontsize=11, 
+        bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+
+ax2.legend()
+ax2.grid(axis='y', alpha=0.3)
+
+# 3. Shapes and patches
+ax3 = axes[1, 0]
+ax3.set_xlim(0, 10)
+ax3.set_ylim(0, 10)
+ax3.set_title('Geometric Shapes', fontweight='bold')
+
+# Rectangle
+rect = Rectangle((1, 1), 2, 1.5, linewidth=2, edgecolor='blue', facecolor='lightblue', alpha=0.5)
+ax3.add_patch(rect)
+ax3.text(2, 1.7, 'Rectangle', ha='center', fontweight='bold')
+
+# Circle
+circle = Circle((6, 3), 1, linewidth=2, edgecolor='red', facecolor='pink', alpha=0.5)
+ax3.add_patch(circle)
+ax3.text(6, 3, 'Circle', ha='center', fontweight='bold')
+
+# Fancy box
+fancy = FancyBboxPatch((4, 6), 2, 1.5, boxstyle="round,pad=0.1", 
+                      linewidth=2, edgecolor='green', facecolor='lightgreen', alpha=0.5)
+ax3.add_patch(fancy)
+ax3.text(5, 6.7, 'Fancy Box', ha='center', fontweight='bold')
+
+# Arrow
+arrow = Arrow(1, 7, 2, 1.5, width=0.5, color='purple', alpha=0.6)
+ax3.add_patch(arrow)
+
+ax3.set_aspect('equal')
+ax3.grid(True, alpha=0.3)
+
+# 4. Multiple text styles
+ax4 = axes[1, 1]
+categories = ['Product A', 'Product B', 'Product C', 'Product D']
+values = [23, 45, 56, 78]
+colors = ['red', 'yellow', 'green', 'blue']
+
+bars = ax4.barh(categories, values, color=colors, alpha=0.7, edgecolor='black')
+ax4.set_title('Annotated Bar Chart', fontweight='bold')
+ax4.set_xlabel('Sales (Units)')
+
+# Add value labels on bars
+for i, (bar, value) in enumerate(zip(bars, values)):
+    ax4.text(value + 2, i, f'{value}', va='center', fontweight='bold', fontsize=11)
+
+# Add custom text annotations
+ax4.text(40, 0.5, '← Below Target', fontsize=9, color='red', style='italic')
+ax4.text(60, 2.5, 'Top Performer! →', fontsize=9, color='green', fontweight='bold')
+
+ax4.axvline(x=50, color='gray', linestyle='--', linewidth=1.5, alpha=0.7, label='Target: 50')
+ax4.legend()
+
+plt.tight_layout()
+plt.show()
+
+print("Annotation best practices:")
+print("- Use arrows to point to specific data")
+print("- Highlight regions with axvspan/axhspan")
+print("- Add text boxes for context")
+print("- Use colors strategically to draw attention")`,
+        output: {
+          description: 'Four-panel figure demonstrating annotation techniques: Top-left shows sine wave with labeled arrows pointing to maximum (yellow box) and minimum (green box) points. Top-right displays monthly sales line chart with shaded regions for Q2 (green) and Q4 (red), plus orange target line and text annotations. Bottom-left contains geometric shapes (rectangle, circle, fancy box, arrow) in different colors. Bottom-right shows horizontal bar chart with value labels, target line, and custom text annotations for performance indicators.'
+        }
+      },
+      {
+        title: '12. Statistical Visualizations - Advanced Seaborn',
+        explanation: `Seaborn excels at statistical visualizations. Explore violin plots, strip plots, swarm plots, and pair plots for multi-variable analysis.`,
+        code: `import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import pandas as pd
+
+# Set style
+sns.set_style('whitegrid')
+
+# Generate sample dataset
+np.random.seed(42)
+n = 150
+df = pd.DataFrame({
+    'Category': np.repeat(['A', 'B', 'C'], n),
+    'Value': np.concatenate([
+        np.random.normal(50, 10, n),
+        np.random.normal(60, 15, n),
+        np.random.normal(55, 8, n)
+    ]),
+    'Score': np.concatenate([
+        np.random.uniform(0, 100, n),
+        np.random.uniform(20, 100, n),
+        np.random.uniform(10, 90, n)
+    ]),
+    'Size': np.abs(np.random.randn(n*3) * 20 + 50)
+})
+
+# Create figure
+fig, axes = plt.subplots(2, 3, figsize=(16, 10))
+
+# 1. Violin Plot
+sns.violinplot(data=df, x='Category', y='Value', ax=axes[0, 0], palette='Set2')
+axes[0, 0].set_title('Violin Plot - Distribution Shape', fontweight='bold')
+axes[0, 0].set_ylabel('Value')
+
+# 2. Violin with inner box plot
+sns.violinplot(data=df, x='Category', y='Score', ax=axes[0, 1], 
+              palette='muted', inner='box')
+axes[0, 1].set_title('Violin + Box Plot', fontweight='bold')
+axes[0, 1].set_ylabel('Score')
+
+# 3. Swarm Plot (shows all individual points)
+sns.swarmplot(data=df.sample(100), x='Category', y='Value', ax=axes[0, 2], 
+             palette='husl', size=3)
+axes[0, 2].set_title('Swarm Plot - All Data Points', fontweight='bold')
+axes[0, 2].set_ylabel('Value')
+
+# 4. Strip Plot with jitter
+sns.stripplot(data=df.sample(150), x='Category', y='Score', ax=axes[1, 0], 
+             palette='deep', alpha=0.5, jitter=True)
+axes[1, 0].set_title('Strip Plot - Jittered Points', fontweight='bold')
+axes[1, 0].set_ylabel('Score')
+
+# 5. Box + Swarm combination
+sns.boxplot(data=df.sample(150), x='Category', y='Value', ax=axes[1, 1], 
+           palette='pastel', width=0.5)
+sns.swarmplot(data=df.sample(150), x='Category', y='Value', ax=axes[1, 1], 
+             color='black', size=2, alpha=0.3)
+axes[1, 1].set_title('Box + Swarm Overlay', fontweight='bold')
+axes[1, 1].set_ylabel('Value')
+
+# 6. Point plot with confidence intervals
+sns.pointplot(data=df, x='Category', y='Score', ax=axes[1, 2], 
+             palette='Set1', markers='D', capsize=0.2, errwidth=2)
+axes[1, 2].set_title('Point Plot with CI', fontweight='bold')
+axes[1, 2].set_ylabel('Score (Mean ± CI)')
+axes[1, 2].grid(axis='y', alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Create pair plot for multivariate analysis
+print("\\nCreating pair plot for multivariate relationships...")
+
+# Sample smaller dataset for pair plot
+df_small = df.sample(100).copy()
+
+# Pair plot
+pair_fig = sns.pairplot(df_small, hue='Category', palette='bright',
+                        diag_kind='kde', plot_kws={'alpha': 0.6, 's': 30},
+                        height=2.5, aspect=1.2)
+pair_fig.fig.suptitle('Pair Plot - Multivariate Analysis', y=1.02, fontsize=14, fontweight='bold')
+plt.show()
+
+# Joint plot - bivariate analysis
+print("\\nCreating joint plot for detailed bivariate analysis...")
+joint_fig = sns.jointplot(data=df, x='Value', y='Score', hue='Category',
+                          kind='scatter', palette='Set2', alpha=0.6,
+                          height=7, ratio=4, marginal_kws={'bins': 20})
+joint_fig.fig.suptitle('Joint Plot - Bivariate Distribution', y=1.02, fontweight='bold')
+plt.show()
+
+print("\\nStatistical plot types:")
+print("- Violin: Shows distribution shape (like rotated KDE)")
+print("- Swarm: Displays every data point (avoid for large datasets)")
+print("- Strip: Jittered points along categorical axis")
+print("- Point: Shows mean and confidence interval")
+print("- Pair: Matrix of all variable relationships")
+print("- Joint: Detailed bivariate with marginal distributions")`,
+        output: {
+          description: 'Three separate visualizations: First is 2x3 grid showing various statistical plots (violin plots showing distribution shapes, swarm plots with scattered points, box-swarm combinations, and point plots with error bars) for three categories A, B, C. Second is a pair plot matrix showing relationships between Value, Score, and Size variables, color-coded by category with KDE plots on diagonal. Third is a joint plot with scatter plot in center showing Value vs Score relationship, with histograms on margins showing individual distributions, all colored by category.'
+        }
+      },
+      {
+        title: '13. Custom Colormaps and Color Palettes',
+        explanation: `Color choice dramatically impacts readability and insights. Learn to create custom colormaps, use perceptually uniform palettes, and design color-blind friendly visualizations.`,
+        code: `import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+import seaborn as sns
+import numpy as np
+
+# Create figure
+fig = plt.figure(figsize=(16, 10))
+
+# Generate sample data
+np.random.seed(42)
+data_2d = np.random.randn(10, 10).cumsum(axis=1)
+
+# 1. Built-in Matplotlib colormaps
+ax1 = plt.subplot(3, 4, 1)
+im1 = ax1.imshow(data_2d, cmap='viridis', aspect='auto')
+ax1.set_title('Viridis (Perceptually Uniform)', fontweight='bold', fontsize=10)
+plt.colorbar(im1, ax=ax1)
+
+ax2 = plt.subplot(3, 4, 2)
+im2 = ax2.imshow(data_2d, cmap='plasma', aspect='auto')
+ax2.set_title('Plasma', fontweight='bold', fontsize=10)
+plt.colorbar(im2, ax=ax2)
+
+ax3 = plt.subplot(3, 4, 3)
+im3 = ax3.imshow(data_2d, cmap='coolwarm', aspect='auto')
+ax3.set_title('Coolwarm (Diverging)', fontweight='bold', fontsize=10)
+plt.colorbar(im3, ax=ax3)
+
+ax4 = plt.subplot(3, 4, 4)
+im4 = ax4.imshow(data_2d, cmap='RdYlGn', aspect='auto')
+ax4.set_title('RdYlGn (Diverging)', fontweight='bold', fontsize=10)
+plt.colorbar(im4, ax=ax4)
+
+# 2. Custom colormap from colors
+colors_list = ['darkblue', 'blue', 'cyan', 'yellow', 'orange', 'red']
+custom_cmap = mcolors.LinearSegmentedColormap.from_list('custom', colors_list)
+
+ax5 = plt.subplot(3, 4, 5)
+im5 = ax5.imshow(data_2d, cmap=custom_cmap, aspect='auto')
+ax5.set_title('Custom: Blue→Red', fontweight='bold', fontsize=10)
+plt.colorbar(im5, ax=ax5)
+
+# 3. Discrete colormap
+colors_discrete = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
+discrete_cmap = mcolors.ListedColormap(colors_discrete)
+
+ax6 = plt.subplot(3, 4, 6)
+data_discrete = np.random.randint(0, 5, (10, 10))
+im6 = ax6.imshow(data_discrete, cmap=discrete_cmap, aspect='auto')
+ax6.set_title('Discrete Categories', fontweight='bold', fontsize=10)
+plt.colorbar(im6, ax=ax6, ticks=range(5))
+
+# 4. Seaborn color palettes for categorical data
+ax7 = plt.subplot(3, 4, 7)
+categories = ['A', 'B', 'C', 'D', 'E', 'F']
+values = np.random.randint(20, 100, 6)
+palette = sns.color_palette('Set2')
+ax7.bar(categories, values, color=palette)
+ax7.set_title('Seaborn Set2 Palette', fontweight='bold', fontsize=10)
+ax7.set_ylabel('Value')
+
+# 5. Color-blind friendly palette
+ax8 = plt.subplot(3, 4, 8)
+palette_cb = sns.color_palette('colorblind')
+ax8.bar(categories, np.random.randint(20, 100, 6), color=palette_cb)
+ax8.set_title('Colorblind-Friendly', fontweight='bold', fontsize=10)
+ax8.set_ylabel('Value')
+
+# 6. Gradient palette
+ax9 = plt.subplot(3, 4, 9)
+palette_gradient = sns.light_palette('seagreen', n_colors=6)
+ax9.bar(categories, np.random.randint(20, 100, 6), color=palette_gradient)
+ax9.set_title('Gradient: Light→Dark Green', fontweight='bold', fontsize=10)
+ax9.set_ylabel('Value')
+
+# 7. Diverging palette
+ax10 = plt.subplot(3, 4, 10)
+palette_div = sns.diverging_palette(250, 10, n=6)
+ax10.bar(categories, np.random.randint(-50, 50, 6), color=palette_div)
+ax10.axhline(0, color='black', linewidth=0.8)
+ax10.set_title('Diverging: Blue-Red', fontweight='bold', fontsize=10)
+ax10.set_ylabel('Value')
+
+# 8. Cubehelix palette (smooth transitions)
+ax11 = plt.subplot(3, 4, 11)
+palette_cube = sns.cubehelix_palette(6, start=.5, rot=-.75)
+ax11.bar(categories, np.random.randint(20, 100, 6), color=palette_cube)
+ax11.set_title('Cubehelix Palette', fontweight='bold', fontsize=10)
+ax11.set_ylabel('Value')
+
+# 9. Custom HLS palette
+ax12 = plt.subplot(3, 4, 12)
+palette_hls = sns.hls_palette(6, l=.5, s=.8)
+ax12.bar(categories, np.random.randint(20, 100, 6), color=palette_hls)
+ax12.set_title('HLS Palette (Custom)', fontweight='bold', fontsize=10)
+ax12.set_ylabel('Value')
+
+plt.suptitle('Color Palettes and Colormaps Showcase', fontsize=16, fontweight='bold', y=0.995)
+plt.tight_layout()
+plt.show()
+
+# Demonstrate color palette selection guide
+print("\\nColor Palette Selection Guide:")
+print("=" * 50)
+print("\\n1. SEQUENTIAL (for continuous data, one direction):")
+print("   - Use: viridis, plasma, cividis (perceptually uniform)")
+print("   - Avoid: jet, rainbow (misleading gradients)")
+print("\\n2. DIVERGING (data with meaningful center/zero):")
+print("   - Use: coolwarm, RdBu, RdYlGn")
+print("   - When: Showing positive/negative, above/below average")
+print("\\n3. CATEGORICAL (distinct categories):")
+print("   - Use: Set1, Set2, tab10, colorblind")
+print("   - Ensure: Maximum contrast between colors")
+print("\\n4. COLOR-BLIND FRIENDLY:")
+print("   - Always use 'colorblind' palette or test with simulator")
+print("   - Avoid: Red-green combinations only")
+print("\\n5. GRAYSCALE/PRINT:")
+print("   - Use: Greys, binary, or high-contrast patterns")
+print("\\nBest practice: Test visualizations in grayscale to ensure clarity!")`,
+        output: {
+          description: 'Comprehensive 3x4 grid demonstrating various color schemes: Top row shows continuous colormaps (viridis, plasma, coolwarm, RdYlGn) applied to heatmaps. Middle rows display categorical color palettes through bar charts (Seaborn Set2, colorblind-friendly, gradient green, diverging blue-red, cubehelix, custom HLS). Each subplot labeled with colormap name. Colorbars shown for continuous maps. Demonstrates proper color selection for different data types.'
+        }
+      },
+      {
+        title: '14. Saving Publication-Quality Figures',
+        explanation: `Learn to export high-quality figures for papers, presentations, and web. Control DPI, format, transparency, and sizing for different output media.`,
+        code: `import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+# Create a publication-quality figure
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Generate data
+np.random.seed(42)
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x) + np.random.randn(100) * 0.1
+y2 = np.cos(x) + np.random.randn(100) * 0.1
+
+# Left plot: Line plot with error bands
+mean_y1 = np.sin(x)
+std_y1 = 0.1
+axes[0].plot(x, mean_y1, linewidth=2.5, color='#2E86AB', label='Treatment A')
+axes[0].fill_between(x, mean_y1 - std_y1, mean_y1 + std_y1, 
+                     alpha=0.3, color='#2E86AB')
+
+mean_y2 = np.cos(x)
+std_y2 = 0.1
+axes[0].plot(x, mean_y2, linewidth=2.5, color='#A23B72', label='Treatment B')
+axes[0].fill_between(x, mean_y2 - std_y2, mean_y2 + std_y2, 
+                     alpha=0.3, color='#A23B72')
+
+axes[0].set_xlabel('Time (hours)', fontsize=12, fontweight='bold')
+axes[0].set_ylabel('Response', fontsize=12, fontweight='bold')
+axes[0].set_title('Treatment Comparison Over Time', fontsize=14, fontweight='bold', pad=15)
+axes[0].legend(fontsize=11, frameon=True, shadow=True, loc='upper right')
+axes[0].grid(True, alpha=0.3, linestyle='--')
+axes[0].tick_params(labelsize=10)
+
+# Right plot: Bar chart with error bars
+categories = ['Control', 'Low Dose', 'Medium Dose', 'High Dose']
+means = [45, 52, 68, 73]
+errors = [3, 4, 5, 6]
+colors = ['#264653', '#2A9D8F', '#E9C46A', '#E76F51']
+
+bars = axes[1].bar(categories, means, yerr=errors, capsize=5, 
+                   color=colors, edgecolor='black', linewidth=1.2,
+                   error_kw={'linewidth': 2, 'ecolor': 'black'})
+
+axes[1].set_ylabel('Efficacy (%)', fontsize=12, fontweight='bold')
+axes[1].set_title('Dose-Response Relationship', fontsize=14, fontweight='bold', pad=15)
+axes[1].set_ylim(0, 85)
+axes[1].grid(axis='y', alpha=0.3, linestyle='--')
+axes[1].tick_params(labelsize=10)
+
+# Add value labels on bars
+for bar, mean in zip(bars, means):
+    height = bar.get_height()
+    axes[1].text(bar.get_x() + bar.get_width()/2., height + 2,
+                f'{mean}%', ha='center', va='bottom', fontsize=10, fontweight='bold')
+
+# Overall figure title
+fig.suptitle('Publication-Quality Figure Example', fontsize=16, fontweight='bold', y=0.98)
+
+plt.tight_layout()
+
+# Display the figure
+plt.show()
+
+# Save in multiple formats with different settings
+print("Saving publication-quality figures...")
+print("=" * 60)
+
+# 1. High-res PNG for presentations (300 DPI)
+plt.savefig('figure_highres.png', dpi=300, bbox_inches='tight', 
+           facecolor='white', edgecolor='none')
+print("✓ Saved: figure_highres.png (300 DPI, for PowerPoint/Keynote)")
+
+# 2. Vector PDF for publications (scalable, no DPI needed)
+plt.savefig('figure_publication.pdf', format='pdf', bbox_inches='tight',
+           facecolor='white', edgecolor='none')
+print("✓ Saved: figure_publication.pdf (Vector, for journals/papers)")
+
+# 3. SVG for web and further editing
+plt.savefig('figure_web.svg', format='svg', bbox_inches='tight',
+           facecolor='white', edgecolor='none')
+print("✓ Saved: figure_web.svg (Vector, for web/Inkscape/Illustrator)")
+
+# 4. Transparent background PNG
+plt.savefig('figure_transparent.png', dpi=300, bbox_inches='tight',
+           transparent=True)
+print("✓ Saved: figure_transparent.png (Transparent background)")
+
+# 5. Low-res PNG for quick preview
+plt.savefig('figure_preview.png', dpi=72, bbox_inches='tight')
+print("✓ Saved: figure_preview.png (72 DPI, for quick preview)")
+
+# 6. EPS for LaTeX documents
+plt.savefig('figure_latex.eps', format='eps', bbox_inches='tight')
+print("✓ Saved: figure_latex.eps (Vector, for LaTeX)")
+
+print("\\n" + "=" * 60)
+print("Format Selection Guide:")
+print("=" * 60)
+print("\\nPDF (.pdf) - BEST for publications/papers")
+print("  ✓ Vector format (scales infinitely)")
+print("  ✓ Accepted by most journals")
+print("  ✓ Embeds fonts properly")
+print("\\nPNG (.png) - BEST for presentations/web")
+print("  ✓ Use 300 DPI for print, 150 DPI for screen")
+print("  ✓ Supports transparency")
+print("  ✓ Widely compatible")
+print("\\nSVG (.svg) - BEST for further editing")
+print("  ✓ Vector format (editable in Inkscape/Illustrator)")
+print("  ✓ Scalable for web")
+print("  ✓ Can modify elements after export")
+print("\\nEPS (.eps) - BEST for LaTeX")
+print("  ✓ Vector format")
+print("  ✓ Standard for scientific LaTeX documents")
+print("\\nKey Parameters:")
+print("  • dpi=300 → Print quality")
+print("  • dpi=150 → Screen quality")
+print("  • bbox_inches='tight' → Remove whitespace")
+print("  • transparent=True → No background")
+print("  • facecolor='white' → White background")`,
+        output: {
+          description: 'High-quality two-panel figure: Left panel shows two treatment curves (blue Treatment A, purple Treatment B) with error bands (shaded regions) over 10 hours, with professional formatting (bold labels, grid, legend with shadow). Right panel displays dose-response bar chart with four bars (Control through High Dose) in gradient colors, error bars, and percentage labels on top of each bar. Both panels have bold titles, axis labels, and clean styling suitable for publication. Terminal output shows saved files in multiple formats (PNG at various DPIs, PDF, SVG, EPS) with format selection guide.'
+        }
       }
     ]
   },

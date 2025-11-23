@@ -1,0 +1,3410 @@
+{
+  "beginner": {
+    "courseName": "beginner",
+    "totalTopics": 14,
+    "topics": [
+      {
+        "id": "intro-python",
+        "title": "Introduction to Python",
+        "description": "Understanding what Python is and why it's popular",
+        "overview": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum in 1991, Python emphasizes code readability and allows programmers to express concepts in fewer lines of code.",
+        "keyPoints": [
+          "Python is interpreted - no compilation needed",
+          "Dynamically typed - no need to declare variable types",
+          "Cross-platform - runs on Windows, Mac, Linux",
+          "Huge standard library and ecosystem",
+          "Used in web development, data science, AI, automation, and more"
+        ],
+        "useCases": [
+          {
+            "title": "Web Development",
+            "description": "Build websites and web applications using Django, Flask, FastAPI",
+            "example": "Instagram, Spotify, and Pinterest use Python"
+          },
+          {
+            "title": "Data Science & AI",
+            "description": "Analyze data, create visualizations, build machine learning models",
+            "example": "Pandas, NumPy, TensorFlow, PyTorch libraries"
+          },
+          {
+            "title": "Automation & Scripting",
+            "description": "Automate repetitive tasks, system administration",
+            "example": "File management, web scraping, testing automation"
+          },
+          {
+            "title": "Game Development",
+            "description": "Create games using Pygame library",
+            "example": "Simple 2D games and prototypes"
+          }
+        ],
+        "dos": [
+          "Follow PEP 8 style guide for readable code",
+          "Use meaningful variable and function names",
+          "Write comments to explain complex logic",
+          "Use virtual environments for project dependencies",
+          "Test your code regularly"
+        ],
+        "donts": [
+          "Don't use single letter variable names (except in loops)",
+          "Don't ignore errors and exceptions",
+          "Don't mix tabs and spaces for indentation",
+          "Don't write functions that do too many things",
+          "Don't hardcode values that might change"
+        ],
+        "bestPractices": [
+          "Use 4 spaces for indentation (not tabs)",
+          "Keep lines under 79 characters when possible",
+          "Use docstrings to document functions and classes",
+          "Import modules at the top of the file",
+          "Use version control (Git) for your projects"
+        ],
+        "codeExamples": [
+          {
+            "title": "Your First Python Program",
+            "explanation": "The print() function displays output. Use # for single-line comments and triple quotes for multi-line strings."
+          }
+        ]
+      },
+      {
+        "id": "variables-datatypes",
+        "title": "Variables and Data Types",
+        "description": "Learn to store and manipulate different types of data",
+        "overview": "Variables are containers for storing data values. Python has various built-in data types including numbers, strings, booleans, lists, tuples, dictionaries, and sets. Understanding data types is fundamental to writing effective Python code.",
+        "keyPoints": [
+          "Variables don't need explicit declaration",
+          "Variable names are case-sensitive",
+          "Python determines type automatically (dynamic typing)",
+          "You can change a variable's type after it's set",
+          "Use type() function to check a variable's type"
+        ],
+        "useCases": [
+          {
+            "title": "Storing User Information",
+            "description": "Store names, ages, email addresses",
+            "example": "name = \"John\", age = 25, email = \"john@example.com\""
+          },
+          {
+            "title": "Mathematical Calculations",
+            "description": "Perform arithmetic operations",
+            "example": "price = 100, tax = 0.15, total = price * (1 + tax)"
+          },
+          {
+            "title": "Boolean Logic",
+            "description": "Control program flow with true/false values",
+            "example": "is_logged_in = True, has_permission = False"
+          },
+          {
+            "title": "Text Processing",
+            "description": "Manipulate strings for various applications",
+            "example": "Processing user input, formatting output"
+          }
+        ],
+        "dos": [
+          "Use descriptive variable names (user_age instead of x)",
+          "Follow naming conventions (lowercase with underscores)",
+          "Initialize variables before using them",
+          "Use constants in UPPERCASE (MAX_SIZE = 100)",
+          "Choose appropriate data types for your data"
+        ],
+        "donts": [
+          "Don't use Python keywords as variable names (if, for, while)",
+          "Don't start variable names with numbers",
+          "Don't use spaces in variable names",
+          "Don't reuse variable names for different purposes",
+          "Don't ignore type compatibility in operations"
+        ],
+        "bestPractices": [
+          "Use meaningful names that describe the data",
+          "Keep variable scope as small as possible",
+          "Group related variables together",
+          "Use type hints for better code documentation",
+          "Validate input data before assigning to variables"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Data Types",
+            "explanation": "Python has four primitive data types: int, float, str, and bool. The type() function shows the type of any variable."
+          },
+          {
+            "title": "Type Conversion",
+            "explanation": "Use int(), float(), str(), and bool() functions to convert between types. Some conversions may lose precision or fail."
+          },
+          {
+            "title": "Multiple Assignment",
+            "explanation": "Python allows elegant multiple assignments and swapping without temporary variables."
+          }
+        ]
+      },
+      {
+        "id": "operators",
+        "title": "Operators",
+        "description": "Perform operations and comparisons",
+        "overview": "Operators are symbols that perform operations on variables and values. Python supports arithmetic, comparison, logical, assignment, and other operators. Understanding operators is essential for performing calculations and making decisions in your code.",
+        "keyPoints": [
+          "Arithmetic operators: +, -, *, /, //, %, **",
+          "Comparison operators: ==, !=, >, <, >=, <=",
+          "Logical operators: and, or, not",
+          "Assignment operators: =, +=, -=, *=, /=",
+          "Operator precedence follows mathematical rules"
+        ],
+        "useCases": [
+          {
+            "title": "Mathematical Calculations",
+            "description": "Calculate totals, averages, percentages",
+            "example": "total = price * quantity; average = sum / count"
+          },
+          {
+            "title": "Conditional Logic",
+            "description": "Make decisions based on conditions",
+            "example": "if age >= 18 and has_id: grant_access()"
+          },
+          {
+            "title": "String Operations",
+            "description": "Concatenate and repeat strings",
+            "example": "full_name = first + \" \" + last; line = \"=\" * 50"
+          },
+          {
+            "title": "Membership Testing",
+            "description": "Check if value exists in collection",
+            "example": "if \"admin\" in user_roles: show_admin_panel()"
+          }
+        ],
+        "dos": [
+          "Use parentheses to clarify complex expressions",
+          "Use // for integer division when you need whole numbers",
+          "Use ** for exponentiation instead of pow()",
+          "Chain comparisons (x < y < z) for readability",
+          "Use += and similar operators for concise updates"
+        ],
+        "donts": [
+          "Don't compare floats with == (use math.isclose())",
+          "Don't use = when you mean == in conditions",
+          "Don't chain assignments with operators (x = y += 1)",
+          "Don't forget operator precedence (* before +)",
+          "Don't use \"is\" for value comparison (use ==)"
+        ],
+        "bestPractices": [
+          "Use meaningful spacing around operators for readability",
+          "Break complex expressions into smaller parts",
+          "Use comparison chaining when appropriate",
+          "Prefer \"is None\" over \"== None\" for None checks",
+          "Use descriptive variable names in boolean expressions"
+        ],
+        "codeExamples": [
+          {
+            "title": "Arithmetic Operators",
+            "explanation": "Python follows standard mathematical operator precedence. Use parentheses to control order of operations."
+          },
+          {
+            "title": "Comparison Operators",
+            "explanation": "Comparison operators compare values and return boolean results. Python allows chaining comparisons elegantly."
+          },
+          {
+            "title": "Logical Operators",
+            "explanation": "Logical operators combine boolean expressions. Python uses short-circuit evaluation for efficiency."
+          },
+          {
+            "title": "Assignment and Identity Operators",
+            "explanation": "Assignment operators provide shortcuts. Use \"is\" for identity (same object), \"==\" for equality (same value)."
+          },
+          {
+            "title": "Membership and Other Operators",
+            "explanation": "Membership operators check for presence in sequences. The ternary operator provides concise conditional assignment."
+          }
+        ]
+      },
+      {
+        "id": "installing-python",
+        "title": "Installing Python",
+        "description": "Learn how to install Python on different operating systems",
+        "overview": "Python installation is the first step in your programming journey. Python is available for Windows, macOS, and Linux. Understanding proper installation ensures you have the right environment for development.",
+        "keyPoints": [
+          "Python can be downloaded from python.org",
+          "Windows: Use the official installer with \"Add to PATH\" option",
+          "macOS: Can use Homebrew or official installer",
+          "Linux: Usually pre-installed, can use package managers",
+          "Verify installation using python --version command"
+        ],
+        "useCases": [
+          {
+            "title": "Windows Installation",
+            "description": "Install Python on Windows systems",
+            "example": "Download from python.org, run installer, check \"Add Python to PATH\""
+          },
+          {
+            "title": "macOS Installation",
+            "description": "Install using Homebrew or official installer",
+            "example": "brew install python3 or download from python.org"
+          },
+          {
+            "title": "Development Environment",
+            "description": "Set up IDE or code editor",
+            "example": "VS Code, PyCharm, Jupyter Notebook"
+          },
+          {
+            "title": "Virtual Environments",
+            "description": "Isolate project dependencies",
+            "example": "python -m venv myenv"
+          }
+        ],
+        "dos": [
+          "Always add Python to system PATH during installation",
+          "Verify installation immediately after installing",
+          "Install pip (Python package manager) if not included",
+          "Consider using virtual environments for projects",
+          "Keep Python updated to latest stable version"
+        ],
+        "donts": [
+          "Don't install multiple Python versions without version managers",
+          "Don't skip adding to PATH on Windows",
+          "Don't ignore security warnings during installation",
+          "Don't install packages globally without virtual environments",
+          "Don't use Python 2.x for new projects (it's deprecated)"
+        ],
+        "bestPractices": [
+          "Use version managers like pyenv for multiple Python versions",
+          "Create virtual environments for each project",
+          "Document Python version requirements in README",
+          "Use requirements.txt for package dependencies",
+          "Regularly update pip: python -m pip install --upgrade pip"
+        ],
+        "codeExamples": [
+          {
+            "title": "Verify Python Installation",
+            "explanation": "Use command line to verify Python and pip are correctly installed"
+          },
+          {
+            "title": "Create Virtual Environment",
+            "explanation": "Virtual environments keep project dependencies isolated and manageable"
+          }
+        ]
+      },
+      {
+        "id": "execution-modes",
+        "title": "Python Execution Modes",
+        "description": "Interactive vs Script mode execution",
+        "overview": "Python can be executed in two primary modes: Interactive Mode for testing snippets and quick experimentation, and Script Mode for running complete programs. Understanding both modes helps you work efficiently.",
+        "keyPoints": [
+          "Interactive mode: REPL (Read-Eval-Print-Loop) for immediate feedback",
+          "Script mode: Execute complete Python files (.py)",
+          "Interactive mode is great for learning and testing",
+          "Script mode is used for production code",
+          "Both modes execute Python code identically"
+        ],
+        "useCases": [
+          {
+            "title": "Interactive Mode - Testing",
+            "description": "Quick testing of Python expressions",
+            "example": ">>> 2 + 2 [Enter] returns 4 immediately"
+          },
+          {
+            "title": "Interactive Mode - Learning",
+            "description": "Explore Python features and libraries",
+            "example": "Try different functions and see results instantly"
+          },
+          {
+            "title": "Script Mode - Applications",
+            "description": "Create complete programs and applications",
+            "example": "web apps, data analysis scripts, automation tools"
+          },
+          {
+            "title": "Script Mode - Production",
+            "description": "Deploy code to servers and production environments",
+            "example": "Run scheduled tasks, web servers, batch processing"
+          }
+        ],
+        "dos": [
+          "Use interactive mode for quick testing and learning",
+          "Use script mode for any code you want to save",
+          "Add .py extension to all Python script files",
+          "Include shebang line in scripts for Unix systems",
+          "Make scripts executable with proper permissions"
+        ],
+        "donts": [
+          "Don't write long programs in interactive mode",
+          "Don't forget to save your work when exiting interactive mode",
+          "Don't use interactive mode for production code",
+          "Don't run untrusted scripts without reviewing",
+          "Don't forget error handling in scripts"
+        ],
+        "bestPractices": [
+          "Use interactive mode for experimentation",
+          "Write scripts for reusable code",
+          "Add comments and docstrings in scripts",
+          "Use if __name__ == \"__main__\": for script entry points",
+          "Test scripts thoroughly before deployment"
+        ],
+        "codeExamples": [
+          {
+            "title": "Interactive Mode Usage",
+            "explanation": "Interactive mode provides immediate feedback, great for testing"
+          },
+          {
+            "title": "Script Mode - Creating a Python File",
+            "explanation": "Script mode allows you to write complete programs and save them for reuse"
+          },
+          {
+            "title": "Script with Command Line Arguments",
+            "explanation": "Scripts can accept command-line arguments for dynamic behavior"
+          }
+        ]
+      },
+      {
+        "id": "python-tokens",
+        "title": "Python Tokens - Building Blocks",
+        "description": "Understanding the smallest units of Python programs",
+        "overview": "Tokens are the smallest individual units of a Python program - the building blocks of code. When Python reads your code, it breaks it into tokens: keywords, identifiers, literals, operators, and delimiters. Understanding tokens is fundamental to writing correct Python code.",
+        "keyPoints": [
+          "Tokens are the smallest lexical units in Python",
+          "Five types: Keywords, Identifiers, Literals, Operators, Delimiters",
+          "Python interpreter breaks code into tokens during execution",
+          "Each token has a specific purpose and meaning",
+          "Proper token usage ensures syntactically correct code"
+        ],
+        "useCases": [
+          {
+            "title": "Keywords - Reserved Words",
+            "description": "Reserved words with special meaning (if, else, for, while, def, class, etc.)",
+            "example": "if x > 10: # \"if\" is a keyword token"
+          },
+          {
+            "title": "Identifiers - Names",
+            "description": "Names given to variables, functions, classes",
+            "example": "student_name = \"Alice\" # student_name is identifier"
+          },
+          {
+            "title": "Literals - Values",
+            "description": "Fixed values like numbers, strings, booleans",
+            "example": "42, \"hello\", True, 3.14 are all literals"
+          },
+          {
+            "title": "Operators - Actions",
+            "description": "Symbols that perform operations (+, -, *, /, ==, !=, etc.)",
+            "example": "x = 5 + 3 # = and + are operator tokens"
+          },
+          {
+            "title": "Delimiters - Structure",
+            "description": "Punctuation that organizes code ((), [], {}, :, ,)",
+            "example": "my_list = [1, 2, 3] # [] and , are delimiters"
+          }
+        ],
+        "dos": [
+          "Use descriptive identifiers that explain purpose",
+          "Follow Python naming conventions (PEP 8)",
+          "Use appropriate literals for data types",
+          "Understand operator precedence",
+          "Use delimiters correctly for grouping"
+        ],
+        "donts": [
+          "Don't use keywords as identifiers",
+          "Don't create confusing identifier names",
+          "Don't mix token types incorrectly",
+          "Don't ignore Python syntax rules",
+          "Don't use reserved words for variable names"
+        ],
+        "bestPractices": [
+          "Use snake_case for variables and functions",
+          "Use CamelCase for class names",
+          "Make identifiers meaningful and readable",
+          "Group related tokens with proper delimiters",
+          "Understand token roles in your code"
+        ],
+        "codeExamples": [
+          {
+            "title": "Understanding All Token Types",
+            "explanation": "This example shows all five token types working together in a complete program"
+          },
+          {
+            "title": "Python Keywords (Reserved Words)",
+            "explanation": "Keywords are reserved and cannot be used as variable names"
+          },
+          {
+            "title": "Valid vs Invalid Identifiers",
+            "explanation": "Identifiers must follow naming rules: start with letter/underscore, no keywords"
+          }
+        ]
+      },
+      {
+        "id": "control-flow-basics",
+        "title": "Control Flow - if/else Statements",
+        "description": "Making decisions in your code",
+        "overview": "Control flow statements allow your program to make decisions and execute different code based on conditions. The if/elif/else statements are fundamental for creating logic in programs - from simple checks to complex decision trees.",
+        "keyPoints": [
+          "if statement executes code when condition is True",
+          "elif (else if) checks additional conditions",
+          "else executes when all conditions are False",
+          "Conditions use comparison operators (==, !=, <, >, <=, >=)",
+          "Indentation defines code blocks (4 spaces)"
+        ],
+        "useCases": [
+          {
+            "title": "User Input Validation",
+            "description": "Check if user input meets requirements",
+            "example": "Validate age, email format, password strength"
+          },
+          {
+            "title": "Business Logic",
+            "description": "Implement business rules and decisions",
+            "example": "Calculate discounts, determine eligibility, route requests"
+          },
+          {
+            "title": "Error Handling",
+            "description": "Check for errors before processing",
+            "example": "Verify file exists, check network connection, validate data"
+          },
+          {
+            "title": "Game Logic",
+            "description": "Control game flow based on player actions",
+            "example": "Check win/lose conditions, validate moves, update scores"
+          }
+        ],
+        "dos": [
+          "Use clear, readable conditions",
+          "Handle all possible cases",
+          "Use elif instead of multiple if when appropriate",
+          "Keep condition expressions simple",
+          "Test edge cases thoroughly"
+        ],
+        "donts": [
+          "Don't forget the colon (:) after conditions",
+          "Don't mix tabs and spaces for indentation",
+          "Don't create overly complex nested conditions",
+          "Don't forget to handle the else case",
+          "Don't use assignment (=) instead of comparison (==)"
+        ],
+        "bestPractices": [
+          "Use 4 spaces for indentation consistently",
+          "Order conditions from most to least likely",
+          "Use boolean variables for complex conditions",
+          "Consider using match/case for many conditions (Python 3.10+)",
+          "Write self-documenting condition names"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic if/elif/else Structure",
+            "explanation": "elif allows checking multiple conditions in order, stops at first True"
+          },
+          {
+            "title": "Nested Conditions and Logical Operators",
+            "explanation": "Use logical operators (and, or, not) for complex conditions. Early returns reduce nesting."
+          },
+          {
+            "title": "Real-World Example: E-commerce Discount",
+            "explanation": "Real-world example combining multiple conditions to calculate discounts"
+          }
+        ]
+      },
+      {
+        "id": "loops-for-while",
+        "title": "Loops - for and while",
+        "description": "Repeating actions efficiently",
+        "overview": "Loops allow you to repeat code multiple times without writing it over and over. Python provides two main loop types: \"for\" loops for iterating over sequences, and \"while\" loops for repeating until a condition changes. Mastering loops is essential for processing data and automating tasks.",
+        "keyPoints": [
+          "for loops iterate over sequences (lists, strings, ranges)",
+          "while loops repeat while condition is True",
+          "break exits the loop immediately",
+          "continue skips to next iteration",
+          "range() generates number sequences for loops",
+          "Loops can be nested for multi-dimensional processing"
+        ],
+        "useCases": [
+          {
+            "title": "Data Processing",
+            "description": "Process each item in a dataset",
+            "example": "Analyze list of sales, calculate statistics, filter data"
+          },
+          {
+            "title": "User Interaction",
+            "description": "Keep asking for input until valid",
+            "example": "Menu systems, input validation, game loops"
+          },
+          {
+            "title": "File Operations",
+            "description": "Read file line by line",
+            "example": "Process log files, parse CSV data, analyze text"
+          },
+          {
+            "title": "Automation",
+            "description": "Repeat tasks automatically",
+            "example": "Send emails, download files, update databases"
+          }
+        ],
+        "dos": [
+          "Use for loops when you know the number of iterations",
+          "Use while loops when iterations depend on a condition",
+          "Always ensure while loops can terminate",
+          "Use break to exit loops when needed",
+          "Use meaningful variable names in loops"
+        ],
+        "donts": [
+          "Don't create infinite loops accidentally",
+          "Don't modify the sequence you're iterating over",
+          "Don't use loops when built-in functions exist",
+          "Don't forget to update while loop conditions",
+          "Don't nest too many loops (reduces readability)"
+        ],
+        "bestPractices": [
+          "Use enumerate() to get index and value together",
+          "Use list comprehensions for simple transformations",
+          "Consider using zip() for parallel iteration",
+          "Use else clause with loops for no-break scenarios",
+          "Profile nested loops for performance"
+        ],
+        "codeExamples": [
+          {
+            "title": "for Loop - Iterating Over Collections",
+            "explanation": "for loops are perfect for iterating over known sequences"
+          },
+          {
+            "title": "while Loop - Condition-Based Repetition",
+            "explanation": "while loops continue until condition becomes False"
+          },
+          {
+            "title": "Loop Control - break, continue, else",
+            "explanation": "break exits loop, continue skips iteration, else runs if no break occurred"
+          },
+          {
+            "title": "Real-World: Data Analysis Loop",
+            "explanation": "Complete example combining loops, conditionals, and data processing"
+          }
+        ]
+      },
+      {
+        "id": "tokens-keywords",
+        "title": "Python Tokens and Keywords",
+        "description": "Understanding the building blocks of Python code",
+        "overview": "Tokens are the smallest units of a Python program. They include keywords, identifiers, literals, operators, and delimiters. Keywords are reserved words with special meaning that cannot be used as variable names.",
+        "keyPoints": [
+          "Python has 35 reserved keywords (as of Python 3.11)",
+          "Keywords are case-sensitive (True, False, None)",
+          "Cannot use keywords as variable/function names",
+          "Some keywords are soft keywords (match, case in Python 3.10+)",
+          "Use keyword module to list all keywords"
+        ],
+        "useCases": [
+          {
+            "title": "Control Flow Keywords",
+            "description": "if, elif, else, for, while, break, continue, pass",
+            "example": "Control program execution flow"
+          },
+          {
+            "title": "Function and Class Keywords",
+            "description": "def, class, return, yield, lambda",
+            "example": "Define functions, classes, and generators"
+          },
+          {
+            "title": "Logic Keywords",
+            "description": "and, or, not, in, is",
+            "example": "Boolean operations and membership testing"
+          },
+          {
+            "title": "Exception Keywords",
+            "description": "try, except, finally, raise, assert",
+            "example": "Error handling and debugging"
+          }
+        ],
+        "dos": [
+          "Use keywords correctly according to Python syntax",
+          "Learn the purpose of each keyword",
+          "Use meaningful identifiers instead of keywords",
+          "Check if a word is a keyword using keyword.iskeyword()",
+          "Follow PEP 8 naming conventions for identifiers"
+        ],
+        "donts": [
+          "Don't use keywords as variable names",
+          "Don't misspell keywords (e.g., Def instead of def)",
+          "Don't use reserved words from other languages",
+          "Don't create identifiers that look like keywords",
+          "Don't ignore case sensitivity in keywords"
+        ],
+        "bestPractices": [
+          "Memorize commonly used keywords",
+          "Use IDE with syntax highlighting",
+          "Understand keyword context and usage",
+          "Keep updated with new keywords in Python versions",
+          "Use descriptive names for identifiers"
+        ],
+        "codeExamples": [
+          {
+            "title": "All Python Keywords",
+            "explanation": "Python provides the keyword module to work with keywords programmatically"
+          },
+          {
+            "title": "Keywords in Action",
+            "explanation": "Different categories of keywords serve different purposes in Python programming"
+          },
+          {
+            "title": "Common Keyword Mistakes",
+            "explanation": "Keywords are case-sensitive and cannot be used as variable names"
+          }
+        ]
+      },
+      {
+        "id": "identifiers-naming",
+        "title": "Identifiers and Naming Rules",
+        "description": "Learn how to name variables, functions, and classes properly",
+        "overview": "Identifiers are names given to variables, functions, classes, modules, and other objects. Python has specific rules for valid identifiers and conventions for readable, maintainable code.",
+        "keyPoints": [
+          "Identifiers can contain letters, digits, and underscores",
+          "Must start with a letter (a-z, A-Z) or underscore (_)",
+          "Cannot start with a digit",
+          "Case-sensitive (Name and name are different)",
+          "Cannot be a Python keyword"
+        ],
+        "useCases": [
+          {
+            "title": "Variable Names",
+            "description": "Store data values with descriptive names",
+            "example": "user_age, total_price, is_valid"
+          },
+          {
+            "title": "Function Names",
+            "description": "Name functions describing what they do",
+            "example": "calculate_total(), send_email(), validate_input()"
+          },
+          {
+            "title": "Class Names",
+            "description": "Name classes using CapWords convention",
+            "example": "UserAccount, ShoppingCart, DatabaseManager"
+          },
+          {
+            "title": "Constants",
+            "description": "Use UPPERCASE for constants",
+            "example": "MAX_SIZE, PI, DEFAULT_TIMEOUT"
+          }
+        ],
+        "dos": [
+          "Use descriptive and meaningful names",
+          "Follow snake_case for variables and functions",
+          "Use CapWords (PascalCase) for class names",
+          "Use UPPERCASE for constants",
+          "Keep names concise but clear"
+        ],
+        "donts": [
+          "Don't use single letters except in loops (i, j, k)",
+          "Don't start names with numbers",
+          "Don't use special characters (@, #, $, etc.)",
+          "Don't use Python keywords as names",
+          "Don't create ambiguous or cryptic names"
+        ],
+        "bestPractices": [
+          "Use verb_noun for function names: get_user(), calculate_total()",
+          "Use is/has prefix for boolean variables: is_active, has_permission",
+          "Avoid abbreviations unless widely understood",
+          "Be consistent with naming conventions across project",
+          "Use single underscore prefix for internal/private names"
+        ],
+        "codeExamples": [
+          {
+            "title": "Valid vs Invalid Identifiers",
+            "explanation": "Follow Python naming rules to avoid syntax errors"
+          },
+          {
+            "title": "Naming Conventions (PEP 8)",
+            "explanation": "Following PEP 8 conventions makes code readable and maintainable"
+          },
+          {
+            "title": "Descriptive Names",
+            "explanation": "Descriptive names make code self-documenting and easier to understand"
+          }
+        ]
+      },
+      {
+        "id": "literals-types",
+        "title": "Python Literals",
+        "description": "Understanding different types of literal values",
+        "overview": "Literals are fixed values that appear directly in code. Python supports numeric literals (integers, floats, complex), string literals, boolean literals (True/False), and special literal None. Understanding literals is fundamental to working with data.",
+        "keyPoints": [
+          "Numeric literals: integers, floats, complex numbers",
+          "String literals: single, double, triple quotes",
+          "Boolean literals: True and False (capitalized)",
+          "None literal: represents absence of value",
+          "Collection literals: lists [], tuples (), dicts {}, sets {}"
+        ],
+        "useCases": [
+          {
+            "title": "Numeric Calculations",
+            "description": "Direct number values in expressions",
+            "example": "total = 100 + 50 * 1.5"
+          },
+          {
+            "title": "String Messages",
+            "description": "Fixed text values in programs",
+            "example": "greeting = \"Welcome to Python!\""
+          },
+          {
+            "title": "Boolean Flags",
+            "description": "True/False conditions",
+            "example": "is_active = True, debug_mode = False"
+          },
+          {
+            "title": "Default Values",
+            "description": "None for uninitialized variables",
+            "example": "user_input = None"
+          }
+        ],
+        "dos": [
+          "Use appropriate literal types for your data",
+          "Use triple quotes for multi-line strings",
+          "Use raw strings (r\"\") for regular expressions",
+          "Use underscores in large numbers for readability",
+          "Use None for missing/undefined values"
+        ],
+        "donts": [
+          "Don't use quotes around numeric literals",
+          "Don't confuse 0/1 with False/True",
+          "Don't use empty strings for None",
+          "Don't ignore decimal precision in float literals",
+          "Don't mix number bases without clarity"
+        ],
+        "bestPractices": [
+          "Use f-strings for string formatting (Python 3.6+)",
+          "Use scientific notation for very large/small numbers",
+          "Use explicit type conversion when needed",
+          "Document complex number usage",
+          "Use constants for repeated literal values"
+        ],
+        "codeExamples": [
+          {
+            "title": "Numeric Literals",
+            "explanation": "Python supports various numeric literal formats for different bases and types"
+          },
+          {
+            "title": "String Literals",
+            "explanation": "Python offers flexible string literal syntax for different use cases"
+          },
+          {
+            "title": "Boolean and None Literals",
+            "explanation": "Boolean and None literals are fundamental for control flow and representing absence of values"
+          },
+          {
+            "title": "Collection Literals",
+            "explanation": "Collection literals provide convenient syntax for creating data structures"
+          }
+        ]
+      },
+      {
+        "id": "python-comments",
+        "title": "Comments and Documentation",
+        "description": "Writing clear comments and docstrings",
+        "overview": "Comments are annotations in code that Python ignores during execution. They explain what code does, why decisions were made, and how to use functions/classes. Good comments make code maintainable and collaborative.",
+        "keyPoints": [
+          "Single-line comments start with #",
+          "Multi-line comments use triple quotes (\"\"\" or ''')",
+          "Docstrings document modules, classes, functions",
+          "Comments explain WHY, not WHAT (code shows what)",
+          "Keep comments up-to-date with code changes"
+        ],
+        "useCases": [
+          {
+            "title": "Code Explanation",
+            "description": "Clarify complex logic or algorithms",
+            "example": "# Using binary search for O(log n) performance"
+          },
+          {
+            "title": "Function Documentation",
+            "description": "Describe function purpose, parameters, returns",
+            "example": "Docstrings with parameter descriptions"
+          },
+          {
+            "title": "TODO Markers",
+            "description": "Mark incomplete or planned features",
+            "example": "# TODO: Add error handling for network failures"
+          },
+          {
+            "title": "Debugging",
+            "description": "Temporarily disable code",
+            "example": "# print(debug_info)  # Commented out for production"
+          }
+        ],
+        "dos": [
+          "Write clear, concise comments",
+          "Use docstrings for all public functions/classes",
+          "Explain WHY code exists, not just what it does",
+          "Keep comments up-to-date",
+          "Use TODO, FIXME, NOTE markers for special comments"
+        ],
+        "donts": [
+          "Don't state the obvious (# increment x by 1)",
+          "Don't write novels - be concise",
+          "Don't leave outdated comments",
+          "Don't comment out large blocks permanently",
+          "Don't use comments to hide bad code names"
+        ],
+        "bestPractices": [
+          "Self-documenting code reduces need for comments",
+          "Use docstrings that tools can extract",
+          "Follow PEP 257 for docstring conventions",
+          "Explain complex algorithms with references",
+          "Use inline comments sparingly"
+        ],
+        "codeExamples": [
+          {
+            "title": "Single-Line Comments",
+            "explanation": "Single-line comments start with # and extend to end of line"
+          },
+          {
+            "title": "Docstrings - Function Documentation",
+            "explanation": "Docstrings are the first statement in a function/class. Triple quotes allow multi-line text"
+          },
+          {
+            "title": "Class and Module Docstrings",
+            "explanation": "Module and class docstrings provide high-level documentation. Use consistent format (Google, NumPy, or Sphinx style)"
+          },
+          {
+            "title": "Commenting Best Practices",
+            "explanation": "Good comments explain complex logic, assumptions, and reasoning. Code should be self-explanatory where possible"
+          }
+        ]
+      },
+      {
+        "id": "user-input",
+        "title": "Getting User Input",
+        "description": "Learn how to accept and process user input in Python",
+        "overview": "The input() function allows Python programs to interact with users by accepting text input from the keyboard. Understanding how to get, validate, and convert user input is essential for creating interactive programs.",
+        "keyPoints": [
+          "input() function reads user input as a string",
+          "Always returns a string, even if user types numbers",
+          "Use type conversion to get numbers from input",
+          "Can provide a prompt message to guide users",
+          "Input waits for user to press Enter"
+        ],
+        "useCases": [
+          {
+            "title": "Interactive Programs",
+            "description": "Create programs that respond to user choices",
+            "example": "Calculators, games, menus, configuration tools"
+          },
+          {
+            "title": "Data Collection",
+            "description": "Gather information from users",
+            "example": "Registration forms, surveys, questionnaires"
+          },
+          {
+            "title": "Configuration",
+            "description": "Let users customize program behavior",
+            "example": "Settings, preferences, parameters"
+          },
+          {
+            "title": "Testing",
+            "description": "Manually test program logic",
+            "example": "Input test data, verify outputs"
+          }
+        ],
+        "dos": [
+          "Always validate user input",
+          "Provide clear prompts explaining what to enter",
+          "Handle invalid input gracefully",
+          "Convert input to appropriate type (int, float, etc.)",
+          "Use try-except for type conversion errors"
+        ],
+        "donts": [
+          "Don't assume input is valid",
+          "Don't forget input() returns strings",
+          "Don't use vague prompts like \"Enter:\"",
+          "Don't crash on invalid input",
+          "Don't ask for input multiple times unnecessarily"
+        ],
+        "bestPractices": [
+          "Validate input immediately after receiving it",
+          "Provide examples in prompts: \"Enter age (e.g., 25): \"",
+          "Use loops to re-prompt on invalid input",
+          "Strip whitespace from input: input().strip()",
+          "Consider default values for optional input"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Input",
+            "explanation": "input() displays a prompt and waits for user to type and press Enter"
+          },
+          {
+            "title": "Converting Input Types",
+            "explanation": "Use int(), float(), bool() to convert string input to other types"
+          },
+          {
+            "title": "Input Validation",
+            "explanation": "Always validate input to prevent errors and ensure data quality"
+          },
+          {
+            "title": "Real-World Example: Simple Calculator",
+            "explanation": "Robust input handling makes programs user-friendly and error-resistant"
+          }
+        ]
+      },
+      {
+        "id": "display-output",
+        "title": "Displaying Output",
+        "description": "Master the print() function and output formatting",
+        "overview": "The print() function displays output to the console. Python offers multiple ways to format output, from simple concatenation to advanced f-strings. Understanding output formatting is crucial for creating readable, professional programs.",
+        "keyPoints": [
+          "print() displays text and values to the console",
+          "Can print multiple values separated by spaces",
+          "f-strings (f\"\") provide easy string formatting",
+          "format() method for complex formatting",
+          "Can control separator and ending characters"
+        ],
+        "useCases": [
+          {
+            "title": "Debugging",
+            "description": "Display variable values during development",
+            "example": "print(f\"x={x}, y={y}\")"
+          },
+          {
+            "title": "User Feedback",
+            "description": "Show results, messages, and status",
+            "example": "Success messages, error notifications, progress updates"
+          },
+          {
+            "title": "Reports",
+            "description": "Generate formatted reports and tables",
+            "example": "Sales reports, data summaries, invoices"
+          },
+          {
+            "title": "Logging",
+            "description": "Record program activities",
+            "example": "Application logs, audit trails"
+          }
+        ],
+        "dos": [
+          "Use f-strings for readable formatting (Python 3.6+)",
+          "Provide clear, informative messages",
+          "Use proper spacing and alignment",
+          "End with newline for readability",
+          "Format numbers appropriately (decimals, currency, etc.)"
+        ],
+        "donts": [
+          "Don't print excessive debug output in production",
+          "Don't ignore formatting for user-facing output",
+          "Don't use print() for logging in large applications",
+          "Don't forget to remove debug prints",
+          "Don't assume terminal width"
+        ],
+        "bestPractices": [
+          "Use f-strings for modern, readable formatting",
+          "Align columns for tabular data",
+          "Use thousands separators for large numbers",
+          "Include units in output (e.g., \"25 kg\", \"100 USD\")",
+          "Consider using logging module instead of print for apps"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Print Statements",
+            "explanation": "print() is versatile - can print one or more values with custom separators and endings"
+          },
+          {
+            "title": "String Formatting with f-strings",
+            "explanation": "f-strings provide the most readable and powerful way to format strings in modern Python"
+          },
+          {
+            "title": "Other Formatting Methods",
+            "explanation": "Multiple formatting methods exist, but f-strings are recommended for clarity"
+          },
+          {
+            "title": "Real-World Example: Receipt Formatter",
+            "explanation": "Proper formatting creates professional-looking output for reports and receipts"
+          }
+        ]
+      }
+    ],
+    "totalTexts": 586
+  },
+  "intermediate": {
+    "courseName": "intermediate",
+    "totalTopics": 11,
+    "topics": [
+      {
+        "id": "strings-comprehensive",
+        "title": "Strings - Complete Mastery",
+        "description": "Master string manipulation and text processing in Python",
+        "overview": "Strings are sequences of characters used for storing and manipulating text. Python provides powerful string methods and operations that make text processing easy and efficient. From simple concatenation to complex pattern matching, strings are fundamental to almost every Python program.",
+        "keyPoints": [
+          "Strings are immutable - cannot be changed after creation",
+          "Can use single quotes, double quotes, or triple quotes",
+          "Support indexing and slicing like lists",
+          "Rich set of built-in methods for manipulation",
+          "Unicode support for international characters"
+        ],
+        "useCases": [
+          {
+            "title": "Text Processing",
+            "description": "Parse and analyze text data",
+            "example": "Process log files, extract information, clean data"
+          },
+          {
+            "title": "User Input Validation",
+            "description": "Validate and format user input",
+            "example": "Check email format, clean phone numbers, validate passwords"
+          },
+          {
+            "title": "Data Formatting",
+            "description": "Format data for display",
+            "example": "Create reports, format currency, generate messages"
+          },
+          {
+            "title": "File Operations",
+            "description": "Read and write text files",
+            "example": "Parse CSV, process configuration files, log writing"
+          }
+        ],
+        "dos": [
+          "Use .format() or % formatting for string interpolation",
+          "Use appropriate string methods instead of manual loops",
+          "Use join() for combining multiple strings efficiently",
+          "Use strip() to remove unwanted whitespace",
+          "Check string methods documentation for built-in solutions"
+        ],
+        "donts": [
+          "Don't concatenate strings in loops (use join instead)",
+          "Don't use + for building large strings repeatedly",
+          "Don't forget strings are immutable",
+          "Don't use == for case-insensitive comparison without lower()",
+          "Don't manually implement what built-in methods do"
+        ],
+        "bestPractices": [
+          "Use .format() or % for string formatting",
+          "Use raw strings (r\"...\") for regular expressions",
+          "Use triple quotes for multi-line strings",
+          "Chain string methods for clean code",
+          "Use constants for repeated string values"
+        ],
+        "codeExamples": [
+          {
+            "title": "String Creation and Basic Operations",
+            "explanation": "Strings can be created multiple ways and support powerful slicing operations"
+          },
+          {
+            "title": "String Formatting - Modern Approaches",
+            "explanation": "Use .format() or % for clean, readable string formatting"
+          },
+          {
+            "title": "Essential String Methods",
+            "explanation": "Python provides rich string methods for common operations"
+          },
+          {
+            "title": "Real-World: Email Validator",
+            "explanation": "Practical example using multiple string methods for validation"
+          },
+          {
+            "title": "Real-World: Text Data Cleaning",
+            "explanation": "Real-world data cleaning using string methods and comprehensions"
+          }
+        ]
+      },
+      {
+        "id": "lists-comprehensive",
+        "title": "Lists - Complete Mastery",
+        "description": "Master Python lists and list operations",
+        "overview": "Lists are ordered, mutable collections that can hold items of any type. They are one of Python's most versatile data structures, perfect for storing sequences of related data. Lists support indexing, slicing, and a rich set of methods for adding, removing, and manipulating elements.",
+        "keyPoints": [
+          "Lists are mutable - can be modified after creation",
+          "Can contain mixed data types",
+          "Support indexing, slicing, and iteration",
+          "Dynamic size - grow and shrink automatically",
+          "Many built-in methods for manipulation"
+        ],
+        "useCases": [
+          {
+            "title": "Data Collection",
+            "description": "Store and organize related data",
+            "example": "Student grades, shopping cart items, task lists"
+          },
+          {
+            "title": "Data Processing",
+            "description": "Transform and analyze data",
+            "example": "Filter records, calculate statistics, sort results"
+          },
+          {
+            "title": "Stack/Queue Implementation",
+            "description": "Implement data structures",
+            "example": "Task queues, undo/redo functionality, breadth-first search"
+          },
+          {
+            "title": "Batch Operations",
+            "description": "Process multiple items",
+            "example": "Bulk file processing, batch API calls, data imports"
+          }
+        ],
+        "dos": [
+          "Use list comprehensions for transformations",
+          "Use appropriate methods (append, extend, insert)",
+          "Check if list is empty with \"if my_list:\"",
+          "Use enumerate() when you need index and value",
+          "Use slicing for creating copies"
+        ],
+        "donts": [
+          "Don't modify list while iterating over it",
+          "Don't use + for repeated appending (use extend)",
+          "Don't forget lists are mutable (passed by reference)",
+          "Don't use lists for large datasets needing fast lookups",
+          "Don't create unnecessary copies of large lists"
+        ],
+        "bestPractices": [
+          "Use list comprehensions instead of map/filter when readable",
+          "Consider using deque for queue operations",
+          "Use tuple for immutable sequences",
+          "Profile before optimizing list operations",
+          "Use appropriate data structure (list, set, dict) for your use case"
+        ],
+        "codeExamples": [
+          {
+            "title": "List Creation and Basic Operations",
+            "explanation": "Lists support various creation methods and operations"
+          },
+          {
+            "title": "List Comprehensions - Powerful and Pythonic",
+            "explanation": "List comprehensions provide elegant way to create and transform lists"
+          },
+          {
+            "title": "Essential List Methods",
+            "explanation": "List methods provide powerful tools for manipulation"
+          },
+          {
+            "title": "Real-World: Student Grade Management",
+            "explanation": "Complete real-world example using lists and list methods"
+          }
+        ]
+      },
+      {
+        "id": "tuples-comprehensive",
+        "title": "Tuples - Immutable Sequences",
+        "description": "Master tuples and tuple operations in Python",
+        "overview": "Tuples are immutable sequences in Python, similar to lists but cannot be modified after creation. They are perfect for storing related data that should not change, like coordinates, RGB colors, or database records. Tuples are faster than lists and can be used as dictionary keys.",
+        "keyPoints": [
+          "Tuples are immutable - cannot be changed after creation",
+          "Created using parentheses () or without delimiters",
+          "Support indexing and slicing like lists",
+          "Can be used as dictionary keys (unlike lists)",
+          "Faster and more memory-efficient than lists"
+        ],
+        "useCases": [
+          {
+            "title": "Fixed Data Collections",
+            "description": "Store data that should not change",
+            "example": "Coordinates (x, y), RGB colors (255, 128, 0), date (2023, 12, 25)"
+          },
+          {
+            "title": "Multiple Return Values",
+            "description": "Return multiple values from functions",
+            "example": "def get_user(): return name, age, email"
+          },
+          {
+            "title": "Dictionary Keys",
+            "description": "Use as immutable dictionary keys",
+            "example": "locations = {(40.7, -74.0): \"New York\", (34.0, -118.2): \"LA\"}"
+          },
+          {
+            "title": "Data Integrity",
+            "description": "Prevent accidental modifications",
+            "example": "Configuration settings, constant values, enum-like data"
+          }
+        ],
+        "dos": [
+          "Use tuples for fixed collections of items",
+          "Use tuple unpacking for readable code",
+          "Use tuples as dictionary keys when needed",
+          "Use named tuples for better code clarity",
+          "Return tuples from functions for multiple values"
+        ],
+        "donts": [
+          "Don't use tuples when you need to modify data",
+          "Don't forget the comma for single-item tuples",
+          "Don't confuse (1) with (1,) - first is int, second is tuple",
+          "Don't try to modify tuple elements directly",
+          "Don't use tuples for large, homogeneous data (use lists)"
+        ],
+        "bestPractices": [
+          "Use tuple unpacking for cleaner code",
+          "Consider named tuples for self-documenting code",
+          "Use tuples for heterogeneous data (different types)",
+          "Use tuples when data should not change",
+          "Prefer tuples over lists for return values"
+        ],
+        "codeExamples": [
+          {
+            "title": "Tuple Creation and Basic Operations",
+            "explanation": "Tuples are created with parentheses and support similar operations to lists, but are immutable"
+          },
+          {
+            "title": "Tuple Unpacking - Elegant and Powerful",
+            "explanation": "Tuple unpacking makes code cleaner and more readable"
+          },
+          {
+            "title": "Named Tuples for Better Code",
+            "explanation": "Named tuples provide self-documenting code with named fields while maintaining tuple benefits"
+          },
+          {
+            "title": "Real-World: Database Records",
+            "explanation": "Named tuples are perfect for representing database records with immutability and clarity"
+          }
+        ]
+      },
+      {
+        "id": "dictionaries-comprehensive",
+        "title": "Dictionaries - Key-Value Mastery",
+        "description": "Master Python dictionaries and mapping operations",
+        "overview": "Dictionaries are Python's built-in mapping type, storing data as key-value pairs. They provide fast lookups, flexible data organization, and are fundamental to Python programming. Dictionaries are mutable, unordered (before Python 3.7) or insertion-ordered (Python 3.7+), and support powerful operations for data manipulation.",
+        "keyPoints": [
+          "Store data as key-value pairs for fast lookups",
+          "Keys must be immutable (strings, numbers, tuples)",
+          "Values can be any type, including other dictionaries",
+          "Insertion order preserved (Python 3.7+)",
+          "Average O(1) time complexity for lookups"
+        ],
+        "useCases": [
+          {
+            "title": "Data Mapping",
+            "description": "Map keys to values for quick lookups",
+            "example": "user_ages = {\"Alice\": 25, \"Bob\": 30, \"Charlie\": 35}"
+          },
+          {
+            "title": "Configuration Storage",
+            "description": "Store application settings and config",
+            "example": "config = {\"host\": \"localhost\", \"port\": 8080, \"debug\": True}"
+          },
+          {
+            "title": "Caching",
+            "description": "Cache expensive computation results",
+            "example": "fibonacci_cache = {0: 0, 1: 1, 2: 1, 3: 2}"
+          },
+          {
+            "title": "Data Transformation",
+            "description": "Transform and restructure data",
+            "example": "Group students by grade, aggregate sales by region"
+          }
+        ],
+        "dos": [
+          "Use get() method to avoid KeyError",
+          "Use dict comprehensions for transformations",
+          "Use setdefault() or defaultdict for default values",
+          "Check if key exists with \"in\" operator",
+          "Use items() for iterating key-value pairs"
+        ],
+        "donts": [
+          "Don't use mutable objects as keys (lists, sets, dicts)",
+          "Don't modify dictionary while iterating (use list(dict.items()))",
+          "Don't use dict[key] without checking existence",
+          "Don't forget dictionaries are mutable (passed by reference)",
+          "Don't use dictionaries for ordered sequences (use lists)"
+        ],
+        "bestPractices": [
+          "Use dict.get(key, default) instead of dict[key]",
+          "Use dict comprehensions for creating dictionaries",
+          "Use collections.defaultdict for default values",
+          "Use collections.Counter for counting",
+          "Consider using dataclasses for structured data"
+        ],
+        "codeExamples": [
+          {
+            "title": "Dictionary Creation and Operations",
+            "explanation": "Dictionaries provide fast key-value storage with flexible operations"
+          },
+          {
+            "title": "Dictionary Comprehensions",
+            "explanation": "Dictionary comprehensions provide elegant way to create and transform dictionaries"
+          },
+          {
+            "title": "Advanced Dictionary Techniques",
+            "explanation": "Advanced techniques for working with dictionaries efficiently"
+          },
+          {
+            "title": "Real-World: Student Grade System",
+            "explanation": "Complete real-world grade management system using dictionaries"
+          }
+        ]
+      },
+      {
+        "id": "sets-comprehensive",
+        "title": "Sets - Unique Collections Mastery",
+        "description": "Master Python sets and set operations",
+        "overview": "Sets are unordered collections of unique elements in Python. They are perfect for removing duplicates, membership testing, and mathematical set operations like union, intersection, and difference. Sets are mutable (but frozensets are immutable) and provide fast O(1) membership testing.",
+        "keyPoints": [
+          "Sets store only unique elements - duplicates are automatically removed",
+          "Unordered - no indexing or slicing",
+          "Fast membership testing with O(1) average time complexity",
+          "Support mathematical set operations (union, intersection, difference)",
+          "Elements must be immutable (hashable)"
+        ],
+        "useCases": [
+          {
+            "title": "Remove Duplicates",
+            "description": "Quickly remove duplicate items from sequences",
+            "example": "unique_items = set([1, 2, 2, 3, 3, 4]) # {1, 2, 3, 4}"
+          },
+          {
+            "title": "Membership Testing",
+            "description": "Fast checking if element exists",
+            "example": "allowed_users = {\"alice\", \"bob\"}; \"alice\" in allowed_users"
+          },
+          {
+            "title": "Set Operations",
+            "description": "Find common elements, differences between collections",
+            "example": "common_skills = frontend_skills & backend_skills"
+          },
+          {
+            "title": "Tag Systems",
+            "description": "Manage unique tags, categories, keywords",
+            "example": "post_tags = {\"python\", \"tutorial\", \"beginner\"}"
+          }
+        ],
+        "dos": [
+          "Use sets for membership testing when order doesn't matter",
+          "Use sets to remove duplicates efficiently",
+          "Use set operations for comparing collections",
+          "Use frozenset when you need immutable sets",
+          "Use set comprehensions for transformations"
+        ],
+        "donts": [
+          "Don't use sets when you need to maintain order",
+          "Don't try to add mutable objects (lists, dicts) to sets",
+          "Don't use sets for indexed access",
+          "Don't forget sets are mutable (use frozenset for dict keys)",
+          "Don't use sets for small collections (overhead not worth it)"
+        ],
+        "bestPractices": [
+          "Use sets for fast membership testing",
+          "Prefer set operations over manual loops",
+          "Use frozenset for immutable sets",
+          "Document when set ordering matters (it doesn't)",
+          "Consider sets for deduplication"
+        ],
+        "codeExamples": [
+          {
+            "title": "Set Creation and Basic Operations",
+            "explanation": "Sets automatically handle uniqueness and provide fast membership testing"
+          },
+          {
+            "title": "Set Operations - Mathematical Power",
+            "explanation": "Set operations provide powerful ways to compare and combine collections"
+          },
+          {
+            "title": "Set Comprehensions",
+            "explanation": "Set comprehensions create sets efficiently with automatic deduplication"
+          },
+          {
+            "title": "Real-World: Tag Management System",
+            "explanation": "Sets are perfect for tag systems requiring uniqueness and fast lookups"
+          },
+          {
+            "title": "Real-World: User Permissions",
+            "explanation": "Sets efficiently manage permissions with fast lookups and set operations"
+          }
+        ]
+      },
+      {
+        "id": "functions",
+        "title": "Functions",
+        "description": "Create reusable blocks of code",
+        "overview": "Functions are reusable blocks of code that perform specific tasks. They help organize code, reduce repetition, and make programs more maintainable. Functions can accept inputs (parameters) and return outputs (return values).",
+        "keyPoints": [
+          "Functions are defined using the def keyword",
+          "Parameters allow passing data to functions",
+          "Return values send data back from functions",
+          "Functions can have default parameter values",
+          "Scope determines where variables are accessible"
+        ],
+        "useCases": [
+          {
+            "title": "Code Reusability",
+            "description": "Write once, use many times",
+            "example": "def calculate_tax(amount): return amount * 0.08"
+          },
+          {
+            "title": "Abstraction",
+            "description": "Hide complex logic behind simple interfaces",
+            "example": "send_email(to, subject, body) hides email complexity"
+          },
+          {
+            "title": "Modularity",
+            "description": "Break large programs into manageable pieces",
+            "example": "validate_input(), process_data(), display_results()"
+          },
+          {
+            "title": "Testing",
+            "description": "Test individual components independently",
+            "example": "Test each function separately for reliability"
+          }
+        ],
+        "dos": [
+          "Give functions descriptive names that indicate their purpose",
+          "Keep functions focused on a single task",
+          "Use docstrings to document function behavior",
+          "Return values instead of printing when possible",
+          "Use type hints for parameters and return values"
+        ],
+        "donts": [
+          "Don't create functions that are too long (>20-30 lines)",
+          "Don't use global variables inside functions when avoidable",
+          "Don't modify mutable arguments unexpectedly",
+          "Don't forget to return a value when needed",
+          "Don't use too many parameters (>5 suggests refactoring needed)"
+        ],
+        "bestPractices": [
+          "One function should do one thing well",
+          "Use default parameters for optional values",
+          "Document complex functions with docstrings",
+          "Validate input parameters",
+          "Use meaningful parameter names"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Function Definition",
+            "explanation": "Functions encapsulate code. Use parameters for inputs and return for outputs. Multiple values can be returned as a tuple."
+          },
+          {
+            "title": "Default Parameters and Keyword Arguments",
+            "explanation": "Default parameters provide fallback values. Keyword arguments allow specifying parameters by name in any order."
+          },
+          {
+            "title": "Variable-length Arguments",
+            "explanation": "*args collects extra positional arguments into a tuple. **kwargs collects extra keyword arguments into a dictionary."
+          },
+          {
+            "title": "Lambda Functions",
+            "explanation": "Lambda functions are compact one-line functions. Useful for simple operations, especially with map(), filter(), sorted()."
+          },
+          {
+            "title": "Docstrings and Type Hints",
+            "explanation": "Docstrings document functions. Type hints specify expected types (not enforced at runtime but useful for tools)."
+          }
+        ]
+      },
+      {
+        "id": "comprehensions",
+        "title": "List & Dict Comprehensions",
+        "description": "Master Pythonic syntax for creating lists, dictionaries, and sets efficiently",
+        "overview": "Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.\n\n**List Comprehensions:** Create lists from iterables with optional filtering\n\n**Dict Comprehensions:** Build dictionaries with key-value transformations\n\n**Set Comprehensions:** Generate unique sets with filtering\n\n**Nested Comprehensions:** Handle multi-dimensional data structures\n\n**Why Use Comprehensions:**\n✓ More readable than equivalent for loops\n✓ Often faster than traditional loops\n✓ Pythonic and idiomatic code style\n✓ Compact syntax reduces code length",
+        "keyPoints": [
+          "Basic syntax: [expression for item in iterable]",
+          "With condition: [expression for item in iterable if condition]",
+          "Can nest comprehensions for multi-dimensional data",
+          "Dict comprehensions use {key: value for...} syntax",
+          "Set comprehensions use {expression for...} syntax",
+          "More readable than map() and filter() in most cases"
+        ],
+        "useCases": [
+          {
+            "title": "Data Transformation",
+            "description": "Transform lists/dicts to new formats",
+            "example": "Convert temperatures, normalize data, extract fields"
+          },
+          {
+            "title": "Filtering",
+            "description": "Extract elements matching criteria",
+            "example": "Filter even numbers, valid emails, passing scores"
+          },
+          {
+            "title": "Data Parsing",
+            "description": "Parse and restructure data",
+            "example": "CSV processing, JSON transformation, API responses"
+          },
+          {
+            "title": "Matrix Operations",
+            "description": "Create and manipulate 2D structures",
+            "example": "Matrix initialization, flattening, transposition"
+          }
+        ],
+        "dos": [
+          "✓ Use comprehensions for simple transformations and filters",
+          "✓ Keep comprehensions readable - break complex ones into loops",
+          "✓ Use meaningful variable names even in comprehensions",
+          "✓ Prefer comprehensions over map() and filter() for clarity",
+          "✓ Use dict comprehensions to swap keys/values"
+        ],
+        "donts": [
+          "✗ Don't create overly complex nested comprehensions",
+          "✗ Don't use comprehensions with side effects",
+          "✗ Don't sacrifice readability for brevity",
+          "✗ Don't use comprehensions when loops are clearer",
+          "✗ Don't forget comprehensions create new objects"
+        ],
+        "bestPractices": [
+          "Keep comprehensions simple - one transformation or filter",
+          "Use generator expressions for large datasets: (x for x in range())",
+          "Break complex logic into regular loops for clarity",
+          "Use intermediate variables for complex expressions",
+          "Add comments for non-obvious comprehensions"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. List Comprehensions - Basics",
+            "explanation": "List comprehensions provide concise syntax for creating lists from iterables with optional filtering and transformation."
+          },
+          {
+            "title": "2. Dict Comprehensions - Creating Dictionaries",
+            "explanation": "Dict comprehensions build dictionaries using {key: value for...} syntax, perfect for transforming or filtering dictionaries."
+          },
+          {
+            "title": "3. Set Comprehensions & Nested Comprehensions",
+            "explanation": "Set comprehensions create unique collections, while nested comprehensions handle multi-dimensional structures and combinations."
+          },
+          {
+            "title": "4. Advanced Patterns & Real-World Examples",
+            "explanation": "Advanced comprehensions can parse data, create lookups, and perform complex transformations, but remember: readability counts!"
+          }
+        ]
+      },
+      {
+        "id": "decorators",
+        "title": "Decorators & Higher-Order Functions",
+        "description": "Master function decorators and functional programming concepts",
+        "overview": "Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.\n\n**What are Decorators:**\n• Functions that take a function and return a modified function\n• Use @ symbol before function definition\n• Enable code reuse and separation of concerns\n\n**Common Use Cases:**\n• Logging and debugging\n• Performance timing\n• Access control and authentication\n• Caching/memoization\n• Input validation\n\n**Why Use Decorators:**\n✓ Don't repeat yourself (DRY principle)\n✓ Separate cross-cutting concerns\n✓ Clean and readable code\n✓ Widely used in frameworks (Flask, Django)",
+        "keyPoints": [
+          "Decorators are functions that wrap other functions",
+          "Use @decorator_name syntax above function definition",
+          "Can stack multiple decorators on one function",
+          "functools.wraps preserves original function metadata",
+          "Can create decorators with arguments using nested functions",
+          "Closures enable decorators to access outer scope variables"
+        ],
+        "useCases": [
+          {
+            "title": "Logging & Debugging",
+            "description": "Automatically log function calls and returns",
+            "example": "Track function execution, debug parameters, monitor errors"
+          },
+          {
+            "title": "Performance Monitoring",
+            "description": "Measure execution time",
+            "example": "Profile slow functions, optimize bottlenecks"
+          },
+          {
+            "title": "Authentication & Authorization",
+            "description": "Check user permissions before execution",
+            "example": "Web frameworks, API endpoints, admin functions"
+          },
+          {
+            "title": "Caching",
+            "description": "Store results to avoid recomputation",
+            "example": "Expensive calculations, database queries, API calls"
+          }
+        ],
+        "dos": [
+          "✓ Use functools.wraps to preserve function metadata",
+          "✓ Keep decorators simple and focused on one task",
+          "✓ Document what your decorator does",
+          "✓ Use decorators for cross-cutting concerns",
+          "✓ Consider using built-in decorators like @property, @staticmethod"
+        ],
+        "donts": [
+          "✗ Don't make decorators too complex",
+          "✗ Don't forget functools.wraps (loses docstrings)",
+          "✗ Don't overuse decorators - they can obscure code",
+          "✗ Don't create decorators with significant overhead",
+          "✗ Don't stack too many decorators - hard to debug"
+        ],
+        "bestPractices": [
+          "Always use @functools.wraps in decorator functions",
+          "Create decorator libraries for common patterns",
+          "Use descriptive names that explain what decorator does",
+          "Consider performance impact of decorators",
+          "Test decorated and undecorated functions separately"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Basic Decorator - Logging Function Calls",
+            "explanation": "Decorators wrap functions to add functionality. @functools.wraps preserves original function metadata (name, docstring)."
+          },
+          {
+            "title": "2. Performance Timer Decorator",
+            "explanation": "Timer decorator measures execution time by recording start/end times and calculating the difference."
+          },
+          {
+            "title": "3. Decorator with Arguments & Caching",
+            "explanation": "Decorators can take arguments using nested functions. Caching decorators store results to avoid recomputation."
+          },
+          {
+            "title": "4. Multiple Decorators & Class-Based Decorators",
+            "explanation": "Multiple decorators stack from bottom to top. Class-based decorators use __call__ method. Decorators enable access control patterns."
+          }
+        ]
+      },
+      {
+        "id": "generators",
+        "title": "Generators & Iterators",
+        "description": "Master memory-efficient iteration with generators and iterators",
+        "overview": "Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.\n\n**What are Generators:**\n• Functions that use yield instead of return\n• Produce values one at a time (lazy evaluation)\n• Maintain state between calls\n• Can be infinite\n\n**Generator Expressions:**\n• Like list comprehensions but with () instead of []\n• Create generators without defining functions\n• Memory-efficient for large datasets\n\n**Why Use Generators:**\n✓ Memory efficient - don't store all values\n✓ Fast for large datasets\n✓ Can represent infinite sequences\n✓ Elegant for pipelines and streaming data",
+        "keyPoints": [
+          "Use yield to create generator functions",
+          "Generators are iterators - can only iterate once",
+          "Generator expressions use () syntax: (x for x in range(10))",
+          "next() gets the next value from a generator",
+          "Generators remember state between yields",
+          "More memory-efficient than lists for large datasets"
+        ],
+        "useCases": [
+          {
+            "title": "Large File Processing",
+            "description": "Read huge files line-by-line without loading into memory",
+            "example": "Process log files, CSV parsing, streaming data"
+          },
+          {
+            "title": "Infinite Sequences",
+            "description": "Generate unlimited sequences",
+            "example": "Fibonacci series, prime numbers, random data streams"
+          },
+          {
+            "title": "Data Pipelines",
+            "description": "Chain transformations efficiently",
+            "example": "ETL processes, data cleaning, filtering streams"
+          },
+          {
+            "title": "Performance Optimization",
+            "description": "Reduce memory footprint",
+            "example": "Processing millions of records, real-time data"
+          }
+        ],
+        "dos": [
+          "✓ Use generators for large datasets to save memory",
+          "✓ Use generator expressions for simple cases",
+          "✓ Chain generators to create data pipelines",
+          "✓ Use yield from to delegate to another generator",
+          "✓ Remember generators can only be iterated once"
+        ],
+        "donts": [
+          "✗ Don't try to iterate a generator twice",
+          "✗ Don't use generators when you need random access",
+          "✗ Don't use generators for small datasets (overhead)",
+          "✗ Don't forget generators are consumed after iteration",
+          "✗ Don't try to get length of generator with len()"
+        ],
+        "bestPractices": [
+          "Use generator expressions for simple transformations",
+          "Create generator functions for complex logic",
+          "Chain generators instead of creating intermediate lists",
+          "Use itertools module for common generator patterns",
+          "Document that functions return generators (not lists)"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Generator Functions vs Regular Functions",
+            "explanation": "Generators use yield to produce values on-demand. Unlike lists, they don't store all values in memory and can only be iterated once."
+          },
+          {
+            "title": "2. Infinite Generators & Practical Applications",
+            "explanation": "Generators can represent infinite sequences and process large files without loading everything into memory."
+          },
+          {
+            "title": "3. Generator Pipelines & Data Processing",
+            "explanation": "Generator pipelines chain transformations efficiently. yield from delegates to another generator. Each stage processes data on-demand."
+          },
+          {
+            "title": "4. Advanced: Generator Methods & itertools",
+            "explanation": "Generators support send() for two-way communication. itertools provides powerful generator utilities for common patterns."
+          }
+        ]
+      },
+      {
+        "id": "regex",
+        "title": "Regular Expressions (Regex)",
+        "description": "Master pattern matching and text processing with regular expressions",
+        "overview": "Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.\n\n**What are Regular Expressions:**\n• Pattern-matching language for strings\n• Used for searching, extracting, and replacing text\n• Supported across most programming languages\n• Essential for text processing and validation\n\n**Common Use Cases:**\n• Email/phone validation\n• Data extraction from text\n• Find and replace operations\n• Log file parsing\n• Web scraping\n\n**Why Learn Regex:**\n✓ Powerful text processing in one line\n✓ Industry standard for pattern matching\n✓ Works in Python, JavaScript, SQL, command line\n✓ Essential for data cleaning and validation",
+        "keyPoints": [
+          "Python re module provides regex functionality",
+          ". matches any character, * means zero or more",
+          "[] defines character sets, () creates groups",
+          "^ matches start, $ matches end of string",
+          "Use raw strings r\"pattern\" for regex patterns",
+          "Compile patterns with re.compile() for reuse"
+        ],
+        "useCases": [
+          {
+            "title": "Data Validation",
+            "description": "Validate emails, phone numbers, passwords",
+            "example": "Form validation, user input checking, data quality"
+          },
+          {
+            "title": "Text Extraction",
+            "description": "Extract specific patterns from text",
+            "example": "Parse logs, extract URLs, find dates in documents"
+          },
+          {
+            "title": "Data Cleaning",
+            "description": "Find and replace patterns",
+            "example": "Remove formatting, normalize data, clean datasets"
+          },
+          {
+            "title": "Web Scraping",
+            "description": "Extract data from HTML",
+            "example": "Parse web pages, extract links, find patterns"
+          }
+        ],
+        "dos": [
+          "✓ Use raw strings r\"...\" for regex patterns",
+          "✓ Compile patterns you reuse with re.compile()",
+          "✓ Use verbose mode re.VERBOSE for complex patterns",
+          "✓ Test regex patterns thoroughly",
+          "✓ Use online regex testers (regex101.com) for development"
+        ],
+        "donts": [
+          "✗ Don't make overly complex patterns - break them down",
+          "✗ Don't forget to escape special characters",
+          "✗ Don't use regex for parsing HTML (use BeautifulSoup)",
+          "✗ Don't forget raw strings - backslashes can be tricky",
+          "✗ Don't overuse regex - simple string methods are often clearer"
+        ],
+        "bestPractices": [
+          "Always use raw strings r\"pattern\" for regex",
+          "Compile frequently used patterns for performance",
+          "Use named groups for clarity: (?P<name>...)",
+          "Add comments to complex patterns with re.VERBOSE",
+          "Test edge cases and invalid inputs"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Regex Basics - Searching and Matching",
+            "explanation": "Regex basics: search() finds first match, findall() finds all, match() checks start. Use raw strings r\"\" for patterns."
+          },
+          {
+            "title": "2. Pattern Building & Character Classes",
+            "explanation": "Character classes (\\d, \\w, \\s) match types of characters. Groups () capture parts of pattern. Named groups (?P<name>) improve readability."
+          },
+          {
+            "title": "3. Real-World Validation Patterns",
+            "explanation": "Real-world validation combines multiple regex patterns. Use anchors (^ $) to match entire string. Test multiple cases including edge cases."
+          },
+          {
+            "title": "4. Text Extraction & Substitution",
+            "explanation": "Use findall() to extract patterns, sub() to replace, split() to divide text. Compiled patterns improve performance for repeated use."
+          }
+        ]
+      },
+      {
+        "id": "json-apis",
+        "title": "Working with JSON & APIs",
+        "description": "Master JSON data handling and REST API communication in Python",
+        "overview": "JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.\n\n**What is JSON:**\n• Lightweight data-interchange format\n• Human-readable text format\n• Based on JavaScript object syntax\n• Language-independent (works everywhere)\n\n**What are APIs:**\n• Application Programming Interfaces\n• Allow programs to communicate\n• REST APIs use HTTP requests (GET, POST, PUT, DELETE)\n• Return data usually in JSON format\n\n**Why Learn JSON & APIs:**\n✓ Essential for web development\n✓ Access data from any web service\n✓ Build data-driven applications\n✓ Integrate with third-party services",
+        "keyPoints": [
+          "json.dumps() converts Python to JSON string",
+          "json.loads() converts JSON string to Python",
+          "requests library simplifies HTTP API calls",
+          "APIs use GET (read), POST (create), PUT (update), DELETE (remove)",
+          "Always check response status codes (200 = success)",
+          "Handle API errors and rate limits gracefully"
+        ],
+        "useCases": [
+          {
+            "title": "Data Exchange",
+            "description": "Save/load structured data to files or databases",
+            "example": "Configuration files, data persistence, caching"
+          },
+          {
+            "title": "Web APIs",
+            "description": "Fetch data from web services",
+            "example": "Weather data, social media, stock prices, maps"
+          },
+          {
+            "title": "Microservices",
+            "description": "Communication between services",
+            "example": "REST APIs, webhooks, service integration"
+          },
+          {
+            "title": "Data Processing",
+            "description": "Parse and transform API responses",
+            "example": "ETL pipelines, data analysis, reporting"
+          }
+        ],
+        "dos": [
+          "✓ Use requests library for API calls (not urllib)",
+          "✓ Check response.status_code before using data",
+          "✓ Handle exceptions (network errors, timeouts)",
+          "✓ Use JSON for configuration files (readable)",
+          "✓ Respect API rate limits and terms of service"
+        ],
+        "donts": [
+          "✗ Don't hardcode API keys - use environment variables",
+          "✗ Don't ignore response status codes",
+          "✗ Don't make API calls in loops without rate limiting",
+          "✗ Don't store sensitive data in JSON files",
+          "✗ Don't parse JSON manually - use json module"
+        ],
+        "bestPractices": [
+          "Use environment variables for API keys (never commit them!)",
+          "Implement exponential backoff for retries",
+          "Cache API responses when appropriate",
+          "Log API requests for debugging",
+          "Use requests.Session() for multiple calls to same API"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. JSON Basics - Encoding and Decoding",
+            "explanation": "json.dumps() converts Python to JSON string, json.loads() converts back. Use json.dump()/load() for files. indent parameter prettifies output."
+          },
+          {
+            "title": "2. Making API Requests with requests Library",
+            "explanation": "requests library simplifies API calls. GET retrieves data, POST creates, PUT updates, DELETE removes. Always check status_code."
+          },
+          {
+            "title": "3. Real-World API Example - Error Handling",
+            "explanation": "Always handle errors: check status codes, catch exceptions, set timeouts. Use Session() for multiple requests to same API for better performance."
+          },
+          {
+            "title": "4. Parsing Complex JSON & Data Transformation",
+            "explanation": "Navigate nested JSON with [key] access. Use list comprehensions to transform data. Extract and flatten complex structures for easier processing."
+          }
+        ]
+      }
+    ],
+    "totalTexts": 484
+  },
+  "advanced": {
+    "courseName": "advanced",
+    "totalTopics": 9,
+    "topics": [
+      {
+        "id": "exception-handling",
+        "title": "Exception Handling Mastery",
+        "description": "Master error handling and exception management",
+        "overview": "Exception handling is crucial for writing robust programs that can gracefully handle errors. Python uses try/except blocks to catch and handle exceptions, allowing programs to recover from errors instead of crashing. Understanding exception handling improves code reliability and user experience.",
+        "keyPoints": [
+          "Exceptions are errors detected during execution",
+          "try/except blocks catch and handle exceptions",
+          "finally block always executes for cleanup",
+          "else block runs if no exception occurs",
+          "Can raise custom exceptions for specific errors"
+        ],
+        "useCases": [
+          {
+            "title": "File Operations",
+            "description": "Handle file not found, permission errors",
+            "example": "Try to open file, handle if missing or inaccessible"
+          },
+          {
+            "title": "Network Requests",
+            "description": "Handle connection failures, timeouts",
+            "example": "API calls with retry logic on failures"
+          },
+          {
+            "title": "User Input Validation",
+            "description": "Catch invalid input formats",
+            "example": "Convert string to int, handle ValueError"
+          },
+          {
+            "title": "Database Operations",
+            "description": "Handle connection errors, query failures",
+            "example": "Rollback transactions on errors"
+          }
+        ],
+        "dos": [
+          "Catch specific exceptions, not generic Exception",
+          "Use finally for cleanup (close files, connections)",
+          "Provide meaningful error messages",
+          "Log exceptions for debugging",
+          "Raise exceptions for invalid states"
+        ],
+        "donts": [
+          "Don't use bare except: (catches everything including sys.exit)",
+          "Don't silently ignore exceptions",
+          "Don't use exceptions for flow control",
+          "Don't catch exceptions you can't handle",
+          "Don't forget to clean up resources"
+        ],
+        "bestPractices": [
+          "Catch specific exceptions first, general ones last",
+          "Use context managers (with) for automatic cleanup",
+          "Create custom exceptions for domain-specific errors",
+          "Document what exceptions functions can raise",
+          "Fail fast - detect errors early"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Exception Handling",
+            "explanation": "try/except blocks catch exceptions. Catch specific exceptions when possible"
+          },
+          {
+            "title": "try/except/else/finally",
+            "explanation": "else runs if no exception, finally always runs for cleanup. Context managers are preferred"
+          },
+          {
+            "title": "Raising Exceptions",
+            "explanation": "Raise exceptions to signal errors. Use specific exception types for clarity"
+          },
+          {
+            "title": "Custom Exceptions",
+            "explanation": "Custom exceptions provide domain-specific error handling with meaningful names"
+          },
+          {
+            "title": "Real-World: Robust File Processor",
+            "explanation": "Comprehensive error handling makes programs robust and user-friendly"
+          }
+        ]
+      },
+      {
+        "id": "file-handling",
+        "title": "File Handling & I/O Operations",
+        "description": "Master file operations and data persistence",
+        "overview": "File handling is essential for reading and writing data to disk. Python provides powerful tools for working with files, including context managers for safe operations, pathlib for path manipulation, and built-in support for common formats like CSV and JSON. Understanding file I/O is crucial for data persistence and processing.",
+        "keyPoints": [
+          "Use context managers (with) for automatic file closing",
+          "Different modes: read (r), write (w), append (a), binary (b)",
+          "pathlib provides object-oriented path handling",
+          "CSV and JSON modules for structured data",
+          "Always handle file-related exceptions"
+        ],
+        "useCases": [
+          {
+            "title": "Data Persistence",
+            "description": "Save and load application data",
+            "example": "Save user preferences, game state, application config"
+          },
+          {
+            "title": "Data Processing",
+            "description": "Read, transform, and write data files",
+            "example": "Process CSV reports, analyze log files, data ETL"
+          },
+          {
+            "title": "Configuration Management",
+            "description": "Load settings from config files",
+            "example": "Read JSON/YAML config, environment variables"
+          },
+          {
+            "title": "Data Export/Import",
+            "description": "Exchange data with other systems",
+            "example": "Export to CSV/Excel, import from JSON/XML"
+          }
+        ],
+        "dos": [
+          "Always use context managers (with) for file operations",
+          "Handle exceptions (FileNotFoundError, PermissionError)",
+          "Close files explicitly if not using with statement",
+          "Use pathlib for cross-platform path handling",
+          "Specify encoding explicitly (usually utf-8)"
+        ],
+        "donts": [
+          "Don't forget to close files (use with)",
+          "Don't read entire large files into memory",
+          "Don't ignore file operation exceptions",
+          "Don't use string concatenation for paths",
+          "Don't assume file exists without checking"
+        ],
+        "bestPractices": [
+          "Use pathlib.Path for path operations",
+          "Always specify file encoding",
+          "Process large files in chunks or lines",
+          "Use appropriate modules (csv, json) for structured data",
+          "Validate paths and permissions before operations"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic File Operations",
+            "explanation": "Context managers (with) ensure files are properly closed even if errors occur"
+          },
+          {
+            "title": "Path Handling with pathlib",
+            "explanation": "pathlib provides clean, object-oriented path handling that works across platforms"
+          },
+          {
+            "title": "Working with CSV Files",
+            "explanation": "CSV module handles comma-separated values with automatic quoting and escaping"
+          },
+          {
+            "title": "Working with JSON Files",
+            "explanation": "JSON module provides easy conversion between Python objects and JSON format"
+          },
+          {
+            "title": "Real-World: Log File Analyzer",
+            "explanation": "Real-world example combining file reading, analysis, and JSON export"
+          }
+        ]
+      },
+      {
+        "id": "modules-packages",
+        "title": "Modules & Packages",
+        "description": "Master code organization and imports",
+        "overview": "Modules and packages are Python's way of organizing code into reusable components. A module is a single Python file, while a package is a collection of modules. Understanding imports, the module search path, and package structure is essential for building maintainable applications and reusing code effectively.",
+        "keyPoints": [
+          "Modules are single .py files containing Python code",
+          "Packages are directories containing __init__.py",
+          "import statement loads modules and packages",
+          "__name__ == \"__main__\" identifies script entry point",
+          "Python searches sys.path for modules"
+        ],
+        "useCases": [
+          {
+            "title": "Code Organization",
+            "description": "Split large projects into manageable files",
+            "example": "utils.py, models.py, views.py, config.py"
+          },
+          {
+            "title": "Code Reuse",
+            "description": "Share code across multiple scripts",
+            "example": "Common utilities, helper functions, constants"
+          },
+          {
+            "title": "Library Development",
+            "description": "Create reusable libraries",
+            "example": "Create installable packages with setup.py"
+          },
+          {
+            "title": "Namespace Management",
+            "description": "Avoid naming conflicts",
+            "example": "myapp.database, myapp.api, myapp.utils"
+          }
+        ],
+        "dos": [
+          "Use meaningful module and package names",
+          "Keep modules focused (single responsibility)",
+          "Use __init__.py for package initialization",
+          "Import only what you need",
+          "Use if __name__ == \"__main__\" for scripts"
+        ],
+        "donts": [
+          "Don't use circular imports",
+          "Don't import * (use explicit imports)",
+          "Don't pollute global namespace",
+          "Don't modify sys.path unless necessary",
+          "Don't forget __init__.py for packages"
+        ],
+        "bestPractices": [
+          "Use absolute imports in packages",
+          "Keep __init__.py minimal",
+          "Group imports: stdlib, third-party, local",
+          "Use importlib for dynamic imports",
+          "Document module purpose in docstring"
+        ],
+        "codeExamples": [
+          {
+            "title": "Creating and Importing Modules",
+            "explanation": "Multiple ways to import modules. Use explicit imports for clarity"
+          },
+          {
+            "title": "Creating Packages",
+            "explanation": "Packages organize related modules. __init__.py makes directory a package"
+          },
+          {
+            "title": "Script vs Module: __name__ == \"__main__\"",
+            "explanation": "__name__ is \"__main__\" only when file is run as script, not when imported"
+          },
+          {
+            "title": "Module Search Path and sys.path",
+            "explanation": "sys.path determines where Python looks for modules. Usually no need to modify it"
+          },
+          {
+            "title": "Real-World: Project Structure",
+            "explanation": "Professional structure with clear separation of concerns and proper package organization"
+          }
+        ]
+      },
+      {
+        "id": "oop-basics",
+        "title": "Object-Oriented Programming Basics",
+        "description": "Master the 4 pillars of OOP: Encapsulation, Inheritance, Polymorphism, and Abstraction",
+        "overview": "Object-Oriented Programming (OOP) is a powerful programming paradigm that structures code around \"objects\" rather than functions and logic. These objects are instances of \"classes\", which act as blueprints. OOP relies on four fundamental pillars: Encapsulation (hiding internal state), Inheritance (creating new classes from existing ones), Polymorphism (using a unified interface for different types), and Abstraction (hiding complex implementation details). This approach makes code more modular, reusable, and easier to maintain for large-scale applications.",
+        "keyPoints": [
+          "Classes are blueprints defining attributes (data) and methods (behavior)",
+          "Objects are concrete instances created from classes",
+          "The 4 Pillars of OOP: Encapsulation, Inheritance, Polymorphism, Abstraction",
+          "Encapsulation protects data using private attributes and properties",
+          "Inheritance promotes code reuse by deriving child classes from parents",
+          "Polymorphism allows different classes to be treated as instances of the same general class",
+          "Abstraction hides complex reality while exposing only the necessary parts",
+          "Composition (has-a relationship) is often preferred over Inheritance (is-a relationship)"
+        ],
+        "useCases": [
+          {
+            "title": "Modeling Real-World Entities",
+            "description": "Represent complex entities with attributes and behaviors",
+            "example": "Car class with attributes (color, model) and methods (start, stop)"
+          },
+          {
+            "title": "Code Organization",
+            "description": "Group related functionality together",
+            "example": "User class with authentication, profile methods"
+          },
+          {
+            "title": "Code Reuse",
+            "description": "Inherit common functionality",
+            "example": "Animal base class, Dog and Cat inherit behaviors"
+          },
+          {
+            "title": "Large Applications",
+            "description": "Structure complex systems",
+            "example": "E-commerce: Product, Cart, Order, Payment classes"
+          }
+        ],
+        "dos": [
+          "Use classes to model real-world concepts",
+          "Keep class responsibilities focused (Single Responsibility)",
+          "Use inheritance for \"is-a\" relationships",
+          "Make attributes private when they shouldn't be accessed directly",
+          "Provide clear class and method names"
+        ],
+        "donts": [
+          "Don't create god classes that do everything",
+          "Don't use inheritance just for code reuse (use composition)",
+          "Don't expose internal implementation details",
+          "Don't forget to call super().__init__() in child classes",
+          "Don't overuse inheritance (deep hierarchies are hard to maintain)"
+        ],
+        "bestPractices": [
+          "Favor composition over inheritance",
+          "Use properties for controlled attribute access",
+          "Implement __str__ and __repr__ for readable objects",
+          "Follow naming conventions (CapWords for classes)",
+          "Document classes and their public interface"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Creating Classes and Objects",
+            "explanation": "Classes define the structure. __init__ initializes objects. self refers to the instance. Create objects by calling the class."
+          },
+          {
+            "title": "2. Encapsulation and Properties",
+            "explanation": "Use __ prefix for private attributes. @property creates managed attributes with getters/setters for validation."
+          },
+          {
+            "title": "3. Inheritance",
+            "explanation": "Inheritance allows child classes to reuse parent code. Use super() to call parent methods. Override methods to customize behavior."
+          },
+          {
+            "title": "4. Polymorphism",
+            "explanation": "Polymorphism allows different classes to be treated as instances of the same general class through a common interface."
+          },
+          {
+            "title": "5. Abstraction (Abstract Base Classes)",
+            "explanation": "Abstraction hides complex implementation details. Abstract Base Classes (ABC) enforce that child classes implement specific methods."
+          },
+          {
+            "title": "6. Magic Methods (Operator Overloading)",
+            "explanation": "Magic methods (dunder methods) allow you to define how objects behave with built-in operations like printing, addition, and comparison."
+          }
+        ]
+      },
+      {
+        "id": "oop-advanced",
+        "title": "Advanced OOP Concepts",
+        "description": "Deep dive into Python object model, MRO, and Metaclasses",
+        "overview": "Advanced Object-Oriented Programming in Python goes beyond basic classes and inheritance. It involves understanding how Python actually implements objects, how method resolution works in multiple inheritance, how to optimize memory usage, and how to customize class creation itself using metaclasses.",
+        "keyPoints": [
+          "Multiple Inheritance allows a class to inherit from multiple parents",
+          "MRO (Method Resolution Order) determines the order of class search",
+          "Mixins are small classes that provide specific functionality",
+          "__slots__ optimizes memory usage by preventing dynamic attribute creation",
+          "Descriptors allow customizing attribute access (get/set/delete)",
+          "Metaclasses are \"classes of classes\" that control class creation"
+        ],
+        "useCases": [
+          {
+            "title": "Complex Class Hierarchies",
+            "description": "Using multiple inheritance and mixins",
+            "example": "Django Mixins (LoginRequiredMixin, PermissionRequiredMixin)"
+          },
+          {
+            "title": "Memory Optimization",
+            "description": "Handling millions of small objects",
+            "example": "Using __slots__ for Point or Particle classes"
+          },
+          {
+            "title": "Framework Development",
+            "description": "Creating APIs and ORMs",
+            "example": "Django models, SQLAlchemy declarative base (Metaclasses)"
+          },
+          {
+            "title": "Resource Management",
+            "description": "Custom context managers",
+            "example": "Database connections, file locks using __enter__/__exit__"
+          }
+        ],
+        "dos": [
+          "Use Mixins to share functionality without deep hierarchies",
+          "Use super() for cooperative multiple inheritance",
+          "Use __slots__ only when memory is a critical bottleneck",
+          "Use descriptors for reusable attribute logic",
+          "Keep metaclasses for framework-level code"
+        ],
+        "donts": [
+          "Don't create complex diamond inheritance structures if avoidable",
+          "Don't use __slots__ if you need dynamic attributes",
+          "Don't overuse metaclasses (they are \"magic\")",
+          "Don't rely on MRO for logic (it can be confusing)",
+          "Don't mix classic and new-style classes (Python 2 legacy)"
+        ],
+        "bestPractices": [
+          "Follow the C3 linearization algorithm (MRO)",
+          "Prefer composition over complex multiple inheritance",
+          "Document mixin requirements clearly",
+          "Use abstract base classes to define interfaces",
+          "Test MRO with help(Class) to verify order"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Multiple Inheritance and MRO",
+            "explanation": "Python uses C3 linearization for MRO. super() ensures each class in the hierarchy is called exactly once."
+          },
+          {
+            "title": "2. Memory Optimization with __slots__",
+            "explanation": "__slots__ saves memory by suppressing __dict__ creation, useful for creating millions of small objects."
+          },
+          {
+            "title": "3. Descriptors",
+            "explanation": "Descriptors allow you to define reusable behavior for attribute access (get, set, delete) across multiple classes."
+          },
+          {
+            "title": "4. Context Managers as Classes",
+            "explanation": "Implementing __enter__ and __exit__ allows classes to be used with the \"with\" statement for resource management."
+          }
+        ]
+      },
+      {
+        "id": "async-await",
+        "title": "Async/Await & Concurrency",
+        "description": "Master asynchronous programming for I/O-bound operations",
+        "overview": "Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.\n\n**Key Concepts:**\n\n- **async/await**: Define and call asynchronous functions\n- **Event Loop**: Manages execution of async tasks\n- **Coroutines**: Functions that can pause and resume\n- **Tasks**: Wrapped coroutines that run concurrently\n- **asyncio**: Python's async programming library\n\n**When to Use:**\n\nUse async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.",
+        "keyPoints": [
+          "async def creates a coroutine function",
+          "await pauses execution until the awaited task completes",
+          "Event loop manages concurrent execution",
+          "asyncio.gather() runs multiple tasks concurrently",
+          "asyncio.create_task() schedules a coroutine to run",
+          "Use for I/O-bound operations, not CPU-bound",
+          "Async functions must be awaited or scheduled",
+          "Libraries must support async (aiohttp, asyncpg, etc.)"
+        ],
+        "useCases": [
+          {
+            "title": "Web Scraping",
+            "description": "Fetch multiple URLs concurrently",
+            "example": "Download 100 web pages in parallel instead of sequentially"
+          },
+          {
+            "title": "API Requests",
+            "description": "Make multiple API calls simultaneously",
+            "example": "Fetch data from 10 different APIs at once"
+          },
+          {
+            "title": "Database Queries",
+            "description": "Run multiple queries concurrently",
+            "example": "Query multiple tables in parallel with asyncpg"
+          },
+          {
+            "title": "Real-time Applications",
+            "description": "Handle multiple connections simultaneously",
+            "example": "WebSocket server managing thousands of connections"
+          }
+        ],
+        "dos": [
+          "Use async/await for I/O-bound operations",
+          "Always await async functions",
+          "Use asyncio.gather() to run tasks concurrently",
+          "Handle exceptions in async code properly",
+          "Use async context managers (async with)",
+          "Use async libraries (aiohttp, not requests)"
+        ],
+        "donts": [
+          "Don't use async for CPU-bound tasks",
+          "Don't block the event loop with synchronous code",
+          "Don't forget to await async functions",
+          "Don't mix sync and async code without care",
+          "Don't use time.sleep() (use asyncio.sleep())",
+          "Don't create too many concurrent tasks without limits"
+        ],
+        "bestPractices": [
+          "Use asyncio.run() to start the event loop",
+          "Create tasks with asyncio.create_task() for concurrent execution",
+          "Use asyncio.gather() to wait for multiple tasks",
+          "Implement timeouts with asyncio.wait_for()",
+          "Use semaphores to limit concurrent operations",
+          "Handle cancellation with try/except asyncio.CancelledError",
+          "Profile async code to ensure it's actually faster"
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Async/Await",
+            "explanation": "Define and call asynchronous functions. async def creates a coroutine, await pauses until completion."
+          },
+          {
+            "title": "Concurrent API Requests",
+            "explanation": "Fetch multiple URLs concurrently. Much faster than sequential requests for I/O-bound operations."
+          },
+          {
+            "title": "Error Handling & Timeouts",
+            "explanation": "Handle errors and timeouts in async code. Use try/except and asyncio.wait_for() for robustness."
+          },
+          {
+            "title": "Rate Limiting with Semaphores",
+            "explanation": "Control concurrent operations with semaphores to avoid overwhelming resources (APIs, databases, network)."
+          }
+        ]
+      },
+      {
+        "id": "context-managers",
+        "title": "Context Managers",
+        "description": "Master resource management with context managers",
+        "overview": "Context managers ensure resources are properly acquired and released, even if errors occur. They implement the \"with\" statement protocol using __enter__ and __exit__ methods or the contextlib module.\n\n**What They Solve:**\n\n- Automatic resource cleanup (files, locks, connections)\n- Exception-safe resource handling\n- Clean, readable resource management code\n\n**Two Ways to Create:**\n\n1. **Class-based**: Implement __enter__ and __exit__\n2. **Decorator-based**: Use @contextmanager decorator",
+        "keyPoints": [
+          "Context managers guarantee cleanup even if exceptions occur",
+          "__enter__ acquires the resource and returns it",
+          "__exit__ releases the resource, receives exception info",
+          "@contextmanager decorator simplifies creation",
+          "Use \"with\" statement to invoke context managers",
+          "Common for files, locks, database connections",
+          "Can suppress exceptions by returning True from __exit__",
+          "Supports async with async context managers"
+        ],
+        "useCases": [
+          {
+            "title": "File Handling",
+            "description": "Automatically close files even if errors occur",
+            "example": "with open(\"file.txt\") as f: ensures file closes"
+          },
+          {
+            "title": "Database Connections",
+            "description": "Commit transactions and close connections properly",
+            "example": "with db.transaction(): commits on success, rollback on error"
+          },
+          {
+            "title": "Thread Locks",
+            "description": "Acquire and release locks safely",
+            "example": "with lock: automatically releases lock"
+          },
+          {
+            "title": "Temporary State",
+            "description": "Change and restore state temporarily",
+            "example": "with temp_directory(): creates and cleans up temp dir"
+          }
+        ],
+        "dos": [
+          "Always use context managers for resource management",
+          "Implement proper cleanup in __exit__",
+          "Use contextlib for simple cases",
+          "Handle exceptions appropriately in __exit__",
+          "Document what resources are managed",
+          "Test that cleanup happens on exceptions"
+        ],
+        "donts": [
+          "Don't forget to return the resource from __enter__",
+          "Don't raise exceptions in __exit__ unless necessary",
+          "Don't rely on __del__ for cleanup",
+          "Don't leave resources open on exceptions",
+          "Don't create context managers that do too much",
+          "Don't suppress exceptions without good reason"
+        ],
+        "bestPractices": [
+          "Prefer context managers over try/finally",
+          "Use @contextmanager for simple cases",
+          "Return resource from __enter__ for \"as\" clause",
+          "__exit__ should return False to propagate exceptions",
+          "Support both sync and async when appropriate",
+          "Make context managers reusable when possible",
+          "Document the managed resource lifecycle"
+        ],
+        "codeExamples": [
+          {
+            "title": "Class-based Context Manager",
+            "explanation": "Implement __enter__ and __exit__ to create a context manager. __enter__ sets up resources, __exit__ cleans up."
+          },
+          {
+            "title": "@contextmanager Decorator",
+            "explanation": "Use @contextmanager for simpler context managers. Yield the resource, cleanup happens after yield."
+          },
+          {
+            "title": "Multiple Context Managers",
+            "explanation": "Use multiple context managers in a single with statement for managing multiple resources."
+          },
+          {
+            "title": "Async Context Managers",
+            "explanation": "Use async with for async context managers. Implement __aenter__ and __aexit__ or use @asynccontextmanager."
+          }
+        ]
+      },
+      {
+        "id": "iterators-iterables",
+        "title": "Iterators & Iterables",
+        "description": "Master iteration protocols and create custom iterators",
+        "overview": "Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.\n\n**Key Distinctions:**\n\n- **Iterable**: Any object that can return an iterator (__iter__ method)\n- **Iterator**: Object that produces values one at a time (__next__ method)\n- **Generator**: Special iterator created with yield\n\n**When to Use:**\n\n- Processing large datasets that don't fit in memory\n- Creating custom iteration logic\n- Lazy evaluation for performance\n- Infinite sequences",
+        "keyPoints": [
+          "Iterables have __iter__() returning an iterator",
+          "Iterators have __next__() returning next value",
+          "Iterators raise StopIteration when exhausted",
+          "Generators are iterators created with yield",
+          "iter() converts iterables to iterators",
+          "Iterators can only be traversed once",
+          "Iterables can be iterated multiple times",
+          "Many built-ins accept iterables (sum, max, list, etc.)"
+        ],
+        "useCases": [
+          {
+            "title": "Large File Processing",
+            "description": "Read files line-by-line without loading entire file",
+            "example": "Process 10GB log file with minimal memory"
+          },
+          {
+            "title": "Database Result Sets",
+            "description": "Fetch database records one at a time",
+            "example": "Iterate through millions of database rows efficiently"
+          },
+          {
+            "title": "Custom Data Structures",
+            "description": "Make custom classes work with for loops",
+            "example": "Tree traversal, linked list iteration, graph exploration"
+          },
+          {
+            "title": "Infinite Sequences",
+            "description": "Generate values on-demand indefinitely",
+            "example": "Fibonacci numbers, timestamps, IDs"
+          }
+        ],
+        "dos": [
+          "Implement __iter__ and __next__ for custom iterators",
+          "Raise StopIteration when iteration completes",
+          "Use generators for simple iteration logic",
+          "Prefer iterators for memory-efficient processing",
+          "Use itertools for advanced iteration patterns",
+          "Make iterables reusable (return new iterator from __iter__)"
+        ],
+        "donts": [
+          "Don't forget to raise StopIteration",
+          "Don't modify collection while iterating",
+          "Don't reuse exhausted iterators",
+          "Don't create iterators when lists would work fine",
+          "Don't forget __iter__ returns self for iterators",
+          "Don't use iterators for small datasets that fit in memory"
+        ],
+        "bestPractices": [
+          "Use generators (yield) instead of manual iterator classes when possible",
+          "Implement __iter__ to return self for iterator objects",
+          "Document if your iterator is single-use or reusable",
+          "Use itertools for combining/chaining iterators",
+          "Prefer iterators over loading all data into memory",
+          "Use next() with default to handle StopIteration gracefully",
+          "Make iterables reusable by creating new iterator each time"
+        ],
+        "codeExamples": [
+          {
+            "title": "Iterator vs Iterable Basics",
+            "explanation": "Understand the difference between iterables (have __iter__) and iterators (have __next__). Iterators are single-use."
+          },
+          {
+            "title": "Custom Iterator Class",
+            "explanation": "Create custom iterator by implementing __iter__ (returns self) and __next__ (returns next value or raises StopIteration)."
+          },
+          {
+            "title": "Generators - Simpler Iterators",
+            "explanation": "Generators use yield to create iterators without manual __iter__/__next__ implementation. More concise and readable."
+          },
+          {
+            "title": "Itertools - Advanced Iteration",
+            "explanation": "itertools module provides powerful tools for combining, filtering, and transforming iterators efficiently."
+          }
+        ]
+      },
+      {
+        "id": "metaclasses",
+        "title": "Metaclasses",
+        "description": "Master Python's class creation mechanism and metaprogramming",
+        "overview": "Metaclasses are \"classes of classes\" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.\n\n**What Are Metaclasses?**\n\n- Classes are instances of metaclasses\n- The default metaclass is `type`\n- Metaclasses control class creation\n- Used for frameworks, ORMs, validation, logging\n\n**Key Insight:**\n\n```python\n# Everything is an object\nisinstance(5, int)          # True\nisinstance(int, type)       # True\nisinstance(type, type)      # True (type is its own metaclass!)\n```\n\n**When to Use:**\n\nRarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.",
+        "keyPoints": [
+          "type is the default metaclass for all classes",
+          "Classes are instances of their metaclass",
+          "Metaclasses control class creation via __new__ and __init__",
+          "__init_subclass__ is simpler alternative for many use cases",
+          "Metaclasses inherit from type",
+          "Used in ORMs (SQLAlchemy), web frameworks (Django)",
+          "Very powerful but complex - use sparingly",
+          "Can validate class attributes at definition time"
+        ],
+        "useCases": [
+          {
+            "title": "ORM Frameworks",
+            "description": "Automatically register model classes",
+            "example": "SQLAlchemy uses metaclasses to track database models"
+          },
+          {
+            "title": "API Clients",
+            "description": "Auto-generate methods from API spec",
+            "example": "Create HTTP methods from API documentation"
+          },
+          {
+            "title": "Singleton Pattern",
+            "description": "Ensure only one instance of a class",
+            "example": "Database connection, configuration manager"
+          },
+          {
+            "title": "Validation",
+            "description": "Validate class attributes at definition",
+            "example": "Ensure required methods are implemented"
+          }
+        ],
+        "dos": [
+          "Understand type() and how classes are created",
+          "Use __init_subclass__ before metaclasses when possible",
+          "Document metaclass behavior clearly",
+          "Keep metaclasses simple and focused",
+          "Use for framework-level code, not application code",
+          "Test metaclass behavior thoroughly"
+        ],
+        "donts": [
+          "Don't use metaclasses when decorators would work",
+          "Don't overcomplicate class hierarchies",
+          "Don't use metaclasses for simple attribute validation",
+          "Don't forget __init_subclass__ exists (simpler alternative)",
+          "Don't create metaclasses without clear justification",
+          "Don't use multiple metaclasses (conflicts are complex)"
+        ],
+        "bestPractices": [
+          "Prefer __init_subclass__ over metaclasses for validation",
+          "Use class decorators for simple modifications",
+          "Document why metaclass is necessary",
+          "Inherit from type for custom metaclasses",
+          "Override __new__ to modify class creation",
+          "Use super() in metaclass methods",
+          "Keep metaclass logic minimal and clear"
+        ],
+        "codeExamples": [
+          {
+            "title": "Understanding type() - The Meta metaclass",
+            "explanation": "type() is both a function (returns type of object) and the default metaclass (creates classes). All classes are instances of type."
+          },
+          {
+            "title": "Custom Metaclass Basics",
+            "explanation": "Create custom metaclass by inheriting from type. Override __new__ to modify class creation. Metaclass __new__ runs when class is defined, not when instances are created."
+          },
+          {
+            "title": "Metaclass for Validation",
+            "explanation": "Use metaclasses to enforce rules at class definition time. Validates that required methods are implemented."
+          },
+          {
+            "title": "__init_subclass__ - Simpler Alternative",
+            "explanation": "__init_subclass__ is simpler than metaclasses for many use cases. Runs when subclass is created. Use this instead of metaclasses when possible."
+          }
+        ]
+      }
+    ],
+    "totalTexts": 429
+  },
+  "professional": {
+    "courseName": "professional",
+    "totalTopics": 10,
+    "topics": [
+      {
+        "id": "design-patterns",
+        "title": "Design Patterns",
+        "description": "Common solutions to recurring problems",
+        "overview": "Design patterns are proven solutions to common software design problems. They represent best practices evolved over time and provide a shared vocabulary for developers. Understanding design patterns improves code quality and communication.",
+        "keyPoints": [
+          "Patterns provide tested solutions to common problems",
+          "They improve code readability and maintainability",
+          "Patterns facilitate communication between developers",
+          "Three main categories: Creational, Structural, Behavioral",
+          "Don't force patterns - use when appropriate"
+        ],
+        "useCases": [
+          {
+            "title": "Singleton Pattern",
+            "description": "Ensure only one instance exists",
+            "example": "Database connection manager, configuration handler"
+          },
+          {
+            "title": "Factory Pattern",
+            "description": "Create objects without specifying exact class",
+            "example": "Document creator (PDF, Word, etc.)"
+          },
+          {
+            "title": "Observer Pattern",
+            "description": "Notify multiple objects of state changes",
+            "example": "Event systems, data binding, MVC frameworks"
+          },
+          {
+            "title": "Strategy Pattern",
+            "description": "Switch algorithms at runtime",
+            "example": "Payment methods, sorting algorithms, compression"
+          }
+        ],
+        "dos": [
+          "Understand the problem before applying a pattern",
+          "Use patterns to solve real problems, not for their own sake",
+          "Adapt patterns to fit your specific needs",
+          "Document which patterns you're using",
+          "Learn the intent and applicability of each pattern"
+        ],
+        "donts": [
+          "Don't overcomplicate simple problems with patterns",
+          "Don't force a pattern where it doesn't fit",
+          "Don't use patterns just to show off knowledge",
+          "Don't ignore simpler solutions",
+          "Don't create rigid, inflexible implementations"
+        ],
+        "bestPractices": [
+          "Start simple, add patterns as needed",
+          "Understand trade-offs of each pattern",
+          "Combine patterns when appropriate",
+          "Keep implementations clean and understandable",
+          "Consider Python's unique features (decorators, etc.)"
+        ],
+        "codeExamples": [
+          {
+            "title": "Singleton Pattern",
+            "explanation": "Singleton ensures only one instance exists. Useful for resources that should be shared (database connections, configs)."
+          },
+          {
+            "title": "Factory Pattern",
+            "explanation": "Factory pattern centralizes object creation logic, making code more flexible and easier to extend with new types."
+          }
+        ]
+      },
+      {
+        "id": "concurrency-parallelism",
+        "title": "Concurrency & Parallelism",
+        "description": "Threading, Multiprocessing, and Asyncio",
+        "overview": "Python offers three main ways to do things \"at the same time\": Threading (for I/O bound tasks), Multiprocessing (for CPU bound tasks), and Asyncio (for cooperative multitasking). Understanding the Global Interpreter Lock (GIL) is crucial for choosing the right tool.",
+        "keyPoints": [
+          "The GIL (Global Interpreter Lock) prevents multiple native threads from executing Python bytecodes at once",
+          "Threading is best for I/O bound tasks (network, disk)",
+          "Multiprocessing bypasses the GIL by using separate processes (best for CPU heavy tasks)",
+          "Asyncio uses a single thread with an event loop for high-concurrency I/O",
+          "Race conditions occur when threads access shared data simultaneously"
+        ],
+        "useCases": [
+          {
+            "title": "Web Scraping",
+            "description": "Downloading 100 pages concurrently",
+            "example": "Using Threading or Asyncio to wait for network responses"
+          },
+          {
+            "title": "Image Processing",
+            "description": "Resizing 1000 images",
+            "example": "Using Multiprocessing to utilize all CPU cores"
+          },
+          {
+            "title": "Web Servers",
+            "description": "Handling thousands of connections",
+            "example": "FastAPI/Node.js style event loops using Asyncio"
+          }
+        ],
+        "dos": [
+          "Use Threading/Asyncio for I/O bound tasks",
+          "Use Multiprocessing for CPU bound tasks",
+          "Use Locks/Semaphores to protect shared state",
+          "Use ThreadPoolExecutor/ProcessPoolExecutor for easier management",
+          "Be aware of the GIL limitations"
+        ],
+        "donts": [
+          "Don't use Threading for CPU intensive work (it might be slower due to overhead)",
+          "Don't modify shared mutable state without locks",
+          "Don't mix Asyncio with blocking code",
+          "Don't spawn unlimited threads (use pools)",
+          "Don't ignore \"zombie\" processes"
+        ],
+        "bestPractices": [
+          "Prefer high-level abstractions (concurrent.futures) over raw threads",
+          "Use queues for communication between threads/processes",
+          "Keep critical sections (locked code) as short as possible",
+          "Use async/await for modern I/O heavy applications",
+          "Test concurrent code thoroughly for race conditions"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Threading vs Multiprocessing",
+            "explanation": "Threads run \"concurrently\" but share the GIL. Processes run in parallel on different cores. (Note: Browser environments have limitations with native threading/multiprocessing)"
+          },
+          {
+            "title": "2. Modern Asyncio",
+            "explanation": "Asyncio uses `await` to yield control back to the event loop, allowing other tasks to run while waiting for I/O."
+          }
+        ]
+      },
+      {
+        "id": "testing-tdd",
+        "title": "Testing & TDD",
+        "description": "Unit Testing, Pytest, and Test Driven Development",
+        "overview": "Testing is not optional in professional software development. It ensures your code works as expected and prevents regressions. TDD (Test Driven Development) is a methodology where you write tests *before* writing the code.",
+        "keyPoints": [
+          "Unit Tests verify small, isolated parts of code",
+          "Integration Tests verify how different parts work together",
+          "Pytest is the industry standard for Python testing (simpler than unittest)",
+          "Mocking allows you to fake external dependencies (APIs, DBs)",
+          "TDD Cycle: Red (Write failing test) -> Green (Make it pass) -> Refactor"
+        ],
+        "useCases": [
+          {
+            "title": "CI/CD Pipelines",
+            "description": "Running tests automatically on every commit",
+            "example": "GitHub Actions running pytest"
+          },
+          {
+            "title": "Refactoring Legacy Code",
+            "description": "Ensuring changes don't break existing features",
+            "example": "Writing tests for old functions before cleaning them up"
+          },
+          {
+            "title": "Bug Fixing",
+            "description": "Reproducing a bug with a test case",
+            "example": "Writing a test that fails with the reported bug, then fixing it"
+          }
+        ],
+        "dos": [
+          "Write tests for all new features",
+          "Keep tests independent and isolated",
+          "Use descriptive test names (test_user_can_login)",
+          "Use fixtures for setup/teardown",
+          "Aim for high code coverage (but don't obsess over 100%)"
+        ],
+        "donts": [
+          "Don't test external libraries (assume they work)",
+          "Don't make tests depend on each other (order shouldn't matter)",
+          "Don't hardcode local paths in tests",
+          "Don't ignore failing tests",
+          "Don't write complex logic in tests"
+        ],
+        "bestPractices": [
+          "Follow the Arrange-Act-Assert pattern",
+          "Use `pytest` over `unittest` for less boilerplate",
+          "Use `conftest.py` for shared fixtures",
+          "Mock network calls and database access",
+          "Run tests frequently"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Simple Pytest",
+            "explanation": "Pytest uses simple `assert` statements. `pytest.raises` checks if the correct exception is thrown."
+          },
+          {
+            "title": "2. Mocking with unittest.mock",
+            "explanation": "Mocking replaces real objects with fake ones, allowing you to test logic without relying on external services."
+          }
+        ]
+      },
+      {
+        "id": "web-scraping",
+        "title": "Web Scraping",
+        "description": "Extracting data from the web using BeautifulSoup and Requests",
+        "overview": "Web scraping is the automated process of extracting data from websites. It involves fetching the HTML of a page and parsing it to find specific information. It is widely used for data analysis, price monitoring, and research.",
+        "keyPoints": [
+          "Requests library is used to fetch web pages (HTTP GET)",
+          "BeautifulSoup is used to parse HTML and navigate the DOM",
+          "Always check `robots.txt` before scraping a site",
+          "Websites can be static (HTML) or dynamic (JavaScript rendered)",
+          "For dynamic sites, you might need Selenium or Playwright"
+        ],
+        "useCases": [
+          {
+            "title": "Price Monitoring",
+            "description": "Tracking product prices on e-commerce sites",
+            "example": "Scraping Amazon/eBay for price drops"
+          },
+          {
+            "title": "Data Aggregation",
+            "description": "Collecting news or job listings",
+            "example": "Building a job board by scraping company career pages"
+          },
+          {
+            "title": "Lead Generation",
+            "description": "Collecting contact info from directories",
+            "example": "Scraping Yellow Pages (respecting privacy laws)"
+          }
+        ],
+        "dos": [
+          "Respect `robots.txt` and Terms of Service",
+          "Add a delay between requests (don't DDoS the server)",
+          "Use a User-Agent header to identify your bot",
+          "Handle errors gracefully (404, 500)",
+          "Cache data locally to avoid re-fetching"
+        ],
+        "donts": [
+          "Don't scrape personal data without consent",
+          "Don't hit the server too fast",
+          "Don't rely on fragile selectors (like absolute XPaths)",
+          "Don't scrape copyrighted content for redistribution",
+          "Don't ignore API alternatives (if available)"
+        ],
+        "bestPractices": [
+          "Inspect the page source (DevTools) to find stable selectors",
+          "Use CSS selectors or IDs where possible",
+          "Use `requests.Session()` for efficiency",
+          "Handle dynamic content appropriately",
+          "Store scraped data in structured formats (CSV, JSON, DB)"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Basic Scraping with BeautifulSoup",
+            "explanation": "We fetch the page, parse the HTML, and then use `find_all` to locate elements based on tags and classes."
+          }
+        ]
+      },
+      {
+        "id": "mini-project-fastapi-blog",
+        "title": "Mini Project: FastAPI Blog Platform",
+        "description": "Build a complete blog platform with authentication and database",
+        "overview": "Build a production-ready blog platform using FastAPI, PostgreSQL, and modern Python practices. This project covers user authentication, CRUD operations, database relationships, API design, security, and deployment. You will create a RESTful API with JWT authentication, user management, blog posts, comments, and a complete backend system.",
+        "keyPoints": [
+          "FastAPI - Modern, fast Python web framework",
+          "PostgreSQL - Relational database with SQLAlchemy ORM",
+          "JWT Authentication - Secure token-based auth",
+          "CRUD Operations - Create, Read, Update, Delete",
+          "API Design - RESTful endpoints and best practices",
+          "Security - Password hashing, authorization, input validation"
+        ],
+        "useCases": [
+          {
+            "title": "User Authentication System",
+            "description": "Signup, login, logout with JWT tokens",
+            "example": "Secure user registration, password hashing, token-based sessions"
+          },
+          {
+            "title": "Blog Management",
+            "description": "Create, edit, delete blog posts",
+            "example": "Rich text posts, categories, tags, publish/draft status"
+          },
+          {
+            "title": "User Profiles",
+            "description": "Profile management and customization",
+            "example": "Edit bio, avatar, social links, account settings"
+          },
+          {
+            "title": "RESTful API",
+            "description": "Well-designed API with proper HTTP methods",
+            "example": "GET /posts, POST /posts, PUT /posts/{id}, DELETE /posts/{id}"
+          }
+        ],
+        "dos": [
+          "Follow RESTful API conventions",
+          "Hash passwords using bcrypt or passlib",
+          "Validate all user input with Pydantic",
+          "Use database migrations (Alembic)",
+          "Implement proper error handling",
+          "Add API documentation (automatic with FastAPI)",
+          "Use environment variables for secrets",
+          "Implement pagination for list endpoints"
+        ],
+        "donts": [
+          "Don't store passwords in plain text",
+          "Don't expose internal errors to users",
+          "Don't skip input validation",
+          "Don't hardcode database credentials",
+          "Don't ignore SQL injection risks (use ORM properly)",
+          "Don't skip authentication on protected routes",
+          "Don't return too much data in responses"
+        ],
+        "bestPractices": [
+          "Use dependency injection for database sessions",
+          "Separate models, schemas, and CRUD logic",
+          "Use async/await for database operations",
+          "Implement proper logging",
+          "Use Pydantic models for request/response validation",
+          "Follow 12-factor app methodology",
+          "Write tests for critical endpoints",
+          "Document API with proper descriptions"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Project Setup and Dependencies",
+            "explanation": "Project structure separates concerns: models (database), schemas (validation), crud (operations), routers (endpoints)."
+          },
+          {
+            "title": "2. Database Configuration",
+            "explanation": "Database setup with SQLAlchemy. SessionLocal creates sessions, get_db is a dependency for FastAPI routes."
+          },
+          {
+            "title": "3. Database Models",
+            "explanation": "SQLAlchemy models define database schema. Relationships connect users, posts, and comments."
+          },
+          {
+            "title": "4. Pydantic Schemas (Validation)",
+            "explanation": "Pydantic schemas validate request/response data. Separate Create, Update, and Response schemas for different operations."
+          },
+          {
+            "title": "5. Authentication System",
+            "explanation": "Authentication handles password hashing, JWT token creation/validation, and user dependency injection."
+          },
+          {
+            "title": "6. CRUD Operations",
+            "explanation": "CRUD operations handle database interactions. Separate functions for each model operation."
+          },
+          {
+            "title": "7. API Routes - Authentication",
+            "explanation": "Authentication routes handle signup and login. Login returns JWT token for subsequent requests."
+          },
+          {
+            "title": "8. API Routes - Users",
+            "explanation": "User routes handle profile operations. Protected routes use get_current_active_user dependency."
+          },
+          {
+            "title": "9. API Routes - Posts",
+            "explanation": "Post routes implement full CRUD. Authorization checks ensure only authors can modify their posts."
+          },
+          {
+            "title": "10. Main Application",
+            "explanation": "Main app assembles all components. Includes routers, middleware, and creates database tables."
+          },
+          {
+            "title": "11. Running and Testing",
+            "explanation": "Testing the API with curl commands. FastAPI provides interactive docs at /docs for easier testing."
+          },
+          {
+            "title": "12. Next Steps and Enhancements",
+            "explanation": "Many ways to extend the project: search, categories, file uploads, caching, real-time features, deployment."
+          }
+        ]
+      },
+      {
+        "id": "mini-project-ecommerce-api",
+        "title": "Mini Project: E-commerce REST API",
+        "description": "Build a complete e-commerce backend API with product management, shopping cart, and order processing",
+        "overview": "In this beginner-friendly project, you'll build a complete e-commerce REST API using Flask (a lightweight Python web framework). We'll create a backend system that handles products, shopping carts, and orders - just like Amazon or eBay!\n\n**What You'll Learn:**\n• How web APIs work and why they're important\n• Setting up a Flask application from scratch\n• Creating database models with SQLAlchemy (think of it as Python classes that become database tables)\n• Building RESTful endpoints (URLs that handle different operations)\n• Request handling (GET, POST, PUT, DELETE - the 4 main HTTP methods)\n• Data validation to keep your database clean\n• Authentication basics to protect your API\n\n**Real-World Applications:**\n• Online stores (Shopify, WooCommerce)\n• Mobile app backends\n• Inventory management systems\n• Marketplace platforms\n\n**Prerequisites:**\n• Basic Python knowledge (functions, classes, dictionaries)\n• Understanding of HTTP basics (what happens when you visit a website)\n• Familiarity with JSON format (JavaScript Object Notation - how data travels on the web)",
+        "keyPoints": [
+          "Learn REST API architecture - the standard way websites and apps communicate",
+          "Understand CRUD operations (Create, Read, Update, Delete) - the 4 basic database operations",
+          "Master request/response cycle - how servers receive and send data",
+          "Implement data validation - ensuring users send correct information",
+          "Build relationships between data models - connecting products, carts, and orders",
+          "Handle errors gracefully - what to do when things go wrong",
+          "Use Postman or curl to test APIs - tools developers use daily",
+          "Apply authentication patterns - keeping your API secure"
+        ],
+        "useCases": [
+          {
+            "title": "Online Store Backend",
+            "description": "Power e-commerce websites with product catalogs, shopping carts, and order management",
+            "example": "Shopify, WooCommerce, Amazon clone"
+          },
+          {
+            "title": "Mobile App API",
+            "description": "Provide backend services for iOS/Android shopping apps",
+            "example": "React Native or Flutter e-commerce apps"
+          },
+          {
+            "title": "Inventory Management",
+            "description": "Track product stock levels, sales, and restocking needs",
+            "example": "Warehouse management systems"
+          },
+          {
+            "title": "Marketplace Platform",
+            "description": "Multi-vendor platform where sellers manage their own products",
+            "example": "Etsy, eBay-style marketplaces"
+          }
+        ],
+        "dos": [
+          "Start with a virtual environment to keep dependencies isolated",
+          "Use environment variables for sensitive data (API keys, passwords)",
+          "Validate all incoming data before saving to database",
+          "Return appropriate HTTP status codes (200 for success, 404 for not found, etc.)",
+          "Write clear API documentation so others can use your API",
+          "Use meaningful variable and function names",
+          "Handle errors with try-except blocks",
+          "Test each endpoint as you build it"
+        ],
+        "donts": [
+          "Don't store passwords in plain text - always hash them",
+          "Don't skip input validation - bad data can break your app",
+          "Don't hardcode configuration values in your code",
+          "Don't return sensitive data in API responses",
+          "Don't ignore HTTP status codes - they help users understand what happened",
+          "Don't build everything at once - start simple, then add features",
+          "Don't forget to close database connections",
+          "Don't commit secrets (API keys, passwords) to version control"
+        ],
+        "bestPractices": [
+          "Use blueprints to organize your Flask routes into logical groups",
+          "Implement proper error handling with custom error messages",
+          "Use SQLAlchemy ORM instead of raw SQL queries for security",
+          "Follow RESTful naming conventions (/products, /orders, not /get_product)",
+          "Version your API (e.g., /api/v1/) to allow future changes",
+          "Add pagination for list endpoints to avoid loading too much data",
+          "Use JSON for request/response bodies - the web standard",
+          "Implement rate limiting to prevent API abuse",
+          "Add logging to track errors and usage patterns",
+          "Write unit tests for critical endpoints"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Project Structure & File Purpose",
+            "explanation": "Before writing code, let's understand what each file does. This is a typical Flask project structure:\n\n**File Structure:**\n```\necommerce-api/\n│\n├── app.py                 # Main application entry point - starts the server\n├── config.py              # Configuration settings (database URL, secret keys)\n├── requirements.txt       # List of Python packages needed\n├── .env                   # Environment variables (passwords, API keys) - NEVER commit this!\n│\n├── models/\n│   ├── __init__.py       # Makes this folder a Python package\n│   ├── product.py        # Product database model (what a product looks like)\n│   ├── user.py           # User database model\n│   ├── cart.py           # Shopping cart model\n│   └── order.py          # Order model\n│\n├── routes/\n│   ├── __init__.py       # Makes this folder a Python package\n│   ├── products.py       # Product-related endpoints (/products, /products/:id)\n│   ├── cart.py           # Cart endpoints (/cart, /cart/add)\n│   └── orders.py         # Order endpoints (/orders, /orders/:id)\n│\n├── utils/\n│   ├── __init__.py       # Makes this folder a Python package\n│   ├── validators.py     # Input validation functions\n│   └── auth.py           # Authentication helper functions\n│\n└── tests/\n    ├── test_products.py  # Tests for product endpoints\n    ├── test_cart.py      # Tests for cart endpoints\n    └── test_orders.py    # Tests for order endpoints\n```\n\n**Why this structure?**\n• Separation of concerns - each file has ONE job\n• Easy to find and fix bugs\n• Team members can work on different files without conflicts\n• Scalable - easy to add new features"
+          },
+          {
+            "title": "2. Configuration Setup (config.py)",
+            "explanation": "The config.py file stores all settings for your application. Think of it as the control panel for your app.\n\n**Key Concepts:**\n• Environment variables: Settings that change between development and production\n• Secret key: Used to encrypt session data and tokens\n• Database URI: Connection string telling Python where your database is\n• Configuration classes: Different settings for development vs production"
+          },
+          {
+            "title": "3. Database Models - Product (models/product.py)",
+            "explanation": "Database models are Python classes that represent tables in your database. Each instance of the class is a row in the table.\n\n**Think of it like this:**\n• Class = Blueprint for a table\n• Class attributes = Column definitions\n• Instance = One row of data\n\n**SQLAlchemy does the heavy lifting:**\n• Converts Python objects to SQL\n• Handles database connections\n• Prevents SQL injection attacks"
+          },
+          {
+            "title": "4. Database Models - User & Cart (models/user.py, models/cart.py)",
+            "explanation": "Now let's create User and Cart models. Notice how we link them together using relationships - this is the power of relational databases!\n\n**Relationships explained:**\n• One-to-Many: One user can have many cart items\n• Foreign Key: Links one table to another (cart_item.user_id → user.id)"
+          },
+          {
+            "title": "5. Database Models - Order (models/order.py)",
+            "explanation": "Orders are the final step - when a user checks out their cart. We'll store order details and individual items."
+          },
+          {
+            "title": "10. Testing Your API",
+            "explanation": "Learn how to test your API using curl (command line) or Postman (GUI tool). Testing ensures your endpoints work correctly.\n\n**Testing workflow:**\n1. Start the server\n2. Send requests to endpoints\n3. Verify responses\n4. Check database changes"
+          }
+        ]
+      },
+      {
+        "id": "mini-project-data-analytics-dashboard",
+        "title": "Mini Project: Data Analytics Dashboard",
+        "description": "Build an interactive data analysis dashboard with Pandas and Streamlit for visualizing and analyzing CSV/Excel data",
+        "overview": "In this beginner-friendly project, you'll build an interactive web dashboard that analyzes and visualizes data - no HTML/CSS/JavaScript needed! We'll use Pandas (for data manipulation) and Streamlit (to create the web interface).\n\n**What You'll Learn:**\n• How to read and process CSV/Excel files with Pandas\n• Data cleaning techniques (handling missing values, duplicates, wrong formats)\n• Statistical analysis (mean, median, correlations, trends)\n• Data visualization with charts and graphs (line, bar, pie, scatter plots)\n• Creating interactive web apps with Streamlit (without knowing web development!)\n• Filtering and searching large datasets\n• Exporting processed data and reports\n\n**Real-World Applications:**\n• Sales analytics dashboards (track revenue, top products, customer trends)\n• HR analytics (employee performance, turnover analysis)\n• Marketing analytics (campaign performance, ROI tracking)\n• Financial analysis (expense tracking, budget monitoring)\n• Student performance analysis\n• E-commerce analytics (order trends, inventory insights)\n\n**What Makes This Powerful:**\nThink of Excel, but automated and interactive! Instead of manually creating charts in Excel, you write Python code once, and it automatically updates when data changes.\n\n**Prerequisites:**\n• Basic Python (loops, functions, lists, dictionaries)\n• Understanding of CSV files (tables with rows and columns)\n• No math/statistics background needed - we'll explain everything!",
+        "keyPoints": [
+          "Master Pandas DataFrames - Excel-like tables but in Python code",
+          "Learn data cleaning - the most time-consuming but crucial step in data analysis",
+          "Understand exploratory data analysis (EDA) - discovering patterns in data",
+          "Create beautiful visualizations with Matplotlib/Plotly",
+          "Build interactive web apps with Streamlit - zero web dev knowledge required",
+          "Handle real messy data - missing values, inconsistent formats, outliers",
+          "Calculate key metrics - averages, totals, percentages, growth rates",
+          "Filter and group data - like Excel pivot tables but in code",
+          "Export results to CSV, Excel, or PDF reports"
+        ],
+        "useCases": [
+          {
+            "title": "Sales Performance Tracking",
+            "description": "Monitor sales metrics, identify top products, analyze regional performance, track revenue trends",
+            "example": "Monthly sales reports, product performance dashboards, sales team KPIs"
+          },
+          {
+            "title": "Financial Analysis",
+            "description": "Expense tracking, budget monitoring, profit/loss analysis, financial forecasting",
+            "example": "Personal finance tracking, business expense analysis, investment portfolio monitoring"
+          },
+          {
+            "title": "Marketing Analytics",
+            "description": "Campaign performance, ROI tracking, customer segmentation, conversion analysis",
+            "example": "Email campaign analytics, social media metrics, ad performance dashboards"
+          },
+          {
+            "title": "HR & Employee Analytics",
+            "description": "Headcount analysis, turnover rates, performance metrics, salary benchmarking",
+            "example": "Employee performance dashboards, recruitment analytics, retention analysis"
+          }
+        ],
+        "dos": [
+          "Always check for missing/null values before analysis",
+          "Visualize data before diving into complex analysis",
+          "Use descriptive column names when loading data",
+          "Cache expensive computations in Streamlit (@st.cache_data)",
+          "Validate data types (dates as dates, numbers as numbers)",
+          "Add user-friendly error messages for bad data",
+          "Document your data transformations with comments",
+          "Start with simple visualizations, then enhance them",
+          "Test with small sample data first, then scale up"
+        ],
+        "donts": [
+          "Don't load massive files without chunking or sampling",
+          "Don't skip data exploration - always look at your data first!",
+          "Don't ignore outliers without investigating them",
+          "Don't use complex visualizations when simple ones work better",
+          "Don't forget to handle edge cases (empty files, single row data)",
+          "Don't hardcode file paths - make them configurable",
+          "Don't perform calculations on dirty data",
+          "Don't create too many plots - it slows down the dashboard"
+        ],
+        "bestPractices": [
+          "Use df.head(), df.info(), df.describe() to understand your data first",
+          "Separate data loading, cleaning, and analysis into functions",
+          "Use Streamlit widgets for user input (sliders, dropdowns, date pickers)",
+          "Add download buttons for filtered/processed data",
+          "Use st.columns() for better layout organization",
+          "Implement error handling for file uploads and parsing",
+          "Add data quality checks and display warnings",
+          "Use appropriate chart types for different data (line for time series, bar for categories)",
+          "Add tooltips and labels to make charts self-explanatory",
+          "Keep your dashboard responsive with progress indicators"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Project Structure & Dependencies",
+            "explanation": "Let's set up a data analytics project. We'll organize files logically and understand each component's role.\n\n**Project Structure:**\n```\nsales-analytics-dashboard/\n│\n├── app.py                    # Main Streamlit application (the dashboard)\n├── requirements.txt          # Python packages needed\n├── data_processor.py         # Data cleaning and transformation functions\n├── visualizations.py         # Chart creation functions\n├── utils.py                  # Helper functions (file upload, export, etc.)\n├── config.py                 # Configuration settings\n│\n├── data/                     # Sample data folder\n│   ├── sample_sales.csv      # Example sales data\n│   └── README.md             # Data description\n│\n├── exports/                  # Saved reports and processed data\n│   └── .gitkeep              # Keep folder in git\n│\n└── .streamlit/\n    └── config.toml           # Streamlit theme customization\n```\n\n**File Purposes:**\n• **app.py**: Main entry point - the dashboard UI and user interactions\n• **data_processor.py**: All data cleaning, transformation logic (reusable functions)\n• **visualizations.py**: Chart creation functions (keeps app.py clean)\n• **utils.py**: Helper functions like file upload handling, data export\n• **config.py**: Settings like column mappings, date formats, default values\n\n**Why this structure?**\n• Each file has ONE responsibility (Single Responsibility Principle)\n• Easy to test individual components\n• Reusable code - use data_processor in other projects\n• Team members can work on different files simultaneously"
+          },
+          {
+            "title": "2. Configuration File (config.py)",
+            "explanation": "The config file centralizes all settings. Think of it as your dashboard's control panel - change settings here instead of hunting through code.\n\n**Why configuration files?**\n• Change behavior without modifying code\n• Easy to switch between different datasets\n• Share settings across multiple files\n• Separate environment-specific settings (dev vs production)"
+          },
+          {
+            "title": "3. Data Processing Functions (data_processor.py)",
+            "explanation": "This file contains all data cleaning and transformation logic. Think of it as your data kitchen - raw data goes in, clean data comes out!\n\n**Common Data Issues:**\n• Missing values (NaN, None, empty cells)\n• Wrong data types (dates as strings, numbers as text)\n• Duplicates (same row repeated)\n• Outliers (values way too high or low)\n• Inconsistent formatting (different date formats, capitalization)\n\n**Our cleaning pipeline:**\n1. Load data\n2. Detect data types\n3. Handle missing values\n4. Remove duplicates\n5. Fix data types\n6. Detect outliers\n7. Create calculated fields"
+          },
+          {
+            "title": "4. Visualization Functions (visualizations.py)",
+            "explanation": "This file creates all charts and graphs. We'll use Plotly for interactive charts (hover, zoom, click) and Matplotlib for static charts.\n\n**Chart Types & When to Use:**\n• **Line Chart**: Trends over time (sales over months)\n• **Bar Chart**: Compare categories (sales by product)\n• **Pie Chart**: Show proportions (market share)\n• **Scatter Plot**: Find relationships between variables\n• **Histogram**: Show distribution (age groups, price ranges)\n• **Box Plot**: Identify outliers and spread"
+          },
+          {
+            "title": "5. Main Dashboard Application (app.py) - Part 1",
+            "explanation": "Now we build the actual web dashboard! Streamlit makes this incredibly easy - you write Python, it creates the web interface automatically.\n\n**Streamlit Basics:**\n• st.title() → Creates page title\n• st.write() → Display anything (text, dataframes, charts)\n• st.sidebar → Add controls to sidebar\n• st.file_uploader() → File upload button\n• st.selectbox() → Dropdown menu\n• st.slider() → Number slider\n• st.button() → Clickable button\n• st.dataframe() → Interactive table"
+          },
+          {
+            "title": "6. Main Dashboard Application (app.py) - Part 2",
+            "explanation": "Continue building the dashboard with data cleaning, filtering, and analysis features."
+          },
+          {
+            "title": "7. Main Dashboard Application (app.py) - Part 3",
+            "explanation": "Final part - custom visualizations and insights generation."
+          }
+        ]
+      },
+      {
+        "id": "mini-project-web-scraper-automation",
+        "title": "Mini Project: Web Scraper & Automation Bot",
+        "description": "Build an intelligent web scraper to extract data from websites and automate repetitive tasks with scheduled execution",
+        "overview": "In this beginner-friendly project, you'll learn to extract data from websites automatically - like having a robot that visits websites, reads information, and saves it for you!\n\n**What You'll Learn:**\n• How websites work (HTML structure, the \"skeleton\" of web pages)\n• Web scraping basics with BeautifulSoup (parsing HTML like reading a book)\n• Making HTTP requests with the requests library (visiting websites programmatically)\n• Handling dynamic content with Selenium (websites that load data with JavaScript)\n• Data extraction patterns (finding specific information on pages)\n• Automated scheduling with APScheduler (run scripts automatically)\n• Email notifications (get alerts when tasks complete)\n• Error handling and retry logic (websites can be unreliable!)\n• Ethical scraping practices and robots.txt\n\n**Real-World Applications:**\n• Price monitoring (track product prices on e-commerce sites)\n• News aggregation (collect articles from multiple sources)\n• Job listing scraper (find job postings matching your skills)\n• Real estate monitoring (track new property listings)\n• Stock market data collection\n• Social media monitoring\n• Competitor analysis\n• Research data collection\n\n**Important Ethics & Legality:**\n⚠️ **Always check:**\n• Website's Terms of Service (some prohibit scraping)\n• robots.txt file (tells you what's allowed)\n• Rate limiting (don't overwhelm servers)\n• Copyright and data usage rights\n\n**Prerequisites:**\n• Basic Python (functions, loops, dictionaries)\n• Understanding of HTML basics (tags like <div>, <p>, <a>)\n• HTTP basics (what happens when you visit a URL)",
+        "keyPoints": [
+          "Understand HTML structure - tags, attributes, classes, IDs",
+          "Master CSS selectors - the language for finding elements",
+          "Learn web scraping libraries - BeautifulSoup for static, Selenium for dynamic",
+          "Handle HTTP requests properly - headers, cookies, sessions",
+          "Implement polite scraping - delays, user agents, rate limiting",
+          "Parse different data formats - HTML, JSON, XML",
+          "Store scraped data - CSV, JSON, databases",
+          "Schedule automated tasks - cron-like scheduling in Python",
+          "Send notifications - email alerts for completed tasks or errors",
+          "Handle errors gracefully - retry logic, timeouts, fallbacks"
+        ],
+        "useCases": [
+          {
+            "title": "E-commerce Price Monitoring",
+            "description": "Track product prices across multiple stores, get alerts when prices drop below target",
+            "example": "Monitor Amazon, eBay for best deals; track competitor pricing"
+          },
+          {
+            "title": "News & Content Aggregation",
+            "description": "Collect articles from multiple news sources, create personalized news feeds",
+            "example": "Tech news aggregator, job listing collector, real estate monitor"
+          },
+          {
+            "title": "Market Research & Analysis",
+            "description": "Gather competitor data, track industry trends, monitor reviews and ratings",
+            "example": "Competitor price analysis, product review sentiment analysis"
+          },
+          {
+            "title": "Data Collection for Research",
+            "description": "Collect public data for academic research, machine learning datasets",
+            "example": "Social media analysis, academic paper collection, government data scraping"
+          }
+        ],
+        "dos": [
+          "Always check robots.txt before scraping (website.com/robots.txt)",
+          "Add delays between requests (time.sleep) to be respectful",
+          "Use descriptive User-Agent headers (identify your bot)",
+          "Handle errors with try-except blocks",
+          "Save data incrementally (don't lose everything if it crashes)",
+          "Log your scraping activities for debugging",
+          "Validate extracted data before saving",
+          "Use sessions to reuse connections (faster, more efficient)",
+          "Test with small samples before full scraping runs"
+        ],
+        "donts": [
+          "Don't scrape websites that prohibit it in their Terms of Service",
+          "Don't overwhelm servers with rapid requests (causes server strain)",
+          "Don't ignore error responses (403, 429, 500)",
+          "Don't scrape personal/sensitive data without permission",
+          "Don't hardcode selectors without fallbacks (pages change!)",
+          "Don't run scrapers without error notifications",
+          "Don't store passwords or API keys in code",
+          "Don't scrape data you don't need (respect bandwidth)",
+          "Don't ignore rate limits or CAPTCHAs"
+        ],
+        "bestPractices": [
+          "Use CSS selectors over XPath when possible (more readable)",
+          "Implement exponential backoff for retries (1s, 2s, 4s, 8s...)",
+          "Rotate User-Agent strings to appear more natural",
+          "Use headless browsers for JavaScript-heavy sites",
+          "Cache responses during development to avoid repeated requests",
+          "Validate HTML structure before parsing (check if page loaded)",
+          "Use database storage for large datasets (not just files)",
+          "Implement duplicate detection to avoid re-scraping",
+          "Monitor scraper health with logging and alerts",
+          "Document your selectors with comments (future you will thank you!)"
+        ],
+        "codeExamples": [
+          {
+            "title": "1. Project Structure & Setup",
+            "explanation": "Let's organize a professional web scraping project. Good structure makes debugging and maintenance much easier!\n\n**Project Structure:**\n\nweb-scraper-bot/\n│\n├── scraper.py              # Main scraping logic\n├── config.py               # Configuration settings\n├── scheduler.py            # Automated task scheduling\n├── notifier.py             # Email/SMS notifications\n├── database.py             # Data storage functions\n├── utils.py                # Helper functions (retry, delays, etc.)\n├── requirements.txt        # Python dependencies\n├── .env                    # Environment variables (API keys, passwords)\n│\n├── scrapers/               # Individual scraper modules\n│   ├── __init__.py\n│   ├── price_scraper.py    # E-commerce price scraping\n│   ├── news_scraper.py     # News article scraping\n│   └── job_scraper.py      # Job listing scraping\n│\n├── data/                   # Scraped data storage\n│   ├── raw/                # Raw HTML/JSON\n│   └── processed/          # Cleaned CSV/JSON\n│\n└── logs/                   # Log files\n    └── scraper.log         # Activity logs\n\n\n**File Purposes:**\n• scraper.py: Main entry point with scraping logic\n• config.py: All settings in one place (URLs, selectors, delays)\n• scheduler.py: Automate scraping at specific times\n• notifier.py: Send alerts via email when done or errors occur\n• database.py: Save/load data from SQLite or other databases\n• utils.py: Reusable helpers (retry logic, random delays, etc.)"
+          },
+          {
+            "title": "2. Configuration File (config.py)",
+            "explanation": "Centralize all settings here. This makes it easy to modify scraper behavior without touching code.\n\n**Why configuration files?**\n• Change URLs/selectors without code changes\n• Different configs for dev/production\n• Easy to manage multiple scrapers\n• Keep sensitive data separate (via .env)"
+          },
+          {
+            "title": "3. Utility Functions (utils.py)",
+            "explanation": "Helper functions used across different scrapers. Think of this as your toolbox - reusable tools that make scraping easier!\n\n**Key utilities:**\n• Random delays (appear more human-like)\n• Retry logic with exponential backoff\n• User-Agent rotation\n• HTML validation\n• Data cleaning functions"
+          },
+          {
+            "title": "4. Main Scraper Class (scraper.py)",
+            "explanation": "The main scraping engine! This handles HTTP requests, HTML parsing, and data extraction.\n\n**Two approaches:**\n1. **BeautifulSoup** - For static HTML (faster, simpler)\n2. **Selenium** - For dynamic JavaScript sites (slower, more powerful)\n\nWe'll implement both so you can choose based on the website!"
+          },
+          {
+            "title": "5. Specific Scraper Example - Price Tracker (scrapers/price_scraper.py)",
+            "explanation": "A practical example: tracking product prices over time. This demonstrates a complete, real-world scraper!"
+          },
+          {
+            "title": "6. Task Scheduler (scheduler.py)",
+            "explanation": "Automate your scraper to run at specific times - like a cron job but in Python!\n\n**Scheduling options:**\n• Interval (every X hours/minutes)\n• Cron-style (specific times like \"8 AM daily\")\n• One-time delayed execution"
+          },
+          {
+            "title": "7. Email Notifications (notifier.py)",
+            "explanation": "Send email alerts when scraping completes or errors occur. Stay informed without constantly checking!"
+          }
+        ]
+      },
+      {
+        "id": "project-4-weather-app",
+        "title": "Project 4: Weather App with API Integration",
+        "description": "Build a weather application that fetches real-time weather data from external APIs. Learn how to work with REST APIs, handle JSON data, manage API keys, and create a command-line weather tool.",
+        "overview": "In this beginner-friendly project, you'll build a weather application that fetches real-time weather data from external APIs. You'll learn how to work with REST APIs, handle JSON data, manage API keys, and create a command-line weather tool.\n\n**What You'll Learn:**\n\n• Making HTTP requests to REST APIs\n• Managing API keys and authentication\n• Parsing and working with JSON data\n• Error handling for network requests\n• Caching data to reduce API calls\n• Building a clean command-line interface\n• Working with geolocation data\n\n**Real-World Application:**\n\nAPIs power modern apps - from social media to payment systems. This project teaches you how to integrate external services into your applications, a crucial skill for any developer.",
+        "keyPoints": [
+          "Understand REST APIs and how applications communicate over the internet",
+          "Learn to make HTTP requests and handle responses",
+          "Master JSON parsing and data extraction",
+          "Implement API authentication with API keys",
+          "Build error handling for network requests",
+          "Create a caching system to reduce API calls",
+          "Work with environment variables for security"
+        ],
+        "useCases": [
+          {
+            "title": "Personal Weather Dashboard",
+            "description": "Create a daily weather summary that runs automatically every morning",
+            "example": "Use scheduler to run script at 7 AM, fetch weather, send summary email or Slack message"
+          },
+          {
+            "title": "Travel Planning Tool",
+            "description": "Compare weather across multiple destinations to plan trips",
+            "example": "Fetch forecasts for 5 cities, display side-by-side comparison"
+          },
+          {
+            "title": "Farming/Agriculture Monitor",
+            "description": "Track temperature, humidity, and precipitation for farm management",
+            "example": "Alert when frost is predicted, track rainfall for irrigation planning"
+          },
+          {
+            "title": "Event Planning Assistant",
+            "description": "Check weather for outdoor events and suggest backup dates",
+            "example": "Wedding planner app that checks forecast and suggests rain-free dates"
+          }
+        ],
+        "dos": [],
+        "donts": [],
+        "bestPractices": {
+          "apiUsage": [
+            "Store API keys in environment variables, never in code",
+            "Implement caching to reduce API calls and costs",
+            "Handle rate limits gracefully with exponential backoff",
+            "Validate user input before making API requests",
+            "Use timeouts to prevent hanging requests",
+            "Close sessions properly to free resources"
+          ],
+          "errorHandling": [
+            "Check HTTP status codes and handle specific errors",
+            "Provide helpful error messages to users",
+            "Implement retry logic for transient failures",
+            "Catch and handle JSON parsing errors",
+            "Validate API responses before using data",
+            "Log errors for debugging but do not expose secrets"
+          ],
+          "codeOrganization": [
+            "Separate API logic from presentation logic",
+            "Use type hints for better code documentation",
+            "Create reusable utility functions",
+            "Keep configuration in dedicated files",
+            "Write tests for API client and formatter",
+            "Document your functions with docstrings"
+          ]
+        },
+        "codeExamples": [
+          {
+            "title": "1. Project Structure Setup",
+            "explanation": "First, let's set up our project structure with proper organization.\n\n**Why this structure?**\n• config/ - Keeps all settings in one place\n• src/ - Core application logic\n• cli/ - User interface separated from logic\n• data/ - Local data storage\n• tests/ - Testing code\n\n**Important files:**\n• .env - NEVER commit this! Contains your API keys\n• requirements.txt - Lists all Python packages needed"
+          }
+        ]
+      },
+      {
+        "id": "project-5-chat-app",
+        "title": "Project 5: Real-time Chat Application",
+        "description": "Build a real-time chat application using WebSockets. Learn about bidirectional communication, event-driven programming, and building interactive applications that update instantly without page refreshes.",
+        "overview": "Build a real-time chat application using WebSockets. Learn about bidirectional communication, event-driven programming, and building interactive applications that update instantly without page refreshes.\n\n**What You'll Learn:**\n\n• WebSocket protocol and how it differs from HTTP\n• Building real-time, bidirectional communication\n• Event-driven programming patterns\n• Managing multiple concurrent connections\n• Creating chat rooms and private messaging\n• Tracking online users in real-time\n• Building a web-based chat interface\n• Basic authentication and user sessions\n\n**Real-World Applications:**\n\nReal-time features power modern apps - from WhatsApp to Slack to live sports scores. This project teaches you how to build apps that feel instant and responsive.",
+        "keyPoints": [
+          "Understand WebSocket protocol vs traditional HTTP",
+          "Build bidirectional real-time communication",
+          "Implement event-driven programming patterns",
+          "Manage multiple concurrent user connections",
+          "Create chat rooms and broadcasting systems",
+          "Track user presence and online status",
+          "Build interactive web interfaces",
+          "Handle authentication and sessions"
+        ],
+        "useCases": [
+          {
+            "title": "Team Communication Tool",
+            "description": "Build a Slack-like app for internal company communication",
+            "example": "Add channels, private DMs, file sharing, @mentions, search"
+          },
+          {
+            "title": "Live Customer Support",
+            "description": "Real-time chat between customers and support agents",
+            "example": "Queue management, agent assignment, chat history, canned responses"
+          },
+          {
+            "title": "Multiplayer Game Lobby",
+            "description": "Real-time lobby where players can join games and chat",
+            "example": "Game matchmaking, ready-up system, team chat, spectator mode"
+          },
+          {
+            "title": "Live Auction Platform",
+            "description": "Real-time bidding system for online auctions",
+            "example": "Bid updates, countdown timer, winner announcements, bid history"
+          }
+        ],
+        "dos": [],
+        "donts": [],
+        "bestPractices": {
+          "security": [
+            "Validate all input from clients (never trust client data)",
+            "Implement authentication before allowing connections",
+            "Sanitize messages to prevent XSS attacks",
+            "Rate limit messages to prevent spam",
+            "Use HTTPS in production (secure WebSocket = wss://)",
+            "Store secrets in environment variables"
+          ],
+          "performance": [
+            "Limit message history size to prevent memory issues",
+            "Use Redis or database for persistence (not in-memory dicts)",
+            "Implement pagination for message history",
+            "Compress messages over WebSocket",
+            "Use rooms to avoid broadcasting to all users",
+            "Clean up disconnected sessions periodically"
+          ],
+          "codeOrganization": [
+            "Separate event handlers into logical files",
+            "Use dedicated classes for users and rooms",
+            "Keep UI logic in JavaScript, business logic in Python",
+            "Write tests for event handlers",
+            "Document all events and their payloads",
+            "Use TypeScript for client code in larger projects"
+          ]
+        },
+        "codeExamples": [
+          {
+            "title": "1. Dependencies & Setup",
+            "explanation": "Setting up a WebSocket server with Flask-SocketIO.\n\n**Key Libraries:**\n• Flask - Web framework for serving pages\n• Flask-SocketIO - Adds WebSocket support to Flask\n• python-socketio - WebSocket implementation\n• eventlet - Async networking library for concurrent connections\n\n**Why Flask-SocketIO?**\n• Easy integration with Flask\n• Handles WebSocket complexities for you\n• Fallbacks to polling if WebSockets unavailable\n• Built-in room and namespace support"
+          },
+          {
+            "title": "2. Application Config (config.py)",
+            "explanation": "Configuration for the Flask app and SocketIO server.\n\n**Important Settings:**\n• SECRET_KEY - Secures sessions (MUST be random in production)\n• CORS settings - Allow/deny origins\n• Message history limits - Prevent memory issues\n• User limits - Control concurrent connections"
+          },
+          {
+            "title": "3. Main Server (server/app.py)",
+            "explanation": "The core Flask application with SocketIO initialization.\n\n**What this file does:**\n• Initialize Flask app\n• Set up SocketIO server\n• Configure routes for web pages\n• Register event handlers\n• Start the server\n\n**Flask-SocketIO vs regular Flask:**\n• Regular Flask: HTTP only (request → response)\n• Flask-SocketIO: HTTP + WebSocket (persistent connection, bidirectional)"
+          },
+          {
+            "title": "4. WebSocket Events (server/events.py)",
+            "explanation": "Handle all WebSocket events - the heart of real-time communication.\n\n**Key Events:**\n• connect - User connects to server\n• disconnect - User leaves\n• message - User sends a chat message\n• join_room - User joins a chat room\n• leave_room - User leaves a room\n• typing - User is typing (show indicator)\n\n**Event Flow:**\n1. Client emits event (e.g., \"message\")\n2. Server receives event in handler function\n3. Server processes (validate, save, etc.)\n4. Server broadcasts to other users\n5. All connected clients receive and display"
+          },
+          {
+            "title": "5. Client-Side JavaScript (static/js/chat.js)",
+            "explanation": "The browser-side code that connects to the server and handles UI updates.\n\n**What this file does:**\n• Connect to WebSocket server\n• Send messages when user types and hits Enter\n• Receive messages from server and display them\n• Update online user list\n• Show typing indicators\n• Play notification sounds\n\n**Key SocketIO Client Methods:**\n• socket.emit() - Send event to server\n• socket.on() - Listen for events from server\n• socket.connect() - Establish connection\n• socket.disconnect() - Close connection"
+          },
+          {
+            "title": "6. Chat HTML Template (templates/chat.html)",
+            "explanation": "The user interface for the chat application.\n\n**What this template includes:**\n• Message display area (scrollable)\n• Input form for typing messages\n• Online users sidebar\n• Room switcher\n• Logout button\n\n**Jinja2 Templating:**\n{{ username }} - Insert Python variable\n{% for %} - Loop through data\n{% if %} - Conditional rendering"
+          },
+          {
+            "title": "7. Run Server (run.py)",
+            "explanation": "Entry point to start the chat server.\n\n**How to run:**\n```bash\npython run.py\n```\n\nThen open http://localhost:5000 in multiple browser windows to test!\n\n**Why separate run.py from app.py?**\n• Cleaner imports for testing\n• Can run with different configs\n• Production deployment easier (use WSGI server)"
+          }
+        ]
+      }
+    ],
+    "totalTexts": null
+  }
+}

@@ -1,0 +1,838 @@
+{
+  "courseName": "intermediate",
+  "totalTopics": 11,
+  "topics": [
+    {
+      "id": "strings-comprehensive",
+      "title": "Strings - Complete Mastery",
+      "description": "Master string manipulation and text processing in Python",
+      "overview": "Strings are sequences of characters used for storing and manipulating text. Python provides powerful string methods and operations that make text processing easy and efficient. From simple concatenation to complex pattern matching, strings are fundamental to almost every Python program.",
+      "keyPoints": [
+        "Strings are immutable - cannot be changed after creation",
+        "Can use single quotes, double quotes, or triple quotes",
+        "Support indexing and slicing like lists",
+        "Rich set of built-in methods for manipulation",
+        "Unicode support for international characters"
+      ],
+      "useCases": [
+        {
+          "title": "Text Processing",
+          "description": "Parse and analyze text data",
+          "example": "Process log files, extract information, clean data"
+        },
+        {
+          "title": "User Input Validation",
+          "description": "Validate and format user input",
+          "example": "Check email format, clean phone numbers, validate passwords"
+        },
+        {
+          "title": "Data Formatting",
+          "description": "Format data for display",
+          "example": "Create reports, format currency, generate messages"
+        },
+        {
+          "title": "File Operations",
+          "description": "Read and write text files",
+          "example": "Parse CSV, process configuration files, log writing"
+        }
+      ],
+      "dos": [
+        "Use .format() or % formatting for string interpolation",
+        "Use appropriate string methods instead of manual loops",
+        "Use join() for combining multiple strings efficiently",
+        "Use strip() to remove unwanted whitespace",
+        "Check string methods documentation for built-in solutions"
+      ],
+      "donts": [
+        "Don't concatenate strings in loops (use join instead)",
+        "Don't use + for building large strings repeatedly",
+        "Don't forget strings are immutable",
+        "Don't use == for case-insensitive comparison without lower()",
+        "Don't manually implement what built-in methods do"
+      ],
+      "bestPractices": [
+        "Use .format() or % for string formatting",
+        "Use raw strings (r\"...\") for regular expressions",
+        "Use triple quotes for multi-line strings",
+        "Chain string methods for clean code",
+        "Use constants for repeated string values"
+      ],
+      "codeExamples": [
+        {
+          "title": "String Creation and Basic Operations",
+          "explanation": "Strings can be created multiple ways and support powerful slicing operations"
+        },
+        {
+          "title": "String Formatting - Modern Approaches",
+          "explanation": "Use .format() or % for clean, readable string formatting"
+        },
+        {
+          "title": "Essential String Methods",
+          "explanation": "Python provides rich string methods for common operations"
+        },
+        {
+          "title": "Real-World: Email Validator",
+          "explanation": "Practical example using multiple string methods for validation"
+        },
+        {
+          "title": "Real-World: Text Data Cleaning",
+          "explanation": "Real-world data cleaning using string methods and comprehensions"
+        }
+      ]
+    },
+    {
+      "id": "lists-comprehensive",
+      "title": "Lists - Complete Mastery",
+      "description": "Master Python lists and list operations",
+      "overview": "Lists are ordered, mutable collections that can hold items of any type. They are one of Python's most versatile data structures, perfect for storing sequences of related data. Lists support indexing, slicing, and a rich set of methods for adding, removing, and manipulating elements.",
+      "keyPoints": [
+        "Lists are mutable - can be modified after creation",
+        "Can contain mixed data types",
+        "Support indexing, slicing, and iteration",
+        "Dynamic size - grow and shrink automatically",
+        "Many built-in methods for manipulation"
+      ],
+      "useCases": [
+        {
+          "title": "Data Collection",
+          "description": "Store and organize related data",
+          "example": "Student grades, shopping cart items, task lists"
+        },
+        {
+          "title": "Data Processing",
+          "description": "Transform and analyze data",
+          "example": "Filter records, calculate statistics, sort results"
+        },
+        {
+          "title": "Stack/Queue Implementation",
+          "description": "Implement data structures",
+          "example": "Task queues, undo/redo functionality, breadth-first search"
+        },
+        {
+          "title": "Batch Operations",
+          "description": "Process multiple items",
+          "example": "Bulk file processing, batch API calls, data imports"
+        }
+      ],
+      "dos": [
+        "Use list comprehensions for transformations",
+        "Use appropriate methods (append, extend, insert)",
+        "Check if list is empty with \"if my_list:\"",
+        "Use enumerate() when you need index and value",
+        "Use slicing for creating copies"
+      ],
+      "donts": [
+        "Don't modify list while iterating over it",
+        "Don't use + for repeated appending (use extend)",
+        "Don't forget lists are mutable (passed by reference)",
+        "Don't use lists for large datasets needing fast lookups",
+        "Don't create unnecessary copies of large lists"
+      ],
+      "bestPractices": [
+        "Use list comprehensions instead of map/filter when readable",
+        "Consider using deque for queue operations",
+        "Use tuple for immutable sequences",
+        "Profile before optimizing list operations",
+        "Use appropriate data structure (list, set, dict) for your use case"
+      ],
+      "codeExamples": [
+        {
+          "title": "List Creation and Basic Operations",
+          "explanation": "Lists support various creation methods and operations"
+        },
+        {
+          "title": "List Comprehensions - Powerful and Pythonic",
+          "explanation": "List comprehensions provide elegant way to create and transform lists"
+        },
+        {
+          "title": "Essential List Methods",
+          "explanation": "List methods provide powerful tools for manipulation"
+        },
+        {
+          "title": "Real-World: Student Grade Management",
+          "explanation": "Complete real-world example using lists and list methods"
+        }
+      ]
+    },
+    {
+      "id": "tuples-comprehensive",
+      "title": "Tuples - Immutable Sequences",
+      "description": "Master tuples and tuple operations in Python",
+      "overview": "Tuples are immutable sequences in Python, similar to lists but cannot be modified after creation. They are perfect for storing related data that should not change, like coordinates, RGB colors, or database records. Tuples are faster than lists and can be used as dictionary keys.",
+      "keyPoints": [
+        "Tuples are immutable - cannot be changed after creation",
+        "Created using parentheses () or without delimiters",
+        "Support indexing and slicing like lists",
+        "Can be used as dictionary keys (unlike lists)",
+        "Faster and more memory-efficient than lists"
+      ],
+      "useCases": [
+        {
+          "title": "Fixed Data Collections",
+          "description": "Store data that should not change",
+          "example": "Coordinates (x, y), RGB colors (255, 128, 0), date (2023, 12, 25)"
+        },
+        {
+          "title": "Multiple Return Values",
+          "description": "Return multiple values from functions",
+          "example": "def get_user(): return name, age, email"
+        },
+        {
+          "title": "Dictionary Keys",
+          "description": "Use as immutable dictionary keys",
+          "example": "locations = {(40.7, -74.0): \"New York\", (34.0, -118.2): \"LA\"}"
+        },
+        {
+          "title": "Data Integrity",
+          "description": "Prevent accidental modifications",
+          "example": "Configuration settings, constant values, enum-like data"
+        }
+      ],
+      "dos": [
+        "Use tuples for fixed collections of items",
+        "Use tuple unpacking for readable code",
+        "Use tuples as dictionary keys when needed",
+        "Use named tuples for better code clarity",
+        "Return tuples from functions for multiple values"
+      ],
+      "donts": [
+        "Don't use tuples when you need to modify data",
+        "Don't forget the comma for single-item tuples",
+        "Don't confuse (1) with (1,) - first is int, second is tuple",
+        "Don't try to modify tuple elements directly",
+        "Don't use tuples for large, homogeneous data (use lists)"
+      ],
+      "bestPractices": [
+        "Use tuple unpacking for cleaner code",
+        "Consider named tuples for self-documenting code",
+        "Use tuples for heterogeneous data (different types)",
+        "Use tuples when data should not change",
+        "Prefer tuples over lists for return values"
+      ],
+      "codeExamples": [
+        {
+          "title": "Tuple Creation and Basic Operations",
+          "explanation": "Tuples are created with parentheses and support similar operations to lists, but are immutable"
+        },
+        {
+          "title": "Tuple Unpacking - Elegant and Powerful",
+          "explanation": "Tuple unpacking makes code cleaner and more readable"
+        },
+        {
+          "title": "Named Tuples for Better Code",
+          "explanation": "Named tuples provide self-documenting code with named fields while maintaining tuple benefits"
+        },
+        {
+          "title": "Real-World: Database Records",
+          "explanation": "Named tuples are perfect for representing database records with immutability and clarity"
+        }
+      ]
+    },
+    {
+      "id": "dictionaries-comprehensive",
+      "title": "Dictionaries - Key-Value Mastery",
+      "description": "Master Python dictionaries and mapping operations",
+      "overview": "Dictionaries are Python's built-in mapping type, storing data as key-value pairs. They provide fast lookups, flexible data organization, and are fundamental to Python programming. Dictionaries are mutable, unordered (before Python 3.7) or insertion-ordered (Python 3.7+), and support powerful operations for data manipulation.",
+      "keyPoints": [
+        "Store data as key-value pairs for fast lookups",
+        "Keys must be immutable (strings, numbers, tuples)",
+        "Values can be any type, including other dictionaries",
+        "Insertion order preserved (Python 3.7+)",
+        "Average O(1) time complexity for lookups"
+      ],
+      "useCases": [
+        {
+          "title": "Data Mapping",
+          "description": "Map keys to values for quick lookups",
+          "example": "user_ages = {\"Alice\": 25, \"Bob\": 30, \"Charlie\": 35}"
+        },
+        {
+          "title": "Configuration Storage",
+          "description": "Store application settings and config",
+          "example": "config = {\"host\": \"localhost\", \"port\": 8080, \"debug\": True}"
+        },
+        {
+          "title": "Caching",
+          "description": "Cache expensive computation results",
+          "example": "fibonacci_cache = {0: 0, 1: 1, 2: 1, 3: 2}"
+        },
+        {
+          "title": "Data Transformation",
+          "description": "Transform and restructure data",
+          "example": "Group students by grade, aggregate sales by region"
+        }
+      ],
+      "dos": [
+        "Use get() method to avoid KeyError",
+        "Use dict comprehensions for transformations",
+        "Use setdefault() or defaultdict for default values",
+        "Check if key exists with \"in\" operator",
+        "Use items() for iterating key-value pairs"
+      ],
+      "donts": [
+        "Don't use mutable objects as keys (lists, sets, dicts)",
+        "Don't modify dictionary while iterating (use list(dict.items()))",
+        "Don't use dict[key] without checking existence",
+        "Don't forget dictionaries are mutable (passed by reference)",
+        "Don't use dictionaries for ordered sequences (use lists)"
+      ],
+      "bestPractices": [
+        "Use dict.get(key, default) instead of dict[key]",
+        "Use dict comprehensions for creating dictionaries",
+        "Use collections.defaultdict for default values",
+        "Use collections.Counter for counting",
+        "Consider using dataclasses for structured data"
+      ],
+      "codeExamples": [
+        {
+          "title": "Dictionary Creation and Operations",
+          "explanation": "Dictionaries provide fast key-value storage with flexible operations"
+        },
+        {
+          "title": "Dictionary Comprehensions",
+          "explanation": "Dictionary comprehensions provide elegant way to create and transform dictionaries"
+        },
+        {
+          "title": "Advanced Dictionary Techniques",
+          "explanation": "Advanced techniques for working with dictionaries efficiently"
+        },
+        {
+          "title": "Real-World: Student Grade System",
+          "explanation": "Complete real-world grade management system using dictionaries"
+        }
+      ]
+    },
+    {
+      "id": "sets-comprehensive",
+      "title": "Sets - Unique Collections Mastery",
+      "description": "Master Python sets and set operations",
+      "overview": "Sets are unordered collections of unique elements in Python. They are perfect for removing duplicates, membership testing, and mathematical set operations like union, intersection, and difference. Sets are mutable (but frozensets are immutable) and provide fast O(1) membership testing.",
+      "keyPoints": [
+        "Sets store only unique elements - duplicates are automatically removed",
+        "Unordered - no indexing or slicing",
+        "Fast membership testing with O(1) average time complexity",
+        "Support mathematical set operations (union, intersection, difference)",
+        "Elements must be immutable (hashable)"
+      ],
+      "useCases": [
+        {
+          "title": "Remove Duplicates",
+          "description": "Quickly remove duplicate items from sequences",
+          "example": "unique_items = set([1, 2, 2, 3, 3, 4]) # {1, 2, 3, 4}"
+        },
+        {
+          "title": "Membership Testing",
+          "description": "Fast checking if element exists",
+          "example": "allowed_users = {\"alice\", \"bob\"}; \"alice\" in allowed_users"
+        },
+        {
+          "title": "Set Operations",
+          "description": "Find common elements, differences between collections",
+          "example": "common_skills = frontend_skills & backend_skills"
+        },
+        {
+          "title": "Tag Systems",
+          "description": "Manage unique tags, categories, keywords",
+          "example": "post_tags = {\"python\", \"tutorial\", \"beginner\"}"
+        }
+      ],
+      "dos": [
+        "Use sets for membership testing when order doesn't matter",
+        "Use sets to remove duplicates efficiently",
+        "Use set operations for comparing collections",
+        "Use frozenset when you need immutable sets",
+        "Use set comprehensions for transformations"
+      ],
+      "donts": [
+        "Don't use sets when you need to maintain order",
+        "Don't try to add mutable objects (lists, dicts) to sets",
+        "Don't use sets for indexed access",
+        "Don't forget sets are mutable (use frozenset for dict keys)",
+        "Don't use sets for small collections (overhead not worth it)"
+      ],
+      "bestPractices": [
+        "Use sets for fast membership testing",
+        "Prefer set operations over manual loops",
+        "Use frozenset for immutable sets",
+        "Document when set ordering matters (it doesn't)",
+        "Consider sets for deduplication"
+      ],
+      "codeExamples": [
+        {
+          "title": "Set Creation and Basic Operations",
+          "explanation": "Sets automatically handle uniqueness and provide fast membership testing"
+        },
+        {
+          "title": "Set Operations - Mathematical Power",
+          "explanation": "Set operations provide powerful ways to compare and combine collections"
+        },
+        {
+          "title": "Set Comprehensions",
+          "explanation": "Set comprehensions create sets efficiently with automatic deduplication"
+        },
+        {
+          "title": "Real-World: Tag Management System",
+          "explanation": "Sets are perfect for tag systems requiring uniqueness and fast lookups"
+        },
+        {
+          "title": "Real-World: User Permissions",
+          "explanation": "Sets efficiently manage permissions with fast lookups and set operations"
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Functions",
+      "description": "Create reusable blocks of code",
+      "overview": "Functions are reusable blocks of code that perform specific tasks. They help organize code, reduce repetition, and make programs more maintainable. Functions can accept inputs (parameters) and return outputs (return values).",
+      "keyPoints": [
+        "Functions are defined using the def keyword",
+        "Parameters allow passing data to functions",
+        "Return values send data back from functions",
+        "Functions can have default parameter values",
+        "Scope determines where variables are accessible"
+      ],
+      "useCases": [
+        {
+          "title": "Code Reusability",
+          "description": "Write once, use many times",
+          "example": "def calculate_tax(amount): return amount * 0.08"
+        },
+        {
+          "title": "Abstraction",
+          "description": "Hide complex logic behind simple interfaces",
+          "example": "send_email(to, subject, body) hides email complexity"
+        },
+        {
+          "title": "Modularity",
+          "description": "Break large programs into manageable pieces",
+          "example": "validate_input(), process_data(), display_results()"
+        },
+        {
+          "title": "Testing",
+          "description": "Test individual components independently",
+          "example": "Test each function separately for reliability"
+        }
+      ],
+      "dos": [
+        "Give functions descriptive names that indicate their purpose",
+        "Keep functions focused on a single task",
+        "Use docstrings to document function behavior",
+        "Return values instead of printing when possible",
+        "Use type hints for parameters and return values"
+      ],
+      "donts": [
+        "Don't create functions that are too long (>20-30 lines)",
+        "Don't use global variables inside functions when avoidable",
+        "Don't modify mutable arguments unexpectedly",
+        "Don't forget to return a value when needed",
+        "Don't use too many parameters (>5 suggests refactoring needed)"
+      ],
+      "bestPractices": [
+        "One function should do one thing well",
+        "Use default parameters for optional values",
+        "Document complex functions with docstrings",
+        "Validate input parameters",
+        "Use meaningful parameter names"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Function Definition",
+          "explanation": "Functions encapsulate code. Use parameters for inputs and return for outputs. Multiple values can be returned as a tuple."
+        },
+        {
+          "title": "Default Parameters and Keyword Arguments",
+          "explanation": "Default parameters provide fallback values. Keyword arguments allow specifying parameters by name in any order."
+        },
+        {
+          "title": "Variable-length Arguments",
+          "explanation": "*args collects extra positional arguments into a tuple. **kwargs collects extra keyword arguments into a dictionary."
+        },
+        {
+          "title": "Lambda Functions",
+          "explanation": "Lambda functions are compact one-line functions. Useful for simple operations, especially with map(), filter(), sorted()."
+        },
+        {
+          "title": "Docstrings and Type Hints",
+          "explanation": "Docstrings document functions. Type hints specify expected types (not enforced at runtime but useful for tools)."
+        }
+      ]
+    },
+    {
+      "id": "comprehensions",
+      "title": "List & Dict Comprehensions",
+      "description": "Master Pythonic syntax for creating lists, dictionaries, and sets efficiently",
+      "overview": "Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.\n\n**List Comprehensions:** Create lists from iterables with optional filtering\n\n**Dict Comprehensions:** Build dictionaries with key-value transformations\n\n**Set Comprehensions:** Generate unique sets with filtering\n\n**Nested Comprehensions:** Handle multi-dimensional data structures\n\n**Why Use Comprehensions:**\n✓ More readable than equivalent for loops\n✓ Often faster than traditional loops\n✓ Pythonic and idiomatic code style\n✓ Compact syntax reduces code length",
+      "keyPoints": [
+        "Basic syntax: [expression for item in iterable]",
+        "With condition: [expression for item in iterable if condition]",
+        "Can nest comprehensions for multi-dimensional data",
+        "Dict comprehensions use {key: value for...} syntax",
+        "Set comprehensions use {expression for...} syntax",
+        "More readable than map() and filter() in most cases"
+      ],
+      "useCases": [
+        {
+          "title": "Data Transformation",
+          "description": "Transform lists/dicts to new formats",
+          "example": "Convert temperatures, normalize data, extract fields"
+        },
+        {
+          "title": "Filtering",
+          "description": "Extract elements matching criteria",
+          "example": "Filter even numbers, valid emails, passing scores"
+        },
+        {
+          "title": "Data Parsing",
+          "description": "Parse and restructure data",
+          "example": "CSV processing, JSON transformation, API responses"
+        },
+        {
+          "title": "Matrix Operations",
+          "description": "Create and manipulate 2D structures",
+          "example": "Matrix initialization, flattening, transposition"
+        }
+      ],
+      "dos": [
+        "✓ Use comprehensions for simple transformations and filters",
+        "✓ Keep comprehensions readable - break complex ones into loops",
+        "✓ Use meaningful variable names even in comprehensions",
+        "✓ Prefer comprehensions over map() and filter() for clarity",
+        "✓ Use dict comprehensions to swap keys/values"
+      ],
+      "donts": [
+        "✗ Don't create overly complex nested comprehensions",
+        "✗ Don't use comprehensions with side effects",
+        "✗ Don't sacrifice readability for brevity",
+        "✗ Don't use comprehensions when loops are clearer",
+        "✗ Don't forget comprehensions create new objects"
+      ],
+      "bestPractices": [
+        "Keep comprehensions simple - one transformation or filter",
+        "Use generator expressions for large datasets: (x for x in range())",
+        "Break complex logic into regular loops for clarity",
+        "Use intermediate variables for complex expressions",
+        "Add comments for non-obvious comprehensions"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. List Comprehensions - Basics",
+          "explanation": "List comprehensions provide concise syntax for creating lists from iterables with optional filtering and transformation."
+        },
+        {
+          "title": "2. Dict Comprehensions - Creating Dictionaries",
+          "explanation": "Dict comprehensions build dictionaries using {key: value for...} syntax, perfect for transforming or filtering dictionaries."
+        },
+        {
+          "title": "3. Set Comprehensions & Nested Comprehensions",
+          "explanation": "Set comprehensions create unique collections, while nested comprehensions handle multi-dimensional structures and combinations."
+        },
+        {
+          "title": "4. Advanced Patterns & Real-World Examples",
+          "explanation": "Advanced comprehensions can parse data, create lookups, and perform complex transformations, but remember: readability counts!"
+        }
+      ]
+    },
+    {
+      "id": "decorators",
+      "title": "Decorators & Higher-Order Functions",
+      "description": "Master function decorators and functional programming concepts",
+      "overview": "Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.\n\n**What are Decorators:**\n• Functions that take a function and return a modified function\n• Use @ symbol before function definition\n• Enable code reuse and separation of concerns\n\n**Common Use Cases:**\n• Logging and debugging\n• Performance timing\n• Access control and authentication\n• Caching/memoization\n• Input validation\n\n**Why Use Decorators:**\n✓ Don't repeat yourself (DRY principle)\n✓ Separate cross-cutting concerns\n✓ Clean and readable code\n✓ Widely used in frameworks (Flask, Django)",
+      "keyPoints": [
+        "Decorators are functions that wrap other functions",
+        "Use @decorator_name syntax above function definition",
+        "Can stack multiple decorators on one function",
+        "functools.wraps preserves original function metadata",
+        "Can create decorators with arguments using nested functions",
+        "Closures enable decorators to access outer scope variables"
+      ],
+      "useCases": [
+        {
+          "title": "Logging & Debugging",
+          "description": "Automatically log function calls and returns",
+          "example": "Track function execution, debug parameters, monitor errors"
+        },
+        {
+          "title": "Performance Monitoring",
+          "description": "Measure execution time",
+          "example": "Profile slow functions, optimize bottlenecks"
+        },
+        {
+          "title": "Authentication & Authorization",
+          "description": "Check user permissions before execution",
+          "example": "Web frameworks, API endpoints, admin functions"
+        },
+        {
+          "title": "Caching",
+          "description": "Store results to avoid recomputation",
+          "example": "Expensive calculations, database queries, API calls"
+        }
+      ],
+      "dos": [
+        "✓ Use functools.wraps to preserve function metadata",
+        "✓ Keep decorators simple and focused on one task",
+        "✓ Document what your decorator does",
+        "✓ Use decorators for cross-cutting concerns",
+        "✓ Consider using built-in decorators like @property, @staticmethod"
+      ],
+      "donts": [
+        "✗ Don't make decorators too complex",
+        "✗ Don't forget functools.wraps (loses docstrings)",
+        "✗ Don't overuse decorators - they can obscure code",
+        "✗ Don't create decorators with significant overhead",
+        "✗ Don't stack too many decorators - hard to debug"
+      ],
+      "bestPractices": [
+        "Always use @functools.wraps in decorator functions",
+        "Create decorator libraries for common patterns",
+        "Use descriptive names that explain what decorator does",
+        "Consider performance impact of decorators",
+        "Test decorated and undecorated functions separately"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. Basic Decorator - Logging Function Calls",
+          "explanation": "Decorators wrap functions to add functionality. @functools.wraps preserves original function metadata (name, docstring)."
+        },
+        {
+          "title": "2. Performance Timer Decorator",
+          "explanation": "Timer decorator measures execution time by recording start/end times and calculating the difference."
+        },
+        {
+          "title": "3. Decorator with Arguments & Caching",
+          "explanation": "Decorators can take arguments using nested functions. Caching decorators store results to avoid recomputation."
+        },
+        {
+          "title": "4. Multiple Decorators & Class-Based Decorators",
+          "explanation": "Multiple decorators stack from bottom to top. Class-based decorators use __call__ method. Decorators enable access control patterns."
+        }
+      ]
+    },
+    {
+      "id": "generators",
+      "title": "Generators & Iterators",
+      "description": "Master memory-efficient iteration with generators and iterators",
+      "overview": "Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.\n\n**What are Generators:**\n• Functions that use yield instead of return\n• Produce values one at a time (lazy evaluation)\n• Maintain state between calls\n• Can be infinite\n\n**Generator Expressions:**\n• Like list comprehensions but with () instead of []\n• Create generators without defining functions\n• Memory-efficient for large datasets\n\n**Why Use Generators:**\n✓ Memory efficient - don't store all values\n✓ Fast for large datasets\n✓ Can represent infinite sequences\n✓ Elegant for pipelines and streaming data",
+      "keyPoints": [
+        "Use yield to create generator functions",
+        "Generators are iterators - can only iterate once",
+        "Generator expressions use () syntax: (x for x in range(10))",
+        "next() gets the next value from a generator",
+        "Generators remember state between yields",
+        "More memory-efficient than lists for large datasets"
+      ],
+      "useCases": [
+        {
+          "title": "Large File Processing",
+          "description": "Read huge files line-by-line without loading into memory",
+          "example": "Process log files, CSV parsing, streaming data"
+        },
+        {
+          "title": "Infinite Sequences",
+          "description": "Generate unlimited sequences",
+          "example": "Fibonacci series, prime numbers, random data streams"
+        },
+        {
+          "title": "Data Pipelines",
+          "description": "Chain transformations efficiently",
+          "example": "ETL processes, data cleaning, filtering streams"
+        },
+        {
+          "title": "Performance Optimization",
+          "description": "Reduce memory footprint",
+          "example": "Processing millions of records, real-time data"
+        }
+      ],
+      "dos": [
+        "✓ Use generators for large datasets to save memory",
+        "✓ Use generator expressions for simple cases",
+        "✓ Chain generators to create data pipelines",
+        "✓ Use yield from to delegate to another generator",
+        "✓ Remember generators can only be iterated once"
+      ],
+      "donts": [
+        "✗ Don't try to iterate a generator twice",
+        "✗ Don't use generators when you need random access",
+        "✗ Don't use generators for small datasets (overhead)",
+        "✗ Don't forget generators are consumed after iteration",
+        "✗ Don't try to get length of generator with len()"
+      ],
+      "bestPractices": [
+        "Use generator expressions for simple transformations",
+        "Create generator functions for complex logic",
+        "Chain generators instead of creating intermediate lists",
+        "Use itertools module for common generator patterns",
+        "Document that functions return generators (not lists)"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. Generator Functions vs Regular Functions",
+          "explanation": "Generators use yield to produce values on-demand. Unlike lists, they don't store all values in memory and can only be iterated once."
+        },
+        {
+          "title": "2. Infinite Generators & Practical Applications",
+          "explanation": "Generators can represent infinite sequences and process large files without loading everything into memory."
+        },
+        {
+          "title": "3. Generator Pipelines & Data Processing",
+          "explanation": "Generator pipelines chain transformations efficiently. yield from delegates to another generator. Each stage processes data on-demand."
+        },
+        {
+          "title": "4. Advanced: Generator Methods & itertools",
+          "explanation": "Generators support send() for two-way communication. itertools provides powerful generator utilities for common patterns."
+        }
+      ]
+    },
+    {
+      "id": "regex",
+      "title": "Regular Expressions (Regex)",
+      "description": "Master pattern matching and text processing with regular expressions",
+      "overview": "Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.\n\n**What are Regular Expressions:**\n• Pattern-matching language for strings\n• Used for searching, extracting, and replacing text\n• Supported across most programming languages\n• Essential for text processing and validation\n\n**Common Use Cases:**\n• Email/phone validation\n• Data extraction from text\n• Find and replace operations\n• Log file parsing\n• Web scraping\n\n**Why Learn Regex:**\n✓ Powerful text processing in one line\n✓ Industry standard for pattern matching\n✓ Works in Python, JavaScript, SQL, command line\n✓ Essential for data cleaning and validation",
+      "keyPoints": [
+        "Python re module provides regex functionality",
+        ". matches any character, * means zero or more",
+        "[] defines character sets, () creates groups",
+        "^ matches start, $ matches end of string",
+        "Use raw strings r\"pattern\" for regex patterns",
+        "Compile patterns with re.compile() for reuse"
+      ],
+      "useCases": [
+        {
+          "title": "Data Validation",
+          "description": "Validate emails, phone numbers, passwords",
+          "example": "Form validation, user input checking, data quality"
+        },
+        {
+          "title": "Text Extraction",
+          "description": "Extract specific patterns from text",
+          "example": "Parse logs, extract URLs, find dates in documents"
+        },
+        {
+          "title": "Data Cleaning",
+          "description": "Find and replace patterns",
+          "example": "Remove formatting, normalize data, clean datasets"
+        },
+        {
+          "title": "Web Scraping",
+          "description": "Extract data from HTML",
+          "example": "Parse web pages, extract links, find patterns"
+        }
+      ],
+      "dos": [
+        "✓ Use raw strings r\"...\" for regex patterns",
+        "✓ Compile patterns you reuse with re.compile()",
+        "✓ Use verbose mode re.VERBOSE for complex patterns",
+        "✓ Test regex patterns thoroughly",
+        "✓ Use online regex testers (regex101.com) for development"
+      ],
+      "donts": [
+        "✗ Don't make overly complex patterns - break them down",
+        "✗ Don't forget to escape special characters",
+        "✗ Don't use regex for parsing HTML (use BeautifulSoup)",
+        "✗ Don't forget raw strings - backslashes can be tricky",
+        "✗ Don't overuse regex - simple string methods are often clearer"
+      ],
+      "bestPractices": [
+        "Always use raw strings r\"pattern\" for regex",
+        "Compile frequently used patterns for performance",
+        "Use named groups for clarity: (?P<name>...)",
+        "Add comments to complex patterns with re.VERBOSE",
+        "Test edge cases and invalid inputs"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. Regex Basics - Searching and Matching",
+          "explanation": "Regex basics: search() finds first match, findall() finds all, match() checks start. Use raw strings r\"\" for patterns."
+        },
+        {
+          "title": "2. Pattern Building & Character Classes",
+          "explanation": "Character classes (\\d, \\w, \\s) match types of characters. Groups () capture parts of pattern. Named groups (?P<name>) improve readability."
+        },
+        {
+          "title": "3. Real-World Validation Patterns",
+          "explanation": "Real-world validation combines multiple regex patterns. Use anchors (^ $) to match entire string. Test multiple cases including edge cases."
+        },
+        {
+          "title": "4. Text Extraction & Substitution",
+          "explanation": "Use findall() to extract patterns, sub() to replace, split() to divide text. Compiled patterns improve performance for repeated use."
+        }
+      ]
+    },
+    {
+      "id": "json-apis",
+      "title": "Working with JSON & APIs",
+      "description": "Master JSON data handling and REST API communication in Python",
+      "overview": "JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.\n\n**What is JSON:**\n• Lightweight data-interchange format\n• Human-readable text format\n• Based on JavaScript object syntax\n• Language-independent (works everywhere)\n\n**What are APIs:**\n• Application Programming Interfaces\n• Allow programs to communicate\n• REST APIs use HTTP requests (GET, POST, PUT, DELETE)\n• Return data usually in JSON format\n\n**Why Learn JSON & APIs:**\n✓ Essential for web development\n✓ Access data from any web service\n✓ Build data-driven applications\n✓ Integrate with third-party services",
+      "keyPoints": [
+        "json.dumps() converts Python to JSON string",
+        "json.loads() converts JSON string to Python",
+        "requests library simplifies HTTP API calls",
+        "APIs use GET (read), POST (create), PUT (update), DELETE (remove)",
+        "Always check response status codes (200 = success)",
+        "Handle API errors and rate limits gracefully"
+      ],
+      "useCases": [
+        {
+          "title": "Data Exchange",
+          "description": "Save/load structured data to files or databases",
+          "example": "Configuration files, data persistence, caching"
+        },
+        {
+          "title": "Web APIs",
+          "description": "Fetch data from web services",
+          "example": "Weather data, social media, stock prices, maps"
+        },
+        {
+          "title": "Microservices",
+          "description": "Communication between services",
+          "example": "REST APIs, webhooks, service integration"
+        },
+        {
+          "title": "Data Processing",
+          "description": "Parse and transform API responses",
+          "example": "ETL pipelines, data analysis, reporting"
+        }
+      ],
+      "dos": [
+        "✓ Use requests library for API calls (not urllib)",
+        "✓ Check response.status_code before using data",
+        "✓ Handle exceptions (network errors, timeouts)",
+        "✓ Use JSON for configuration files (readable)",
+        "✓ Respect API rate limits and terms of service"
+      ],
+      "donts": [
+        "✗ Don't hardcode API keys - use environment variables",
+        "✗ Don't ignore response status codes",
+        "✗ Don't make API calls in loops without rate limiting",
+        "✗ Don't store sensitive data in JSON files",
+        "✗ Don't parse JSON manually - use json module"
+      ],
+      "bestPractices": [
+        "Use environment variables for API keys (never commit them!)",
+        "Implement exponential backoff for retries",
+        "Cache API responses when appropriate",
+        "Log API requests for debugging",
+        "Use requests.Session() for multiple calls to same API"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. JSON Basics - Encoding and Decoding",
+          "explanation": "json.dumps() converts Python to JSON string, json.loads() converts back. Use json.dump()/load() for files. indent parameter prettifies output."
+        },
+        {
+          "title": "2. Making API Requests with requests Library",
+          "explanation": "requests library simplifies API calls. GET retrieves data, POST creates, PUT updates, DELETE removes. Always check status_code."
+        },
+        {
+          "title": "3. Real-World API Example - Error Handling",
+          "explanation": "Always handle errors: check status codes, catch exceptions, set timeouts. Use Session() for multiple requests to same API for better performance."
+        },
+        {
+          "title": "4. Parsing Complex JSON & Data Transformation",
+          "explanation": "Navigate nested JSON with [key] access. Use list comprehensions to transform data. Extract and flatten complex structures for easier processing."
+        }
+      ]
+    }
+  ],
+  "totalTexts": 484
+}

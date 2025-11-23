@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { useThemeMode } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Navbar = ({ onMenuClick }) => {
   const navigate = useNavigate();
@@ -70,6 +71,13 @@ const Navbar = ({ onMenuClick }) => {
         </Typography>
 
         <Box sx={{ flexGrow: 1 }} />
+
+        {/* Search Bar */}
+        {!isMobile && (
+          <Box sx={{ mr: 2 }}>
+            <SearchBar />
+          </Box>
+        )}
 
         {!isMobile && (
           <>

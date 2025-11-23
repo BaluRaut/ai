@@ -1,0 +1,4325 @@
+[
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "title",
+    "index": 0
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "description",
+    "index": 1
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "overview",
+    "index": 2
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 3
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 4
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 5
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 6
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 7
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 8
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 9
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 10
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 11
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 12
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 13
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 14
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 15
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 16
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 17
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 18
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 19
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 20
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 21
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 22
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 23
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 24
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 25
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 26
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 27
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 28
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 29
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 30
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 31
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 32
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 33
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 34
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 35
+  },
+  {
+    "topicId": "intro-python",
+    "topicIdx": 0,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 36
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "title",
+    "index": 37
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "description",
+    "index": 38
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "overview",
+    "index": 39
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 40
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 41
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 42
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 43
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 44
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 45
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 46
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 47
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 48
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 49
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 50
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 51
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 52
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 53
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 54
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 55
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 56
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 57
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 58
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 59
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 60
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 61
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 62
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 63
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 64
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 65
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 66
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 67
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 68
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 69
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 70
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 71
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 72
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 73
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 74
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 75
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 76
+  },
+  {
+    "topicId": "variables-datatypes",
+    "topicIdx": 1,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 77
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "title",
+    "index": 78
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "description",
+    "index": 79
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "overview",
+    "index": 80
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 81
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 82
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 83
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 84
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 85
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 86
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 87
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 88
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 89
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 90
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 91
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 92
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 93
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 94
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 95
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 96
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 97
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 98
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 99
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 100
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 101
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 102
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 103
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 104
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 105
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 106
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 107
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 108
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 109
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 110
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 111
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 112
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 113
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 114
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 115
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 116
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 117
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 118
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 119
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 120
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 4,
+    "subField": "title",
+    "index": 121
+  },
+  {
+    "topicId": "operators",
+    "topicIdx": 2,
+    "field": "codeExamples",
+    "subIndex": 4,
+    "subField": "explanation",
+    "index": 122
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "title",
+    "index": 123
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "description",
+    "index": 124
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "overview",
+    "index": 125
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 126
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 127
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 128
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 129
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 130
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 131
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 132
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 133
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 134
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 135
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 136
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 137
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 138
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 139
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 140
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 141
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 142
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 143
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 144
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 145
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 146
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 147
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 148
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 149
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 150
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 151
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 152
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 153
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 154
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 155
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 156
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 157
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 158
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 159
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 160
+  },
+  {
+    "topicId": "installing-python",
+    "topicIdx": 3,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 161
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "title",
+    "index": 162
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "description",
+    "index": 163
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "overview",
+    "index": 164
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 165
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 166
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 167
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 168
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 169
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 170
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 171
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 172
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 173
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 174
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 175
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 176
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 177
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 178
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 179
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 180
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 181
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 182
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 183
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 184
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 185
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 186
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 187
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 188
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 189
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 190
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 191
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 192
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 193
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 194
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 195
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 196
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 197
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 198
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 199
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 200
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 201
+  },
+  {
+    "topicId": "execution-modes",
+    "topicIdx": 4,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 202
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "title",
+    "index": 203
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "description",
+    "index": 204
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "overview",
+    "index": 205
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 206
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 207
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 208
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 209
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 210
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 211
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 212
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 213
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 214
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 215
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 216
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 217
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 218
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 219
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 220
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 221
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 222
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 4,
+    "subField": "title",
+    "index": 223
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 4,
+    "subField": "description",
+    "index": 224
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "useCases",
+    "subIndex": 4,
+    "subField": "example",
+    "index": 225
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 226
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 227
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 228
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 229
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 230
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 231
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 232
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 233
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 234
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 235
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 236
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 237
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 238
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 239
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 240
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 241
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 242
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 243
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 244
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 245
+  },
+  {
+    "topicId": "python-tokens",
+    "topicIdx": 5,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 246
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "title",
+    "index": 247
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "description",
+    "index": 248
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "overview",
+    "index": 249
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 250
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 251
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 252
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 253
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 254
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 255
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 256
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 257
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 258
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 259
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 260
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 261
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 262
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 263
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 264
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 265
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 266
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 267
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 268
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 269
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 270
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 271
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 272
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 273
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 274
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 275
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 276
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 277
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 278
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 279
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 280
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 281
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 282
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 283
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 284
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 285
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 286
+  },
+  {
+    "topicId": "control-flow-basics",
+    "topicIdx": 6,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 287
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "title",
+    "index": 288
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "description",
+    "index": 289
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "overview",
+    "index": 290
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 291
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 292
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 293
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 294
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 295
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "keyPoints",
+    "subIndex": 5,
+    "index": 296
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 297
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 298
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 299
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 300
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 301
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 302
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 303
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 304
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 305
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 306
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 307
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 308
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 309
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 310
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 311
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 312
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 313
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 314
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 315
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 316
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 317
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 318
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 319
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 320
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 321
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 322
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 323
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 324
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 325
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 326
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 327
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 328
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 329
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 330
+  },
+  {
+    "topicId": "loops-for-while",
+    "topicIdx": 7,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 331
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "title",
+    "index": 332
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "description",
+    "index": 333
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "overview",
+    "index": 334
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 335
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 336
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 337
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 338
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 339
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 340
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 341
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 342
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 343
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 344
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 345
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 346
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 347
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 348
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 349
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 350
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 351
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 352
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 353
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 354
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 355
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 356
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 357
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 358
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 359
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 360
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 361
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 362
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 363
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 364
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 365
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 366
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 367
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 368
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 369
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 370
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 371
+  },
+  {
+    "topicId": "tokens-keywords",
+    "topicIdx": 8,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 372
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "title",
+    "index": 373
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "description",
+    "index": 374
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "overview",
+    "index": 375
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 376
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 377
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 378
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 379
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 380
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 381
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 382
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 383
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 384
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 385
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 386
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 387
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 388
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 389
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 390
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 391
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 392
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 393
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 394
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 395
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 396
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 397
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 398
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 399
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 400
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 401
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 402
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 403
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 404
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 405
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 406
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 407
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 408
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 409
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 410
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 411
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 412
+  },
+  {
+    "topicId": "identifiers-naming",
+    "topicIdx": 9,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 413
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "title",
+    "index": 414
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "description",
+    "index": 415
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "overview",
+    "index": 416
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 417
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 418
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 419
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 420
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 421
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 422
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 423
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 424
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 425
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 426
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 427
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 428
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 429
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 430
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 431
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 432
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 433
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 434
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 435
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 436
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 437
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 438
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 439
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 440
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 441
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 442
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 443
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 444
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 445
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 446
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 447
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 448
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 449
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 450
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 451
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 452
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 453
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 454
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 455
+  },
+  {
+    "topicId": "literals-types",
+    "topicIdx": 10,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 456
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "title",
+    "index": 457
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "description",
+    "index": 458
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "overview",
+    "index": 459
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 460
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 461
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 462
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 463
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 464
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 465
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 466
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 467
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 468
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 469
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 470
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 471
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 472
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 473
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 474
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 475
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 476
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 477
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 478
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 479
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 480
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 481
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 482
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 483
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 484
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 485
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 486
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 487
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 488
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 489
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 490
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 491
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 492
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 493
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 494
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 495
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 496
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 497
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 498
+  },
+  {
+    "topicId": "python-comments",
+    "topicIdx": 11,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 499
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "title",
+    "index": 500
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "description",
+    "index": 501
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "overview",
+    "index": 502
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 503
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 504
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 505
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 506
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 507
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 508
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 509
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 510
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 511
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 512
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 513
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 514
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 515
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 516
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 517
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 518
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 519
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 520
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 521
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 522
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 523
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 524
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 525
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 526
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 527
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 528
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 529
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 530
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 531
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 532
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 533
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 534
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 535
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 536
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 537
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 538
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 539
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 540
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 541
+  },
+  {
+    "topicId": "user-input",
+    "topicIdx": 12,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 542
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "title",
+    "index": 543
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "description",
+    "index": 544
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "overview",
+    "index": 545
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "keyPoints",
+    "subIndex": 0,
+    "index": 546
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "keyPoints",
+    "subIndex": 1,
+    "index": 547
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "keyPoints",
+    "subIndex": 2,
+    "index": 548
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "keyPoints",
+    "subIndex": 3,
+    "index": 549
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "keyPoints",
+    "subIndex": 4,
+    "index": 550
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 551
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "description",
+    "index": 552
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 0,
+    "subField": "example",
+    "index": 553
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 554
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "description",
+    "index": 555
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 1,
+    "subField": "example",
+    "index": 556
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 557
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "description",
+    "index": 558
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 2,
+    "subField": "example",
+    "index": 559
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 560
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "description",
+    "index": 561
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "useCases",
+    "subIndex": 3,
+    "subField": "example",
+    "index": 562
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "dos",
+    "subIndex": 0,
+    "index": 563
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "dos",
+    "subIndex": 1,
+    "index": 564
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "dos",
+    "subIndex": 2,
+    "index": 565
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "dos",
+    "subIndex": 3,
+    "index": 566
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "dos",
+    "subIndex": 4,
+    "index": 567
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "donts",
+    "subIndex": 0,
+    "index": 568
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "donts",
+    "subIndex": 1,
+    "index": 569
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "donts",
+    "subIndex": 2,
+    "index": 570
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "donts",
+    "subIndex": 3,
+    "index": 571
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "donts",
+    "subIndex": 4,
+    "index": 572
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "bestPractices",
+    "subIndex": 0,
+    "index": 573
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "bestPractices",
+    "subIndex": 1,
+    "index": 574
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "bestPractices",
+    "subIndex": 2,
+    "index": 575
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "bestPractices",
+    "subIndex": 3,
+    "index": 576
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "bestPractices",
+    "subIndex": 4,
+    "index": 577
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "title",
+    "index": 578
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 0,
+    "subField": "explanation",
+    "index": 579
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "title",
+    "index": 580
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 1,
+    "subField": "explanation",
+    "index": 581
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "title",
+    "index": 582
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 2,
+    "subField": "explanation",
+    "index": 583
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "title",
+    "index": 584
+  },
+  {
+    "topicId": "display-output",
+    "topicIdx": 13,
+    "field": "codeExamples",
+    "subIndex": 3,
+    "subField": "explanation",
+    "index": 585
+  }
+]

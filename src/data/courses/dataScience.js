@@ -1,7 +1,9 @@
 import { numpy } from './datascience/numpy.js';
 import { pandas } from './datascience/pandas.js';
 import { visualization } from './datascience/visualization.js';
-import { scikitLearn } from './datascience/scikit-learn.js';
+import { scikitLearnBasic } from './datascience/scikit-learn-basic.js';
+import { scikitLearnIntermediate } from './datascience/scikit-learn-intermediate.js';
+import { scikitLearnAdvanced } from './datascience/scikit-learn-advanced.js';
 
 export const dataScience = {
     title: 'Data Science & AI',
@@ -10,6 +12,8 @@ export const dataScience = {
       numpy,
       pandas,
       visualization,
-      scikitLearn
+      scikitLearnBasic,
+      scikitLearnIntermediate,
+      scikitLearnAdvanced
     ]
   };

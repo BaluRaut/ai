@@ -13,24 +13,41 @@ import {
   Bookmark,
   CheckCircle,
   Schedule,
+  SignalCellularAlt,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useProgress } from '../../context/ProgressContext';
+import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 
 const TopicCard = ({ topic, pathId }) => {
   const navigate = useNavigate();
   const { isTopicComplete, isBookmarked, toggleBookmark } = useProgress();
+  const { mergeTopicWithTranslation } = useCourseTranslation();
   
-  const completed = isTopicComplete(topic.id);
-  const bookmarked = isBookmarked(topic.id);
+  // Get translated topic if available
+  const displayTopic = mergeTopicWithTranslation(topic, pathId);
+  
+  const completed = isTopicComplete(displayTopic.id);
+  const bookmarked = isBookmarked(displayTopic.id);
 
   const handleClick = () => {
-    navigate(`/path/${pathId}/topic/${topic.id}`);
+    navigate(`/path/${pathId}/topic/${displayTopic.id}`);
   };
 
   const handleBookmark = (e) => {
     e.stopPropagation();
-    toggleBookmark(topic.id);
+    toggleBookmark(displayTopic.id);
+  };
+
+  // Get difficulty color
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty?.toLowerCase()) {
+      case 'beginner': return 'success';
+      case 'intermediate': return 'warning';
+      case 'advanced': return 'error';
+      case 'professional': return 'secondary';
+      default: return 'default';
+    }
   };
 
   return (
@@ -50,7 +67,7 @@ const TopicCard = ({ topic, pathId }) => {
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, pr: 2 }}>
-            {topic.title}
+            {displayTopic.title}
           </Typography>
           <Box>
             {completed && (
@@ -69,29 +86,51 @@ const TopicCard = ({ topic, pathId }) => {
         </Box>
 
         <Typography variant="body2" color="text.secondary" paragraph>
-          {topic.description}
+          {displayTopic.description}
         </Typography>
 
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
-          {topic.content?.useCases && (
+        {/* Metadata Chips */}
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
+          {displayTopic.difficulty && (
             <Chip
-              label={`${topic.content.useCases.length} Use Cases`}
+              icon={<SignalCellularAlt />}
+              label={displayTopic.difficulty}
+              size="small"
+              color={getDifficultyColor(displayTopic.difficulty)}
+              variant="outlined"
+            />
+          )}
+          {displayTopic.estimatedTime && (
+            <Chip
+              icon={<Schedule />}
+              label={`${displayTopic.estimatedTime} min`}
               size="small"
               color="primary"
               variant="outlined"
             />
           )}
-          {topic.quiz && (
+        </Box>
+
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
+          {displayTopic.content?.useCases && (
             <Chip
-              label={`${topic.quiz.length} Quiz Questions`}
+              label={`${displayTopic.content.useCases.length} Use Cases`}
+              size="small"
+              color="primary"
+              variant="outlined"
+            />
+          )}
+          {displayTopic.quiz && (
+            <Chip
+              label={`${displayTopic.quiz.length} Quiz Questions`}
               size="small"
               color="secondary"
               variant="outlined"
             />
           )}
-          {topic.content?.codeExamples && (
+          {displayTopic.content?.codeExamples && (
             <Chip
-              label={`${topic.content.codeExamples.length} Examples`}
+              label={`${displayTopic.content.codeExamples.length} Examples`}
               size="small"
               color="info"
               variant="outlined"

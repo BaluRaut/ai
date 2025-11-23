@@ -4,6 +4,9 @@ export const professional = {
         id: 'design-patterns',
         title: 'Design Patterns',
         description: 'Common solutions to recurring problems',
+        difficulty: 'Professional',
+        estimatedTime: 90,
+        prerequisites: ["advanced-oop"],
         content: {
           overview: 'Design patterns are proven solutions to common software design problems. They represent best practices evolved over time and provide a shared vocabulary for developers. Understanding design patterns improves code quality and communication.',
           keyPoints: [
@@ -183,6 +186,9 @@ class DocumentFactory2:
         id: 'concurrency-parallelism',
         title: 'Concurrency & Parallelism',
         description: 'Threading, Multiprocessing, and Asyncio',
+        difficulty: 'Professional',
+        estimatedTime: 85,
+        prerequisites: ["multithreading","async-await"],
         content: {
           overview: 'Python offers three main ways to do things "at the same time": Threading (for I/O bound tasks), Multiprocessing (for CPU bound tasks), and Asyncio (for cooperative multitasking). Understanding the Global Interpreter Lock (GIL) is crucial for choosing the right tool.',
           keyPoints: [
@@ -319,6 +325,9 @@ async def main():
         id: 'testing-tdd',
         title: 'Testing & TDD',
         description: 'Unit Testing, Pytest, and Test Driven Development',
+        difficulty: 'Professional',
+        estimatedTime: 80,
+        prerequisites: ["functions","oop-basics"],
         content: {
           overview: 'Testing is not optional in professional software development. It ensures your code works as expected and prevents regressions. TDD (Test Driven Development) is a methodology where you write tests *before* writing the code.',
           keyPoints: [
@@ -443,6 +452,9 @@ def test_get_user_data(mock_get):
         id: 'web-scraping',
         title: 'Web Scraping',
         description: 'Extracting data from the web using BeautifulSoup and Requests',
+        difficulty: 'Professional',
+        estimatedTime: 70,
+        prerequisites: ["networking","regex"],
         content: {
           overview: 'Web scraping is the automated process of extracting data from websites. It involves fetching the HTML of a page and parsing it to find specific information. It is widely used for data analysis, price monitoring, and research.',
           keyPoints: [
@@ -4436,7 +4448,7 @@ if st.session_state.df is not None:
               explanation: `Let's organize a professional web scraping project. Good structure makes debugging and maintenance much easier!
 
 **Project Structure:**
-\`\`\`
+
 web-scraper-bot/
 │
 ├── scraper.py              # Main scraping logic
@@ -4461,15 +4473,14 @@ web-scraper-bot/
 └── logs/                   # Log files
     └── scraper.log         # Activity logs
 
-\`\`\`
 
 **File Purposes:**
-• **scraper.py**: Main entry point with scraping logic
-• **config.py**: All settings in one place (URLs, selectors, delays)
-• **scheduler.py**: Automate scraping at specific times
-• **notifier.py**: Send alerts via email when done or errors occur
-• **database.py**: Save/load data from SQLite or other databases
-• **utils.py**: Reusable helpers (retry logic, random delays, etc.)`,
+• scraper.py: Main entry point with scraping logic
+• config.py: All settings in one place (URLs, selectors, delays)
+• scheduler.py: Automate scraping at specific times
+• notifier.py: Send alerts via email when done or errors occur
+• database.py: Save/load data from SQLite or other databases
+• utils.py: Reusable helpers (retry logic, random delays, etc.)`,
               code: `# requirements.txt - Install with: pip install -r requirements.txt
 
 # HTTP & Web Scraping

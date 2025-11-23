@@ -4,6 +4,9 @@ export const advanced = {
         id: 'exception-handling',
         title: 'Exception Handling Mastery',
         description: 'Master error handling and exception management',
+        difficulty: 'Advanced',
+        estimatedTime: 65,
+        prerequisites: ["oop-basics"],
         content: {
           overview: 'Exception handling is crucial for writing robust programs that can gracefully handle errors. Python uses try/except blocks to catch and handle exceptions, allowing programs to recover from errors instead of crashing. Understanding exception handling improves code reliability and user experience.',
           keyPoints: [
@@ -1585,6 +1588,1563 @@ except Exception as e:
               options: ['Method Random Order', 'Method Resolution Order', 'Memory Read Operation', 'Multiple Resolution Object'],
               correctAnswer: 1,
               explanation: 'Method Resolution Order (MRO) is the order in which Python searches for methods in a hierarchy of classes.'
+            }
+          ]
+        }
+      },
+      {
+        id: 'async-await',
+        title: 'Async/Await & Concurrency',
+        description: 'Master asynchronous programming for I/O-bound operations',
+        difficulty: 'Advanced',
+        estimatedTime: 80,
+        prerequisites: ["multithreading"],
+        content: {
+          overview: `Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.
+
+**Key Concepts:**
+
+- **async/await**: Define and call asynchronous functions
+- **Event Loop**: Manages execution of async tasks
+- **Coroutines**: Functions that can pause and resume
+- **Tasks**: Wrapped coroutines that run concurrently
+- **asyncio**: Python's async programming library
+
+**When to Use:**
+
+Use async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.`,
+          keyPoints: [
+            'async def creates a coroutine function',
+            'await pauses execution until the awaited task completes',
+            'Event loop manages concurrent execution',
+            'asyncio.gather() runs multiple tasks concurrently',
+            'asyncio.create_task() schedules a coroutine to run',
+            'Use for I/O-bound operations, not CPU-bound',
+            'Async functions must be awaited or scheduled',
+            'Libraries must support async (aiohttp, asyncpg, etc.)'
+          ],
+          useCases: [
+            {
+              title: 'Web Scraping',
+              description: 'Fetch multiple URLs concurrently',
+              example: 'Download 100 web pages in parallel instead of sequentially'
+            },
+            {
+              title: 'API Requests',
+              description: 'Make multiple API calls simultaneously',
+              example: 'Fetch data from 10 different APIs at once'
+            },
+            {
+              title: 'Database Queries',
+              description: 'Run multiple queries concurrently',
+              example: 'Query multiple tables in parallel with asyncpg'
+            },
+            {
+              title: 'Real-time Applications',
+              description: 'Handle multiple connections simultaneously',
+              example: 'WebSocket server managing thousands of connections'
+            }
+          ],
+          dos: [
+            'Use async/await for I/O-bound operations',
+            'Always await async functions',
+            'Use asyncio.gather() to run tasks concurrently',
+            'Handle exceptions in async code properly',
+            'Use async context managers (async with)',
+            'Use async libraries (aiohttp, not requests)'
+          ],
+          donts: [
+            "Don't use async for CPU-bound tasks",
+            "Don't block the event loop with synchronous code",
+            "Don't forget to await async functions",
+            "Don't mix sync and async code without care",
+            "Don't use time.sleep() (use asyncio.sleep())",
+            "Don't create too many concurrent tasks without limits"
+          ],
+          bestPractices: [
+            'Use asyncio.run() to start the event loop',
+            'Create tasks with asyncio.create_task() for concurrent execution',
+            'Use asyncio.gather() to wait for multiple tasks',
+            'Implement timeouts with asyncio.wait_for()',
+            'Use semaphores to limit concurrent operations',
+            'Handle cancellation with try/except asyncio.CancelledError',
+            'Profile async code to ensure it\'s actually faster'
+          ],
+          codeExamples: [
+            {
+              title: 'Basic Async/Await',
+              explanation: 'Define and call asynchronous functions. async def creates a coroutine, await pauses until completion.',
+              code: `import asyncio
+import time
+
+# Synchronous version (slow)
+def fetch_data_sync(n):
+    print(f"Fetching data {n}...")
+    time.sleep(2)  # Simulate I/O operation
+    return f"Data {n}"
+
+# Takes 6 seconds total (sequential)
+start = time.time()
+for i in range(3):
+    result = fetch_data_sync(i)
+    print(result)
+print(f"Sync took: {time.time() - start:.2f}s")
+
+# Asynchronous version (fast)
+async def fetch_data_async(n):
+    print(f"Fetching data {n}...")
+    await asyncio.sleep(2)  # Simulate I/O operation (non-blocking)
+    return f"Data {n}"
+
+async def main():
+    # Run tasks concurrently
+    tasks = [fetch_data_async(i) for i in range(3)]
+    results = await asyncio.gather(*tasks)
+    for result in results:
+        print(result)
+
+# Takes ~2 seconds total (concurrent)
+start = time.time()
+asyncio.run(main())
+print(f"Async took: {time.time() - start:.2f}s")
+
+# Output shows all 3 tasks start immediately and finish together`,
+              output: {
+                description: 'Synchronous version takes 6 seconds (2s × 3 tasks sequentially). Async version takes ~2 seconds (all 3 tasks run concurrently). Demonstrates massive speedup for I/O-bound operations.'
+              }
+            },
+            {
+              title: 'Concurrent API Requests',
+              explanation: 'Fetch multiple URLs concurrently. Much faster than sequential requests for I/O-bound operations.',
+              code: `import asyncio
+import time
+
+# Simulated async HTTP request
+async def fetch_url(url):
+    print(f"Starting request to {url}")
+    await asyncio.sleep(1)  # Simulate network delay
+    print(f"Completed request to {url}")
+    return f"Data from {url}"
+
+async def fetch_all_urls(urls):
+    # Method 1: Using gather
+    tasks = [fetch_url(url) for url in urls]
+    results = await asyncio.gather(*tasks)
+    return results
+
+async def main():
+    urls = [
+        'https://api.example.com/users',
+        'https://api.example.com/posts',
+        'https://api.example.com/comments',
+        'https://api.example.com/photos',
+        'https://api.example.com/albums'
+    ]
+    
+    start = time.time()
+    results = await fetch_all_urls(urls)
+    elapsed = time.time() - start
+    
+    print(f"\\nFetched {len(results)} URLs in {elapsed:.2f}s")
+    print("Sequential would take ~5s, concurrent takes ~1s")
+    
+    # Method 2: Using create_task for more control
+    tasks = []
+    for url in urls[:3]:
+        task = asyncio.create_task(fetch_url(url))
+        tasks.append(task)
+    
+    # Wait for all tasks
+    completed = await asyncio.gather(*tasks)
+    print(f"Completed {len(completed)} tasks")
+
+asyncio.run(main())`,
+              output: {
+                description: 'All 5 requests start simultaneously and complete in ~1 second total instead of 5 seconds sequentially. Shows both asyncio.gather() and create_task() methods for concurrent execution.'
+              }
+            },
+            {
+              title: 'Error Handling & Timeouts',
+              explanation: 'Handle errors and timeouts in async code. Use try/except and asyncio.wait_for() for robustness.',
+              code: `import asyncio
+
+async def unreliable_operation(n):
+    await asyncio.sleep(n)
+    if n == 2:
+        raise ValueError(f"Operation {n} failed!")
+    return f"Success {n}"
+
+async def main():
+    # Handle exceptions in gather
+    print("1. Handling exceptions with return_exceptions=True")
+    tasks = [unreliable_operation(i) for i in range(4)]
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    
+    for i, result in enumerate(results):
+        if isinstance(result, Exception):
+            print(f"Task {i} failed: {result}")
+        else:
+            print(f"Task {i} succeeded: {result}")
+    
+    # Timeouts
+    print("\\n2. Using timeouts")
+    try:
+        # This will timeout after 1 second
+        result = await asyncio.wait_for(
+            unreliable_operation(3),
+            timeout=1.0
+        )
+        print(f"Result: {result}")
+    except asyncio.TimeoutError:
+        print("Operation timed out!")
+    
+    # Individual exception handling
+    print("\\n3. Individual try/except")
+    async def safe_operation(n):
+        try:
+            return await unreliable_operation(n)
+        except ValueError as e:
+            print(f"Caught error: {e}")
+            return None
+    
+    tasks = [safe_operation(i) for i in range(4)]
+    results = await asyncio.gather(*tasks)
+    print(f"Results: {results}")
+
+asyncio.run(main())`,
+              output: {
+                description: 'Shows three error handling patterns: return_exceptions=True in gather (returns exceptions in results), asyncio.wait_for() for timeouts, and wrapping coroutines in try/except. Essential for robust async code.'
+              }
+            },
+            {
+              title: 'Rate Limiting with Semaphores',
+              explanation: 'Control concurrent operations with semaphores to avoid overwhelming resources (APIs, databases, network).',
+              code: `import asyncio
+import time
+
+async def download_file(file_id, semaphore):
+    # Semaphore ensures max N concurrent downloads
+    async with semaphore:
+        print(f"[{time.strftime('%H:%M:%S')}] Starting download {file_id}")
+        await asyncio.sleep(2)  # Simulate download
+        print(f"[{time.strftime('%H:%M:%S')}] Completed download {file_id}")
+        return f"file_{file_id}.dat"
+
+async def main():
+    # Limit to 3 concurrent downloads
+    semaphore = asyncio.Semaphore(3)
+    
+    # Try to download 10 files
+    tasks = [
+        download_file(i, semaphore)
+        for i in range(10)
+    ]
+    
+    start = time.time()
+    results = await asyncio.gather(*tasks)
+    elapsed = time.time() - start
+    
+    print(f"\\nDownloaded {len(results)} files in {elapsed:.2f}s")
+    print("With limit of 3 concurrent, expect ~6-7 seconds")
+    print("Without limit would be ~2 seconds but might overwhelm server")
+    
+    # Real-world example: API rate limiting
+    async def api_call(endpoint, semaphore):
+        async with semaphore:
+            print(f"Calling {endpoint}")
+            await asyncio.sleep(0.5)
+            return {"data": f"from {endpoint}"}
+    
+    # Limit to 5 requests/second
+    api_semaphore = asyncio.Semaphore(5)
+    endpoints = [f"/api/resource/{i}" for i in range(20)]
+    
+    api_tasks = [api_call(ep, api_semaphore) for ep in endpoints]
+    api_results = await asyncio.gather(*api_tasks)
+    print(f"\\nCompleted {len(api_results)} API calls")
+
+asyncio.run(main())`,
+              output: {
+                description: 'Semaphore limits concurrent operations. With limit=3, only 3 downloads run at once. As each completes, the next starts. Takes ~6-7 seconds for 10 files (vs ~2s unlimited or 20s sequential). Essential for respecting rate limits and avoiding resource exhaustion.'
+              }
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the main benefit of async/await?',
+              options: [
+                'Faster CPU-bound computations',
+                'Efficient handling of I/O-bound operations by not blocking',
+                'Automatic parallelization',
+                'Reduced memory usage'
+              ],
+              correctAnswer: 1,
+              explanation: 'Async/await allows the program to perform other tasks while waiting for I/O operations (network, disk, database) instead of blocking. It does not help with CPU-bound tasks.'
+            },
+            {
+              question: 'What happens if you call an async function without await?',
+              options: [
+                'It runs synchronously',
+                'It raises an error',
+                'It returns a coroutine object that needs to be awaited',
+                'It runs in the background automatically'
+              ],
+              correctAnswer: 2,
+              explanation: 'Calling an async function without await returns a coroutine object. You must await it or schedule it with create_task() to actually execute it.'
+            },
+            {
+              question: 'Which function runs multiple async tasks concurrently?',
+              options: [
+                'asyncio.wait()',
+                'asyncio.gather()',
+                'asyncio.run_all()',
+                'asyncio.parallel()'
+              ],
+              correctAnswer: 1,
+              explanation: 'asyncio.gather() takes multiple coroutines and runs them concurrently, returning their results in order when all complete.'
+            },
+            {
+              question: 'Why should you use asyncio.sleep() instead of time.sleep() in async code?',
+              options: [
+                'It is faster',
+                'time.sleep() blocks the entire event loop',
+                'asyncio.sleep() is more accurate',
+                'time.sleep() does not work in async functions'
+              ],
+              correctAnswer: 1,
+              explanation: 'time.sleep() blocks the entire event loop, preventing other tasks from running. asyncio.sleep() yields control to the event loop, allowing other tasks to execute.'
+            },
+            {
+              question: 'What does a Semaphore control in async code?',
+              options: [
+                'The number of event loops',
+                'The maximum number of concurrent operations',
+                'The execution order of tasks',
+                'Memory allocation'
+              ],
+              correctAnswer: 1,
+              explanation: 'A Semaphore limits the number of concurrent operations. Useful for rate limiting API calls, limiting database connections, or controlling resource usage.'
+            }
+          ]
+        }
+      },
+      {
+        id: 'context-managers',
+        title: 'Context Managers',
+        description: 'Master resource management with context managers',
+        difficulty: 'Advanced',
+        estimatedTime: 60,
+        prerequisites: ["exception-handling"],
+        content: {
+          overview: `Context managers ensure resources are properly acquired and released, even if errors occur. They implement the "with" statement protocol using __enter__ and __exit__ methods or the contextlib module.
+
+**What They Solve:**
+
+- Automatic resource cleanup (files, locks, connections)
+- Exception-safe resource handling
+- Clean, readable resource management code
+
+**Two Ways to Create:**
+
+1. **Class-based**: Implement __enter__ and __exit__
+2. **Decorator-based**: Use @contextmanager decorator`,
+          keyPoints: [
+            'Context managers guarantee cleanup even if exceptions occur',
+            '__enter__ acquires the resource and returns it',
+            '__exit__ releases the resource, receives exception info',
+            '@contextmanager decorator simplifies creation',
+            'Use "with" statement to invoke context managers',
+            'Common for files, locks, database connections',
+            'Can suppress exceptions by returning True from __exit__',
+            'Supports async with async context managers'
+          ],
+          useCases: [
+            {
+              title: 'File Handling',
+              description: 'Automatically close files even if errors occur',
+              example: 'with open("file.txt") as f: ensures file closes'
+            },
+            {
+              title: 'Database Connections',
+              description: 'Commit transactions and close connections properly',
+              example: 'with db.transaction(): commits on success, rollback on error'
+            },
+            {
+              title: 'Thread Locks',
+              description: 'Acquire and release locks safely',
+              example: 'with lock: automatically releases lock'
+            },
+            {
+              title: 'Temporary State',
+              description: 'Change and restore state temporarily',
+              example: 'with temp_directory(): creates and cleans up temp dir'
+            }
+          ],
+          dos: [
+            'Always use context managers for resource management',
+            'Implement proper cleanup in __exit__',
+            'Use contextlib for simple cases',
+            'Handle exceptions appropriately in __exit__',
+            'Document what resources are managed',
+            'Test that cleanup happens on exceptions'
+          ],
+          donts: [
+            "Don't forget to return the resource from __enter__",
+            "Don't raise exceptions in __exit__ unless necessary",
+            "Don't rely on __del__ for cleanup",
+            "Don't leave resources open on exceptions",
+            "Don't create context managers that do too much",
+            "Don't suppress exceptions without good reason"
+          ],
+          bestPractices: [
+            'Prefer context managers over try/finally',
+            'Use @contextmanager for simple cases',
+            'Return resource from __enter__ for "as" clause',
+            '__exit__ should return False to propagate exceptions',
+            'Support both sync and async when appropriate',
+            'Make context managers reusable when possible',
+            'Document the managed resource lifecycle'
+          ],
+          codeExamples: [
+            {
+              title: 'Class-based Context Manager',
+              explanation: 'Implement __enter__ and __exit__ to create a context manager. __enter__ sets up resources, __exit__ cleans up.',
+              code: `class DatabaseConnection:
+    def __init__(self, host, database):
+        self.host = host
+        self.database = database
+        self.connection = None
+    
+    def __enter__(self):
+        print(f"Connecting to {self.database} on {self.host}")
+        # Simulate connection
+        self.connection = f"Connected to {self.database}"
+        return self.connection
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Closing database connection")
+        self.connection = None
+        
+        if exc_type is not None:
+            print(f"Exception occurred: {exc_type.__name__}: {exc_value}")
+            # Return False to propagate exception
+            # Return True to suppress exception
+        
+        return False  # Propagate exceptions
+
+# Usage
+with DatabaseConnection('localhost', 'mydb') as conn:
+    print(f"Using: {conn}")
+    print("Performing database operations...")
+    # Connection automatically closes when block ends
+
+print("\\nWith exception:")
+try:
+    with DatabaseConnection('localhost', 'mydb') as conn:
+        print(f"Using: {conn}")
+        raise ValueError("Something went wrong!")
+except ValueError as e:
+    print(f"Caught: {e}")
+
+print("Connection still closed properly!")`,
+              output: {
+                description: 'Shows context manager lifecycle: __enter__ runs at start of with block, __exit__ runs at end (even if exception occurs). Connection is guaranteed to close. __exit__ receives exception info and can handle or propagate it.'
+              }
+            },
+            {
+              title: '@contextmanager Decorator',
+              explanation: 'Use @contextmanager for simpler context managers. Yield the resource, cleanup happens after yield.',
+              code: `from contextlib import contextmanager
+import time
+
+@contextmanager
+def timer(name):
+    """Context manager to time code execution"""
+    print(f"[{name}] Starting...")
+    start = time.time()
+    try:
+        yield  # Code in 'with' block runs here
+    finally:
+        elapsed = time.time() - start
+        print(f"[{name}] Finished in {elapsed:.3f}s")
+
+# Usage
+with timer("Database Query"):
+    time.sleep(1)
+    print("Querying database...")
+
+with timer("API Request"):
+    time.sleep(0.5)
+    print("Calling API...")
+
+# Yielding a value
+@contextmanager
+def temporary_directory():
+    """Create and cleanup temporary directory"""
+    import tempfile
+    import shutil
+    
+    temp_dir = tempfile.mkdtemp()
+    print(f"Created temp directory: {temp_dir}")
+    try:
+        yield temp_dir  # Provide directory path to caller
+    finally:
+        print(f"Cleaning up: {temp_dir}")
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
+with temporary_directory() as temp_dir:
+    print(f"Using temp dir: {temp_dir}")
+    # Create files in temp_dir
+    # All automatically cleaned up
+
+# Error handling
+@contextmanager
+def error_handler(operation_name):
+    """Catch and log errors"""
+    try:
+        yield
+    except Exception as e:
+        print(f"ERROR in {operation_name}: {e}")
+        raise  # Re-raise after logging
+
+with error_handler("File Processing"):
+    # Your code here
+    print("Processing files...")`,
+              output: {
+                description: '@contextmanager simplifies context manager creation. Code before yield is __enter__, code after yield (in finally) is __exit__. Timer measures execution time, temporary_directory creates and cleans up temp dir, error_handler catches and logs errors.'
+              }
+            },
+            {
+              title: 'Multiple Context Managers',
+              explanation: 'Use multiple context managers in a single with statement for managing multiple resources.',
+              code: `from contextlib import contextmanager
+
+@contextmanager
+def open_file(filename, mode):
+    """Wrapper around file opening"""
+    print(f"Opening {filename} in mode {mode}")
+    f = open(filename, mode)
+    try:
+        yield f
+    finally:
+        print(f"Closing {filename}")
+        f.close()
+
+# Multiple context managers in one statement
+print("1. Multiple managers:")
+with open_file('input.txt', 'w') as infile, \\
+     open_file('output.txt', 'w') as outfile:
+    infile.write("Input data")
+    outfile.write("Output data")
+# Both files automatically closed
+
+# Nested context managers
+print("\\n2. Nested managers:")
+with open_file('file1.txt', 'w') as f1:
+    with open_file('file2.txt', 'w') as f2:
+        f1.write("File 1")
+        f2.write("File 2")
+
+# Using contextlib.ExitStack for dynamic number of resources
+from contextlib import ExitStack
+
+print("\\n3. ExitStack for dynamic resources:")
+files = ['file1.txt', 'file2.txt', 'file3.txt']
+
+with ExitStack() as stack:
+    # Open unknown number of files
+    file_handles = [
+        stack.enter_context(open_file(fname, 'w'))
+        for fname in files
+    ]
+    
+    for i, f in enumerate(file_handles):
+        f.write(f"Content for file {i+1}")
+    
+    # All files automatically closed
+
+# Real-world example: Database transaction
+@contextmanager
+def database_transaction(db_connection):
+    """Ensure transaction commits or rolls back"""
+    print("BEGIN TRANSACTION")
+    try:
+        yield db_connection
+        print("COMMIT")
+        # db_connection.commit()
+    except Exception as e:
+        print(f"ROLLBACK due to {e}")
+        # db_connection.rollback()
+        raise
+
+# Simulate database work
+class FakeDB:
+    pass
+
+db = FakeDB()
+with database_transaction(db):
+    print("INSERT INTO users ...")
+    print("UPDATE orders ...")
+    # Automatically commits`,
+              output: {
+                description: 'Shows multiple ways to use context managers together: comma-separated (manages multiple resources), nested (explicit control), and ExitStack (dynamic number of resources). Transaction example shows automatic commit/rollback pattern.'
+              }
+            },
+            {
+              title: 'Async Context Managers',
+              explanation: 'Use async with for async context managers. Implement __aenter__ and __aexit__ or use @asynccontextmanager.',
+              code: `import asyncio
+from contextlib import asynccontextmanager
+
+# Class-based async context manager
+class AsyncDatabaseConnection:
+    def __init__(self, connection_string):
+        self.connection_string = connection_string
+        self.connection = None
+    
+    async def __aenter__(self):
+        print(f"Connecting to {self.connection_string}")
+        await asyncio.sleep(0.5)  # Simulate async connection
+        self.connection = f"Connected: {self.connection_string}"
+        return self.connection
+    
+    async def __aexit__(self, exc_type, exc_value, traceback):
+        print("Closing async connection")
+        await asyncio.sleep(0.2)  # Simulate async cleanup
+        self.connection = None
+        return False
+
+# Decorator-based async context manager
+@asynccontextmanager
+async def async_timer(name):
+    """Async version of timer"""
+    import time
+    print(f"[{name}] Starting...")
+    start = time.time()
+    try:
+        yield
+    finally:
+        elapsed = time.time() - start
+        print(f"[{name}] Took {elapsed:.3f}s")
+
+@asynccontextmanager
+async def async_resource(resource_id):
+    """Acquire and release async resource"""
+    print(f"Acquiring resource {resource_id}")
+    await asyncio.sleep(0.3)
+    resource = f"Resource-{resource_id}"
+    try:
+        yield resource
+    finally:
+        print(f"Releasing resource {resource_id}")
+        await asyncio.sleep(0.2)
+
+async def main():
+    # Using async context manager
+    async with AsyncDatabaseConnection("postgresql://localhost/mydb") as conn:
+        print(f"Using: {conn}")
+        await asyncio.sleep(0.5)
+    
+    # Using async timer
+    async with async_timer("API Call"):
+        await asyncio.sleep(1)
+        print("Fetching data...")
+    
+    # Multiple async resources
+    async with async_resource(1) as r1, \\
+               async_resource(2) as r2:
+        print(f"Using {r1} and {r2}")
+        await asyncio.sleep(0.5)
+
+asyncio.run(main())`,
+              output: {
+                description: 'Async context managers use __aenter__ and __aexit__ (or @asynccontextmanager). Used with "async with" statement. Essential for async resources like database connections, HTTP sessions, or file operations. All cleanup is properly awaited.'
+              }
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the purpose of the __exit__ method in a context manager?',
+              options: [
+                'To create the resource',
+                'To clean up the resource, even if an exception occurs',
+                'To return the resource',
+                'To handle user input'
+              ],
+              correctAnswer: 1,
+              explanation: '__exit__ is always called when exiting the with block, even if an exception occurred. It receives exception information and can perform cleanup like closing files or releasing locks.'
+            },
+            {
+              question: 'What does @contextmanager allow you to do?',
+              options: [
+                'Create async functions',
+                'Create context managers using a generator function',
+                'Decorate class methods',
+                'Create static methods'
+              ],
+              correctAnswer: 1,
+              explanation: '@contextmanager from contextlib lets you create context managers using a generator function. Code before yield is __enter__, code after yield (in finally) is __exit__.'
+            },
+            {
+              question: 'What should __exit__ return to propagate exceptions?',
+              options: [
+                'True',
+                'False',
+                'None',
+                'The exception'
+              ],
+              correctAnswer: 1,
+              explanation: '__exit__ should return False (or None, which is falsy) to propagate exceptions. Returning True suppresses the exception, which should only be done when you want to handle it silently.'
+            },
+            {
+              question: 'Which is better for managing multiple resources: try/finally or context managers?',
+              options: [
+                'try/finally',
+                'Context managers',
+                'Both are equal',
+                'Neither'
+              ],
+              correctAnswer: 1,
+              explanation: 'Context managers are better because they ensure cleanup happens even if you forget, reduce boilerplate code, and make intent clearer. try/finally requires manual cleanup code for each resource.'
+            },
+            {
+              question: 'What methods do async context managers use?',
+              options: [
+                '__enter__ and __exit__',
+                '__aenter__ and __aexit__',
+                '__async_enter__ and __async_exit__',
+                '__start__ and __stop__'
+              ],
+              correctAnswer: 1,
+              explanation: 'Async context managers use __aenter__ and __aexit__ (with single "a" prefix). These are async methods that can use await, used with "async with" statement.'
+            }
+          ]
+        }
+      },
+      {
+        id: 'iterators-iterables',
+        title: 'Iterators & Iterables',
+        description: 'Master iteration protocols and create custom iterators',
+        difficulty: 'Advanced',
+        estimatedTime: 65,
+        prerequisites: ["generators-iterators"],
+        content: {
+          overview: `Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.
+
+**Key Distinctions:**
+
+- **Iterable**: Any object that can return an iterator (__iter__ method)
+- **Iterator**: Object that produces values one at a time (__next__ method)
+- **Generator**: Special iterator created with yield
+
+**When to Use:**
+
+- Processing large datasets that don't fit in memory
+- Creating custom iteration logic
+- Lazy evaluation for performance
+- Infinite sequences`,
+          keyPoints: [
+            'Iterables have __iter__() returning an iterator',
+            'Iterators have __next__() returning next value',
+            'Iterators raise StopIteration when exhausted',
+            'Generators are iterators created with yield',
+            'iter() converts iterables to iterators',
+            'Iterators can only be traversed once',
+            'Iterables can be iterated multiple times',
+            'Many built-ins accept iterables (sum, max, list, etc.)'
+          ],
+          useCases: [
+            {
+              title: 'Large File Processing',
+              description: 'Read files line-by-line without loading entire file',
+              example: 'Process 10GB log file with minimal memory'
+            },
+            {
+              title: 'Database Result Sets',
+              description: 'Fetch database records one at a time',
+              example: 'Iterate through millions of database rows efficiently'
+            },
+            {
+              title: 'Custom Data Structures',
+              description: 'Make custom classes work with for loops',
+              example: 'Tree traversal, linked list iteration, graph exploration'
+            },
+            {
+              title: 'Infinite Sequences',
+              description: 'Generate values on-demand indefinitely',
+              example: 'Fibonacci numbers, timestamps, IDs'
+            }
+          ],
+          dos: [
+            'Implement __iter__ and __next__ for custom iterators',
+            'Raise StopIteration when iteration completes',
+            'Use generators for simple iteration logic',
+            'Prefer iterators for memory-efficient processing',
+            'Use itertools for advanced iteration patterns',
+            'Make iterables reusable (return new iterator from __iter__)'
+          ],
+          donts: [
+            "Don't forget to raise StopIteration",
+            "Don't modify collection while iterating",
+            "Don't reuse exhausted iterators",
+            "Don't create iterators when lists would work fine",
+            "Don't forget __iter__ returns self for iterators",
+            "Don't use iterators for small datasets that fit in memory"
+          ],
+          bestPractices: [
+            'Use generators (yield) instead of manual iterator classes when possible',
+            'Implement __iter__ to return self for iterator objects',
+            'Document if your iterator is single-use or reusable',
+            'Use itertools for combining/chaining iterators',
+            'Prefer iterators over loading all data into memory',
+            'Use next() with default to handle StopIteration gracefully',
+            'Make iterables reusable by creating new iterator each time'
+          ],
+          codeExamples: [
+            {
+              title: 'Iterator vs Iterable Basics',
+              explanation: 'Understand the difference between iterables (have __iter__) and iterators (have __next__). Iterators are single-use.',
+              code: `# Iterable: can be iterated multiple times
+my_list = [1, 2, 3]
+print("List is iterable:", hasattr(my_list, '__iter__'))
+
+# First iteration
+for num in my_list:
+    print(num, end=' ')
+print()
+
+# Second iteration (works! lists are reusable)
+for num in my_list:
+    print(num, end=' ')
+print("\\n")
+
+# Iterator: single-use, traversed once
+my_iter = iter(my_list)
+print("Iterator:", my_iter)
+print("Has __next__:", hasattr(my_iter, '__next__'))
+
+# Manually call __next__
+print(next(my_iter))  # 1
+print(next(my_iter))  # 2
+print(next(my_iter))  # 3
+
+# Exhausted - raises StopIteration
+try:
+    print(next(my_iter))
+except StopIteration:
+    print("Iterator exhausted!")
+
+# Cannot reuse exhausted iterator
+print("Remaining items:", list(my_iter))  # []
+
+# Create new iterator to iterate again
+new_iter = iter(my_list)
+print("New iterator:", list(new_iter))  # [1, 2, 3]`,
+              output: {
+                description: 'Shows iterable (list) can be iterated multiple times, but iterator is single-use. Once exhausted, iterator raises StopIteration and returns empty. Must create new iterator to iterate again.'
+              }
+            },
+            {
+              title: 'Custom Iterator Class',
+              explanation: 'Create custom iterator by implementing __iter__ (returns self) and __next__ (returns next value or raises StopIteration).',
+              code: `class CountDown:
+    """Iterator that counts down from start to 0"""
+    def __init__(self, start):
+        self.current = start
+    
+    def __iter__(self):
+        # Iterator returns itself
+        return self
+    
+    def __next__(self):
+        if self.current <= 0:
+            raise StopIteration
+        
+        self.current -= 1
+        return self.current + 1
+
+# Use custom iterator
+countdown = CountDown(5)
+print("Countdown:")
+for num in countdown:
+    print(num, end=' ')
+print("\\n")
+
+# Iterator is exhausted - cannot reuse
+print("Reuse attempt:", list(countdown))  # []
+
+# Create reusable iterable wrapper
+class CountDownIterable:
+    """Iterable that creates new CountDown iterator each time"""
+    def __init__(self, start):
+        self.start = start
+    
+    def __iter__(self):
+        # Return NEW iterator each time
+        return CountDown(self.start)
+
+# Reusable iterable
+reusable = CountDownIterable(3)
+
+print("First iteration:", list(reusable))   # [3, 2, 1]
+print("Second iteration:", list(reusable))  # [3, 2, 1]
+
+# Fibonacci iterator
+class Fibonacci:
+    """Infinite Fibonacci sequence"""
+    def __init__(self):
+        self.a, self.b = 0, 1
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        result = self.a
+        self.a, self.b = self.b, self.a + self.b
+        return result
+
+# Get first 10 Fibonacci numbers
+fib = Fibonacci()
+first_10 = []
+for i, num in enumerate(fib):
+    if i >= 10:
+        break
+    first_10.append(num)
+
+print("First 10 Fibonacci:", first_10)`,
+              output: {
+                description: 'CountDown is single-use iterator. CountDownIterable is reusable (creates new iterator each time). Fibonacci demonstrates infinite iterator - must break manually or use islice(). Shows difference between iterator and iterable design.'
+              }
+            },
+            {
+              title: 'Generators - Simpler Iterators',
+              explanation: 'Generators use yield to create iterators without manual __iter__/__next__ implementation. More concise and readable.',
+              code: `# Generator function (uses yield)
+def countdown(start):
+    """Generator that counts down from start"""
+    while start > 0:
+        yield start
+        start -= 1
+
+# Use generator
+for num in countdown(5):
+    print(num, end=' ')
+print("\\n")
+
+# Generator is iterator
+gen = countdown(3)
+print("Type:", type(gen))
+print("Next:", next(gen))  # 3
+print("Next:", next(gen))  # 2
+print("Remaining:", list(gen))  # [1]
+
+# Fibonacci generator
+def fibonacci():
+    """Infinite Fibonacci generator"""
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Use with itertools.islice for finite sequence
+from itertools import islice
+first_10 = list(islice(fibonacci(), 10))
+print("First 10 Fibonacci:", first_10)
+
+# Generator that processes large file
+def read_large_file(filepath):
+    """Memory-efficient file reader"""
+    with open(filepath, 'r') as f:
+        for line in f:
+            yield line.strip()
+
+# Simulated usage (file doesn't exist in demo)
+# for line in read_large_file('huge_file.txt'):
+#     process(line)  # Only one line in memory at a time
+
+# Generator with state
+def running_average():
+    """Generator that yields running average"""
+    total = 0
+    count = 0
+    while True:
+        value = yield total / count if count > 0 else 0
+        if value is not None:
+            total += value
+            count += 1
+
+avg = running_average()
+next(avg)  # Prime the generator
+print("After 10:", avg.send(10))  # 10.0
+print("After 20:", avg.send(20))  # 15.0
+print("After 30:", avg.send(30))  # 20.0`,
+              output: {
+                description: 'Generators are simpler than iterator classes. countdown() generates values with yield. fibonacci() shows infinite generator with islice(). running_average() demonstrates bidirectional communication with send(). Generators maintain state between yields.'
+              }
+            },
+            {
+              title: 'Itertools - Advanced Iteration',
+              explanation: 'itertools module provides powerful tools for combining, filtering, and transforming iterators efficiently.',
+              code: `from itertools import (
+    count, cycle, repeat,           # Infinite iterators
+    chain, zip_longest, islice,     # Combinators
+    accumulate, groupby, compress,  # Aggregators
+    product, permutations, combinations  # Combinatorics
+)
+
+# Infinite iterators
+print("1. Infinite Iterators:")
+print("count(10, 2):", list(islice(count(10, 2), 5)))  # [10, 12, 14, 16, 18]
+print("cycle('ABC'):", list(islice(cycle('ABC'), 7)))   # ['A','B','C','A','B','C','A']
+print("repeat('X', 3):", list(repeat('X', 3)))          # ['X', 'X', 'X']
+
+# Chain - combine multiple iterators
+print("\\n2. Chaining:")
+combined = chain([1, 2], [3, 4], [5])
+print("chain([1,2], [3,4], [5]):", list(combined))  # [1, 2, 3, 4, 5]
+
+# zip_longest - zip with padding
+print("\\n3. Zip with padding:")
+result = zip_longest([1, 2], ['a', 'b', 'c'], fillvalue='-')
+print("zip_longest:", list(result))  # [(1,'a'), (2,'b'), ('-','c')]
+
+# islice - slice an iterator
+print("\\n4. Slicing iterators:")
+print("islice(range(10), 2, 8, 2):", list(islice(range(10), 2, 8, 2)))  # [2, 4, 6]
+
+# accumulate - running totals
+print("\\n5. Accumulate (running sum):")
+print("accumulate([1,2,3,4,5]):", list(accumulate([1,2,3,4,5])))  # [1, 3, 6, 10, 15]
+
+# groupby - group consecutive items
+print("\\n6. Group by:")
+from itertools import groupby
+data = [('A', 1), ('A', 2), ('B', 1), ('B', 2), ('C', 1)]
+for key, group in groupby(data, key=lambda x: x[0]):
+    print(f"  {key}: {list(group)}")
+
+# compress - filter with selector
+print("\\n7. Compress (filter):")
+data = ['A', 'B', 'C', 'D', 'E']
+selectors = [1, 0, 1, 0, 1]
+print("compress:", list(compress(data, selectors)))  # ['A', 'C', 'E']
+
+# Combinatorics
+print("\\n8. Combinatorics:")
+print("product('AB', '12'):", list(product('AB', '12')))  # Cartesian product
+print("permutations('ABC', 2):", list(permutations('ABC', 2)))  # All 2-item arrangements
+print("combinations('ABC', 2):", list(combinations('ABC', 2)))   # All 2-item combinations
+
+# Real-world: Batch processing
+def batch(iterable, n):
+    """Batch items into groups of n"""
+    from itertools import islice
+    iterator = iter(iterable)
+    while batch := list(islice(iterator, n)):
+        yield batch
+
+print("\\n9. Batching:")
+for batch_items in batch(range(10), 3):
+    print(f"  Process batch: {batch_items}")`,
+              output: {
+                description: 'Demonstrates itertools power: infinite iterators (count, cycle, repeat), combinators (chain, zip_longest, islice), aggregators (accumulate, groupby, compress), and combinatorics (product, permutations, combinations). Shows batch() utility for processing large datasets in chunks. All memory-efficient.'
+              }
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the difference between an iterable and an iterator?',
+              options: [
+                'No difference',
+                'Iterable has __iter__, iterator has __next__',
+                'Iterable is a list, iterator is a generator',
+                'Iterators are faster'
+              ],
+              correctAnswer: 1,
+              explanation: 'Iterables have __iter__() which returns an iterator. Iterators have __next__() which returns the next value. An iterator is also an iterable (its __iter__ returns self).'
+            },
+            {
+              question: 'What does __iter__ return in an iterator class?',
+              options: [
+                'None',
+                'The first element',
+                'self',
+                'A new iterator'
+              ],
+              correctAnswer: 2,
+              explanation: 'In an iterator class, __iter__ should return self because the iterator is already an iterator. In an iterable class, __iter__ creates and returns a new iterator.'
+            },
+            {
+              question: 'What happens when an iterator is exhausted?',
+              options: [
+                'It restarts from beginning',
+                'It raises StopIteration',
+                'It returns None',
+                'It returns []'
+              ],
+              correctAnswer: 1,
+              explanation: 'When __next__ has no more values to return, it raises StopIteration. This signals the end of iteration and is caught automatically by for loops.'
+            },
+            {
+              question: 'Can you iterate over an exhausted iterator again?',
+              options: [
+                'Yes, it automatically resets',
+                'No, iterators are single-use',
+                'Only if you call reset()',
+                'Yes, but slower'
+              ],
+              correctAnswer: 1,
+              explanation: 'Iterators are single-use. Once exhausted, they remain exhausted. You must create a new iterator (by calling iter() on the original iterable) to iterate again.'
+            },
+            {
+              question: 'What is the main advantage of generators over lists?',
+              options: [
+                'Faster execution',
+                'Memory efficiency - values generated on-demand',
+                'Easier syntax',
+                'Better error handling'
+              ],
+              correctAnswer: 1,
+              explanation: 'Generators produce values one at a time using yield, keeping only one value in memory at a time. Lists store all values in memory at once. This makes generators much more memory-efficient for large datasets.'
+            }
+          ]
+        }
+      },
+      {
+        id: 'metaclasses',
+        title: 'Metaclasses',
+        description: 'Master Python\'s class creation mechanism and metaprogramming',
+        content: {
+          overview: `Metaclasses are "classes of classes" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.
+
+**What Are Metaclasses?**
+
+- Classes are instances of metaclasses
+- The default metaclass is \`type\`
+- Metaclasses control class creation
+- Used for frameworks, ORMs, validation, logging
+
+**Key Insight:**
+
+\`\`\`python
+# Everything is an object
+isinstance(5, int)          # True
+isinstance(int, type)       # True
+isinstance(type, type)      # True (type is its own metaclass!)
+\`\`\`
+
+**When to Use:**
+
+Rarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.`,
+          keyPoints: [
+            'type is the default metaclass for all classes',
+            'Classes are instances of their metaclass',
+            'Metaclasses control class creation via __new__ and __init__',
+            '__init_subclass__ is simpler alternative for many use cases',
+            'Metaclasses inherit from type',
+            'Used in ORMs (SQLAlchemy), web frameworks (Django)',
+            'Very powerful but complex - use sparingly',
+            'Can validate class attributes at definition time'
+          ],
+          useCases: [
+            {
+              title: 'ORM Frameworks',
+              description: 'Automatically register model classes',
+              example: 'SQLAlchemy uses metaclasses to track database models'
+            },
+            {
+              title: 'API Clients',
+              description: 'Auto-generate methods from API spec',
+              example: 'Create HTTP methods from API documentation'
+            },
+            {
+              title: 'Singleton Pattern',
+              description: 'Ensure only one instance of a class',
+              example: 'Database connection, configuration manager'
+            },
+            {
+              title: 'Validation',
+              description: 'Validate class attributes at definition',
+              example: 'Ensure required methods are implemented'
+            }
+          ],
+          dos: [
+            'Understand type() and how classes are created',
+            'Use __init_subclass__ before metaclasses when possible',
+            'Document metaclass behavior clearly',
+            'Keep metaclasses simple and focused',
+            'Use for framework-level code, not application code',
+            'Test metaclass behavior thoroughly'
+          ],
+          donts: [
+            "Don't use metaclasses when decorators would work",
+            "Don't overcomplicate class hierarchies",
+            "Don't use metaclasses for simple attribute validation",
+            "Don't forget __init_subclass__ exists (simpler alternative)",
+            "Don't create metaclasses without clear justification",
+            "Don't use multiple metaclasses (conflicts are complex)"
+          ],
+          bestPractices: [
+            'Prefer __init_subclass__ over metaclasses for validation',
+            'Use class decorators for simple modifications',
+            'Document why metaclass is necessary',
+            'Inherit from type for custom metaclasses',
+            'Override __new__ to modify class creation',
+            'Use super() in metaclass methods',
+            'Keep metaclass logic minimal and clear'
+          ],
+          codeExamples: [
+            {
+              title: 'Understanding type() - The Meta metaclass',
+              explanation: 'type() is both a function (returns type of object) and the default metaclass (creates classes). All classes are instances of type.',
+              code: `# type() as a function - returns type of object
+print("Type of 5:", type(5))           # <class 'int'>
+print("Type of 'hello':", type('hello'))  # <class 'str'>
+print("Type of int:", type(int))       # <class 'type'>
+print("Type of type:", type(type))     # <class 'type'> (type is its own metaclass!)
+
+# type() as a metaclass - creates classes dynamically
+# type(name, bases, dict) creates a class
+
+# Traditional class definition
+class Dog:
+    def bark(self):
+        return "Woof!"
+
+# Equivalent using type()
+DogDynamic = type(
+    'DogDynamic',          # Class name
+    (),                    # Base classes (empty tuple = no bases)
+    {                      # Class dictionary
+        'bark': lambda self: "Woof!"
+    }
+)
+
+dog1 = Dog()
+dog2 = DogDynamic()
+print("dog1.bark():", dog1.bark())
+print("dog2.bark():", dog2.bark())
+print("Same behavior?", dog1.bark() == dog2.bark())
+
+# Creating class with inheritance
+Animal = type('Animal', (), {'species': 'Unknown'})
+Cat = type('Cat', (Animal,), {'meow': lambda self: "Meow!"})
+
+cat = Cat()
+print("cat.species:", cat.species)
+print("cat.meow():", cat.meow())
+
+# Verify metaclass
+print("\\nMetaclass verification:")
+print("Dog's metaclass:", type(Dog))            # <class 'type'>
+print("DogDynamic's metaclass:", type(DogDynamic))  # <class 'type'>
+print("isinstance(Dog, type):", isinstance(Dog, type))  # True
+
+# Class hierarchy
+print("\\nClass hierarchy:")
+print("5 -> int -> type")
+print("  isinstance(5, int):", isinstance(5, int))
+print("  isinstance(int, type):", isinstance(int, type))`,
+              output: {
+                description: 'Shows type() has dual role: returns type of objects, and creates classes dynamically. All classes are instances of type. Dog and DogDynamic behave identically. Demonstrates class-instance-metaclass relationship: objects are instances of classes, classes are instances of type.'
+              }
+            },
+            {
+              title: 'Custom Metaclass Basics',
+              explanation: 'Create custom metaclass by inheriting from type. Override __new__ to modify class creation. Metaclass __new__ runs when class is defined, not when instances are created.',
+              code: `# Custom metaclass
+class Meta(type):
+    """Metaclass that prints when class is created"""
+    
+    def __new__(mcs, name, bases, dct):
+        print(f"Creating class: {name}")
+        print(f"  Bases: {bases}")
+        print(f"  Attributes: {list(dct.keys())}")
+        
+        # Create the class
+        cls = super().__new__(mcs, name, bases, dct)
+        
+        # Add timestamp to class
+        from datetime import datetime
+        cls._created_at = datetime.now()
+        
+        return cls
+
+# Use metaclass with metaclass=Meta
+print("Defining MyClass...")
+class MyClass(metaclass=Meta):
+    x = 10
+    
+    def method(self):
+        return "Hello"
+
+print("\\nClass created!")
+print("MyClass._created_at:", MyClass._created_at)
+
+# Creating instance doesn't trigger metaclass
+print("\\nCreating instance...")
+obj = MyClass()
+print("Instance created (no metaclass output)")
+
+# Singleton pattern with metaclass
+class Singleton(type):
+    """Metaclass that creates singleton classes"""
+    _instances = {}
+    
+    def __call__(cls, *args, **kwargs):
+        # __call__ runs when creating instance: MyClass()
+        if cls not in cls._instances:
+            print(f"Creating first instance of {cls.__name__}")
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        else:
+            print(f"Returning existing instance of {cls.__name__}")
+        return cls._instances[cls]
+
+class Database(metaclass=Singleton):
+    def __init__(self, host):
+        print(f"Initializing Database with host: {host}")
+        self.host = host
+
+print("\\nSingleton demonstration:")
+db1 = Database("localhost")
+print("db1.host:", db1.host)
+
+db2 = Database("other-host")  # Ignored! Returns db1
+print("db2.host:", db2.host)
+print("Same instance?", db1 is db2)  # True`,
+              output: {
+                description: 'Custom Meta metaclass runs __new__ when class is defined (not when instances created). Adds _created_at timestamp to class. Singleton metaclass uses __call__ to ensure only one instance exists, regardless of how many times you call Database(). Both db1 and db2 refer to same object.'
+              }
+            },
+            {
+              title: 'Metaclass for Validation',
+              explanation: 'Use metaclasses to enforce rules at class definition time. Validates that required methods are implemented.',
+              code: `class InterfaceEnforcer(type):
+    """Metaclass that enforces required methods"""
+    
+    def __new__(mcs, name, bases, dct):
+        # Skip validation for the base interface class itself
+        if name == 'Interface':
+            return super().__new__(mcs, name, bases, dct)
+        
+        # Check if required_methods is defined
+        required = dct.get('required_methods', [])
+        
+        # Validate all required methods are implemented
+        missing = []
+        for method in required:
+            if method not in dct:
+                # Check if inherited from base class
+                found = any(hasattr(base, method) for base in bases)
+                if not found:
+                    missing.append(method)
+        
+        if missing:
+            raise TypeError(
+                f"Class {name} missing required methods: {missing}"
+            )
+        
+        return super().__new__(mcs, name, bases, dct)
+
+# Base interface class
+class Interface(metaclass=InterfaceEnforcer):
+    required_methods = []
+
+# Define an interface
+class PaymentProcessor(Interface):
+    required_methods = ['process_payment', 'refund']
+
+# This works - all methods implemented
+class StripeProcessor(PaymentProcessor):
+    def process_payment(self, amount):
+        return f"Processing {amount} via Stripe"
+    
+    def refund(self, transaction_id):
+        return f"Refunding {transaction_id}"
+
+processor = StripeProcessor()
+print(processor.process_payment(100))
+
+# This FAILS at class definition time
+print("\\nTrying to create incomplete class...")
+try:
+    class IncompleteProcessor(PaymentProcessor):
+        def process_payment(self, amount):
+            return f"Processing {amount}"
+        # Missing refund() method!
+except TypeError as e:
+    print(f"Error: {e}")
+
+# Attribute validation
+class ValidatedMeta(type):
+    """Validates class attributes"""
+    
+    def __new__(mcs, name, bases, dct):
+        # Ensure all attributes are uppercase
+        for attr_name in dct:
+            if not attr_name.startswith('_'):  # Skip private/magic
+                if not attr_name.isupper():
+                    raise ValueError(
+                        f"Attribute {attr_name} must be UPPERCASE"
+                    )
+        
+        return super().__new__(mcs, name, bases, dct)
+
+# This works
+class Constants(metaclass=ValidatedMeta):
+    MAX_SIZE = 100
+    MIN_SIZE = 10
+
+print("\\nConstants.MAX_SIZE:", Constants.MAX_SIZE)
+
+# This fails
+try:
+    class BadConstants(metaclass=ValidatedMeta):
+        MaxSize = 100  # Not uppercase!
+except ValueError as e:
+    print(f"Validation error: {e}")`,
+              output: {
+                description: 'InterfaceEnforcer metaclass validates required methods at class definition. StripeProcessor works (has all methods), IncompleteProcessor fails immediately (missing refund). ValidatedMeta ensures attribute naming conventions. Errors happen at class definition, not runtime - catching bugs early.'
+              }
+            },
+            {
+              title: '__init_subclass__ - Simpler Alternative',
+              explanation: '__init_subclass__ is simpler than metaclasses for many use cases. Runs when subclass is created. Use this instead of metaclasses when possible.',
+              code: `# Using __init_subclass__ instead of metaclass
+class Plugin:
+    """Base class that auto-registers plugins"""
+    plugins = {}
+    
+    def __init_subclass__(cls, plugin_name=None, **kwargs):
+        """Called when Plugin is subclassed"""
+        super().__init_subclass__(**kwargs)
+        
+        # Auto-register plugin
+        if plugin_name:
+            cls.plugins[plugin_name] = cls
+            print(f"Registered plugin: {plugin_name}")
+
+# Create plugins (auto-registered)
+class ImagePlugin(Plugin, plugin_name='image'):
+    def process(self, data):
+        return f"Processing image: {data}"
+
+class VideoPlugin(Plugin, plugin_name='video'):
+    def process(self, data):
+        return f"Processing video: {data}"
+
+# Access registered plugins
+print("\\nAvailable plugins:", list(Plugin.plugins.keys()))
+
+# Use plugin dynamically
+plugin = Plugin.plugins['image']()
+print(plugin.process("photo.jpg"))
+
+# Validation with __init_subclass__
+class Validated:
+    """Base class that validates subclass attributes"""
+    
+    def __init_subclass__(cls, required_attrs=None, **kwargs):
+        super().__init_subclass__(**kwargs)
+        
+        if required_attrs:
+            missing = [attr for attr in required_attrs if not hasattr(cls, attr)]
+            if missing:
+                raise TypeError(f"{cls.__name__} missing: {missing}")
+
+# This works
+class User(Validated, required_attrs=['username', 'email']):
+    username = None
+    email = None
+
+print("\\nUser class created successfully")
+
+# This fails
+try:
+    class IncompleteUser(Validated, required_attrs=['username', 'email']):
+        username = None
+        # Missing email!
+except TypeError as e:
+    print(f"Error: {e}")
+
+# Comparison: Metaclass vs __init_subclass__
+print("\\nWhen to use which?")
+print("✓ Use __init_subclass__: validation, registration, simple hooks")
+print("✓ Use metaclasses: modify class structure, complex class creation")
+print("✓ Prefer __init_subclass__ (simpler, more readable)")
+
+# __init_subclass__ can accept parameters
+class Configurable:
+    def __init_subclass__(cls, config=None, **kwargs):
+        super().__init_subclass__(**kwargs)
+        cls.config = config or {}
+        print(f"{cls.__name__} configured with: {cls.config}")
+
+class Service(Configurable, config={'timeout': 30, 'retries': 3}):
+    pass
+
+print("Service.config:", Service.config)`,
+              output: {
+                description: '__init_subclass__ is cleaner than metaclasses for common patterns. Plugin system auto-registers subclasses. Validated ensures required attributes. Accepts parameters like metaclasses but with simpler syntax. Prefer this over metaclasses when possible - easier to understand and maintain.'
+              }
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the default metaclass for all classes in Python?',
+              options: [
+                'object',
+                'type',
+                'class',
+                'Meta'
+              ],
+              correctAnswer: 1,
+              explanation: 'type is the default metaclass. All classes are instances of type unless you specify a custom metaclass.'
+            },
+            {
+              question: 'When does metaclass __new__ execute?',
+              options: [
+                'When creating an instance',
+                'When defining the class',
+                'When calling a method',
+                'When importing the module'
+              ],
+              correctAnswer: 1,
+              explanation: 'Metaclass __new__ runs when the class is defined (at class definition time), not when instances are created. This allows metaclasses to modify the class itself.'
+            },
+            {
+              question: 'What is a simpler alternative to metaclasses for validation?',
+              options: [
+                '__init__',
+                '__new__',
+                '__init_subclass__',
+                'decorators'
+              ],
+              correctAnswer: 2,
+              explanation: '__init_subclass__ provides a simpler way to hook into subclass creation without the complexity of metaclasses. Use it for validation, registration, and simple class modifications.'
+            },
+            {
+              question: 'Can a class have multiple metaclasses?',
+              options: [
+                'Yes, any number',
+                'Yes, up to two',
+                'No, only one metaclass',
+                'Only if they are related'
+              ],
+              correctAnswer: 2,
+              explanation: 'A class can only have one metaclass. If you try to inherit from classes with different metaclasses, you get a metaclass conflict error.'
+            },
+            {
+              question: 'What is the main use case for metaclasses?',
+              options: [
+                'Making code faster',
+                'Framework-level code that modifies class creation',
+                'Creating singleton objects',
+                'Adding methods to instances'
+              ],
+              correctAnswer: 1,
+              explanation: 'Metaclasses are mainly used in framework-level code (ORMs like SQLAlchemy, web frameworks like Django) where you need to modify how classes are created. For application code, simpler alternatives usually suffice.'
             }
           ]
         }

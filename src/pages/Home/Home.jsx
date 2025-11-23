@@ -54,7 +54,7 @@ const Home = () => {
   ];
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 3 }}>
       {/* Hero Section */}
       <Box
         sx={{

@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import {
   Container,
   Typography,
@@ -8,18 +9,39 @@ import {
   Paper,
   Breadcrumbs,
   Link,
+  TextField,
+  InputAdornment,
 } from '@mui/material';
-import { NavigateNext, School } from '@mui/icons-material';
+import { NavigateNext, School, Search as SearchIcon } from '@mui/icons-material';
 import { learningPaths, courseData } from '../../data/courseContent';
 import TopicCard from '../../components/TopicCard/TopicCard';
 import { useProgress } from '../../context/ProgressContext';
+import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 
 const LearningPath = () => {
   const { pathId } = useParams();
   const { completedTopics } = useProgress();
+  const [searchQuery, setSearchQuery] = useState('');
+  const { mergeTopicWithTranslation, isMarathi } = useCourseTranslation();
   
   const path = learningPaths.find(p => p.id === pathId);
   const topics = courseData[pathId]?.topics || [];
+  
+  // Translate all topics if Marathi is active
+  const translatedTopics = topics.map(topic => 
+    mergeTopicWithTranslation(topic, pathId)
+  );
+
+  // Filter topics based on search query (using translated topics)
+  const filteredTopics = translatedTopics.filter(topic => {
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      topic.title.toLowerCase().includes(query) ||
+      topic.description?.toLowerCase().includes(query) ||
+      topic.content?.keyPoints?.some(point => point.toLowerCase().includes(query))
+    );
+  });
 
   if (!path) {
     return (
@@ -29,14 +51,14 @@ const LearningPath = () => {
     );
   }
 
-  const completedCount = topics.filter(topic => 
+  const completedCount = translatedTopics.filter(topic => 
     completedTopics.includes(topic.id)
   ).length;
 
-  const progress = topics.length > 0 ? (completedCount / topics.length) * 100 : 0;
+  const progress = translatedTopics.length > 0 ? (completedCount / translatedTopics.length) * 100 : 0;
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 3 }}>
       <Breadcrumbs separator={<NavigateNext fontSize="small" />} sx={{ mb: 3 }}>
         <Link underline="hover" color="inherit" href="/">
           Home
@@ -96,13 +118,39 @@ const LearningPath = () => {
         Topics
       </Typography>
 
+      {/* Search Topics */}
+      <Box sx={{ mb: 3 }}>
+        <TextField
+          fullWidth
+          placeholder="Search topics in this path..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          sx={{ maxWidth: 600 }}
+        />
+      </Box>
+
       <Grid container spacing={3}>
-        {topics.map((topic) => (
+        {filteredTopics.map((topic) => (
           <Grid item xs={12} sm={6} md={4} key={topic.id}>
             <TopicCard topic={topic} pathId={pathId} />
           </Grid>
         ))}
       </Grid>
+
+      {filteredTopics.length === 0 && searchQuery && (
+        <Paper sx={{ p: 4, textAlign: 'center' }}>
+          <Typography variant="h6" color="text.secondary">
+            No topics found for "{searchQuery}"
+          </Typography>
+        </Paper>
+      )}
 
       {topics.length === 0 && (
         <Paper sx={{ p: 4, textAlign: 'center' }}>

@@ -30,7 +30,7 @@ const Bookmarks = () => {
   });
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 3 }}>
       <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
           <BookmarkBorder sx={{ fontSize: 48, color: 'primary.main' }} />

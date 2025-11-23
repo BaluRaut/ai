@@ -1,0 +1,24 @@
+{
+  "english": {
+    "title": "Introduction to Python",
+    "description": "Understanding what Python is and why it's popular",
+    "keyPoint1": "Python is interpreted - no compilation needed",
+    "keyPoint2": "Dynamically typed - no need to declare variable types",
+    "useCase": "Build websites and web applications using Django, Flask, FastAPI",
+    "do": "Follow PEP 8 style guide for readable code",
+    "dont": "Don't use single letter variable names (except in loops)",
+    "bestPractice": "Use 4 spaces for indentation (not tabs)",
+    "codeExplanation": "The print() function displays output. Use # for single-line comments."
+  },
+  "marathi": {
+    "title": "पायथनचा परिचय",
+    "description": "पायथन काय आहे आणि ते लोकप्रिय का आहे हे समजून घेणे",
+    "keyPoint1": "पायथनचा अर्थ लावला आहे - संकलनाची गरज नाही",
+    "keyPoint2": "डायनॅमिकली टाइप केलेले - व्हेरिएबल प्रकार घोषित करण्याची आवश्यकता नाही",
+    "useCase": "Django, Flask, FastAPI वापरून वेबसाइट आणि वेब ॲप्लिकेशन तयार करा",
+    "do": "वाचनीय कोडसाठी PEP 8 शैली मार्गदर्शकाचे अनुसरण करा",
+    "dont": "सिंगल लेटर व्हेरिएबल नावे वापरू नका (लूप वगळता)",
+    "bestPractice": "इंडेंटेशनसाठी 4 स्पेस वापरा (टॅब नाही)",
+    "codeExplanation": "प्रिंट() फंक्शन आउटपुट दाखवते. सिंगल-लाइन टिप्पण्यांसाठी # वापरा."
+  }
+}

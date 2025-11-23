@@ -4,6 +4,9 @@ export const beginner = {
         id: 'intro-python',
         title: 'Introduction to Python',
         description: 'Understanding what Python is and why it\'s popular',
+        difficulty: 'Beginner',
+        estimatedTime: 30,
+        prerequisites: [],
         content: {
           overview: 'Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum in 1991, Python emphasizes code readability and allows programmers to express concepts in fewer lines of code.',
           keyPoints: [
@@ -149,6 +152,9 @@ print(message)`,
         id: 'variables-datatypes',
         title: 'Variables and Data Types',
         description: 'Learn to store and manipulate different types of data',
+        difficulty: 'Beginner',
+        estimatedTime: 45,
+        prerequisites: ['intro-python'],
         content: {
           overview: 'Variables are containers for storing data values. Python has various built-in data types including numbers, strings, booleans, lists, tuples, dictionaries, and sets. Understanding data types is fundamental to writing effective Python code.',
           keyPoints: [
@@ -303,6 +309,9 @@ print(name)  # Output: Alice`,
         id: 'operators',
         title: 'Operators',
         description: 'Perform operations and comparisons',
+        difficulty: 'Beginner',
+        estimatedTime: 40,
+        prerequisites: ["variables-datatypes"],
         content: {
           overview: 'Operators are symbols that perform operations on variables and values. Python supports arithmetic, comparison, logical, assignment, and other operators. Understanding operators is essential for performing calculations and making decisions in your code.',
           keyPoints: [
@@ -527,6 +536,9 @@ maximum = a if a > b else b`,
         id: 'installing-python',
         title: 'Installing Python',
         description: 'Learn how to install Python on different operating systems',
+        difficulty: 'Beginner',
+        estimatedTime: 20,
+        prerequisites: [],
         content: {
           overview: 'Python installation is the first step in your programming journey. Python is available for Windows, macOS, and Linux. Understanding proper installation ensures you have the right environment for development.',
           keyPoints: [
@@ -648,6 +660,9 @@ deactivate`,
         id: 'execution-modes',
         title: 'Python Execution Modes',
         description: 'Interactive vs Script mode execution',
+        difficulty: 'Beginner',
+        estimatedTime: 25,
+        prerequisites: ["installing-python"],
         content: {
           overview: 'Python can be executed in two primary modes: Interactive Mode for testing snippets and quick experimentation, and Script Mode for running complete programs. Understanding both modes helps you work efficiently.',
           keyPoints: [
@@ -794,6 +809,9 @@ if __name__ == "__main__":
         id: 'python-tokens',
         title: 'Python Tokens - Building Blocks',
         description: 'Understanding the smallest units of Python programs',
+        difficulty: 'Beginner',
+        estimatedTime: 35,
+        prerequisites: ["intro-python"],
         content: {
           overview: 'Tokens are the smallest individual units of a Python program - the building blocks of code. When Python reads your code, it breaks it into tokens: keywords, identifiers, literals, operators, and delimiters. Understanding tokens is fundamental to writing correct Python code.',
           keyPoints: [
@@ -953,6 +971,9 @@ print(is_valid_identifier("class"))         # False`,
         id: 'control-flow-basics',
         title: 'Control Flow - if/else Statements',
         description: 'Making decisions in your code',
+        difficulty: 'Beginner',
+        estimatedTime: 50,
+        prerequisites: ["operators"],
         content: {
           overview: 'Control flow statements allow your program to make decisions and execute different code based on conditions. The if/elif/else statements are fundamental for creating logic in programs - from simple checks to complex decision trees.',
           keyPoints: [
@@ -1166,6 +1187,9 @@ print("Final Price: $%.2f" % final_price)
         id: 'loops-for-while',
         title: 'Loops - for and while',
         description: 'Repeating actions efficiently',
+        difficulty: 'Beginner',
+        estimatedTime: 55,
+        prerequisites: ["control-flow-basics"],
         content: {
           overview: 'Loops allow you to repeat code multiple times without writing it over and over. Python provides two main loop types: "for" loops for iterating over sequences, and "while" loops for repeating until a condition changes. Mastering loops is essential for processing data and automating tasks.',
           keyPoints: [
@@ -1434,6 +1458,9 @@ print("\\n" + "=" * 50)`,
         id: 'tokens-keywords',
         title: 'Python Tokens and Keywords',
         description: 'Understanding the building blocks of Python code',
+        difficulty: 'Beginner',
+        estimatedTime: 30,
+        prerequisites: ["python-tokens"],
         content: {
           overview: 'Tokens are the smallest units of a Python program. They include keywords, identifiers, literals, operators, and delimiters. Keywords are reserved words with special meaning that cannot be used as variable names.',
           keyPoints: [
@@ -1608,6 +1635,9 @@ is_valid = True`,
         id: 'identifiers-naming',
         title: 'Identifiers and Naming Rules',
         description: 'Learn how to name variables, functions, and classes properly',
+        difficulty: 'Beginner',
+        estimatedTime: 35,
+        prerequisites: ["python-tokens"],
         content: {
           overview: 'Identifiers are names given to variables, functions, classes, modules, and other objects. Python has specific rules for valid identifiers and conventions for readable, maintainable code.',
           keyPoints: [
@@ -1800,6 +1830,9 @@ user_dict = {"name": "Alice", "age": 30}`,
         id: 'literals-types',
         title: 'Python Literals',
         description: 'Understanding different types of literal values',
+        difficulty: 'Beginner',
+        estimatedTime: 40,
+        prerequisites: ["variables-datatypes"],
         content: {
           overview: 'Literals are fixed values that appear directly in code. Python supports numeric literals (integers, floats, complex), string literals, boolean literals (True/False), and special literal None. Understanding literals is fundamental to working with data.',
           keyPoints: [
@@ -2031,6 +2064,9 @@ students = [
         id: 'python-comments',
         title: 'Comments and Documentation',
         description: 'Writing clear comments and docstrings',
+        difficulty: 'Beginner',
+        estimatedTime: 20,
+        prerequisites: ["intro-python"],
         content: {
           overview: 'Comments are annotations in code that Python ignores during execution. They explain what code does, why decisions were made, and how to use functions/classes. Good comments make code maintainable and collaborative.',
           keyPoints: [
@@ -2302,6 +2338,9 @@ def process_data(data):
         id: 'user-input',
         title: 'Getting User Input',
         description: 'Learn how to accept and process user input in Python',
+        difficulty: 'Beginner',
+        estimatedTime: 35,
+        prerequisites: ["variables-datatypes","operators"],
         content: {
           overview: 'The input() function allows Python programs to interact with users by accepting text input from the keyboard. Understanding how to get, validate, and convert user input is essential for creating interactive programs.',
           keyPoints: [
@@ -2548,6 +2587,9 @@ else:
         id: 'display-output',
         title: 'Displaying Output',
         description: 'Master the print() function and output formatting',
+        difficulty: 'Beginner',
+        estimatedTime: 40,
+        prerequisites: ["variables-datatypes"],
         content: {
           overview: 'The print() function displays output to the console. Python offers multiple ways to format output, from simple concatenation to advanced f-strings. Understanding output formatting is crucial for creating readable, professional programs.',
           keyPoints: [

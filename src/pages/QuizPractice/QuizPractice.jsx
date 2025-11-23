@@ -168,7 +168,7 @@ const QuizPractice = () => {
 
   if (!quizStarted) {
     return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
+      <Container maxWidth="md" sx={{ py: 4, minHeight: '100vh', bgcolor: 'background.default' }}>
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <EmojiEvents sx={{ fontSize: 64, color: 'primary.main', mb: 2 }} />
           <Typography variant="h3" gutterBottom fontWeight="bold">
@@ -284,7 +284,7 @@ const QuizPractice = () => {
     }
 
     return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
+      <Container maxWidth="md" sx={{ py: 4, minHeight: '100vh', bgcolor: 'background.default' }}>
         <Card elevation={3}>
           <CardContent sx={{ p: 4, textAlign: 'center' }}>
             <EmojiEvents sx={{ fontSize: 80, color: `${feedbackColor}.main`, mb: 2 }} />
@@ -389,7 +389,7 @@ const QuizPractice = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: 4, minHeight: '100vh', bgcolor: 'background.default' }}>
       {/* Progress Header */}
       <Box sx={{ mb: 3 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>

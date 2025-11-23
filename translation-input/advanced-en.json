@@ -1,0 +1,725 @@
+{
+  "courseName": "advanced",
+  "totalTopics": 9,
+  "topics": [
+    {
+      "id": "exception-handling",
+      "title": "Exception Handling Mastery",
+      "description": "Master error handling and exception management",
+      "overview": "Exception handling is crucial for writing robust programs that can gracefully handle errors. Python uses try/except blocks to catch and handle exceptions, allowing programs to recover from errors instead of crashing. Understanding exception handling improves code reliability and user experience.",
+      "keyPoints": [
+        "Exceptions are errors detected during execution",
+        "try/except blocks catch and handle exceptions",
+        "finally block always executes for cleanup",
+        "else block runs if no exception occurs",
+        "Can raise custom exceptions for specific errors"
+      ],
+      "useCases": [
+        {
+          "title": "File Operations",
+          "description": "Handle file not found, permission errors",
+          "example": "Try to open file, handle if missing or inaccessible"
+        },
+        {
+          "title": "Network Requests",
+          "description": "Handle connection failures, timeouts",
+          "example": "API calls with retry logic on failures"
+        },
+        {
+          "title": "User Input Validation",
+          "description": "Catch invalid input formats",
+          "example": "Convert string to int, handle ValueError"
+        },
+        {
+          "title": "Database Operations",
+          "description": "Handle connection errors, query failures",
+          "example": "Rollback transactions on errors"
+        }
+      ],
+      "dos": [
+        "Catch specific exceptions, not generic Exception",
+        "Use finally for cleanup (close files, connections)",
+        "Provide meaningful error messages",
+        "Log exceptions for debugging",
+        "Raise exceptions for invalid states"
+      ],
+      "donts": [
+        "Don't use bare except: (catches everything including sys.exit)",
+        "Don't silently ignore exceptions",
+        "Don't use exceptions for flow control",
+        "Don't catch exceptions you can't handle",
+        "Don't forget to clean up resources"
+      ],
+      "bestPractices": [
+        "Catch specific exceptions first, general ones last",
+        "Use context managers (with) for automatic cleanup",
+        "Create custom exceptions for domain-specific errors",
+        "Document what exceptions functions can raise",
+        "Fail fast - detect errors early"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Exception Handling",
+          "explanation": "try/except blocks catch exceptions. Catch specific exceptions when possible"
+        },
+        {
+          "title": "try/except/else/finally",
+          "explanation": "else runs if no exception, finally always runs for cleanup. Context managers are preferred"
+        },
+        {
+          "title": "Raising Exceptions",
+          "explanation": "Raise exceptions to signal errors. Use specific exception types for clarity"
+        },
+        {
+          "title": "Custom Exceptions",
+          "explanation": "Custom exceptions provide domain-specific error handling with meaningful names"
+        },
+        {
+          "title": "Real-World: Robust File Processor",
+          "explanation": "Comprehensive error handling makes programs robust and user-friendly"
+        }
+      ]
+    },
+    {
+      "id": "file-handling",
+      "title": "File Handling & I/O Operations",
+      "description": "Master file operations and data persistence",
+      "overview": "File handling is essential for reading and writing data to disk. Python provides powerful tools for working with files, including context managers for safe operations, pathlib for path manipulation, and built-in support for common formats like CSV and JSON. Understanding file I/O is crucial for data persistence and processing.",
+      "keyPoints": [
+        "Use context managers (with) for automatic file closing",
+        "Different modes: read (r), write (w), append (a), binary (b)",
+        "pathlib provides object-oriented path handling",
+        "CSV and JSON modules for structured data",
+        "Always handle file-related exceptions"
+      ],
+      "useCases": [
+        {
+          "title": "Data Persistence",
+          "description": "Save and load application data",
+          "example": "Save user preferences, game state, application config"
+        },
+        {
+          "title": "Data Processing",
+          "description": "Read, transform, and write data files",
+          "example": "Process CSV reports, analyze log files, data ETL"
+        },
+        {
+          "title": "Configuration Management",
+          "description": "Load settings from config files",
+          "example": "Read JSON/YAML config, environment variables"
+        },
+        {
+          "title": "Data Export/Import",
+          "description": "Exchange data with other systems",
+          "example": "Export to CSV/Excel, import from JSON/XML"
+        }
+      ],
+      "dos": [
+        "Always use context managers (with) for file operations",
+        "Handle exceptions (FileNotFoundError, PermissionError)",
+        "Close files explicitly if not using with statement",
+        "Use pathlib for cross-platform path handling",
+        "Specify encoding explicitly (usually utf-8)"
+      ],
+      "donts": [
+        "Don't forget to close files (use with)",
+        "Don't read entire large files into memory",
+        "Don't ignore file operation exceptions",
+        "Don't use string concatenation for paths",
+        "Don't assume file exists without checking"
+      ],
+      "bestPractices": [
+        "Use pathlib.Path for path operations",
+        "Always specify file encoding",
+        "Process large files in chunks or lines",
+        "Use appropriate modules (csv, json) for structured data",
+        "Validate paths and permissions before operations"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic File Operations",
+          "explanation": "Context managers (with) ensure files are properly closed even if errors occur"
+        },
+        {
+          "title": "Path Handling with pathlib",
+          "explanation": "pathlib provides clean, object-oriented path handling that works across platforms"
+        },
+        {
+          "title": "Working with CSV Files",
+          "explanation": "CSV module handles comma-separated values with automatic quoting and escaping"
+        },
+        {
+          "title": "Working with JSON Files",
+          "explanation": "JSON module provides easy conversion between Python objects and JSON format"
+        },
+        {
+          "title": "Real-World: Log File Analyzer",
+          "explanation": "Real-world example combining file reading, analysis, and JSON export"
+        }
+      ]
+    },
+    {
+      "id": "modules-packages",
+      "title": "Modules & Packages",
+      "description": "Master code organization and imports",
+      "overview": "Modules and packages are Python's way of organizing code into reusable components. A module is a single Python file, while a package is a collection of modules. Understanding imports, the module search path, and package structure is essential for building maintainable applications and reusing code effectively.",
+      "keyPoints": [
+        "Modules are single .py files containing Python code",
+        "Packages are directories containing __init__.py",
+        "import statement loads modules and packages",
+        "__name__ == \"__main__\" identifies script entry point",
+        "Python searches sys.path for modules"
+      ],
+      "useCases": [
+        {
+          "title": "Code Organization",
+          "description": "Split large projects into manageable files",
+          "example": "utils.py, models.py, views.py, config.py"
+        },
+        {
+          "title": "Code Reuse",
+          "description": "Share code across multiple scripts",
+          "example": "Common utilities, helper functions, constants"
+        },
+        {
+          "title": "Library Development",
+          "description": "Create reusable libraries",
+          "example": "Create installable packages with setup.py"
+        },
+        {
+          "title": "Namespace Management",
+          "description": "Avoid naming conflicts",
+          "example": "myapp.database, myapp.api, myapp.utils"
+        }
+      ],
+      "dos": [
+        "Use meaningful module and package names",
+        "Keep modules focused (single responsibility)",
+        "Use __init__.py for package initialization",
+        "Import only what you need",
+        "Use if __name__ == \"__main__\" for scripts"
+      ],
+      "donts": [
+        "Don't use circular imports",
+        "Don't import * (use explicit imports)",
+        "Don't pollute global namespace",
+        "Don't modify sys.path unless necessary",
+        "Don't forget __init__.py for packages"
+      ],
+      "bestPractices": [
+        "Use absolute imports in packages",
+        "Keep __init__.py minimal",
+        "Group imports: stdlib, third-party, local",
+        "Use importlib for dynamic imports",
+        "Document module purpose in docstring"
+      ],
+      "codeExamples": [
+        {
+          "title": "Creating and Importing Modules",
+          "explanation": "Multiple ways to import modules. Use explicit imports for clarity"
+        },
+        {
+          "title": "Creating Packages",
+          "explanation": "Packages organize related modules. __init__.py makes directory a package"
+        },
+        {
+          "title": "Script vs Module: __name__ == \"__main__\"",
+          "explanation": "__name__ is \"__main__\" only when file is run as script, not when imported"
+        },
+        {
+          "title": "Module Search Path and sys.path",
+          "explanation": "sys.path determines where Python looks for modules. Usually no need to modify it"
+        },
+        {
+          "title": "Real-World: Project Structure",
+          "explanation": "Professional structure with clear separation of concerns and proper package organization"
+        }
+      ]
+    },
+    {
+      "id": "oop-basics",
+      "title": "Object-Oriented Programming Basics",
+      "description": "Master the 4 pillars of OOP: Encapsulation, Inheritance, Polymorphism, and Abstraction",
+      "overview": "Object-Oriented Programming (OOP) is a powerful programming paradigm that structures code around \"objects\" rather than functions and logic. These objects are instances of \"classes\", which act as blueprints. OOP relies on four fundamental pillars: Encapsulation (hiding internal state), Inheritance (creating new classes from existing ones), Polymorphism (using a unified interface for different types), and Abstraction (hiding complex implementation details). This approach makes code more modular, reusable, and easier to maintain for large-scale applications.",
+      "keyPoints": [
+        "Classes are blueprints defining attributes (data) and methods (behavior)",
+        "Objects are concrete instances created from classes",
+        "The 4 Pillars of OOP: Encapsulation, Inheritance, Polymorphism, Abstraction",
+        "Encapsulation protects data using private attributes and properties",
+        "Inheritance promotes code reuse by deriving child classes from parents",
+        "Polymorphism allows different classes to be treated as instances of the same general class",
+        "Abstraction hides complex reality while exposing only the necessary parts",
+        "Composition (has-a relationship) is often preferred over Inheritance (is-a relationship)"
+      ],
+      "useCases": [
+        {
+          "title": "Modeling Real-World Entities",
+          "description": "Represent complex entities with attributes and behaviors",
+          "example": "Car class with attributes (color, model) and methods (start, stop)"
+        },
+        {
+          "title": "Code Organization",
+          "description": "Group related functionality together",
+          "example": "User class with authentication, profile methods"
+        },
+        {
+          "title": "Code Reuse",
+          "description": "Inherit common functionality",
+          "example": "Animal base class, Dog and Cat inherit behaviors"
+        },
+        {
+          "title": "Large Applications",
+          "description": "Structure complex systems",
+          "example": "E-commerce: Product, Cart, Order, Payment classes"
+        }
+      ],
+      "dos": [
+        "Use classes to model real-world concepts",
+        "Keep class responsibilities focused (Single Responsibility)",
+        "Use inheritance for \"is-a\" relationships",
+        "Make attributes private when they shouldn't be accessed directly",
+        "Provide clear class and method names"
+      ],
+      "donts": [
+        "Don't create god classes that do everything",
+        "Don't use inheritance just for code reuse (use composition)",
+        "Don't expose internal implementation details",
+        "Don't forget to call super().__init__() in child classes",
+        "Don't overuse inheritance (deep hierarchies are hard to maintain)"
+      ],
+      "bestPractices": [
+        "Favor composition over inheritance",
+        "Use properties for controlled attribute access",
+        "Implement __str__ and __repr__ for readable objects",
+        "Follow naming conventions (CapWords for classes)",
+        "Document classes and their public interface"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. Creating Classes and Objects",
+          "explanation": "Classes define the structure. __init__ initializes objects. self refers to the instance. Create objects by calling the class."
+        },
+        {
+          "title": "2. Encapsulation and Properties",
+          "explanation": "Use __ prefix for private attributes. @property creates managed attributes with getters/setters for validation."
+        },
+        {
+          "title": "3. Inheritance",
+          "explanation": "Inheritance allows child classes to reuse parent code. Use super() to call parent methods. Override methods to customize behavior."
+        },
+        {
+          "title": "4. Polymorphism",
+          "explanation": "Polymorphism allows different classes to be treated as instances of the same general class through a common interface."
+        },
+        {
+          "title": "5. Abstraction (Abstract Base Classes)",
+          "explanation": "Abstraction hides complex implementation details. Abstract Base Classes (ABC) enforce that child classes implement specific methods."
+        },
+        {
+          "title": "6. Magic Methods (Operator Overloading)",
+          "explanation": "Magic methods (dunder methods) allow you to define how objects behave with built-in operations like printing, addition, and comparison."
+        }
+      ]
+    },
+    {
+      "id": "oop-advanced",
+      "title": "Advanced OOP Concepts",
+      "description": "Deep dive into Python object model, MRO, and Metaclasses",
+      "overview": "Advanced Object-Oriented Programming in Python goes beyond basic classes and inheritance. It involves understanding how Python actually implements objects, how method resolution works in multiple inheritance, how to optimize memory usage, and how to customize class creation itself using metaclasses.",
+      "keyPoints": [
+        "Multiple Inheritance allows a class to inherit from multiple parents",
+        "MRO (Method Resolution Order) determines the order of class search",
+        "Mixins are small classes that provide specific functionality",
+        "__slots__ optimizes memory usage by preventing dynamic attribute creation",
+        "Descriptors allow customizing attribute access (get/set/delete)",
+        "Metaclasses are \"classes of classes\" that control class creation"
+      ],
+      "useCases": [
+        {
+          "title": "Complex Class Hierarchies",
+          "description": "Using multiple inheritance and mixins",
+          "example": "Django Mixins (LoginRequiredMixin, PermissionRequiredMixin)"
+        },
+        {
+          "title": "Memory Optimization",
+          "description": "Handling millions of small objects",
+          "example": "Using __slots__ for Point or Particle classes"
+        },
+        {
+          "title": "Framework Development",
+          "description": "Creating APIs and ORMs",
+          "example": "Django models, SQLAlchemy declarative base (Metaclasses)"
+        },
+        {
+          "title": "Resource Management",
+          "description": "Custom context managers",
+          "example": "Database connections, file locks using __enter__/__exit__"
+        }
+      ],
+      "dos": [
+        "Use Mixins to share functionality without deep hierarchies",
+        "Use super() for cooperative multiple inheritance",
+        "Use __slots__ only when memory is a critical bottleneck",
+        "Use descriptors for reusable attribute logic",
+        "Keep metaclasses for framework-level code"
+      ],
+      "donts": [
+        "Don't create complex diamond inheritance structures if avoidable",
+        "Don't use __slots__ if you need dynamic attributes",
+        "Don't overuse metaclasses (they are \"magic\")",
+        "Don't rely on MRO for logic (it can be confusing)",
+        "Don't mix classic and new-style classes (Python 2 legacy)"
+      ],
+      "bestPractices": [
+        "Follow the C3 linearization algorithm (MRO)",
+        "Prefer composition over complex multiple inheritance",
+        "Document mixin requirements clearly",
+        "Use abstract base classes to define interfaces",
+        "Test MRO with help(Class) to verify order"
+      ],
+      "codeExamples": [
+        {
+          "title": "1. Multiple Inheritance and MRO",
+          "explanation": "Python uses C3 linearization for MRO. super() ensures each class in the hierarchy is called exactly once."
+        },
+        {
+          "title": "2. Memory Optimization with __slots__",
+          "explanation": "__slots__ saves memory by suppressing __dict__ creation, useful for creating millions of small objects."
+        },
+        {
+          "title": "3. Descriptors",
+          "explanation": "Descriptors allow you to define reusable behavior for attribute access (get, set, delete) across multiple classes."
+        },
+        {
+          "title": "4. Context Managers as Classes",
+          "explanation": "Implementing __enter__ and __exit__ allows classes to be used with the \"with\" statement for resource management."
+        }
+      ]
+    },
+    {
+      "id": "async-await",
+      "title": "Async/Await & Concurrency",
+      "description": "Master asynchronous programming for I/O-bound operations",
+      "overview": "Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.\n\n**Key Concepts:**\n\n- **async/await**: Define and call asynchronous functions\n- **Event Loop**: Manages execution of async tasks\n- **Coroutines**: Functions that can pause and resume\n- **Tasks**: Wrapped coroutines that run concurrently\n- **asyncio**: Python's async programming library\n\n**When to Use:**\n\nUse async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.",
+      "keyPoints": [
+        "async def creates a coroutine function",
+        "await pauses execution until the awaited task completes",
+        "Event loop manages concurrent execution",
+        "asyncio.gather() runs multiple tasks concurrently",
+        "asyncio.create_task() schedules a coroutine to run",
+        "Use for I/O-bound operations, not CPU-bound",
+        "Async functions must be awaited or scheduled",
+        "Libraries must support async (aiohttp, asyncpg, etc.)"
+      ],
+      "useCases": [
+        {
+          "title": "Web Scraping",
+          "description": "Fetch multiple URLs concurrently",
+          "example": "Download 100 web pages in parallel instead of sequentially"
+        },
+        {
+          "title": "API Requests",
+          "description": "Make multiple API calls simultaneously",
+          "example": "Fetch data from 10 different APIs at once"
+        },
+        {
+          "title": "Database Queries",
+          "description": "Run multiple queries concurrently",
+          "example": "Query multiple tables in parallel with asyncpg"
+        },
+        {
+          "title": "Real-time Applications",
+          "description": "Handle multiple connections simultaneously",
+          "example": "WebSocket server managing thousands of connections"
+        }
+      ],
+      "dos": [
+        "Use async/await for I/O-bound operations",
+        "Always await async functions",
+        "Use asyncio.gather() to run tasks concurrently",
+        "Handle exceptions in async code properly",
+        "Use async context managers (async with)",
+        "Use async libraries (aiohttp, not requests)"
+      ],
+      "donts": [
+        "Don't use async for CPU-bound tasks",
+        "Don't block the event loop with synchronous code",
+        "Don't forget to await async functions",
+        "Don't mix sync and async code without care",
+        "Don't use time.sleep() (use asyncio.sleep())",
+        "Don't create too many concurrent tasks without limits"
+      ],
+      "bestPractices": [
+        "Use asyncio.run() to start the event loop",
+        "Create tasks with asyncio.create_task() for concurrent execution",
+        "Use asyncio.gather() to wait for multiple tasks",
+        "Implement timeouts with asyncio.wait_for()",
+        "Use semaphores to limit concurrent operations",
+        "Handle cancellation with try/except asyncio.CancelledError",
+        "Profile async code to ensure it's actually faster"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Async/Await",
+          "explanation": "Define and call asynchronous functions. async def creates a coroutine, await pauses until completion."
+        },
+        {
+          "title": "Concurrent API Requests",
+          "explanation": "Fetch multiple URLs concurrently. Much faster than sequential requests for I/O-bound operations."
+        },
+        {
+          "title": "Error Handling & Timeouts",
+          "explanation": "Handle errors and timeouts in async code. Use try/except and asyncio.wait_for() for robustness."
+        },
+        {
+          "title": "Rate Limiting with Semaphores",
+          "explanation": "Control concurrent operations with semaphores to avoid overwhelming resources (APIs, databases, network)."
+        }
+      ]
+    },
+    {
+      "id": "context-managers",
+      "title": "Context Managers",
+      "description": "Master resource management with context managers",
+      "overview": "Context managers ensure resources are properly acquired and released, even if errors occur. They implement the \"with\" statement protocol using __enter__ and __exit__ methods or the contextlib module.\n\n**What They Solve:**\n\n- Automatic resource cleanup (files, locks, connections)\n- Exception-safe resource handling\n- Clean, readable resource management code\n\n**Two Ways to Create:**\n\n1. **Class-based**: Implement __enter__ and __exit__\n2. **Decorator-based**: Use @contextmanager decorator",
+      "keyPoints": [
+        "Context managers guarantee cleanup even if exceptions occur",
+        "__enter__ acquires the resource and returns it",
+        "__exit__ releases the resource, receives exception info",
+        "@contextmanager decorator simplifies creation",
+        "Use \"with\" statement to invoke context managers",
+        "Common for files, locks, database connections",
+        "Can suppress exceptions by returning True from __exit__",
+        "Supports async with async context managers"
+      ],
+      "useCases": [
+        {
+          "title": "File Handling",
+          "description": "Automatically close files even if errors occur",
+          "example": "with open(\"file.txt\") as f: ensures file closes"
+        },
+        {
+          "title": "Database Connections",
+          "description": "Commit transactions and close connections properly",
+          "example": "with db.transaction(): commits on success, rollback on error"
+        },
+        {
+          "title": "Thread Locks",
+          "description": "Acquire and release locks safely",
+          "example": "with lock: automatically releases lock"
+        },
+        {
+          "title": "Temporary State",
+          "description": "Change and restore state temporarily",
+          "example": "with temp_directory(): creates and cleans up temp dir"
+        }
+      ],
+      "dos": [
+        "Always use context managers for resource management",
+        "Implement proper cleanup in __exit__",
+        "Use contextlib for simple cases",
+        "Handle exceptions appropriately in __exit__",
+        "Document what resources are managed",
+        "Test that cleanup happens on exceptions"
+      ],
+      "donts": [
+        "Don't forget to return the resource from __enter__",
+        "Don't raise exceptions in __exit__ unless necessary",
+        "Don't rely on __del__ for cleanup",
+        "Don't leave resources open on exceptions",
+        "Don't create context managers that do too much",
+        "Don't suppress exceptions without good reason"
+      ],
+      "bestPractices": [
+        "Prefer context managers over try/finally",
+        "Use @contextmanager for simple cases",
+        "Return resource from __enter__ for \"as\" clause",
+        "__exit__ should return False to propagate exceptions",
+        "Support both sync and async when appropriate",
+        "Make context managers reusable when possible",
+        "Document the managed resource lifecycle"
+      ],
+      "codeExamples": [
+        {
+          "title": "Class-based Context Manager",
+          "explanation": "Implement __enter__ and __exit__ to create a context manager. __enter__ sets up resources, __exit__ cleans up."
+        },
+        {
+          "title": "@contextmanager Decorator",
+          "explanation": "Use @contextmanager for simpler context managers. Yield the resource, cleanup happens after yield."
+        },
+        {
+          "title": "Multiple Context Managers",
+          "explanation": "Use multiple context managers in a single with statement for managing multiple resources."
+        },
+        {
+          "title": "Async Context Managers",
+          "explanation": "Use async with for async context managers. Implement __aenter__ and __aexit__ or use @asynccontextmanager."
+        }
+      ]
+    },
+    {
+      "id": "iterators-iterables",
+      "title": "Iterators & Iterables",
+      "description": "Master iteration protocols and create custom iterators",
+      "overview": "Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.\n\n**Key Distinctions:**\n\n- **Iterable**: Any object that can return an iterator (__iter__ method)\n- **Iterator**: Object that produces values one at a time (__next__ method)\n- **Generator**: Special iterator created with yield\n\n**When to Use:**\n\n- Processing large datasets that don't fit in memory\n- Creating custom iteration logic\n- Lazy evaluation for performance\n- Infinite sequences",
+      "keyPoints": [
+        "Iterables have __iter__() returning an iterator",
+        "Iterators have __next__() returning next value",
+        "Iterators raise StopIteration when exhausted",
+        "Generators are iterators created with yield",
+        "iter() converts iterables to iterators",
+        "Iterators can only be traversed once",
+        "Iterables can be iterated multiple times",
+        "Many built-ins accept iterables (sum, max, list, etc.)"
+      ],
+      "useCases": [
+        {
+          "title": "Large File Processing",
+          "description": "Read files line-by-line without loading entire file",
+          "example": "Process 10GB log file with minimal memory"
+        },
+        {
+          "title": "Database Result Sets",
+          "description": "Fetch database records one at a time",
+          "example": "Iterate through millions of database rows efficiently"
+        },
+        {
+          "title": "Custom Data Structures",
+          "description": "Make custom classes work with for loops",
+          "example": "Tree traversal, linked list iteration, graph exploration"
+        },
+        {
+          "title": "Infinite Sequences",
+          "description": "Generate values on-demand indefinitely",
+          "example": "Fibonacci numbers, timestamps, IDs"
+        }
+      ],
+      "dos": [
+        "Implement __iter__ and __next__ for custom iterators",
+        "Raise StopIteration when iteration completes",
+        "Use generators for simple iteration logic",
+        "Prefer iterators for memory-efficient processing",
+        "Use itertools for advanced iteration patterns",
+        "Make iterables reusable (return new iterator from __iter__)"
+      ],
+      "donts": [
+        "Don't forget to raise StopIteration",
+        "Don't modify collection while iterating",
+        "Don't reuse exhausted iterators",
+        "Don't create iterators when lists would work fine",
+        "Don't forget __iter__ returns self for iterators",
+        "Don't use iterators for small datasets that fit in memory"
+      ],
+      "bestPractices": [
+        "Use generators (yield) instead of manual iterator classes when possible",
+        "Implement __iter__ to return self for iterator objects",
+        "Document if your iterator is single-use or reusable",
+        "Use itertools for combining/chaining iterators",
+        "Prefer iterators over loading all data into memory",
+        "Use next() with default to handle StopIteration gracefully",
+        "Make iterables reusable by creating new iterator each time"
+      ],
+      "codeExamples": [
+        {
+          "title": "Iterator vs Iterable Basics",
+          "explanation": "Understand the difference between iterables (have __iter__) and iterators (have __next__). Iterators are single-use."
+        },
+        {
+          "title": "Custom Iterator Class",
+          "explanation": "Create custom iterator by implementing __iter__ (returns self) and __next__ (returns next value or raises StopIteration)."
+        },
+        {
+          "title": "Generators - Simpler Iterators",
+          "explanation": "Generators use yield to create iterators without manual __iter__/__next__ implementation. More concise and readable."
+        },
+        {
+          "title": "Itertools - Advanced Iteration",
+          "explanation": "itertools module provides powerful tools for combining, filtering, and transforming iterators efficiently."
+        }
+      ]
+    },
+    {
+      "id": "metaclasses",
+      "title": "Metaclasses",
+      "description": "Master Python's class creation mechanism and metaprogramming",
+      "overview": "Metaclasses are \"classes of classes\" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.\n\n**What Are Metaclasses?**\n\n- Classes are instances of metaclasses\n- The default metaclass is `type`\n- Metaclasses control class creation\n- Used for frameworks, ORMs, validation, logging\n\n**Key Insight:**\n\n```python\n# Everything is an object\nisinstance(5, int)          # True\nisinstance(int, type)       # True\nisinstance(type, type)      # True (type is its own metaclass!)\n```\n\n**When to Use:**\n\nRarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.",
+      "keyPoints": [
+        "type is the default metaclass for all classes",
+        "Classes are instances of their metaclass",
+        "Metaclasses control class creation via __new__ and __init__",
+        "__init_subclass__ is simpler alternative for many use cases",
+        "Metaclasses inherit from type",
+        "Used in ORMs (SQLAlchemy), web frameworks (Django)",
+        "Very powerful but complex - use sparingly",
+        "Can validate class attributes at definition time"
+      ],
+      "useCases": [
+        {
+          "title": "ORM Frameworks",
+          "description": "Automatically register model classes",
+          "example": "SQLAlchemy uses metaclasses to track database models"
+        },
+        {
+          "title": "API Clients",
+          "description": "Auto-generate methods from API spec",
+          "example": "Create HTTP methods from API documentation"
+        },
+        {
+          "title": "Singleton Pattern",
+          "description": "Ensure only one instance of a class",
+          "example": "Database connection, configuration manager"
+        },
+        {
+          "title": "Validation",
+          "description": "Validate class attributes at definition",
+          "example": "Ensure required methods are implemented"
+        }
+      ],
+      "dos": [
+        "Understand type() and how classes are created",
+        "Use __init_subclass__ before metaclasses when possible",
+        "Document metaclass behavior clearly",
+        "Keep metaclasses simple and focused",
+        "Use for framework-level code, not application code",
+        "Test metaclass behavior thoroughly"
+      ],
+      "donts": [
+        "Don't use metaclasses when decorators would work",
+        "Don't overcomplicate class hierarchies",
+        "Don't use metaclasses for simple attribute validation",
+        "Don't forget __init_subclass__ exists (simpler alternative)",
+        "Don't create metaclasses without clear justification",
+        "Don't use multiple metaclasses (conflicts are complex)"
+      ],
+      "bestPractices": [
+        "Prefer __init_subclass__ over metaclasses for validation",
+        "Use class decorators for simple modifications",
+        "Document why metaclass is necessary",
+        "Inherit from type for custom metaclasses",
+        "Override __new__ to modify class creation",
+        "Use super() in metaclass methods",
+        "Keep metaclass logic minimal and clear"
+      ],
+      "codeExamples": [
+        {
+          "title": "Understanding type() - The Meta metaclass",
+          "explanation": "type() is both a function (returns type of object) and the default metaclass (creates classes). All classes are instances of type."
+        },
+        {
+          "title": "Custom Metaclass Basics",
+          "explanation": "Create custom metaclass by inheriting from type. Override __new__ to modify class creation. Metaclass __new__ runs when class is defined, not when instances are created."
+        },
+        {
+          "title": "Metaclass for Validation",
+          "explanation": "Use metaclasses to enforce rules at class definition time. Validates that required methods are implemented."
+        },
+        {
+          "title": "__init_subclass__ - Simpler Alternative",
+          "explanation": "__init_subclass__ is simpler than metaclasses for many use cases. Runs when subclass is created. Use this instead of metaclasses when possible."
+        }
+      ]
+    }
+  ],
+  "totalTexts": 429
+}

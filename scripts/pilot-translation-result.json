@@ -1,0 +1,196 @@
+[
+  {
+    "id": "intro-python",
+    "title_en": "Introduction to Python",
+    "title_mr": "पायथनचा परिचय",
+    "description_en": "Understanding what Python is and why it's popular",
+    "description_mr": "पायथन काय आहे आणि ते लोकप्रिय का आहे हे समजून घेणे",
+    "content": {
+      "overview_en": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum in 1991, Python emphasizes code readability and allows programmers to express concepts in fewer lines of code.",
+      "overview_mr": "पायथन ही एक उच्च-स्तरीय, व्याख्या केलेली प्रोग्रामिंग भाषा आहे जी तिच्या साधेपणासाठी आणि वाचनीयतेसाठी ओळखली जाते. Guido van Rossum द्वारे 1991 मध्ये तयार केलेले, Python कोड वाचनीयतेवर जोर देते आणि प्रोग्रामरना कोडच्या कमी ओळींमध्ये संकल्पना व्यक्त करण्यास अनुमती देते.",
+      "keyPoints_en": [
+        "Python is interpreted - no compilation needed",
+        "Dynamically typed - no need to declare variable types",
+        "Cross-platform - runs on Windows, Mac, Linux",
+        "Huge standard library and ecosystem",
+        "Used in web development, data science, AI, automation, and more"
+      ],
+      "keyPoints_mr": [
+        "पायथनचा अर्थ लावला आहे - संकलनाची गरज नाही",
+        "डायनॅमिकली टाइप केलेले - व्हेरिएबल प्रकार घोषित करण्याची आवश्यकता नाही",
+        "क्रॉस-प्लॅटफॉर्म - विंडोज, मॅक, लिनक्सवर चालते",
+        "प्रचंड मानक लायब्ररी आणि इकोसिस्टम",
+        "वेब डेव्हलपमेंट, डेटा सायन्स, एआय, ऑटोमेशन आणि बरेच काही मध्ये वापरले जाते"
+      ],
+      "useCases_en": [
+        {
+          "title": "Web Development",
+          "description": "Build websites and web applications using Django, Flask, FastAPI",
+          "example": "Instagram, Spotify, and Pinterest use Python"
+        },
+        {
+          "title": "Data Science & AI",
+          "description": "Analyze data, create visualizations, build machine learning models",
+          "example": "Pandas, NumPy, TensorFlow, PyTorch libraries"
+        },
+        {
+          "title": "Automation & Scripting",
+          "description": "Automate repetitive tasks, system administration",
+          "example": "File management, web scraping, testing automation"
+        },
+        {
+          "title": "Game Development",
+          "description": "Create games using Pygame library",
+          "example": "Simple 2D games and prototypes"
+        }
+      ],
+      "useCases_mr": [
+        {
+          "title": "वेब विकास",
+          "description": "Django, Flask, FastAPI वापरून वेबसाइट आणि वेब ॲप्लिकेशन तयार करा",
+          "example": "Instagram, Spotify आणि Pinterest Python वापरतात"
+        },
+        {
+          "title": "डेटा सायन्स आणि एआय",
+          "description": "डेटाचे विश्लेषण करा, व्हिज्युअलायझेशन तयार करा, मशीन लर्निंग मॉडेल तयार करा",
+          "example": "Pandas, NumPy, TensorFlow, PyTorch लायब्ररी"
+        },
+        {
+          "title": "ऑटोमेशन आणि स्क्रिप्टिंग",
+          "description": "स्वयंचलित पुनरावृत्ती कार्ये, सिस्टम प्रशासन",
+          "example": "फाइल व्यवस्थापन, वेब स्क्रॅपिंग, चाचणी ऑटोमेशन"
+        },
+        {
+          "title": "खेळ विकास",
+          "description": "पायगेम लायब्ररी वापरून गेम तयार करा",
+          "example": "साधे 2D गेम आणि प्रोटोटाइप"
+        }
+      ],
+      "dos_en": [
+        "Follow PEP 8 style guide for readable code",
+        "Use meaningful variable and function names",
+        "Write comments to explain complex logic",
+        "Use virtual environments for project dependencies",
+        "Test your code regularly"
+      ],
+      "dos_mr": [
+        "वाचनीय कोडसाठी PEP 8 शैली मार्गदर्शकाचे अनुसरण करा",
+        "अर्थपूर्ण व्हेरिएबल आणि फंक्शनची नावे वापरा",
+        "जटिल तर्कशास्त्र स्पष्ट करण्यासाठी टिप्पण्या लिहा",
+        "प्रकल्प अवलंबनांसाठी आभासी वातावरण वापरा",
+        "तुमचा कोड नियमितपणे तपासा"
+      ],
+      "donts_en": [
+        "Don't use single letter variable names (except in loops)",
+        "Don't ignore errors and exceptions",
+        "Don't mix tabs and spaces for indentation",
+        "Don't write functions that do too many things",
+        "Don't hardcode values that might change"
+      ],
+      "donts_mr": [
+        "सिंगल लेटर व्हेरिएबल नावे वापरू नका (लूप वगळता)",
+        "त्रुटी आणि अपवाद दुर्लक्ष करू नका",
+        "इंडेंटेशनसाठी टॅब आणि स्पेस मिक्स करू नका",
+        "अनेक गोष्टी करणारी फंक्शन्स लिहू नका",
+        "बदलू ​​शकणारी मूल्ये हार्डकोड करू नका"
+      ]
+    }
+  },
+  {
+    "id": "variables-datatypes",
+    "title_en": "Variables and Data Types",
+    "title_mr": "व्हेरिएबल्स आणि डेटा प्रकार",
+    "description_en": "Learn to store and manipulate different types of data",
+    "description_mr": "विविध प्रकारचे डेटा संचयित आणि हाताळण्यास शिका",
+    "content": {
+      "overview_en": "Variables are containers for storing data values. Python has various built-in data types including numbers, strings, booleans, lists, tuples, dictionaries, and sets. Understanding data types is fundamental to writing effective Python code.",
+      "overview_mr": "व्हेरिएबल्स डेटा मूल्ये संचयित करण्यासाठी कंटेनर आहेत. पायथनमध्ये संख्या, स्ट्रिंग, बुलियन, याद्या, ट्युपल्स, डिक्शनरी आणि सेट्ससह विविध अंगभूत डेटा प्रकार आहेत. प्रभावी Python कोड लिहिण्यासाठी डेटा प्रकार समजून घेणे मूलभूत आहे.",
+      "keyPoints_en": [
+        "Variables don't need explicit declaration",
+        "Variable names are case-sensitive",
+        "Python determines type automatically (dynamic typing)",
+        "You can change a variable's type after it's set",
+        "Use type() function to check a variable's type"
+      ],
+      "keyPoints_mr": [
+        "व्हेरिएबल्सना स्पष्ट घोषणा करण्याची आवश्यकता नाही",
+        "व्हेरिएबल नावे केस-संवेदी आहेत",
+        "पायथन प्रकार आपोआप ठरवतो (डायनॅमिक टायपिंग)",
+        "तुम्ही व्हेरिएबल सेट केल्यानंतर त्याचा प्रकार बदलू शकता",
+        "व्हेरिएबलचा प्रकार तपासण्यासाठी type() फंक्शन वापरा"
+      ],
+      "useCases_en": [
+        {
+          "title": "Storing User Information",
+          "description": "Store names, ages, email addresses",
+          "example": "name = \"John\", age = 25, email = \"john@example.com\""
+        },
+        {
+          "title": "Mathematical Calculations",
+          "description": "Perform arithmetic operations",
+          "example": "price = 100, tax = 0.15, total = price * (1 + tax)"
+        },
+        {
+          "title": "Boolean Logic",
+          "description": "Control program flow with true/false values",
+          "example": "is_logged_in = True, has_permission = False"
+        },
+        {
+          "title": "Text Processing",
+          "description": "Manipulate strings for various applications",
+          "example": "Processing user input, formatting output"
+        }
+      ],
+      "useCases_mr": [
+        {
+          "title": "वापरकर्ता माहिती संचयित करणे",
+          "description": "स्टोअरची नावे, वय, ईमेल पत्ते",
+          "example": "नाव = \"जॉन\", वय = 25, ईमेल = \"john@example.com\""
+        },
+        {
+          "title": "गणिती आकडेमोड",
+          "description": "अंकगणितीय क्रिया करा",
+          "example": "किंमत = 100, कर = 0.15, एकूण = किंमत * (1 + कर)"
+        },
+        {
+          "title": "बुलियन लॉजिक",
+          "description": "सत्य/असत्य मूल्यांसह प्रोग्राम प्रवाह नियंत्रित करा",
+          "example": "is_logged_in = खरे, has_permission = असत्य"
+        },
+        {
+          "title": "मजकूर प्रक्रिया",
+          "description": "विविध अनुप्रयोगांसाठी स्ट्रिंग्स हाताळा",
+          "example": "वापरकर्ता इनपुटवर प्रक्रिया करणे, आउटपुटचे स्वरूपन करणे"
+        }
+      ],
+      "dos_en": [
+        "Use descriptive variable names (user_age instead of x)",
+        "Follow naming conventions (lowercase with underscores)",
+        "Initialize variables before using them",
+        "Use constants in UPPERCASE (MAX_SIZE = 100)",
+        "Choose appropriate data types for your data"
+      ],
+      "dos_mr": [
+        "वर्णनात्मक व्हेरिएबल नावे वापरा (x ऐवजी user_age)",
+        "नामकरण पद्धतींचे अनुसरण करा (अंडरस्कोअरसह लोअरकेस)",
+        "व्हेरिएबल्स वापरण्यापूर्वी ते इनिशियल करा",
+        "UPPERCASE मध्ये स्थिरांक वापरा (MAX_SIZE = 100)",
+        "तुमच्या डेटासाठी योग्य डेटा प्रकार निवडा"
+      ],
+      "donts_en": [
+        "Don't use Python keywords as variable names (if, for, while)",
+        "Don't start variable names with numbers",
+        "Don't use spaces in variable names",
+        "Don't reuse variable names for different purposes",
+        "Don't ignore type compatibility in operations"
+      ],
+      "donts_mr": [
+        "पायथन कीवर्ड व्हेरिएबल नाव म्हणून वापरू नका (जर, साठी, असताना)",
+        "व्हेरिएबलची नावे संख्यांसह सुरू करू नका",
+        "Don't use spaces in variable names",
+        "Don't reuse variable names for different purposes",
+        "Don't ignore type compatibility in operations"
+      ]
+    }
+  }
+]

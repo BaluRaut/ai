@@ -1505,6 +1505,9 @@ print(viewer.has_any_permission(moderator_perms)) # False`,
         id: 'functions',
         title: 'Functions',
         description: 'Create reusable blocks of code',
+        difficulty: 'Intermediate',
+        estimatedTime: 60,
+        prerequisites: ["control-flow-basics"],
         content: {
           overview: 'Functions are reusable blocks of code that perform specific tasks. They help organize code, reduce repetition, and make programs more maintainable. Functions can accept inputs (parameters) and return outputs (return values).',
           keyPoints: [
@@ -1742,6 +1745,1953 @@ def process_data(data: list[int]) -> dict[str, int]:
             explanation: 'Triple-quoted strings (docstrings) are the standard way to document Python functions.'
           }
         ]
+      },
+      {
+        id: 'comprehensions',
+        title: 'List & Dict Comprehensions',
+        description: 'Master Pythonic syntax for creating lists, dictionaries, and sets efficiently',
+        content: {
+          overview: `Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.
+
+**List Comprehensions:** Create lists from iterables with optional filtering
+
+**Dict Comprehensions:** Build dictionaries with key-value transformations
+
+**Set Comprehensions:** Generate unique sets with filtering
+
+**Nested Comprehensions:** Handle multi-dimensional data structures
+
+**Why Use Comprehensions:**
+✓ More readable than equivalent for loops
+✓ Often faster than traditional loops
+✓ Pythonic and idiomatic code style
+✓ Compact syntax reduces code length`,
+          keyPoints: [
+            'Basic syntax: [expression for item in iterable]',
+            'With condition: [expression for item in iterable if condition]',
+            'Can nest comprehensions for multi-dimensional data',
+            'Dict comprehensions use {key: value for...} syntax',
+            'Set comprehensions use {expression for...} syntax',
+            'More readable than map() and filter() in most cases'
+          ],
+          useCases: [
+            {
+              title: 'Data Transformation',
+              description: 'Transform lists/dicts to new formats',
+              example: 'Convert temperatures, normalize data, extract fields'
+            },
+            {
+              title: 'Filtering',
+              description: 'Extract elements matching criteria',
+              example: 'Filter even numbers, valid emails, passing scores'
+            },
+            {
+              title: 'Data Parsing',
+              description: 'Parse and restructure data',
+              example: 'CSV processing, JSON transformation, API responses'
+            },
+            {
+              title: 'Matrix Operations',
+              description: 'Create and manipulate 2D structures',
+              example: 'Matrix initialization, flattening, transposition'
+            }
+          ],
+          dos: [
+            '✓ Use comprehensions for simple transformations and filters',
+            '✓ Keep comprehensions readable - break complex ones into loops',
+            '✓ Use meaningful variable names even in comprehensions',
+            '✓ Prefer comprehensions over map() and filter() for clarity',
+            '✓ Use dict comprehensions to swap keys/values'
+          ],
+          donts: [
+            '✗ Don\'t create overly complex nested comprehensions',
+            '✗ Don\'t use comprehensions with side effects',
+            '✗ Don\'t sacrifice readability for brevity',
+            '✗ Don\'t use comprehensions when loops are clearer',
+            '✗ Don\'t forget comprehensions create new objects'
+          ],
+          bestPractices: [
+            'Keep comprehensions simple - one transformation or filter',
+            'Use generator expressions for large datasets: (x for x in range())',
+            'Break complex logic into regular loops for clarity',
+            'Use intermediate variables for complex expressions',
+            'Add comments for non-obvious comprehensions'
+          ],
+          codeExamples: [
+            {
+              title: '1. List Comprehensions - Basics',
+              code: `# Traditional loop
+squares_loop = []
+for x in range(10):
+    squares_loop.append(x**2)
+print("Loop:", squares_loop)
+
+# List comprehension (more Pythonic)
+squares = [x**2 for x in range(10)]
+print("Comprehension:", squares)
+
+# With condition (filter)
+evens = [x for x in range(20) if x % 2 == 0]
+print("Even numbers:", evens)
+
+# Transform strings
+names = ["alice", "bob", "charlie"]
+upper_names = [name.upper() for name in names]
+print("Uppercase:", upper_names)
+
+# If-else in comprehension
+numbers = [1, 2, 3, 4, 5]
+labels = ["even" if n % 2 == 0 else "odd" for n in numbers]
+print("Labels:", labels)
+
+# Multiple operations
+prices = [10, 20, 30, 40]
+prices_with_tax = [round(price * 1.08, 2) for price in prices]
+print("With tax:", prices_with_tax)`,
+              explanation: 'List comprehensions provide concise syntax for creating lists from iterables with optional filtering and transformation.'
+            },
+            {
+              title: '2. Dict Comprehensions - Creating Dictionaries',
+              code: `# Create dict from lists
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+my_dict = {k: v for k, v in zip(keys, values)}
+print("From zip:", my_dict)
+
+# Square numbers dict
+squares_dict = {x: x**2 for x in range(1, 6)}
+print("Squares:", squares_dict)
+
+# Swap keys and values
+original = {'a': 1, 'b': 2, 'c': 3}
+swapped = {v: k for k, v in original.items()}
+print("Swapped:", swapped)
+
+# With condition
+numbers = range(1, 11)
+even_squares = {x: x**2 for x in numbers if x % 2 == 0}
+print("Even squares:", even_squares)
+
+# Transform dict values
+prices = {'apple': 1.00, 'banana': 0.50, 'orange': 0.75}
+prices_with_tax = {item: price * 1.08 for item, price in prices.items()}
+print("With tax:", prices_with_tax)
+
+# Create dict from string
+text = "hello"
+char_index = {char: idx for idx, char in enumerate(text)}
+print("Char positions:", char_index)
+
+# Conditional dict creation
+scores = {'Alice': 85, 'Bob': 92, 'Charlie': 78, 'David': 95}
+passed = {name: score for name, score in scores.items() if score >= 80}
+print("Passed:", passed)`,
+              explanation: 'Dict comprehensions build dictionaries using {key: value for...} syntax, perfect for transforming or filtering dictionaries.'
+            },
+            {
+              title: '3. Set Comprehensions & Nested Comprehensions',
+              code: `# Set comprehension (unique values only)
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 5]
+unique_squares = {x**2 for x in numbers}
+print("Unique squares:", unique_squares)
+
+# Filter vowels from string
+text = "Hello World"
+vowels = {char.lower() for char in text if char.lower() in 'aeiou'}
+print("Vowels:", vowels)
+
+# Nested list comprehension - 2D matrix
+matrix = [[i + j for j in range(3)] for i in range(3)]
+print("Matrix:")
+for row in matrix:
+    print(row)
+
+# Flatten 2D list
+matrix_2d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flattened = [num for row in matrix_2d for num in row]
+print("Flattened:", flattened)
+
+# Nested with condition
+matrix_filtered = [[i*j for j in range(1, 4) if (i*j) % 2 == 0] for i in range(1, 4)]
+print("Filtered matrix:", matrix_filtered)
+
+# Cartesian product
+colors = ['red', 'blue']
+sizes = ['S', 'M', 'L']
+combinations = [(color, size) for color in colors for size in sizes]
+print("Combinations:", combinations)
+
+# Nested dict comprehension
+students = ['Alice', 'Bob', 'Charlie']
+subjects = ['Math', 'Science']
+grades = {student: {subject: 0 for subject in subjects} for student in students}
+print("Grade sheet:", grades)`,
+              explanation: 'Set comprehensions create unique collections, while nested comprehensions handle multi-dimensional structures and combinations.'
+            },
+            {
+              title: '4. Advanced Patterns & Real-World Examples',
+              code: `# Parse CSV-like data
+csv_data = "Alice,25,NYC\\nBob,30,LA\\nCharlie,35,Chicago"
+parsed = [
+    {'name': parts[0], 'age': int(parts[1]), 'city': parts[2]}
+    for line in csv_data.split('\\n')
+    for parts in [line.split(',')]
+]
+print("Parsed CSV:", parsed)
+
+# Group by property
+people = [
+    {'name': 'Alice', 'age': 25},
+    {'name': 'Bob', 'age': 30},
+    {'name': 'Charlie', 'age': 25}
+]
+age_groups = {}
+for person in people:
+    age = person['age']
+    if age not in age_groups:
+        age_groups[age] = []
+    age_groups[age].append(person['name'])
+print("Age groups:", age_groups)
+
+# Same with comprehension (complex - use loop for clarity)
+# This shows why loops are sometimes better!
+
+# Word frequency counter
+text = "the quick brown fox jumps over the lazy dog"
+word_freq = {word: text.split().count(word) for word in set(text.split())}
+print("Word frequency:", word_freq)
+
+# Extract specific fields
+data = [
+    {'name': 'Alice', 'score': 85, 'passed': True},
+    {'name': 'Bob', 'score': 92, 'passed': True},
+    {'name': 'Charlie', 'score': 78, 'passed': False}
+]
+names_of_passed = [d['name'] for d in data if d['passed']]
+print("Passed students:", names_of_passed)
+
+# Create lookup table
+products = [
+    {'id': 1, 'name': 'Laptop', 'price': 999},
+    {'id': 2, 'name': 'Mouse', 'price': 25},
+    {'id': 3, 'name': 'Keyboard', 'price': 75}
+]
+product_lookup = {p['id']: p for p in products}
+print("Product 2:", product_lookup[2])
+
+# Nested comprehension for matrix transpose
+matrix = [[1, 2, 3], [4, 5, 6]]
+transposed = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+print("Original:", matrix)
+print("Transposed:", transposed)`,
+              explanation: 'Advanced comprehensions can parse data, create lookups, and perform complex transformations, but remember: readability counts!'
+            }
+          ],
+          quiz: [
+            {
+              question: 'What does [x**2 for x in range(5)] produce?',
+              options: ['[0, 1, 2, 3, 4]', '[0, 1, 4, 9, 16]', '[1, 4, 9, 16, 25]', 'Error'],
+              correctAnswer: 1,
+              explanation: 'List comprehension squares each number in range(5), which is 0-4, producing [0, 1, 4, 9, 16].'
+            },
+            {
+              question: 'What is the difference between [x for x in range(5)] and (x for x in range(5))?',
+              options: [
+                'No difference',
+                'First is a list, second is a generator expression',
+                'Second is a tuple',
+                'Second is invalid syntax'
+              ],
+              correctAnswer: 1,
+              explanation: '[] creates a list comprehension (evaluates immediately), () creates a generator expression (lazy evaluation).'
+            },
+            {
+              question: 'How do you create a dict with keys as numbers 1-5 and values as their squares?',
+              options: [
+                '[x: x**2 for x in range(1, 6)]',
+                '{x: x**2 for x in range(1, 6)}',
+                '{x, x**2 for x in range(1, 6)}',
+                '(x: x**2 for x in range(1, 6))'
+              ],
+              correctAnswer: 1,
+              explanation: 'Dict comprehensions use {key: value for...} syntax. {} creates a dict, [] creates a list.'
+            },
+            {
+              question: 'What does {x for x in [1, 2, 2, 3, 3, 3]} produce?',
+              options: ['{1, 2, 3}', '[1, 2, 3]', '{1, 2, 2, 3, 3, 3}', 'Error'],
+              correctAnswer: 0,
+              explanation: '{} without key:value creates a set comprehension, which automatically removes duplicates.'
+            },
+            {
+              question: 'How to filter only even numbers from a list using comprehension?',
+              options: [
+                '[x for x in numbers where x % 2 == 0]',
+                '[x for x in numbers if x % 2 == 0]',
+                '[x if x % 2 == 0 for x in numbers]',
+                '[x for x in numbers if even]'
+              ],
+              correctAnswer: 1,
+              explanation: 'Use "if condition" after the for clause to filter elements: [x for x in numbers if x % 2 == 0].'
+            }
+          ]
+        }
+      },
+      {
+        id: 'decorators',
+        title: 'Decorators & Higher-Order Functions',
+        description: 'Master function decorators and functional programming concepts',
+        difficulty: 'Intermediate',
+        estimatedTime: 55,
+        prerequisites: ["functions"],
+        content: {
+          overview: `Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.
+
+**What are Decorators:**
+• Functions that take a function and return a modified function
+• Use @ symbol before function definition
+• Enable code reuse and separation of concerns
+
+**Common Use Cases:**
+• Logging and debugging
+• Performance timing
+• Access control and authentication
+• Caching/memoization
+• Input validation
+
+**Why Use Decorators:**
+✓ Don't repeat yourself (DRY principle)
+✓ Separate cross-cutting concerns
+✓ Clean and readable code
+✓ Widely used in frameworks (Flask, Django)`,
+          keyPoints: [
+            'Decorators are functions that wrap other functions',
+            'Use @decorator_name syntax above function definition',
+            'Can stack multiple decorators on one function',
+            'functools.wraps preserves original function metadata',
+            'Can create decorators with arguments using nested functions',
+            'Closures enable decorators to access outer scope variables'
+          ],
+          useCases: [
+            {
+              title: 'Logging & Debugging',
+              description: 'Automatically log function calls and returns',
+              example: 'Track function execution, debug parameters, monitor errors'
+            },
+            {
+              title: 'Performance Monitoring',
+              description: 'Measure execution time',
+              example: 'Profile slow functions, optimize bottlenecks'
+            },
+            {
+              title: 'Authentication & Authorization',
+              description: 'Check user permissions before execution',
+              example: 'Web frameworks, API endpoints, admin functions'
+            },
+            {
+              title: 'Caching',
+              description: 'Store results to avoid recomputation',
+              example: 'Expensive calculations, database queries, API calls'
+            }
+          ],
+          dos: [
+            '✓ Use functools.wraps to preserve function metadata',
+            '✓ Keep decorators simple and focused on one task',
+            '✓ Document what your decorator does',
+            '✓ Use decorators for cross-cutting concerns',
+            '✓ Consider using built-in decorators like @property, @staticmethod'
+          ],
+          donts: [
+            '✗ Don\'t make decorators too complex',
+            '✗ Don\'t forget functools.wraps (loses docstrings)',
+            '✗ Don\'t overuse decorators - they can obscure code',
+            '✗ Don\'t create decorators with significant overhead',
+            '✗ Don\'t stack too many decorators - hard to debug'
+          ],
+          bestPractices: [
+            'Always use @functools.wraps in decorator functions',
+            'Create decorator libraries for common patterns',
+            'Use descriptive names that explain what decorator does',
+            'Consider performance impact of decorators',
+            'Test decorated and undecorated functions separately'
+          ],
+          codeExamples: [
+            {
+              title: '1. Basic Decorator - Logging Function Calls',
+              code: `import functools
+
+# Simple decorator
+def log_call(func):
+    """Decorator that logs function calls"""
+    @functools.wraps(func)  # Preserves original function metadata
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__}() with args={args}, kwargs={kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__}() returned {result}")
+        return result
+    return wrapper
+
+# Using the decorator
+@log_call
+def add(a, b):
+    """Add two numbers"""
+    return a + b
+
+@log_call
+def greet(name, greeting="Hello"):
+    """Greet someone"""
+    return f"{greeting}, {name}!"
+
+# Test decorated functions
+result1 = add(5, 3)
+print(f"Result: {result1}\\n")
+
+result2 = greet("Alice")
+print(f"Result: {result2}\\n")
+
+result3 = greet("Bob", greeting="Hi")
+print(f"Result: {result3}\\n")
+
+# Check metadata is preserved
+print(f"Function name: {add.__name__}")
+print(f"Docstring: {add.__doc__}")`,
+              explanation: 'Decorators wrap functions to add functionality. @functools.wraps preserves original function metadata (name, docstring).'
+            },
+            {
+              title: '2. Performance Timer Decorator',
+              code: `import functools
+import time
+
+def timer(func):
+    """Measure function execution time"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"{func.__name__}() took {execution_time:.4f} seconds")
+        return result
+    return wrapper
+
+@timer
+def fast_function():
+    """Quick function"""
+    return sum(range(100))
+
+@timer
+def slow_function():
+    """Slow function with sleep"""
+    time.sleep(0.5)
+    return sum(range(1000000))
+
+@timer
+def fibonacci(n):
+    """Calculate fibonacci number (inefficient)"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Test timer decorator
+print("Testing fast function:")
+fast_function()
+
+print("\\nTesting slow function:")
+slow_function()
+
+print("\\nTesting fibonacci (notice recursive calls are timed too):")
+fibonacci(10)`,
+              explanation: 'Timer decorator measures execution time by recording start/end times and calculating the difference.'
+            },
+            {
+              title: '3. Decorator with Arguments & Caching',
+              code: `import functools
+import time
+
+# Decorator factory - decorator that takes arguments
+def repeat(times):
+    """Decorator that repeats function execution"""
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            results = []
+            for i in range(times):
+                result = func(*args, **kwargs)
+                results.append(result)
+                print(f"Execution {i+1}/{times}: {result}")
+            return results
+        return wrapper
+    return decorator
+
+@repeat(times=3)
+def say_hello(name):
+    return f"Hello, {name}!"
+
+print("Using decorator with arguments:")
+say_hello("Alice")
+
+print("\\n" + "="*50 + "\\n")
+
+# Caching decorator (memoization)
+def memoize(func):
+    """Cache function results"""
+    cache = {}
+    @functools.wraps(func)
+    def wrapper(*args):
+        if args not in cache:
+            print(f"Computing {func.__name__}{args}...")
+            cache[args] = func(*args)
+        else:
+            print(f"Using cached result for {func.__name__}{args}")
+        return cache[args]
+    return wrapper
+
+@memoize
+def fibonacci(n):
+    """Calculate fibonacci with caching"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print("Fibonacci with memoization:")
+print(f"fib(10) = {fibonacci(10)}")
+print(f"\\nCalling again:")
+print(f"fib(10) = {fibonacci(10)}")  # Uses cache
+
+# Built-in caching with functools
+@functools.lru_cache(maxsize=128)
+def factorial(n):
+    """Calculate factorial with LRU cache"""
+    print(f"Computing factorial({n})")
+    if n <= 1:
+        return 1
+    return n * factorial(n-1)
+
+print("\\n" + "="*50)
+print("\\nUsing built-in @lru_cache:")
+print(f"5! = {factorial(5)}")
+print(f"\\nCalling again:")
+print(f"5! = {factorial(5)}")  # Uses cache`,
+              explanation: 'Decorators can take arguments using nested functions. Caching decorators store results to avoid recomputation.'
+            },
+            {
+              title: '4. Multiple Decorators & Class-Based Decorators',
+              code: `import functools
+import time
+
+# Multiple decorators stack from bottom to top
+def bold(func):
+    """Wrap output in <b> tags"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        return f"<b>{func(*args, **kwargs)}</b>"
+    return wrapper
+
+def italic(func):
+    """Wrap output in <i> tags"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        return f"<i>{func(*args, **kwargs)}</i>"
+    return wrapper
+
+def underline(func):
+    """Wrap output in <u> tags"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        return f"<u>{func(*args, **kwargs)}</u>"
+    return wrapper
+
+# Stacking decorators (applied bottom to top)
+@bold
+@italic
+@underline
+def greet(name):
+    return f"Hello, {name}!"
+
+print("Stacked decorators:")
+print(greet("Alice"))  # <b><i><u>Hello, Alice!</u></i></b>
+
+print("\\n" + "="*50 + "\\n")
+
+# Class-based decorator
+class CountCalls:
+    """Count how many times a function is called"""
+    def __init__(self, func):
+        functools.update_wrapper(self, func)
+        self.func = func
+        self.num_calls = 0
+    
+    def __call__(self, *args, **kwargs):
+        self.num_calls += 1
+        print(f"Call {self.num_calls} to {self.func.__name__}()")
+        return self.func(*args, **kwargs)
+
+@CountCalls
+def process_data(data):
+    return f"Processing: {data}"
+
+print("Class-based decorator:")
+print(process_data("file1.txt"))
+print(process_data("file2.txt"))
+print(process_data("file3.txt"))
+print(f"\\nTotal calls: {process_data.num_calls}")
+
+# Access control decorator
+def require_auth(func):
+    """Simulate authentication check"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        # In real app, check session/token
+        authenticated = True  # Simulated
+        if not authenticated:
+            raise PermissionError(f"Authentication required for {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@require_auth
+def delete_user(user_id):
+    return f"Deleted user {user_id}"
+
+print("\\n" + "="*50)
+print("\\nAuthentication decorator:")
+print(delete_user(123))`,
+              explanation: 'Multiple decorators stack from bottom to top. Class-based decorators use __call__ method. Decorators enable access control patterns.'
+            }
+          ],
+          quiz: [
+            {
+              question: 'What does the @ symbol do in Python?',
+              options: [
+                'Comments out code',
+                'Applies a decorator to a function',
+                'Creates a lambda function',
+                'Defines a class method'
+              ],
+              correctAnswer: 1,
+              explanation: '@ is syntactic sugar for applying decorators. @decorator\\ndef func(): is equivalent to func = decorator(func).'
+            },
+            {
+              question: 'Why use @functools.wraps in decorator definitions?',
+              options: [
+                'It makes decorators faster',
+                'It preserves the original function\'s metadata (__name__, __doc__)',
+                'It is required for decorators to work',
+                'It allows decorators to take arguments'
+              ],
+              correctAnswer: 1,
+              explanation: '@functools.wraps copies metadata from the original function, preserving __name__, __doc__, and other attributes.'
+            },
+            {
+              question: 'If you stack @decorator1 and @decorator2, which is applied first?',
+              options: [
+                'decorator1',
+                'decorator2',
+                'They are applied simultaneously',
+                'Depends on execution order'
+              ],
+              correctAnswer: 1,
+              explanation: 'Decorators stack from bottom to top. @decorator1\\n@decorator2\\ndef func(): applies decorator2 first, then decorator1.'
+            },
+            {
+              question: 'What is a common use case for decorators?',
+              options: [
+                'Replacing if statements',
+                'Logging, timing, or caching function calls',
+                'Creating variables',
+                'Sorting lists'
+              ],
+              correctAnswer: 1,
+              explanation: 'Decorators excel at cross-cutting concerns like logging, timing, authentication, and caching without modifying function code.'
+            },
+            {
+              question: 'How do you create a decorator that takes arguments?',
+              options: [
+                'Use a single function with *args',
+                'Use a nested function (decorator factory)',
+                'Use a class',
+                'It\'s not possible'
+              ],
+              correctAnswer: 1,
+              explanation: 'Decorator factories use nested functions: def decorator_with_args(arg): def decorator(func): def wrapper(*args, **kwargs): ...'
+            }
+          ]
+        }
+      },
+      {
+        id: 'generators',
+        title: 'Generators & Iterators',
+        description: 'Master memory-efficient iteration with generators and iterators',
+        content: {
+          overview: `Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.
+
+**What are Generators:**
+• Functions that use yield instead of return
+• Produce values one at a time (lazy evaluation)
+• Maintain state between calls
+• Can be infinite
+
+**Generator Expressions:**
+• Like list comprehensions but with () instead of []
+• Create generators without defining functions
+• Memory-efficient for large datasets
+
+**Why Use Generators:**
+✓ Memory efficient - don't store all values
+✓ Fast for large datasets
+✓ Can represent infinite sequences
+✓ Elegant for pipelines and streaming data`,
+          keyPoints: [
+            'Use yield to create generator functions',
+            'Generators are iterators - can only iterate once',
+            'Generator expressions use () syntax: (x for x in range(10))',
+            'next() gets the next value from a generator',
+            'Generators remember state between yields',
+            'More memory-efficient than lists for large datasets'
+          ],
+          useCases: [
+            {
+              title: 'Large File Processing',
+              description: 'Read huge files line-by-line without loading into memory',
+              example: 'Process log files, CSV parsing, streaming data'
+            },
+            {
+              title: 'Infinite Sequences',
+              description: 'Generate unlimited sequences',
+              example: 'Fibonacci series, prime numbers, random data streams'
+            },
+            {
+              title: 'Data Pipelines',
+              description: 'Chain transformations efficiently',
+              example: 'ETL processes, data cleaning, filtering streams'
+            },
+            {
+              title: 'Performance Optimization',
+              description: 'Reduce memory footprint',
+              example: 'Processing millions of records, real-time data'
+            }
+          ],
+          dos: [
+            '✓ Use generators for large datasets to save memory',
+            '✓ Use generator expressions for simple cases',
+            '✓ Chain generators to create data pipelines',
+            '✓ Use yield from to delegate to another generator',
+            '✓ Remember generators can only be iterated once'
+          ],
+          donts: [
+            '✗ Don\'t try to iterate a generator twice',
+            '✗ Don\'t use generators when you need random access',
+            '✗ Don\'t use generators for small datasets (overhead)',
+            '✗ Don\'t forget generators are consumed after iteration',
+            '✗ Don\'t try to get length of generator with len()'
+          ],
+          bestPractices: [
+            'Use generator expressions for simple transformations',
+            'Create generator functions for complex logic',
+            'Chain generators instead of creating intermediate lists',
+            'Use itertools module for common generator patterns',
+            'Document that functions return generators (not lists)'
+          ],
+          codeExamples: [
+            {
+              title: '1. Generator Functions vs Regular Functions',
+              code: `# Regular function - returns list (stores all in memory)
+def squares_list(n):
+    result = []
+    for i in range(n):
+        result.append(i ** 2)
+    return result
+
+# Generator function - yields values one at a time
+def squares_generator(n):
+    for i in range(n):
+        yield i ** 2
+
+# Compare memory usage
+print("Regular function (list):")
+squares_l = squares_list(5)
+print(f"Type: {type(squares_l)}")
+print(f"Values: {squares_l}")
+print(f"Can iterate multiple times: {list(squares_l)}")
+
+print("\\nGenerator function:")
+squares_g = squares_generator(5)
+print(f"Type: {type(squares_g)}")
+print(f"Values (first iteration): {list(squares_g)}")
+print(f"Values (second iteration): {list(squares_g)}")  # Empty! Already consumed
+
+# Generator expressions
+print("\\nGenerator expression:")
+squares_expr = (x**2 for x in range(5))
+print(f"Type: {type(squares_expr)}")
+print(f"Values: {list(squares_expr)}")
+
+# Manual iteration with next()
+print("\\nManual iteration:")
+gen = squares_generator(3)
+print(f"First: {next(gen)}")
+print(f"Second: {next(gen)}")
+print(f"Third: {next(gen)}")
+# print(next(gen))  # Would raise StopIteration
+
+# Using in for loop (recommended)
+print("\\nFor loop (recommended):")
+for square in squares_generator(5):
+    print(square, end=" ")
+print()`,
+              explanation: 'Generators use yield to produce values on-demand. Unlike lists, they don\'t store all values in memory and can only be iterated once.'
+            },
+            {
+              title: '2. Infinite Generators & Practical Applications',
+              code: `# Infinite generator - no memory limit!
+def infinite_counter(start=0):
+    """Count forever from start"""
+    num = start
+    while True:
+        yield num
+        num += 1
+
+# Use with caution - this would run forever without break!
+print("Infinite counter (first 10):")
+counter = infinite_counter(1)
+for _ in range(10):
+    print(next(counter), end=" ")
+print()
+
+# Fibonacci sequence generator
+def fibonacci():
+    """Generate fibonacci sequence infinitely"""
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+print("\\nFibonacci sequence (first 15):")
+fib = fibonacci()
+for _ in range(15):
+    print(next(fib), end=" ")
+print()
+
+# Reading large files efficiently
+def read_large_file(file_path):
+    """Read file line by line (memory efficient)"""
+    with open(file_path, 'r') as file:
+        for line in file:
+            yield line.strip()
+
+# Create a sample file for demo
+with open('sample.txt', 'w') as f:
+    f.write("Line 1\\nLine 2\\nLine 3\\nLine 4\\nLine 5\\n")
+
+print("\\nReading file with generator:")
+for line in read_large_file('sample.txt'):
+    print(f"Processing: {line}")
+
+# Generate random data stream
+import random
+
+def random_numbers(count, min_val=0, max_val=100):
+    """Generate random numbers on-demand"""
+    for _ in range(count):
+        yield random.randint(min_val, max_val)
+
+print("\\nRandom numbers:")
+for num in random_numbers(10, 1, 50):
+    print(num, end=" ")
+print()`,
+              explanation: 'Generators can represent infinite sequences and process large files without loading everything into memory.'
+            },
+            {
+              title: '3. Generator Pipelines & Data Processing',
+              code: `# Chain generators to create data processing pipeline
+def read_data():
+    """Simulate reading data"""
+    data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for item in data:
+        yield item
+
+def filter_even(numbers):
+    """Filter even numbers"""
+    for num in numbers:
+        if num % 2 == 0:
+            yield num
+
+def square(numbers):
+    """Square each number"""
+    for num in numbers:
+        yield num ** 2
+
+def add_ten(numbers):
+    """Add 10 to each number"""
+    for num in numbers:
+        yield num + 10
+
+# Create pipeline (no computation yet!)
+print("Building pipeline:")
+pipeline = add_ten(square(filter_even(read_data())))
+print(f"Pipeline created: {pipeline}")
+
+# Only computes when we iterate
+print("\\nExecuting pipeline:")
+result = list(pipeline)
+print(f"Result: {result}")
+
+# More Pythonic with generator expressions
+print("\\nSame pipeline with expressions:")
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+result = (num**2 + 10 for num in data if num % 2 == 0)
+print(f"Result: {list(result)}")
+
+# yield from - delegate to another generator
+def chain_generators(*iterables):
+    """Chain multiple iterables"""
+    for iterable in iterables:
+        yield from iterable  # Delegate to each iterable
+
+gen1 = range(3)
+gen2 = range(10, 13)
+gen3 = range(20, 23)
+
+print("\\nChaining generators with yield from:")
+chained = chain_generators(gen1, gen2, gen3)
+print(f"Chained: {list(chained)}")
+
+# Process CSV-like data
+def parse_csv_lines(lines):
+    """Parse CSV lines"""
+    for line in lines:
+        yield line.split(',')
+
+def filter_by_age(records, min_age):
+    """Filter records by age"""
+    for record in records:
+        if int(record[1]) >= min_age:
+            yield record
+
+csv_data = ["Alice,25,NYC", "Bob,30,LA", "Charlie,22,Chicago", "David,35,Boston"]
+
+print("\\nCSV Processing Pipeline:")
+parsed = parse_csv_lines(csv_data)
+filtered = filter_by_age(parsed, 25)
+for record in filtered:
+    print(f"Name: {record[0]}, Age: {record[1]}, City: {record[2]}")`,
+              explanation: 'Generator pipelines chain transformations efficiently. yield from delegates to another generator. Each stage processes data on-demand.'
+            },
+            {
+              title: '4. Advanced: Generator Methods & itertools',
+              code: `import itertools
+
+# Generator with send() method
+def echo_generator():
+    """Generator that echoes sent values"""
+    value = None
+    while True:
+        value = yield value
+        if value is not None:
+            value = value.upper()
+
+gen = echo_generator()
+next(gen)  # Prime the generator
+print("Generator send() method:")
+print(f"Send 'hello': {gen.send('hello')}")
+print(f"Send 'world': {gen.send('world')}")
+
+# itertools - powerful generator utilities
+print("\\nitertools.count (infinite counter):")
+counter = itertools.count(10, 2)  # Start at 10, step by 2
+for i in range(5):
+    print(next(counter), end=" ")
+print()
+
+print("\\nitertools.cycle (repeat forever):")
+colors = itertools.cycle(['red', 'green', 'blue'])
+for i in range(10):
+    print(next(colors), end=" ")
+print()
+
+print("\\nitertools.chain (combine iterables):")
+chained = itertools.chain([1, 2, 3], [4, 5, 6], [7, 8, 9])
+print(list(chained))
+
+print("\\nitertools.islice (slice an iterator):")
+numbers = itertools.count()  # Infinite counter
+first_ten_evens = itertools.islice((x for x in numbers if x % 2 == 0), 10)
+print(list(first_ten_evens))
+
+print("\\nitertools.takewhile (take until condition false):")
+data = [1, 4, 6, 8, 10, 3, 5, 1]
+less_than_8 = itertools.takewhile(lambda x: x < 8, data)
+print(list(less_than_8))
+
+print("\\nitertools.dropwhile (drop until condition false):")
+data = [1, 4, 6, 8, 10, 3, 5, 1]
+after_first_8 = itertools.dropwhile(lambda x: x < 8, data)
+print(list(after_first_8))
+
+print("\\nitertools.combinations (all combinations):")
+letters = ['A', 'B', 'C']
+combos = itertools.combinations(letters, 2)
+print(list(combos))
+
+print("\\nitertools.permutations (all permutations):")
+letters = ['A', 'B', 'C']
+perms = itertools.permutations(letters, 2)
+print(list(perms))
+
+print("\\nitertools.product (Cartesian product):")
+colors = ['red', 'blue']
+sizes = ['S', 'M', 'L']
+products = itertools.product(colors, sizes)
+print(list(products))
+
+# Groupby - group consecutive items
+print("\\nitertools.groupby:")
+data = [('A', 1), ('A', 2), ('B', 3), ('B', 4), ('C', 5)]
+for key, group in itertools.groupby(data, key=lambda x: x[0]):
+    print(f"{key}: {list(group)}")`,
+              explanation: 'Generators support send() for two-way communication. itertools provides powerful generator utilities for common patterns.'
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the main difference between a generator and a regular function?',
+              options: [
+                'Generators are faster',
+                'Generators use yield instead of return and maintain state',
+                'Generators cannot take parameters',
+                'Generators must be infinite'
+              ],
+              correctAnswer: 1,
+              explanation: 'Generators use yield to produce values one at a time and remember their state between calls, unlike regular functions that return once.'
+            },
+            {
+              question: 'What happens if you try to iterate a generator twice?',
+              options: [
+                'It works fine, same values',
+                'The second iteration is empty (generator is exhausted)',
+                'It raises an error',
+                'It reverses the values'
+              ],
+              correctAnswer: 1,
+              explanation: 'Generators can only be iterated once. After exhaustion, they yield nothing. You need to create a new generator to iterate again.'
+            },
+            {
+              question: 'What is the difference between [x**2 for x in range(10)] and (x**2 for x in range(10))?',
+              options: [
+                'No difference',
+                'First creates a list, second creates a generator expression',
+                'Second is invalid syntax',
+                'First is faster'
+              ],
+              correctAnswer: 1,
+              explanation: '[] creates a list comprehension (evaluates immediately and stores in memory), () creates a generator expression (lazy evaluation).'
+            },
+            {
+              question: 'When should you use generators?',
+              options: [
+                'Always - they are always better than lists',
+                'For large datasets or when you need memory efficiency',
+                'Never - lists are better',
+                'Only for infinite sequences'
+              ],
+              correctAnswer: 1,
+              explanation: 'Use generators for large datasets, streaming data, or when you don\'t need random access. For small datasets where you need multiple iterations, lists are fine.'
+            },
+            {
+              question: 'What does "yield from iterable" do?',
+              options: [
+                'Yields the iterable object itself',
+                'Delegates to another iterable, yielding all its values',
+                'Creates a copy of the iterable',
+                'It\'s invalid syntax'
+              ],
+              correctAnswer: 1,
+              explanation: '"yield from" delegates to another iterable, yielding each of its values. It\'s a shorthand for "for item in iterable: yield item".'
+            }
+          ]
+        }
+      },
+      {
+        id: 'regex',
+        title: 'Regular Expressions (Regex)',
+        description: 'Master pattern matching and text processing with regular expressions',
+        difficulty: 'Intermediate',
+        estimatedTime: 60,
+        prerequisites: ["functions"],
+        content: {
+          overview: `Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.
+
+**What are Regular Expressions:**
+• Pattern-matching language for strings
+• Used for searching, extracting, and replacing text
+• Supported across most programming languages
+• Essential for text processing and validation
+
+**Common Use Cases:**
+• Email/phone validation
+• Data extraction from text
+• Find and replace operations
+• Log file parsing
+• Web scraping
+
+**Why Learn Regex:**
+✓ Powerful text processing in one line
+✓ Industry standard for pattern matching
+✓ Works in Python, JavaScript, SQL, command line
+✓ Essential for data cleaning and validation`,
+          keyPoints: [
+            'Python re module provides regex functionality',
+            '. matches any character, * means zero or more',
+            '[] defines character sets, () creates groups',
+            '^ matches start, $ matches end of string',
+            'Use raw strings r"pattern" for regex patterns',
+            'Compile patterns with re.compile() for reuse'
+          ],
+          useCases: [
+            {
+              title: 'Data Validation',
+              description: 'Validate emails, phone numbers, passwords',
+              example: 'Form validation, user input checking, data quality'
+            },
+            {
+              title: 'Text Extraction',
+              description: 'Extract specific patterns from text',
+              example: 'Parse logs, extract URLs, find dates in documents'
+            },
+            {
+              title: 'Data Cleaning',
+              description: 'Find and replace patterns',
+              example: 'Remove formatting, normalize data, clean datasets'
+            },
+            {
+              title: 'Web Scraping',
+              description: 'Extract data from HTML',
+              example: 'Parse web pages, extract links, find patterns'
+            }
+          ],
+          dos: [
+            '✓ Use raw strings r"..." for regex patterns',
+            '✓ Compile patterns you reuse with re.compile()',
+            '✓ Use verbose mode re.VERBOSE for complex patterns',
+            '✓ Test regex patterns thoroughly',
+            '✓ Use online regex testers (regex101.com) for development'
+          ],
+          donts: [
+            '✗ Don\'t make overly complex patterns - break them down',
+            '✗ Don\'t forget to escape special characters',
+            '✗ Don\'t use regex for parsing HTML (use BeautifulSoup)',
+            '✗ Don\'t forget raw strings - backslashes can be tricky',
+            '✗ Don\'t overuse regex - simple string methods are often clearer'
+          ],
+          bestPractices: [
+            'Always use raw strings r"pattern" for regex',
+            'Compile frequently used patterns for performance',
+            'Use named groups for clarity: (?P<name>...)',
+            'Add comments to complex patterns with re.VERBOSE',
+            'Test edge cases and invalid inputs'
+          ],
+          codeExamples: [
+            {
+              title: '1. Regex Basics - Searching and Matching',
+              code: `import re
+
+# Basic pattern matching
+text = "The quick brown fox jumps over the lazy dog"
+
+# search() - find first occurrence
+match = re.search(r'fox', text)
+if match:
+    print(f"Found '{match.group()}' at position {match.start()}")
+
+# findall() - find all occurrences
+vowels = re.findall(r'[aeiou]', text)
+print(f"Vowels found: {vowels}")
+print(f"Count: {len(vowels)}")
+
+# match() - match at start of string
+match = re.match(r'The', text)
+print(f"Starts with 'The': {match is not None}")
+
+# fullmatch() - match entire string
+match = re.fullmatch(r'The.*dog', text)
+print(f"Full match: {match is not None}")
+
+# Special characters
+# . = any character
+# * = zero or more
+# + = one or more  
+# ? = zero or one
+# {n} = exactly n times
+# {n,m} = between n and m times
+
+pattern = r'\\d+'  # One or more digits
+text2 = "There are 123 apples and 456 oranges"
+numbers = re.findall(pattern, text2)
+print(f"\\nNumbers found: {numbers}")
+
+# Character classes
+pattern = r'[A-Z][a-z]+'  # Capital letter followed by lowercase
+text3 = "Alice and Bob went to Chicago"
+names = re.findall(pattern, text3)
+print(f"Capitalized words: {names}")`,
+              explanation: 'Regex basics: search() finds first match, findall() finds all, match() checks start. Use raw strings r"" for patterns.'
+            },
+            {
+              title: '2. Pattern Building & Character Classes',
+              code: `import re
+
+# Character classes and metacharacters
+text = "Contact: john@email.com or call 555-1234"
+
+# \\d = digit [0-9]
+# \\D = non-digit
+# \\w = word character [a-zA-Z0-9_]
+# \\W = non-word character
+# \\s = whitespace
+# \\S = non-whitespace
+
+# Extract email
+email_pattern = r'[\\w.-]+@[\\w.-]+\\.\\w+'
+email = re.findall(email_pattern, text)
+print(f"Email: {email}")
+
+# Extract phone
+phone_pattern = r'\\d{3}-\\d{4}'
+phone = re.findall(phone_pattern, text)
+print(f"Phone: {phone}")
+
+# Anchors
+# ^ = start of string
+# $ = end of string
+# \\b = word boundary
+
+text2 = "cat scatter catalog"
+# Find whole word "cat" only
+whole_cat = re.findall(r'\\bcat\\b', text2)
+print(f"\\nWhole word 'cat': {whole_cat}")
+
+# Quantifiers
+text3 = "color colour gray grey"
+# Match both color and colour
+colors = re.findall(r'colou?r', text3)  # ? = zero or one
+print(f"Color variants: {colors}")
+
+# Match gray or grey
+grays = re.findall(r'gr[ae]y', text3)  # [ae] = a or e
+print(f"Gray variants: {grays}")
+
+# Groups with ()
+text4 = "Date: 2024-01-15, Time: 14:30:00"
+# Capture groups
+date_pattern = r'(\\d{4})-(\\d{2})-(\\d{2})'
+match = re.search(date_pattern, text4)
+if match:
+    print(f"\\nFull date: {match.group(0)}")  # group(0) = entire match
+    print(f"Year: {match.group(1)}")
+    print(f"Month: {match.group(2)}")
+    print(f"Day: {match.group(3)}")
+
+# Named groups - more readable!
+pattern = r'(?P<year>\\d{4})-(?P<month>\\d{2})-(?P<day>\\d{2})'
+match = re.search(pattern, text4)
+if match:
+    print(f"\\nNamed groups:")
+    print(f"Year: {match.group('year')}")
+    print(f"Month: {match.group('month')}")
+    print(f"Day: {match.group('day')}")
+    print(f"As dict: {match.groupdict()}")`,
+              explanation: 'Character classes (\\d, \\w, \\s) match types of characters. Groups () capture parts of pattern. Named groups (?P<name>) improve readability.'
+            },
+            {
+              title: '3. Real-World Validation Patterns',
+              code: `import re
+
+# Email validation (simple)
+def validate_email(email):
+    pattern = r'^[\\w.-]+@[\\w.-]+\\.\\w{2,}$'
+    return re.match(pattern, email) is not None
+
+emails = [
+    "john@example.com",      # Valid
+    "jane.doe@company.co.uk", # Valid
+    "invalid@",              # Invalid
+    "@invalid.com",          # Invalid
+    "no-at-sign.com"         # Invalid
+]
+
+print("Email validation:")
+for email in emails:
+    print(f"{email:30} -> {'✓ Valid' if validate_email(email) else '✗ Invalid'}")
+
+# Phone number validation (US format)
+def validate_phone(phone):
+    # Accepts: 555-1234, (555) 123-4567, 555.123.4567, 5551234567
+    patterns = [
+        r'^\\d{3}-\\d{4}$',                    # 555-1234
+        r'^\\(\\d{3}\\) \\d{3}-\\d{4}$',       # (555) 123-4567
+        r'^\\d{3}\\.\\d{3}\\.\\d{4}$',          # 555.123.4567
+        r'^\\d{10}$'                           # 5551234567
+    ]
+    return any(re.match(pattern, phone) for pattern in patterns)
+
+phones = [
+    "555-1234",
+    "(555) 123-4567",
+    "555.123.4567",
+    "5551234567",
+    "123-45-6789",  # Invalid (wrong format)
+    "abc-defg"      # Invalid (not numbers)
+]
+
+print("\\nPhone validation:")
+for phone in phones:
+    print(f"{phone:20} -> {'✓ Valid' if validate_phone(phone) else '✗ Invalid'}")
+
+# Password validation
+def validate_password(password):
+    """
+    Validate password:
+    - At least 8 characters
+    - Contains uppercase and lowercase
+    - Contains digit
+    - Contains special character
+    """
+    if len(password) < 8:
+        return False, "Too short (min 8 characters)"
+    if not re.search(r'[A-Z]', password):
+        return False, "Missing uppercase letter"
+    if not re.search(r'[a-z]', password):
+        return False, "Missing lowercase letter"
+    if not re.search(r'\\d', password):
+        return False, "Missing digit"
+    if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+        return False, "Missing special character"
+    return True, "Valid password"
+
+passwords = [
+    "Pass123!",      # Valid
+    "password",      # Invalid (no uppercase, digit, special)
+    "PASSWORD123!",  # Invalid (no lowercase)
+    "Pass!",         # Invalid (too short)
+    "MyP@ssw0rd"     # Valid
+]
+
+print("\\nPassword validation:")
+for pwd in passwords:
+    valid, message = validate_password(pwd)
+    print(f"{pwd:20} -> {message}")
+
+# URL validation
+def validate_url(url):
+    pattern = r'^https?://[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&\'\\(\\)\\*\\+,;=.]+$'
+    return re.match(pattern, url) is not None
+
+urls = [
+    "https://www.example.com",
+    "http://example.com/path?query=value",
+    "ftp://example.com",  # Invalid (not http/https)
+    "www.example.com",    # Invalid (missing protocol)
+]
+
+print("\\nURL validation:")
+for url in urls:
+    print(f"{url:40} -> {'✓ Valid' if validate_url(url) else '✗ Invalid'}")`,
+              explanation: 'Real-world validation combines multiple regex patterns. Use anchors (^ $) to match entire string. Test multiple cases including edge cases.'
+            },
+            {
+              title: '4. Text Extraction & Substitution',
+              code: `import re
+
+# Extract all emails from text
+text = """
+Contact us at support@company.com or sales@company.com
+For urgent matters: urgent@company.org
+Personal: john.doe@email.net
+"""
+
+email_pattern = r'[\\w.-]+@[\\w.-]+\\.\\w+'
+emails = re.findall(email_pattern, text)
+print("Extracted emails:")
+for email in emails:
+    print(f"  - {email}")
+
+# Extract dates in various formats
+log = """
+2024-01-15: System started
+Jan 20, 2024: Update installed
+2024/02/01: Backup completed
+"""
+
+# Pattern for YYYY-MM-DD
+dates1 = re.findall(r'\\d{4}-\\d{2}-\\d{2}', log)
+# Pattern for Mon DD, YYYY
+dates2 = re.findall(r'\\w{3} \\d{2}, \\d{4}', log)
+# Pattern for YYYY/MM/DD
+dates3 = re.findall(r'\\d{4}/\\d{2}/\\d{2}', log)
+
+print("\\nExtracted dates:")
+print(f"ISO format: {dates1}")
+print(f"Written format: {dates2}")
+print(f"Slash format: {dates3}")
+
+# Substitution with sub()
+text = "Price: $100, Discount: $25, Total: $75"
+
+# Replace $ with USD
+result = re.sub(r'\\$', 'USD ', text)
+print(f"\\nOriginal: {text}")
+print(f"Replaced: {result}")
+
+# Replace with captured groups
+text = "Call us at 555-1234 or 555-5678"
+# Format: (XXX) XXX-XXXX
+result = re.sub(r'(\\d{3})-(\\d{4})', r'(555) \\1-\\2', text)
+print(f"\\nPhone formatting:")
+print(f"Original: {text}")
+print(f"Formatted: {result}")
+
+# Replace with function
+def convert_to_uppercase(match):
+    return match.group(0).upper()
+
+text = "hello world python programming"
+result = re.sub(r'\\b\\w{5,}\\b', convert_to_uppercase, text)
+print(f"\\nCapitalize long words:")
+print(f"Original: {text}")
+print(f"Result: {result}")
+
+# Split by pattern
+text = "apple,banana;cherry|orange:grape"
+fruits = re.split(r'[,;|:]', text)
+print(f"\\nSplit by multiple delimiters:")
+print(f"Original: {text}")
+print(f"Fruits: {fruits}")
+
+# Compiled patterns for performance
+email_regex = re.compile(r'[\\w.-]+@[\\w.-]+\\.\\w+')
+text = "Contact: a@b.com, b@c.com, c@d.com"
+emails = email_regex.findall(text)
+print(f"\\nUsing compiled pattern:")
+print(f"Emails: {emails}")
+
+# Case-insensitive matching
+text = "Python python PYTHON PyThOn"
+matches = re.findall(r'python', text, re.IGNORECASE)
+print(f"\\nCase-insensitive matches: {matches}")`,
+              explanation: 'Use findall() to extract patterns, sub() to replace, split() to divide text. Compiled patterns improve performance for repeated use.'
+            }
+          ],
+          quiz: [
+            {
+              question: 'What does the regex pattern r"\\d{3}-\\d{4}" match?',
+              options: [
+                'Any 7-digit number',
+                'Three digits, a dash, then four digits (e.g., 555-1234)',
+                'Phone numbers only',
+                'Dates in MM-DD-YYYY format'
+              ],
+              correctAnswer: 1,
+              explanation: '\\d matches a digit, {3} means exactly 3 times, {4} means exactly 4 times. This matches patterns like 555-1234.'
+            },
+            {
+              question: 'Why use raw strings r"..." for regex patterns in Python?',
+              options: [
+                'They make regex faster',
+                'They prevent Python from interpreting backslashes as escape sequences',
+                'They are required for regex to work',
+                'They make patterns case-insensitive'
+              ],
+              correctAnswer: 1,
+              explanation: 'Raw strings treat backslashes literally. Without r"", \\d would become \\\\d, causing issues. r"\\d" is cleaner than "\\\\d".'
+            },
+            {
+              question: 'What is the difference between re.search() and re.match()?',
+              options: [
+                'No difference',
+                'search() finds anywhere in string, match() only at the beginning',
+                'match() is faster',
+                'search() is case-sensitive, match() is not'
+              ],
+              correctAnswer: 1,
+              explanation: 're.match() only matches at the start of the string, while re.search() finds the first occurrence anywhere in the string.'
+            },
+            {
+              question: 'What does the pattern r"[aeiou]" match?',
+              options: [
+                'The literal string "aeiou"',
+                'Any single vowel',
+                'All vowels in sequence',
+                'Any consonant'
+              ],
+              correctAnswer: 1,
+              explanation: 'Square brackets [] define a character set. [aeiou] matches any single character that is a, e, i, o, or u.'
+            },
+            {
+              question: 'How do you make a regex pattern case-insensitive?',
+              options: [
+                'Use uppercase letters in the pattern',
+                'Add re.IGNORECASE flag to the function',
+                'Convert string to lowercase first',
+                'Use [A-Za-z] for all letters'
+              ],
+              correctAnswer: 1,
+              explanation: 'Use re.IGNORECASE flag: re.search(pattern, text, re.IGNORECASE) makes the match case-insensitive.'
+            }
+          ]
+        }
+      },
+      {
+        id: 'json-apis',
+        title: 'Working with JSON & APIs',
+        description: 'Master JSON data handling and REST API communication in Python',
+        difficulty: 'Intermediate',
+        estimatedTime: 55,
+        prerequisites: ["file-handling"],
+        content: {
+          overview: `JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.
+
+**What is JSON:**
+• Lightweight data-interchange format
+• Human-readable text format
+• Based on JavaScript object syntax
+• Language-independent (works everywhere)
+
+**What are APIs:**
+• Application Programming Interfaces
+• Allow programs to communicate
+• REST APIs use HTTP requests (GET, POST, PUT, DELETE)
+• Return data usually in JSON format
+
+**Why Learn JSON & APIs:**
+✓ Essential for web development
+✓ Access data from any web service
+✓ Build data-driven applications
+✓ Integrate with third-party services`,
+          keyPoints: [
+            'json.dumps() converts Python to JSON string',
+            'json.loads() converts JSON string to Python',
+            'requests library simplifies HTTP API calls',
+            'APIs use GET (read), POST (create), PUT (update), DELETE (remove)',
+            'Always check response status codes (200 = success)',
+            'Handle API errors and rate limits gracefully'
+          ],
+          useCases: [
+            {
+              title: 'Data Exchange',
+              description: 'Save/load structured data to files or databases',
+              example: 'Configuration files, data persistence, caching'
+            },
+            {
+              title: 'Web APIs',
+              description: 'Fetch data from web services',
+              example: 'Weather data, social media, stock prices, maps'
+            },
+            {
+              title: 'Microservices',
+              description: 'Communication between services',
+              example: 'REST APIs, webhooks, service integration'
+            },
+            {
+              title: 'Data Processing',
+              description: 'Parse and transform API responses',
+              example: 'ETL pipelines, data analysis, reporting'
+            }
+          ],
+          dos: [
+            '✓ Use requests library for API calls (not urllib)',
+            '✓ Check response.status_code before using data',
+            '✓ Handle exceptions (network errors, timeouts)',
+            '✓ Use JSON for configuration files (readable)',
+            '✓ Respect API rate limits and terms of service'
+          ],
+          donts: [
+            '✗ Don\'t hardcode API keys - use environment variables',
+            '✗ Don\'t ignore response status codes',
+            '✗ Don\'t make API calls in loops without rate limiting',
+            '✗ Don\'t store sensitive data in JSON files',
+            '✗ Don\'t parse JSON manually - use json module'
+          ],
+          bestPractices: [
+            'Use environment variables for API keys (never commit them!)',
+            'Implement exponential backoff for retries',
+            'Cache API responses when appropriate',
+            'Log API requests for debugging',
+            'Use requests.Session() for multiple calls to same API'
+          ],
+          codeExamples: [
+            {
+              title: '1. JSON Basics - Encoding and Decoding',
+              code: `import json
+
+# Python dict to JSON string
+person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "New York",
+    "hobbies": ["reading", "coding", "hiking"],
+    "is_student": False,
+    "grades": None
+}
+
+# Convert Python to JSON (dumps = dump string)
+json_string = json.dumps(person)
+print("Python dict to JSON string:")
+print(json_string)
+print(f"Type: {type(json_string)}")
+
+# Pretty print with indentation
+json_pretty = json.dumps(person, indent=2)
+print("\\nPretty printed JSON:")
+print(json_pretty)
+
+# Sort keys alphabetically
+json_sorted = json.dumps(person, indent=2, sort_keys=True)
+print("\\nSorted keys:")
+print(json_sorted)
+
+# Convert JSON string to Python (loads = load string)
+json_text = '{"name": "Bob", "age": 25, "scores": [85, 90, 95]}'
+python_dict = json.loads(json_text)
+print("\\nJSON string to Python dict:")
+print(python_dict)
+print(f"Name: {python_dict['name']}")
+print(f"Type: {type(python_dict)}")
+
+# Working with JSON files
+data = {
+    "users": [
+        {"id": 1, "name": "Alice", "email": "alice@example.com"},
+        {"id": 2, "name": "Bob", "email": "bob@example.com"}
+    ],
+    "total": 2
+}
+
+# Write to JSON file
+with open('users.json', 'w') as f:
+    json.dump(data, f, indent=2)  # dump (no 's') writes to file
+print("\\nWritten to users.json")
+
+# Read from JSON file
+with open('users.json', 'r') as f:
+    loaded_data = json.load(f)  # load (no 's') reads from file
+print("\\nLoaded from users.json:")
+print(f"Total users: {loaded_data['total']}")
+for user in loaded_data['users']:
+    print(f"  - {user['name']}: {user['email']}")`,
+              explanation: 'json.dumps() converts Python to JSON string, json.loads() converts back. Use json.dump()/load() for files. indent parameter prettifies output.'
+            },
+            {
+              title: '2. Making API Requests with requests Library',
+              code: `import requests
+
+# First, install requests: pip install requests
+
+# GET request - fetch data
+print("1. GET Request - Fetch data:")
+response = requests.get('https://jsonplaceholder.typicode.com/posts/1')
+
+# Check status code
+print(f"Status Code: {response.status_code}")
+if response.status_code == 200:
+    print("Success!")
+else:
+    print("Failed!")
+
+# Get JSON data
+data = response.json()  # Automatically parses JSON
+print(f"Title: {data['title']}")
+print(f"Body: {data['body'][:50]}...")
+
+# GET with parameters
+print("\\n2. GET with query parameters:")
+params = {
+    'userId': 1,
+    '_limit': 3
+}
+response = requests.get('https://jsonplaceholder.typicode.com/posts', params=params)
+posts = response.json()
+print(f"Fetched {len(posts)} posts:")
+for post in posts:
+    print(f"  - {post['id']}: {post['title']}")
+
+# POST request - create data
+print("\\n3. POST Request - Create data:")
+new_post = {
+    'title': 'My New Post',
+    'body': 'This is the content of my post',
+    'userId': 1
+}
+response = requests.post('https://jsonplaceholder.typicode.com/posts', json=new_post)
+print(f"Status Code: {response.status_code}")
+if response.status_code == 201:  # 201 = Created
+    created = response.json()
+    print(f"Created post with ID: {created['id']}")
+
+# PUT request - update data
+print("\\n4. PUT Request - Update data:")
+updated_post = {
+    'id': 1,
+    'title': 'Updated Title',
+    'body': 'Updated content',
+    'userId': 1
+}
+response = requests.put('https://jsonplaceholder.typicode.com/posts/1', json=updated_post)
+print(f"Status Code: {response.status_code}")
+
+# DELETE request - remove data
+print("\\n5. DELETE Request:")
+response = requests.delete('https://jsonplaceholder.typicode.com/posts/1')
+print(f"Status Code: {response.status_code}")
+if response.status_code == 200:
+    print("Successfully deleted")
+
+# Headers - send additional metadata
+print("\\n6. Custom headers:")
+headers = {
+    'User-Agent': 'My Python App',
+    'Accept': 'application/json'
+}
+response = requests.get('https://jsonplaceholder.typicode.com/posts/1', headers=headers)
+print(f"Request headers sent: {headers}")`,
+              explanation: 'requests library simplifies API calls. GET retrieves data, POST creates, PUT updates, DELETE removes. Always check status_code.'
+            },
+            {
+              title: '3. Real-World API Example - Error Handling',
+              code: `import requests
+import time
+
+def fetch_github_user(username):
+    """
+    Fetch GitHub user info with proper error handling
+    """
+    url = f'https://api.github.com/users/{username}'
+    
+    try:
+        # Set timeout to avoid hanging
+        response = requests.get(url, timeout=5)
+        
+        # Check for errors
+        if response.status_code == 200:
+            user_data = response.json()
+            return {
+                'success': True,
+                'data': {
+                    'name': user_data.get('name', 'N/A'),
+                    'bio': user_data.get('bio', 'N/A'),
+                    'public_repos': user_data.get('public_repos', 0),
+                    'followers': user_data.get('followers', 0),
+                    'created_at': user_data.get('created_at', 'N/A')
+                }
+            }
+        elif response.status_code == 404:
+            return {'success': False, 'error': 'User not found'}
+        elif response.status_code == 403:
+            return {'success': False, 'error': 'Rate limit exceeded'}
+        else:
+            return {'success': False, 'error': f'HTTP {response.status_code}'}
+            
+    except requests.exceptions.Timeout:
+        return {'success': False, 'error': 'Request timed out'}
+    except requests.exceptions.ConnectionError:
+        return {'success': False, 'error': 'Connection error'}
+    except requests.exceptions.RequestException as e:
+        return {'success': False, 'error': str(e)}
+
+# Test the function
+users = ['torvalds', 'gvanrossum', 'nonexistentuser12345']
+
+for username in users:
+    print(f"\\nFetching {username}:")
+    result = fetch_github_user(username)
+    
+    if result['success']:
+        data = result['data']
+        print(f"  Name: {data['name']}")
+        print(f"  Bio: {data['bio'][:50]}..." if data['bio'] != 'N/A' else "  Bio: N/A")
+        print(f"  Repos: {data['public_repos']}")
+        print(f"  Followers: {data['followers']}")
+    else:
+        print(f"  Error: {result['error']}")
+    
+    time.sleep(1)  # Rate limiting - be nice to APIs!
+
+# Using Session for multiple requests
+print("\\n" + "="*50)
+print("Using Session for better performance:")
+
+with requests.Session() as session:
+    # Set default headers for all requests
+    session.headers.update({'User-Agent': 'Python Learning App'})
+    
+    # Make multiple requests - connection is reused
+    for i in range(1, 4):
+        response = session.get(f'https://jsonplaceholder.typicode.com/posts/{i}')
+        if response.status_code == 200:
+            post = response.json()
+            print(f"Post {i}: {post['title']}")`,
+              explanation: 'Always handle errors: check status codes, catch exceptions, set timeouts. Use Session() for multiple requests to same API for better performance.'
+            },
+            {
+              title: '4. Parsing Complex JSON & Data Transformation',
+              code: `import json
+
+# Complex nested JSON (like real API responses)
+api_response = '''
+{
+  "status": "success",
+  "data": {
+    "users": [
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "address": {
+          "street": "123 Main St",
+          "city": "New York",
+          "zipcode": "10001"
+        },
+        "orders": [
+          {"id": 101, "total": 99.99, "status": "delivered"},
+          {"id": 102, "total": 149.99, "status": "pending"}
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "email": "bob@example.com",
+        "address": {
+          "street": "456 Oak Ave",
+          "city": "Los Angeles",
+          "zipcode": "90001"
+        },
+        "orders": [
+          {"id": 103, "total": 79.99, "status": "delivered"}
+        ]
+      }
+    ]
+  },
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+'''
+
+# Parse JSON
+data = json.loads(api_response)
+
+# Navigate nested structure
+print("Parsing complex JSON:")
+print(f"Status: {data['status']}")
+print(f"Timestamp: {data['timestamp']}")
+print(f"\\nUsers:")
+
+for user in data['data']['users']:
+    print(f"\\n  {user['name']} ({user['email']})")
+    print(f"  Address: {user['address']['street']}, {user['address']['city']}")
+    print(f"  Orders: {len(user['orders'])}")
+    
+    total_spent = sum(order['total'] for order in user['orders'])
+    print(f"  Total spent: {total_spent}")
+    
+    for order in user['orders']:
+        print(f"    - Order {order['id']}: {order['total']} ({order['status']})")
+
+# Transform data
+print("\\n" + "="*50)
+print("Data transformation:")
+
+# Create summary report
+summary = {
+    "total_users": len(data['data']['users']),
+    "total_orders": sum(len(user['orders']) for user in data['data']['users']),
+    "revenue": sum(
+        order['total'] 
+        for user in data['data']['users'] 
+        for order in user['orders']
+    ),
+    "users_by_city": {}
+}
+
+# Group users by city
+for user in data['data']['users']:
+    city = user['address']['city']
+    if city not in summary['users_by_city']:
+        summary['users_by_city'][city] = []
+    summary['users_by_city'][city].append(user['name'])
+
+print(json.dumps(summary, indent=2))
+
+# Extract specific fields (flatten structure)
+simplified = [
+    {
+        'name': user['name'],
+        'city': user['address']['city'],
+        'order_count': len(user['orders']),
+        'total_spent': sum(order['total'] for order in user['orders'])
+    }
+    for user in data['data']['users']
+]
+
+print("\\nSimplified data:")
+print(json.dumps(simplified, indent=2))`,
+              explanation: 'Navigate nested JSON with [key] access. Use list comprehensions to transform data. Extract and flatten complex structures for easier processing.'
+            }
+          ],
+          quiz: [
+            {
+              question: 'What is the difference between json.dumps() and json.dump()?',
+              options: [
+                'No difference',
+                'dumps() returns string, dump() writes to file',
+                'dump() is faster',
+                'dumps() is for Python 2, dump() is for Python 3'
+              ],
+              correctAnswer: 1,
+              explanation: 'json.dumps() (dump string) converts Python object to JSON string. json.dump() writes directly to a file object.'
+            },
+            {
+              question: 'What HTTP status code indicates a successful GET request?',
+              options: [
+                '404',
+                '500',
+                '200',
+                '301'
+              ],
+              correctAnswer: 2,
+              explanation: '200 means OK (success). 404 is Not Found, 500 is Server Error, 301 is Redirect. Always check status codes before using data.'
+            },
+            {
+              question: 'Which HTTP method is used to create a new resource on the server?',
+              options: [
+                'GET',
+                'POST',
+                'PUT',
+                'DELETE'
+              ],
+              correctAnswer: 1,
+              explanation: 'POST creates new resources, GET retrieves, PUT updates, DELETE removes. POST typically returns status 201 (Created) on success.'
+            },
+            {
+              question: 'How do you pass query parameters to a GET request using requests library?',
+              options: [
+                'requests.get(url + "?key=value")',
+                'requests.get(url, params={\'key\': \'value\'})',
+                'requests.get(url, query={\'key\': \'value\'})',
+                'requests.get(url, data={\'key\': \'value\'})'
+              ],
+              correctAnswer: 1,
+              explanation: 'Use params parameter: requests.get(url, params={\'key\': \'value\'}). The library automatically formats the URL.'
+            },
+            {
+              question: 'Why use requests.Session() for multiple API calls?',
+              options: [
+                'It\'s required by most APIs',
+                'It reuses connections and persists headers, improving performance',
+                'It makes code shorter',
+                'It automatically handles rate limits'
+              ],
+              correctAnswer: 1,
+              explanation: 'Session() reuses the underlying TCP connection and persists headers/cookies across requests, improving performance for multiple calls to the same API.'
+            }
+          ]
+        }
       }
     ]
   };
+

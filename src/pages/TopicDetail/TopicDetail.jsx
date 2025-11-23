@@ -36,6 +36,9 @@ import {
   Code,
   Quiz as QuizIcon,
   Download,
+  Schedule,
+  SignalCellularAlt,
+  Link as LinkIcon,
 } from '@mui/icons-material';
 import { learningPaths, courseData } from '../../data/courseContent';
 import extendedQuizzes from '../../data/extendedQuizzes';
@@ -43,6 +46,7 @@ import CodeBlock from '../../components/CodeBlock/CodeBlock';
 import CodeEditor from '../../components/CodeEditor/CodeEditor';
 import Quiz from '../../components/Quiz/Quiz';
 import { useProgress } from '../../context/ProgressContext';
+import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 import { useState, useMemo } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
@@ -56,10 +60,14 @@ const TopicDetail = () => {
   const { markTopicComplete, isTopicComplete, toggleBookmark, isBookmarked } = useProgress();
   const [showQuiz, setShowQuiz] = useState(false);
   const { t } = useTranslation();
+  const { mergeTopicWithTranslation } = useCourseTranslation();
 
   const path = learningPaths.find(p => p.id === pathId);
   const topics = courseData[pathId]?.topics || [];
-  const topic = topics.find(t => t.id === topicId);
+  const originalTopic = topics.find(t => t.id === topicId);
+  
+  // Get translated topic
+  const topic = mergeTopicWithTranslation(originalTopic, pathId);
   const currentIndex = topics.findIndex(t => t.id === topicId);
 
   // Merge basic quizzes with extended quizzes
@@ -219,8 +227,24 @@ data/cache/
     }
   };
 
+  // Get difficulty color
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty?.toLowerCase()) {
+      case 'beginner': return 'success';
+      case 'intermediate': return 'warning';
+      case 'advanced': return 'error';
+      case 'professional': return 'secondary';
+      default: return 'default';
+    }
+  };
+
   return (
-    <Box sx={{ px: isMobile ? 2 : 4, py: 3 }}>
+    <Box sx={{ 
+      px: isMobile ? 2 : 4, 
+      py: 3,
+      minHeight: '100vh',
+      bgcolor: 'background.default'
+    }}>
       <Breadcrumbs separator={<NavigateNext fontSize="small" />} sx={{ mb: 3 }}>
         <Link underline="hover" color="inherit" href="/">
           Home
@@ -238,9 +262,54 @@ data/cache/
             <Typography variant="h4" fontWeight={700} gutterBottom>
               {topic.title}
             </Typography>
-            <Typography variant="h6" color="text.secondary">
+            <Typography variant="h6" color="text.secondary" paragraph>
               {topic.description}
             </Typography>
+            
+            {/* Metadata Chips */}
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
+              {topic.difficulty && (
+                <Chip
+                  icon={<SignalCellularAlt />}
+                  label={topic.difficulty}
+                  color={getDifficultyColor(topic.difficulty)}
+                  variant="filled"
+                />
+              )}
+              {topic.estimatedTime && (
+                <Chip
+                  icon={<Schedule />}
+                  label={`${topic.estimatedTime} minutes`}
+                  color="primary"
+                  variant="outlined"
+                />
+              )}
+            </Box>
+
+            {/* Prerequisites */}
+            {topic.prerequisites && topic.prerequisites.length > 0 && (
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="body2" color="text.secondary" gutterBottom>
+                  <strong>Prerequisites:</strong>
+                </Typography>
+                <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                  {topic.prerequisites.map((prereqId, idx) => {
+                    const prereqTopic = topics.find(t => t.id === prereqId);
+                    return (
+                      <Chip
+                        key={idx}
+                        label={prereqTopic?.title || prereqId}
+                        size="small"
+                        variant="outlined"
+                        icon={<LinkIcon />}
+                        onClick={() => navigate(`/path/${pathId}/topic/${prereqId}`)}
+                        sx={{ cursor: 'pointer' }}
+                      />
+                    );
+                  })}
+                </Box>
+              </Box>
+            )}
           </Box>
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap' }}>
             {isMiniProject && (
@@ -288,8 +357,18 @@ data/cache/
                     {heading.replace(/\*\*/g, '')}:
                   </Typography>
                   {content.join(':**').split('\n').filter(line => line.trim()).map((line, i) => (
-                    <Typography key={i} variant="body2" sx={{ ml: line.startsWith('•') ? 2 : 0, mb: 0.5 }}>
-                      {line.trim()}
+                    <Typography 
+                      key={i} 
+                      variant="body2" 
+                      component="li"
+                      sx={{ 
+                        ml: line.trim().startsWith('-') || line.trim().startsWith('•') ? 4 : 2, 
+                        mb: 0.5,
+                        listStyleType: line.trim().startsWith('-') || line.trim().startsWith('•') ? 'disc' : 'none',
+                        display: 'list-item'
+                      }}
+                    >
+                      {line.trim().replace(/^[-•]\s*/, '')}
                     </Typography>
                   ))}
                 </Box>
@@ -326,7 +405,7 @@ data/cache/
             📁 {t('topic.fileStructure', 'File Structure')}
           </Typography>
           <Box sx={{ 
-            bgcolor: 'grey.100', 
+            bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.100',
             p: 2, 
             borderRadius: 1,
             fontFamily: 'monospace',
@@ -538,7 +617,7 @@ data/cache/
                   {exercise.description}
                 </Typography>
                 {exercise.hints && Array.isArray(exercise.hints) && exercise.hints.length > 0 && (
-                  <Box sx={{ mt: 2, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
+                  <Box sx={{ mt: 2, p: 2, bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50', borderRadius: 1 }}>
                     <Typography variant="subtitle2" gutterBottom>
                       💡 {t('topic.hints', 'Hints')}:
                     </Typography>

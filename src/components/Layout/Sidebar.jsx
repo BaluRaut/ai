@@ -23,6 +23,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { learningPaths } from '../../data/courseContent';
 import { useProgress } from '../../context/ProgressContext';
 import { useTranslation } from 'react-i18next';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Sidebar = ({ open, onClose, isMobile }) => {
   const navigate = useNavigate();
@@ -59,6 +60,13 @@ const Sidebar = ({ open, onClose, isMobile }) => {
 
   const drawerContent = (
     <Box sx={{ width: drawerWidth, pt: 8 }}>
+      {/* Search Bar for Mobile */}
+      <Box sx={{ px: 2, mb: 2 }}>
+        <SearchBar isMobile={true} />
+      </Box>
+
+      <Divider sx={{ mb: 1 }} />
+
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>

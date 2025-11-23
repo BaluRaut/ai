@@ -1,0 +1,1009 @@
+{
+  "courseName": "beginner",
+  "totalTopics": 14,
+  "topics": [
+    {
+      "id": "intro-python",
+      "title": "Introduction to Python",
+      "description": "Understanding what Python is and why it's popular",
+      "overview": "Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum in 1991, Python emphasizes code readability and allows programmers to express concepts in fewer lines of code.",
+      "keyPoints": [
+        "Python is interpreted - no compilation needed",
+        "Dynamically typed - no need to declare variable types",
+        "Cross-platform - runs on Windows, Mac, Linux",
+        "Huge standard library and ecosystem",
+        "Used in web development, data science, AI, automation, and more"
+      ],
+      "useCases": [
+        {
+          "title": "Web Development",
+          "description": "Build websites and web applications using Django, Flask, FastAPI",
+          "example": "Instagram, Spotify, and Pinterest use Python"
+        },
+        {
+          "title": "Data Science & AI",
+          "description": "Analyze data, create visualizations, build machine learning models",
+          "example": "Pandas, NumPy, TensorFlow, PyTorch libraries"
+        },
+        {
+          "title": "Automation & Scripting",
+          "description": "Automate repetitive tasks, system administration",
+          "example": "File management, web scraping, testing automation"
+        },
+        {
+          "title": "Game Development",
+          "description": "Create games using Pygame library",
+          "example": "Simple 2D games and prototypes"
+        }
+      ],
+      "dos": [
+        "Follow PEP 8 style guide for readable code",
+        "Use meaningful variable and function names",
+        "Write comments to explain complex logic",
+        "Use virtual environments for project dependencies",
+        "Test your code regularly"
+      ],
+      "donts": [
+        "Don't use single letter variable names (except in loops)",
+        "Don't ignore errors and exceptions",
+        "Don't mix tabs and spaces for indentation",
+        "Don't write functions that do too many things",
+        "Don't hardcode values that might change"
+      ],
+      "bestPractices": [
+        "Use 4 spaces for indentation (not tabs)",
+        "Keep lines under 79 characters when possible",
+        "Use docstrings to document functions and classes",
+        "Import modules at the top of the file",
+        "Use version control (Git) for your projects"
+      ],
+      "codeExamples": [
+        {
+          "title": "Your First Python Program",
+          "explanation": "The print() function displays output. Use # for single-line comments and triple quotes for multi-line strings."
+        }
+      ]
+    },
+    {
+      "id": "variables-datatypes",
+      "title": "Variables and Data Types",
+      "description": "Learn to store and manipulate different types of data",
+      "overview": "Variables are containers for storing data values. Python has various built-in data types including numbers, strings, booleans, lists, tuples, dictionaries, and sets. Understanding data types is fundamental to writing effective Python code.",
+      "keyPoints": [
+        "Variables don't need explicit declaration",
+        "Variable names are case-sensitive",
+        "Python determines type automatically (dynamic typing)",
+        "You can change a variable's type after it's set",
+        "Use type() function to check a variable's type"
+      ],
+      "useCases": [
+        {
+          "title": "Storing User Information",
+          "description": "Store names, ages, email addresses",
+          "example": "name = \"John\", age = 25, email = \"john@example.com\""
+        },
+        {
+          "title": "Mathematical Calculations",
+          "description": "Perform arithmetic operations",
+          "example": "price = 100, tax = 0.15, total = price * (1 + tax)"
+        },
+        {
+          "title": "Boolean Logic",
+          "description": "Control program flow with true/false values",
+          "example": "is_logged_in = True, has_permission = False"
+        },
+        {
+          "title": "Text Processing",
+          "description": "Manipulate strings for various applications",
+          "example": "Processing user input, formatting output"
+        }
+      ],
+      "dos": [
+        "Use descriptive variable names (user_age instead of x)",
+        "Follow naming conventions (lowercase with underscores)",
+        "Initialize variables before using them",
+        "Use constants in UPPERCASE (MAX_SIZE = 100)",
+        "Choose appropriate data types for your data"
+      ],
+      "donts": [
+        "Don't use Python keywords as variable names (if, for, while)",
+        "Don't start variable names with numbers",
+        "Don't use spaces in variable names",
+        "Don't reuse variable names for different purposes",
+        "Don't ignore type compatibility in operations"
+      ],
+      "bestPractices": [
+        "Use meaningful names that describe the data",
+        "Keep variable scope as small as possible",
+        "Group related variables together",
+        "Use type hints for better code documentation",
+        "Validate input data before assigning to variables"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Data Types",
+          "explanation": "Python has four primitive data types: int, float, str, and bool. The type() function shows the type of any variable."
+        },
+        {
+          "title": "Type Conversion",
+          "explanation": "Use int(), float(), str(), and bool() functions to convert between types. Some conversions may lose precision or fail."
+        },
+        {
+          "title": "Multiple Assignment",
+          "explanation": "Python allows elegant multiple assignments and swapping without temporary variables."
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "title": "Operators",
+      "description": "Perform operations and comparisons",
+      "overview": "Operators are symbols that perform operations on variables and values. Python supports arithmetic, comparison, logical, assignment, and other operators. Understanding operators is essential for performing calculations and making decisions in your code.",
+      "keyPoints": [
+        "Arithmetic operators: +, -, *, /, //, %, **",
+        "Comparison operators: ==, !=, >, <, >=, <=",
+        "Logical operators: and, or, not",
+        "Assignment operators: =, +=, -=, *=, /=",
+        "Operator precedence follows mathematical rules"
+      ],
+      "useCases": [
+        {
+          "title": "Mathematical Calculations",
+          "description": "Calculate totals, averages, percentages",
+          "example": "total = price * quantity; average = sum / count"
+        },
+        {
+          "title": "Conditional Logic",
+          "description": "Make decisions based on conditions",
+          "example": "if age >= 18 and has_id: grant_access()"
+        },
+        {
+          "title": "String Operations",
+          "description": "Concatenate and repeat strings",
+          "example": "full_name = first + \" \" + last; line = \"=\" * 50"
+        },
+        {
+          "title": "Membership Testing",
+          "description": "Check if value exists in collection",
+          "example": "if \"admin\" in user_roles: show_admin_panel()"
+        }
+      ],
+      "dos": [
+        "Use parentheses to clarify complex expressions",
+        "Use // for integer division when you need whole numbers",
+        "Use ** for exponentiation instead of pow()",
+        "Chain comparisons (x < y < z) for readability",
+        "Use += and similar operators for concise updates"
+      ],
+      "donts": [
+        "Don't compare floats with == (use math.isclose())",
+        "Don't use = when you mean == in conditions",
+        "Don't chain assignments with operators (x = y += 1)",
+        "Don't forget operator precedence (* before +)",
+        "Don't use \"is\" for value comparison (use ==)"
+      ],
+      "bestPractices": [
+        "Use meaningful spacing around operators for readability",
+        "Break complex expressions into smaller parts",
+        "Use comparison chaining when appropriate",
+        "Prefer \"is None\" over \"== None\" for None checks",
+        "Use descriptive variable names in boolean expressions"
+      ],
+      "codeExamples": [
+        {
+          "title": "Arithmetic Operators",
+          "explanation": "Python follows standard mathematical operator precedence. Use parentheses to control order of operations."
+        },
+        {
+          "title": "Comparison Operators",
+          "explanation": "Comparison operators compare values and return boolean results. Python allows chaining comparisons elegantly."
+        },
+        {
+          "title": "Logical Operators",
+          "explanation": "Logical operators combine boolean expressions. Python uses short-circuit evaluation for efficiency."
+        },
+        {
+          "title": "Assignment and Identity Operators",
+          "explanation": "Assignment operators provide shortcuts. Use \"is\" for identity (same object), \"==\" for equality (same value)."
+        },
+        {
+          "title": "Membership and Other Operators",
+          "explanation": "Membership operators check for presence in sequences. The ternary operator provides concise conditional assignment."
+        }
+      ]
+    },
+    {
+      "id": "installing-python",
+      "title": "Installing Python",
+      "description": "Learn how to install Python on different operating systems",
+      "overview": "Python installation is the first step in your programming journey. Python is available for Windows, macOS, and Linux. Understanding proper installation ensures you have the right environment for development.",
+      "keyPoints": [
+        "Python can be downloaded from python.org",
+        "Windows: Use the official installer with \"Add to PATH\" option",
+        "macOS: Can use Homebrew or official installer",
+        "Linux: Usually pre-installed, can use package managers",
+        "Verify installation using python --version command"
+      ],
+      "useCases": [
+        {
+          "title": "Windows Installation",
+          "description": "Install Python on Windows systems",
+          "example": "Download from python.org, run installer, check \"Add Python to PATH\""
+        },
+        {
+          "title": "macOS Installation",
+          "description": "Install using Homebrew or official installer",
+          "example": "brew install python3 or download from python.org"
+        },
+        {
+          "title": "Development Environment",
+          "description": "Set up IDE or code editor",
+          "example": "VS Code, PyCharm, Jupyter Notebook"
+        },
+        {
+          "title": "Virtual Environments",
+          "description": "Isolate project dependencies",
+          "example": "python -m venv myenv"
+        }
+      ],
+      "dos": [
+        "Always add Python to system PATH during installation",
+        "Verify installation immediately after installing",
+        "Install pip (Python package manager) if not included",
+        "Consider using virtual environments for projects",
+        "Keep Python updated to latest stable version"
+      ],
+      "donts": [
+        "Don't install multiple Python versions without version managers",
+        "Don't skip adding to PATH on Windows",
+        "Don't ignore security warnings during installation",
+        "Don't install packages globally without virtual environments",
+        "Don't use Python 2.x for new projects (it's deprecated)"
+      ],
+      "bestPractices": [
+        "Use version managers like pyenv for multiple Python versions",
+        "Create virtual environments for each project",
+        "Document Python version requirements in README",
+        "Use requirements.txt for package dependencies",
+        "Regularly update pip: python -m pip install --upgrade pip"
+      ],
+      "codeExamples": [
+        {
+          "title": "Verify Python Installation",
+          "explanation": "Use command line to verify Python and pip are correctly installed"
+        },
+        {
+          "title": "Create Virtual Environment",
+          "explanation": "Virtual environments keep project dependencies isolated and manageable"
+        }
+      ]
+    },
+    {
+      "id": "execution-modes",
+      "title": "Python Execution Modes",
+      "description": "Interactive vs Script mode execution",
+      "overview": "Python can be executed in two primary modes: Interactive Mode for testing snippets and quick experimentation, and Script Mode for running complete programs. Understanding both modes helps you work efficiently.",
+      "keyPoints": [
+        "Interactive mode: REPL (Read-Eval-Print-Loop) for immediate feedback",
+        "Script mode: Execute complete Python files (.py)",
+        "Interactive mode is great for learning and testing",
+        "Script mode is used for production code",
+        "Both modes execute Python code identically"
+      ],
+      "useCases": [
+        {
+          "title": "Interactive Mode - Testing",
+          "description": "Quick testing of Python expressions",
+          "example": ">>> 2 + 2 [Enter] returns 4 immediately"
+        },
+        {
+          "title": "Interactive Mode - Learning",
+          "description": "Explore Python features and libraries",
+          "example": "Try different functions and see results instantly"
+        },
+        {
+          "title": "Script Mode - Applications",
+          "description": "Create complete programs and applications",
+          "example": "web apps, data analysis scripts, automation tools"
+        },
+        {
+          "title": "Script Mode - Production",
+          "description": "Deploy code to servers and production environments",
+          "example": "Run scheduled tasks, web servers, batch processing"
+        }
+      ],
+      "dos": [
+        "Use interactive mode for quick testing and learning",
+        "Use script mode for any code you want to save",
+        "Add .py extension to all Python script files",
+        "Include shebang line in scripts for Unix systems",
+        "Make scripts executable with proper permissions"
+      ],
+      "donts": [
+        "Don't write long programs in interactive mode",
+        "Don't forget to save your work when exiting interactive mode",
+        "Don't use interactive mode for production code",
+        "Don't run untrusted scripts without reviewing",
+        "Don't forget error handling in scripts"
+      ],
+      "bestPractices": [
+        "Use interactive mode for experimentation",
+        "Write scripts for reusable code",
+        "Add comments and docstrings in scripts",
+        "Use if __name__ == \"__main__\": for script entry points",
+        "Test scripts thoroughly before deployment"
+      ],
+      "codeExamples": [
+        {
+          "title": "Interactive Mode Usage",
+          "explanation": "Interactive mode provides immediate feedback, great for testing"
+        },
+        {
+          "title": "Script Mode - Creating a Python File",
+          "explanation": "Script mode allows you to write complete programs and save them for reuse"
+        },
+        {
+          "title": "Script with Command Line Arguments",
+          "explanation": "Scripts can accept command-line arguments for dynamic behavior"
+        }
+      ]
+    },
+    {
+      "id": "python-tokens",
+      "title": "Python Tokens - Building Blocks",
+      "description": "Understanding the smallest units of Python programs",
+      "overview": "Tokens are the smallest individual units of a Python program - the building blocks of code. When Python reads your code, it breaks it into tokens: keywords, identifiers, literals, operators, and delimiters. Understanding tokens is fundamental to writing correct Python code.",
+      "keyPoints": [
+        "Tokens are the smallest lexical units in Python",
+        "Five types: Keywords, Identifiers, Literals, Operators, Delimiters",
+        "Python interpreter breaks code into tokens during execution",
+        "Each token has a specific purpose and meaning",
+        "Proper token usage ensures syntactically correct code"
+      ],
+      "useCases": [
+        {
+          "title": "Keywords - Reserved Words",
+          "description": "Reserved words with special meaning (if, else, for, while, def, class, etc.)",
+          "example": "if x > 10: # \"if\" is a keyword token"
+        },
+        {
+          "title": "Identifiers - Names",
+          "description": "Names given to variables, functions, classes",
+          "example": "student_name = \"Alice\" # student_name is identifier"
+        },
+        {
+          "title": "Literals - Values",
+          "description": "Fixed values like numbers, strings, booleans",
+          "example": "42, \"hello\", True, 3.14 are all literals"
+        },
+        {
+          "title": "Operators - Actions",
+          "description": "Symbols that perform operations (+, -, *, /, ==, !=, etc.)",
+          "example": "x = 5 + 3 # = and + are operator tokens"
+        },
+        {
+          "title": "Delimiters - Structure",
+          "description": "Punctuation that organizes code ((), [], {}, :, ,)",
+          "example": "my_list = [1, 2, 3] # [] and , are delimiters"
+        }
+      ],
+      "dos": [
+        "Use descriptive identifiers that explain purpose",
+        "Follow Python naming conventions (PEP 8)",
+        "Use appropriate literals for data types",
+        "Understand operator precedence",
+        "Use delimiters correctly for grouping"
+      ],
+      "donts": [
+        "Don't use keywords as identifiers",
+        "Don't create confusing identifier names",
+        "Don't mix token types incorrectly",
+        "Don't ignore Python syntax rules",
+        "Don't use reserved words for variable names"
+      ],
+      "bestPractices": [
+        "Use snake_case for variables and functions",
+        "Use CamelCase for class names",
+        "Make identifiers meaningful and readable",
+        "Group related tokens with proper delimiters",
+        "Understand token roles in your code"
+      ],
+      "codeExamples": [
+        {
+          "title": "Understanding All Token Types",
+          "explanation": "This example shows all five token types working together in a complete program"
+        },
+        {
+          "title": "Python Keywords (Reserved Words)",
+          "explanation": "Keywords are reserved and cannot be used as variable names"
+        },
+        {
+          "title": "Valid vs Invalid Identifiers",
+          "explanation": "Identifiers must follow naming rules: start with letter/underscore, no keywords"
+        }
+      ]
+    },
+    {
+      "id": "control-flow-basics",
+      "title": "Control Flow - if/else Statements",
+      "description": "Making decisions in your code",
+      "overview": "Control flow statements allow your program to make decisions and execute different code based on conditions. The if/elif/else statements are fundamental for creating logic in programs - from simple checks to complex decision trees.",
+      "keyPoints": [
+        "if statement executes code when condition is True",
+        "elif (else if) checks additional conditions",
+        "else executes when all conditions are False",
+        "Conditions use comparison operators (==, !=, <, >, <=, >=)",
+        "Indentation defines code blocks (4 spaces)"
+      ],
+      "useCases": [
+        {
+          "title": "User Input Validation",
+          "description": "Check if user input meets requirements",
+          "example": "Validate age, email format, password strength"
+        },
+        {
+          "title": "Business Logic",
+          "description": "Implement business rules and decisions",
+          "example": "Calculate discounts, determine eligibility, route requests"
+        },
+        {
+          "title": "Error Handling",
+          "description": "Check for errors before processing",
+          "example": "Verify file exists, check network connection, validate data"
+        },
+        {
+          "title": "Game Logic",
+          "description": "Control game flow based on player actions",
+          "example": "Check win/lose conditions, validate moves, update scores"
+        }
+      ],
+      "dos": [
+        "Use clear, readable conditions",
+        "Handle all possible cases",
+        "Use elif instead of multiple if when appropriate",
+        "Keep condition expressions simple",
+        "Test edge cases thoroughly"
+      ],
+      "donts": [
+        "Don't forget the colon (:) after conditions",
+        "Don't mix tabs and spaces for indentation",
+        "Don't create overly complex nested conditions",
+        "Don't forget to handle the else case",
+        "Don't use assignment (=) instead of comparison (==)"
+      ],
+      "bestPractices": [
+        "Use 4 spaces for indentation consistently",
+        "Order conditions from most to least likely",
+        "Use boolean variables for complex conditions",
+        "Consider using match/case for many conditions (Python 3.10+)",
+        "Write self-documenting condition names"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic if/elif/else Structure",
+          "explanation": "elif allows checking multiple conditions in order, stops at first True"
+        },
+        {
+          "title": "Nested Conditions and Logical Operators",
+          "explanation": "Use logical operators (and, or, not) for complex conditions. Early returns reduce nesting."
+        },
+        {
+          "title": "Real-World Example: E-commerce Discount",
+          "explanation": "Real-world example combining multiple conditions to calculate discounts"
+        }
+      ]
+    },
+    {
+      "id": "loops-for-while",
+      "title": "Loops - for and while",
+      "description": "Repeating actions efficiently",
+      "overview": "Loops allow you to repeat code multiple times without writing it over and over. Python provides two main loop types: \"for\" loops for iterating over sequences, and \"while\" loops for repeating until a condition changes. Mastering loops is essential for processing data and automating tasks.",
+      "keyPoints": [
+        "for loops iterate over sequences (lists, strings, ranges)",
+        "while loops repeat while condition is True",
+        "break exits the loop immediately",
+        "continue skips to next iteration",
+        "range() generates number sequences for loops",
+        "Loops can be nested for multi-dimensional processing"
+      ],
+      "useCases": [
+        {
+          "title": "Data Processing",
+          "description": "Process each item in a dataset",
+          "example": "Analyze list of sales, calculate statistics, filter data"
+        },
+        {
+          "title": "User Interaction",
+          "description": "Keep asking for input until valid",
+          "example": "Menu systems, input validation, game loops"
+        },
+        {
+          "title": "File Operations",
+          "description": "Read file line by line",
+          "example": "Process log files, parse CSV data, analyze text"
+        },
+        {
+          "title": "Automation",
+          "description": "Repeat tasks automatically",
+          "example": "Send emails, download files, update databases"
+        }
+      ],
+      "dos": [
+        "Use for loops when you know the number of iterations",
+        "Use while loops when iterations depend on a condition",
+        "Always ensure while loops can terminate",
+        "Use break to exit loops when needed",
+        "Use meaningful variable names in loops"
+      ],
+      "donts": [
+        "Don't create infinite loops accidentally",
+        "Don't modify the sequence you're iterating over",
+        "Don't use loops when built-in functions exist",
+        "Don't forget to update while loop conditions",
+        "Don't nest too many loops (reduces readability)"
+      ],
+      "bestPractices": [
+        "Use enumerate() to get index and value together",
+        "Use list comprehensions for simple transformations",
+        "Consider using zip() for parallel iteration",
+        "Use else clause with loops for no-break scenarios",
+        "Profile nested loops for performance"
+      ],
+      "codeExamples": [
+        {
+          "title": "for Loop - Iterating Over Collections",
+          "explanation": "for loops are perfect for iterating over known sequences"
+        },
+        {
+          "title": "while Loop - Condition-Based Repetition",
+          "explanation": "while loops continue until condition becomes False"
+        },
+        {
+          "title": "Loop Control - break, continue, else",
+          "explanation": "break exits loop, continue skips iteration, else runs if no break occurred"
+        },
+        {
+          "title": "Real-World: Data Analysis Loop",
+          "explanation": "Complete example combining loops, conditionals, and data processing"
+        }
+      ]
+    },
+    {
+      "id": "tokens-keywords",
+      "title": "Python Tokens and Keywords",
+      "description": "Understanding the building blocks of Python code",
+      "overview": "Tokens are the smallest units of a Python program. They include keywords, identifiers, literals, operators, and delimiters. Keywords are reserved words with special meaning that cannot be used as variable names.",
+      "keyPoints": [
+        "Python has 35 reserved keywords (as of Python 3.11)",
+        "Keywords are case-sensitive (True, False, None)",
+        "Cannot use keywords as variable/function names",
+        "Some keywords are soft keywords (match, case in Python 3.10+)",
+        "Use keyword module to list all keywords"
+      ],
+      "useCases": [
+        {
+          "title": "Control Flow Keywords",
+          "description": "if, elif, else, for, while, break, continue, pass",
+          "example": "Control program execution flow"
+        },
+        {
+          "title": "Function and Class Keywords",
+          "description": "def, class, return, yield, lambda",
+          "example": "Define functions, classes, and generators"
+        },
+        {
+          "title": "Logic Keywords",
+          "description": "and, or, not, in, is",
+          "example": "Boolean operations and membership testing"
+        },
+        {
+          "title": "Exception Keywords",
+          "description": "try, except, finally, raise, assert",
+          "example": "Error handling and debugging"
+        }
+      ],
+      "dos": [
+        "Use keywords correctly according to Python syntax",
+        "Learn the purpose of each keyword",
+        "Use meaningful identifiers instead of keywords",
+        "Check if a word is a keyword using keyword.iskeyword()",
+        "Follow PEP 8 naming conventions for identifiers"
+      ],
+      "donts": [
+        "Don't use keywords as variable names",
+        "Don't misspell keywords (e.g., Def instead of def)",
+        "Don't use reserved words from other languages",
+        "Don't create identifiers that look like keywords",
+        "Don't ignore case sensitivity in keywords"
+      ],
+      "bestPractices": [
+        "Memorize commonly used keywords",
+        "Use IDE with syntax highlighting",
+        "Understand keyword context and usage",
+        "Keep updated with new keywords in Python versions",
+        "Use descriptive names for identifiers"
+      ],
+      "codeExamples": [
+        {
+          "title": "All Python Keywords",
+          "explanation": "Python provides the keyword module to work with keywords programmatically"
+        },
+        {
+          "title": "Keywords in Action",
+          "explanation": "Different categories of keywords serve different purposes in Python programming"
+        },
+        {
+          "title": "Common Keyword Mistakes",
+          "explanation": "Keywords are case-sensitive and cannot be used as variable names"
+        }
+      ]
+    },
+    {
+      "id": "identifiers-naming",
+      "title": "Identifiers and Naming Rules",
+      "description": "Learn how to name variables, functions, and classes properly",
+      "overview": "Identifiers are names given to variables, functions, classes, modules, and other objects. Python has specific rules for valid identifiers and conventions for readable, maintainable code.",
+      "keyPoints": [
+        "Identifiers can contain letters, digits, and underscores",
+        "Must start with a letter (a-z, A-Z) or underscore (_)",
+        "Cannot start with a digit",
+        "Case-sensitive (Name and name are different)",
+        "Cannot be a Python keyword"
+      ],
+      "useCases": [
+        {
+          "title": "Variable Names",
+          "description": "Store data values with descriptive names",
+          "example": "user_age, total_price, is_valid"
+        },
+        {
+          "title": "Function Names",
+          "description": "Name functions describing what they do",
+          "example": "calculate_total(), send_email(), validate_input()"
+        },
+        {
+          "title": "Class Names",
+          "description": "Name classes using CapWords convention",
+          "example": "UserAccount, ShoppingCart, DatabaseManager"
+        },
+        {
+          "title": "Constants",
+          "description": "Use UPPERCASE for constants",
+          "example": "MAX_SIZE, PI, DEFAULT_TIMEOUT"
+        }
+      ],
+      "dos": [
+        "Use descriptive and meaningful names",
+        "Follow snake_case for variables and functions",
+        "Use CapWords (PascalCase) for class names",
+        "Use UPPERCASE for constants",
+        "Keep names concise but clear"
+      ],
+      "donts": [
+        "Don't use single letters except in loops (i, j, k)",
+        "Don't start names with numbers",
+        "Don't use special characters (@, #, $, etc.)",
+        "Don't use Python keywords as names",
+        "Don't create ambiguous or cryptic names"
+      ],
+      "bestPractices": [
+        "Use verb_noun for function names: get_user(), calculate_total()",
+        "Use is/has prefix for boolean variables: is_active, has_permission",
+        "Avoid abbreviations unless widely understood",
+        "Be consistent with naming conventions across project",
+        "Use single underscore prefix for internal/private names"
+      ],
+      "codeExamples": [
+        {
+          "title": "Valid vs Invalid Identifiers",
+          "explanation": "Follow Python naming rules to avoid syntax errors"
+        },
+        {
+          "title": "Naming Conventions (PEP 8)",
+          "explanation": "Following PEP 8 conventions makes code readable and maintainable"
+        },
+        {
+          "title": "Descriptive Names",
+          "explanation": "Descriptive names make code self-documenting and easier to understand"
+        }
+      ]
+    },
+    {
+      "id": "literals-types",
+      "title": "Python Literals",
+      "description": "Understanding different types of literal values",
+      "overview": "Literals are fixed values that appear directly in code. Python supports numeric literals (integers, floats, complex), string literals, boolean literals (True/False), and special literal None. Understanding literals is fundamental to working with data.",
+      "keyPoints": [
+        "Numeric literals: integers, floats, complex numbers",
+        "String literals: single, double, triple quotes",
+        "Boolean literals: True and False (capitalized)",
+        "None literal: represents absence of value",
+        "Collection literals: lists [], tuples (), dicts {}, sets {}"
+      ],
+      "useCases": [
+        {
+          "title": "Numeric Calculations",
+          "description": "Direct number values in expressions",
+          "example": "total = 100 + 50 * 1.5"
+        },
+        {
+          "title": "String Messages",
+          "description": "Fixed text values in programs",
+          "example": "greeting = \"Welcome to Python!\""
+        },
+        {
+          "title": "Boolean Flags",
+          "description": "True/False conditions",
+          "example": "is_active = True, debug_mode = False"
+        },
+        {
+          "title": "Default Values",
+          "description": "None for uninitialized variables",
+          "example": "user_input = None"
+        }
+      ],
+      "dos": [
+        "Use appropriate literal types for your data",
+        "Use triple quotes for multi-line strings",
+        "Use raw strings (r\"\") for regular expressions",
+        "Use underscores in large numbers for readability",
+        "Use None for missing/undefined values"
+      ],
+      "donts": [
+        "Don't use quotes around numeric literals",
+        "Don't confuse 0/1 with False/True",
+        "Don't use empty strings for None",
+        "Don't ignore decimal precision in float literals",
+        "Don't mix number bases without clarity"
+      ],
+      "bestPractices": [
+        "Use f-strings for string formatting (Python 3.6+)",
+        "Use scientific notation for very large/small numbers",
+        "Use explicit type conversion when needed",
+        "Document complex number usage",
+        "Use constants for repeated literal values"
+      ],
+      "codeExamples": [
+        {
+          "title": "Numeric Literals",
+          "explanation": "Python supports various numeric literal formats for different bases and types"
+        },
+        {
+          "title": "String Literals",
+          "explanation": "Python offers flexible string literal syntax for different use cases"
+        },
+        {
+          "title": "Boolean and None Literals",
+          "explanation": "Boolean and None literals are fundamental for control flow and representing absence of values"
+        },
+        {
+          "title": "Collection Literals",
+          "explanation": "Collection literals provide convenient syntax for creating data structures"
+        }
+      ]
+    },
+    {
+      "id": "python-comments",
+      "title": "Comments and Documentation",
+      "description": "Writing clear comments and docstrings",
+      "overview": "Comments are annotations in code that Python ignores during execution. They explain what code does, why decisions were made, and how to use functions/classes. Good comments make code maintainable and collaborative.",
+      "keyPoints": [
+        "Single-line comments start with #",
+        "Multi-line comments use triple quotes (\"\"\" or ''')",
+        "Docstrings document modules, classes, functions",
+        "Comments explain WHY, not WHAT (code shows what)",
+        "Keep comments up-to-date with code changes"
+      ],
+      "useCases": [
+        {
+          "title": "Code Explanation",
+          "description": "Clarify complex logic or algorithms",
+          "example": "# Using binary search for O(log n) performance"
+        },
+        {
+          "title": "Function Documentation",
+          "description": "Describe function purpose, parameters, returns",
+          "example": "Docstrings with parameter descriptions"
+        },
+        {
+          "title": "TODO Markers",
+          "description": "Mark incomplete or planned features",
+          "example": "# TODO: Add error handling for network failures"
+        },
+        {
+          "title": "Debugging",
+          "description": "Temporarily disable code",
+          "example": "# print(debug_info)  # Commented out for production"
+        }
+      ],
+      "dos": [
+        "Write clear, concise comments",
+        "Use docstrings for all public functions/classes",
+        "Explain WHY code exists, not just what it does",
+        "Keep comments up-to-date",
+        "Use TODO, FIXME, NOTE markers for special comments"
+      ],
+      "donts": [
+        "Don't state the obvious (# increment x by 1)",
+        "Don't write novels - be concise",
+        "Don't leave outdated comments",
+        "Don't comment out large blocks permanently",
+        "Don't use comments to hide bad code names"
+      ],
+      "bestPractices": [
+        "Self-documenting code reduces need for comments",
+        "Use docstrings that tools can extract",
+        "Follow PEP 257 for docstring conventions",
+        "Explain complex algorithms with references",
+        "Use inline comments sparingly"
+      ],
+      "codeExamples": [
+        {
+          "title": "Single-Line Comments",
+          "explanation": "Single-line comments start with # and extend to end of line"
+        },
+        {
+          "title": "Docstrings - Function Documentation",
+          "explanation": "Docstrings are the first statement in a function/class. Triple quotes allow multi-line text"
+        },
+        {
+          "title": "Class and Module Docstrings",
+          "explanation": "Module and class docstrings provide high-level documentation. Use consistent format (Google, NumPy, or Sphinx style)"
+        },
+        {
+          "title": "Commenting Best Practices",
+          "explanation": "Good comments explain complex logic, assumptions, and reasoning. Code should be self-explanatory where possible"
+        }
+      ]
+    },
+    {
+      "id": "user-input",
+      "title": "Getting User Input",
+      "description": "Learn how to accept and process user input in Python",
+      "overview": "The input() function allows Python programs to interact with users by accepting text input from the keyboard. Understanding how to get, validate, and convert user input is essential for creating interactive programs.",
+      "keyPoints": [
+        "input() function reads user input as a string",
+        "Always returns a string, even if user types numbers",
+        "Use type conversion to get numbers from input",
+        "Can provide a prompt message to guide users",
+        "Input waits for user to press Enter"
+      ],
+      "useCases": [
+        {
+          "title": "Interactive Programs",
+          "description": "Create programs that respond to user choices",
+          "example": "Calculators, games, menus, configuration tools"
+        },
+        {
+          "title": "Data Collection",
+          "description": "Gather information from users",
+          "example": "Registration forms, surveys, questionnaires"
+        },
+        {
+          "title": "Configuration",
+          "description": "Let users customize program behavior",
+          "example": "Settings, preferences, parameters"
+        },
+        {
+          "title": "Testing",
+          "description": "Manually test program logic",
+          "example": "Input test data, verify outputs"
+        }
+      ],
+      "dos": [
+        "Always validate user input",
+        "Provide clear prompts explaining what to enter",
+        "Handle invalid input gracefully",
+        "Convert input to appropriate type (int, float, etc.)",
+        "Use try-except for type conversion errors"
+      ],
+      "donts": [
+        "Don't assume input is valid",
+        "Don't forget input() returns strings",
+        "Don't use vague prompts like \"Enter:\"",
+        "Don't crash on invalid input",
+        "Don't ask for input multiple times unnecessarily"
+      ],
+      "bestPractices": [
+        "Validate input immediately after receiving it",
+        "Provide examples in prompts: \"Enter age (e.g., 25): \"",
+        "Use loops to re-prompt on invalid input",
+        "Strip whitespace from input: input().strip()",
+        "Consider default values for optional input"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Input",
+          "explanation": "input() displays a prompt and waits for user to type and press Enter"
+        },
+        {
+          "title": "Converting Input Types",
+          "explanation": "Use int(), float(), bool() to convert string input to other types"
+        },
+        {
+          "title": "Input Validation",
+          "explanation": "Always validate input to prevent errors and ensure data quality"
+        },
+        {
+          "title": "Real-World Example: Simple Calculator",
+          "explanation": "Robust input handling makes programs user-friendly and error-resistant"
+        }
+      ]
+    },
+    {
+      "id": "display-output",
+      "title": "Displaying Output",
+      "description": "Master the print() function and output formatting",
+      "overview": "The print() function displays output to the console. Python offers multiple ways to format output, from simple concatenation to advanced f-strings. Understanding output formatting is crucial for creating readable, professional programs.",
+      "keyPoints": [
+        "print() displays text and values to the console",
+        "Can print multiple values separated by spaces",
+        "f-strings (f\"\") provide easy string formatting",
+        "format() method for complex formatting",
+        "Can control separator and ending characters"
+      ],
+      "useCases": [
+        {
+          "title": "Debugging",
+          "description": "Display variable values during development",
+          "example": "print(f\"x={x}, y={y}\")"
+        },
+        {
+          "title": "User Feedback",
+          "description": "Show results, messages, and status",
+          "example": "Success messages, error notifications, progress updates"
+        },
+        {
+          "title": "Reports",
+          "description": "Generate formatted reports and tables",
+          "example": "Sales reports, data summaries, invoices"
+        },
+        {
+          "title": "Logging",
+          "description": "Record program activities",
+          "example": "Application logs, audit trails"
+        }
+      ],
+      "dos": [
+        "Use f-strings for readable formatting (Python 3.6+)",
+        "Provide clear, informative messages",
+        "Use proper spacing and alignment",
+        "End with newline for readability",
+        "Format numbers appropriately (decimals, currency, etc.)"
+      ],
+      "donts": [
+        "Don't print excessive debug output in production",
+        "Don't ignore formatting for user-facing output",
+        "Don't use print() for logging in large applications",
+        "Don't forget to remove debug prints",
+        "Don't assume terminal width"
+      ],
+      "bestPractices": [
+        "Use f-strings for modern, readable formatting",
+        "Align columns for tabular data",
+        "Use thousands separators for large numbers",
+        "Include units in output (e.g., \"25 kg\", \"100 USD\")",
+        "Consider using logging module instead of print for apps"
+      ],
+      "codeExamples": [
+        {
+          "title": "Basic Print Statements",
+          "explanation": "print() is versatile - can print one or more values with custom separators and endings"
+        },
+        {
+          "title": "String Formatting with f-strings",
+          "explanation": "f-strings provide the most readable and powerful way to format strings in modern Python"
+        },
+        {
+          "title": "Other Formatting Methods",
+          "explanation": "Multiple formatting methods exist, but f-strings are recommended for clarity"
+        },
+        {
+          "title": "Real-World Example: Receipt Formatter",
+          "explanation": "Proper formatting creates professional-looking output for reports and receipts"
+        }
+      ]
+    }
+  ],
+  "totalTexts": 586
+}
