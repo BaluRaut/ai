@@ -6,17 +6,17 @@ export const visualization = {
   content: {
     overview: `Data visualization transforms raw data into visual insights that are easy to understand and communicate. Python offers powerful libraries for creating professional visualizations.
 
-**Matplotlib:** The foundational plotting library for Python - highly customizable
+Matplotlib: The foundational plotting library for Python - highly customizable
 
-**Seaborn:** Built on Matplotlib, provides beautiful statistical visualizations with less code
+Seaborn: Built on Matplotlib, provides beautiful statistical visualizations with less code
 
-**Why Visualization Matters:**
+Why Visualization Matters:
 ✓ Reveals patterns and trends invisible in raw data
 ✓ Communicates insights effectively to stakeholders
 ✓ Essential for exploratory data analysis (EDA)
 ✓ Makes data-driven decisions more accessible
 
-**Common Plot Types:**
+Common Plot Types:
 • Line plots - Trends over time
 • Bar charts - Comparisons between categories
 • Scatter plots - Relationships between variables

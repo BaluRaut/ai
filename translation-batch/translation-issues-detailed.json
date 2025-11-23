@@ -1,0 +1,28 @@
+{
+  "intermediate": [
+    {
+      "path": "intermediate.name",
+      "issue": "Not translated (same as English)",
+      "english": "intermediate"
+    }
+  ],
+  "advanced": [
+    {
+      "path": "advanced.topics[2].content.useCases[0].example",
+      "issue": "Not translated (same as English)",
+      "english": "utils.py, models.py, views.py, config.py"
+    },
+    {
+      "path": "advanced.topics[2].content.useCases[3].example",
+      "issue": "Not translated (same as English)",
+      "english": "myapp.database, myapp.api, myapp.utils"
+    }
+  ],
+  "professional": [
+    {
+      "path": "professional.name",
+      "issue": "Not translated (same as English)",
+      "english": "professional"
+    }
+  ]
+}

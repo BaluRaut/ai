@@ -10,7 +10,7 @@ export const scikitLearnIntermediate = {
   content: {
     overview: `Build on your ML fundamentals with intermediate techniques. Learn to create robust models using cross-validation, automate workflows with pipelines, and optimize performance with hyperparameter tuning.
 
-**What You'll Learn:**
+What You'll Learn:
 
 - Cross-validation for reliable model evaluation  
 - Hyperparameter tuning with GridSearchCV
@@ -20,7 +20,7 @@ export const scikitLearnIntermediate = {
 - Feature importance and selection
 - Model persistence and deployment
 
-**Why These Skills Matter:**
+Why These Skills Matter:
 
 Cross-validation gives more reliable performance estimates than simple train-test splits. Pipelines prevent data leakage and make code production-ready. Hyperparameter tuning squeezes out maximum performance from your models.`,
 

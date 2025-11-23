@@ -1,8 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
-import { Box, Button, Paper, Typography, CircularProgress, Alert } from '@mui/material';
+import { 
+  Box, Button, Paper, Typography, CircularProgress, Alert, 
+  Tabs, Tab, Table, TableBody, TableCell, TableContainer, 
+  TableHead, TableRow, Chip, Divider, IconButton, Tooltip 
+} from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import StopIcon from '@mui/icons-material/Stop';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useThemeMode } from '../../context/ThemeContext';
 
 const CodeEditor = ({ initialCode = '', height = '400px', readOnly = false }) => {
@@ -15,6 +23,13 @@ const CodeEditor = ({ initialCode = '', height = '400px', readOnly = false }) =>
   const [error, setError] = useState('');
   const [pyodideReady, setPyodideReady] = useState(false);
   const pyodideRef = useRef(null);
+  
+  // Debugging state
+  const [debugMode, setDebugMode] = useState(false);
+  const [debugOutput, setDebugOutput] = useState([]);
+  const [variables, setVariables] = useState({});
+  const [currentLine, setCurrentLine] = useState(null);
+  const [outputTab, setOutputTab] = useState(0);
 
   // Initialize Pyodide
   useEffect(() => {
@@ -82,6 +97,107 @@ sys.stderr = io.StringIO()
     loadPyodide();
   }, [initialCode]);
 
+  const debugCode = async () => {
+    if (!pyodideReady || !pyodideRef.current) {
+      setError('Python runtime not ready. Please wait...');
+      return;
+    }
+
+    setIsRunning(true);
+    setError('');
+    setDebugOutput([]);
+    setVariables({});
+    setCurrentLine(null);
+    setOutputTab(1); // Switch to Debug tab
+
+    try {
+      const pyodide = pyodideRef.current;
+      
+      // Setup debug environment
+      await pyodide.runPythonAsync(`
+import sys
+import io
+
+# Capture output
+sys.stdout = io.StringIO()
+sys.stderr = io.StringIO()
+
+debug_info = []
+
+def trace_lines(frame, event, arg):
+    if event == 'line':
+        lineno = frame.f_lineno
+        local_vars = {k: str(v)[:100] for k, v in frame.f_locals.items() 
+                     if not k.startswith('_')}
+        debug_info.append({
+            'line': lineno,
+            'vars': local_vars.copy()
+        })
+    return trace_lines
+`);
+      
+      // Store user code in pyodide namespace
+      pyodide.globals.set('user_code', code);
+      
+      // Execute with tracing
+      const result = await pyodide.runPythonAsync(`
+sys.settrace(trace_lines)
+try:
+    exec(user_code)
+except Exception as e:
+    debug_info.append({
+        'error': str(e),
+        'type': type(e).__name__
+    })
+finally:
+    sys.settrace(None)
+
+# Return results
+{
+    'debug_info': debug_info,
+    'stdout': sys.stdout.getvalue(),
+    'stderr': sys.stderr.getvalue()
+}
+`);
+      
+      const resultObj = result.toJs({ dict_converter: Object.fromEntries });
+      
+      if (resultObj.debug_info) {
+        const debugSteps = [];
+        const debugInfoArray = resultObj.debug_info.toJs();
+        
+        for (let step of debugInfoArray) {
+          const stepObj = step.toJs({ dict_converter: Object.fromEntries });
+          debugSteps.push(stepObj);
+        }
+        
+        setDebugOutput(debugSteps);
+        
+        // Get final variables
+        if (debugSteps.length > 0) {
+          const lastStep = debugSteps[debugSteps.length - 1];
+          if (lastStep.vars) {
+            setVariables(lastStep.vars);
+          }
+        }
+      }
+      
+      if (resultObj.stdout) {
+        setOutput(resultObj.stdout);
+      }
+      
+      if (resultObj.stderr) {
+        setError(resultObj.stderr);
+      }
+      
+    } catch (err) {
+      console.error('Debug error:', err);
+      setError('Debug failed: ' + (err.message || 'Unknown error'));
+    } finally {
+      setIsRunning(false);
+    }
+  };
+
   const runCode = async () => {
     if (!pyodideReady || !pyodideRef.current) {
       setError('Python runtime not ready. Please wait...');
@@ -92,6 +208,7 @@ sys.stderr = io.StringIO()
     setError('');
     setOutput('');
     setPlotImages([]);
+    setOutputTab(0); // Switch to Output tab
 
     try {
       const pyodide = pyodideRef.current;
@@ -226,6 +343,9 @@ plot_result
     setOutput('');
     setError('');
     setPlotImages([]);
+    setDebugOutput([]);
+    setVariables({});
+    setCurrentLine(null);
   };
 
   const resetCode = () => {
@@ -262,6 +382,16 @@ plot_result
                   disabled={isRunning}
                 >
                   Reset
+                </Button>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  color="secondary"
+                  startIcon={<BugReportIcon />}
+                  onClick={debugCode}
+                  disabled={isRunning || !pyodideReady}
+                >
+                  Debug
                 </Button>
                 <Button
                   size="small"
@@ -321,91 +451,231 @@ plot_result
               bgcolor: isDarkMode ? 'grey.900' : 'grey.50',
             }}
           >
-            <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-                Output
-              </Typography>
-              {(output || error || plotImages.length > 0) && (
-                <Button size="small" onClick={clearOutput}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Tabs 
+                value={outputTab} 
+                onChange={(e, newValue) => setOutputTab(newValue)}
+                sx={{ minHeight: 42 }}
+              >
+                <Tab label="Output" sx={{ minHeight: 42, fontSize: '0.875rem' }} />
+                <Tab 
+                  label={
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      Debug
+                      {debugOutput.length > 0 && (
+                        <Chip 
+                          label={debugOutput.length} 
+                          size="small" 
+                          color="secondary"
+                          sx={{ height: 18, fontSize: '0.7rem' }}
+                        />
+                      )}
+                    </Box>
+                  } 
+                  sx={{ minHeight: 42, fontSize: '0.875rem' }} 
+                />
+              </Tabs>
+              {(output || error || plotImages.length > 0 || debugOutput.length > 0) && (
+                <Button size="small" onClick={clearOutput} sx={{ mr: 1 }}>
                   Clear
                 </Button>
               )}
             </Box>
 
-            <Box sx={{ flex: 1, p: 2, overflow: 'auto' }}>
-              {/* Loading State */}
-              {!pyodideReady && !error && (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <CircularProgress size={20} />
-                  <Typography variant="body2" color="text.secondary">
-                    Loading Python runtime... (this may take a few seconds on first load)
-                  </Typography>
-                </Box>
-              )}
+            <Box sx={{ flex: 1, overflow: 'auto' }}>
+              {/* Output Tab */}
+              {outputTab === 0 && (
+                <Box sx={{ p: 2 }}>
+                  {/* Loading State */}
+                  {!pyodideReady && !error && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <CircularProgress size={20} />
+                      <Typography variant="body2" color="text.secondary">
+                        Loading Python runtime... (this may take a few seconds on first load)
+                      </Typography>
+                    </Box>
+                  )}
 
-              {/* Error Display */}
-              {error && (
-                <Alert severity="error" sx={{ fontFamily: 'monospace', fontSize: '0.875rem' }}>
-                  {error}
-                </Alert>
-              )}
+                  {/* Error Display */}
+                  {error && (
+                    <Alert severity="error" sx={{ fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                      {error}
+                    </Alert>
+                  )}
 
-              {/* Output Display */}
-              {output && (
-                <Paper
-                  variant="outlined"
-                  sx={{
-                    p: 2,
-                    bgcolor: isDarkMode ? 'grey.800' : 'white',
-                    fontFamily: 'monospace',
-                    fontSize: '0.875rem',
-                    whiteSpace: 'pre-wrap',
-                    wordBreak: 'break-word',
-                    overflow: 'auto',
-                    mb: plotImages.length > 0 ? 2 : 0,
-                  }}
-                >
-                  {output}
-                </Paper>
-              )}
-
-              {/* Plot Images Display */}
-              {plotImages.length > 0 && (
-                <Box sx={{ mt: output ? 2 : 0 }}>
-                  <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
-                    Generated Plots:
-                  </Typography>
-                  {plotImages.map((imgData, idx) => (
-                    <Box 
-                      key={idx} 
-                      sx={{ 
-                        mb: 2,
-                        p: 1,
-                        bgcolor: 'white',
-                        borderRadius: 1,
-                        boxShadow: 1,
+                  {/* Output Display */}
+                  {output && (
+                    <Paper
+                      variant="outlined"
+                      sx={{
+                        p: 2,
+                        bgcolor: isDarkMode ? 'grey.800' : 'white',
+                        fontFamily: 'monospace',
+                        fontSize: '0.875rem',
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-word',
+                        overflow: 'auto',
+                        mb: plotImages.length > 0 ? 2 : 0,
                       }}
                     >
-                      <img 
-                        src={`data:image/png;base64,${imgData}`} 
-                        alt={`Plot ${idx + 1}`}
-                        style={{ 
-                          width: '100%',
-                          height: 'auto',
-                          display: 'block',
-                        }}
-                      />
+                      {output}
+                    </Paper>
+                  )}
+
+                  {/* Plot Images Display */}
+                  {plotImages.length > 0 && (
+                    <Box sx={{ mt: output ? 2 : 0 }}>
+                      <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
+                        Generated Plots:
+                      </Typography>
+                      {plotImages.map((imgData, idx) => (
+                        <Box 
+                          key={idx} 
+                          sx={{ 
+                            mb: 2,
+                            p: 1,
+                            bgcolor: 'white',
+                            borderRadius: 1,
+                            boxShadow: 1,
+                          }}
+                        >
+                          <img 
+                            src={`data:image/png;base64,${imgData}`} 
+                            alt={`Plot ${idx + 1}`}
+                            style={{ 
+                              width: '100%',
+                              height: 'auto',
+                              display: 'block',
+                            }}
+                          />
+                        </Box>
+                      ))}
                     </Box>
-                  ))}
+                  )}
+
+                  {/* Empty State */}
+                  {!output && !error && pyodideReady && plotImages.length === 0 && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200, color: 'text.secondary' }}>
+                      <Typography variant="body2">
+                        Click "Run Code" to see output here
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
               )}
 
-              {/* Empty State */}
-              {!output && !error && pyodideReady && plotImages.length === 0 && (
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'text.secondary' }}>
-                  <Typography variant="body2">
-                    Click "Run Code" to see output here
-                  </Typography>
+              {/* Debug Tab */}
+              {outputTab === 1 && (
+                <Box sx={{ p: 2 }}>
+                  {debugOutput.length > 0 ? (
+                    <>
+                      <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 600 }}>
+                        Execution Trace ({debugOutput.length} steps)
+                      </Typography>
+                      
+                      {/* Variables Table */}
+                      {Object.keys(variables).length > 0 && (
+                        <Paper variant="outlined" sx={{ mb: 2, overflow: 'hidden' }}>
+                          <Box sx={{ p: 1.5, bgcolor: isDarkMode ? 'grey.800' : 'grey.100', borderBottom: 1, borderColor: 'divider' }}>
+                            <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                              Final Variables
+                            </Typography>
+                          </Box>
+                          <TableContainer sx={{ maxHeight: 200 }}>
+                            <Table size="small" stickyHeader>
+                              <TableHead>
+                                <TableRow>
+                                  <TableCell sx={{ fontWeight: 600 }}>Variable</TableCell>
+                                  <TableCell sx={{ fontWeight: 600 }}>Value</TableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                {Object.entries(variables).map(([key, value]) => (
+                                  <TableRow key={key} hover>
+                                    <TableCell sx={{ fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                                      {key}
+                                    </TableCell>
+                                    <TableCell sx={{ fontFamily: 'monospace', fontSize: '0.875rem', color: 'primary.main' }}>
+                                      {value}
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                        </Paper>
+                      )}
+
+                      {/* Step-by-step execution trace */}
+                      <Paper variant="outlined" sx={{ overflow: 'hidden' }}>
+                        <Box sx={{ p: 1.5, bgcolor: isDarkMode ? 'grey.800' : 'grey.100', borderBottom: 1, borderColor: 'divider' }}>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                            Line-by-Line Execution
+                          </Typography>
+                        </Box>
+                        <Box sx={{ maxHeight: 400, overflow: 'auto' }}>
+                          {debugOutput.map((step, idx) => (
+                            <Box 
+                              key={idx}
+                              sx={{ 
+                                p: 1.5,
+                                borderBottom: idx < debugOutput.length - 1 ? 1 : 0,
+                                borderColor: 'divider',
+                                '&:hover': { bgcolor: isDarkMode ? 'grey.800' : 'grey.50' }
+                              }}
+                            >
+                              {step.error ? (
+                                <Alert severity="error" sx={{ fontSize: '0.875rem' }}>
+                                  <strong>{step.type}:</strong> {step.error}
+                                </Alert>
+                              ) : (
+                                <>
+                                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                                    <Chip 
+                                      label={`Line ${step.line}`} 
+                                      size="small" 
+                                      color="primary"
+                                      sx={{ fontFamily: 'monospace' }}
+                                    />
+                                    <Typography variant="caption" color="text.secondary">
+                                      Step {idx + 1}
+                                    </Typography>
+                                  </Box>
+                                  {step.vars && Object.keys(step.vars).length > 0 && (
+                                    <Box sx={{ 
+                                      bgcolor: isDarkMode ? 'grey.900' : 'grey.100',
+                                      p: 1,
+                                      borderRadius: 1,
+                                      fontFamily: 'monospace',
+                                      fontSize: '0.75rem'
+                                    }}>
+                                      {Object.entries(step.vars).map(([k, v]) => (
+                                        <Box key={k} sx={{ mb: 0.5 }}>
+                                          <span style={{ color: isDarkMode ? '#90caf9' : '#1976d2' }}>{k}</span>
+                                          {' = '}
+                                          <span style={{ color: isDarkMode ? '#a5d6a7' : '#388e3c' }}>{v}</span>
+                                        </Box>
+                                      ))}
+                                    </Box>
+                                  )}
+                                </>
+                              )}
+                            </Box>
+                          ))}
+                        </Box>
+                      </Paper>
+                    </>
+                  ) : (
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200, color: 'text.secondary', flexDirection: 'column', gap: 1 }}>
+                      <BugReportIcon sx={{ fontSize: 48, opacity: 0.3 }} />
+                      <Typography variant="body2">
+                        Click "Debug" to trace code execution step-by-step
+                      </Typography>
+                      <Typography variant="caption">
+                        See variables and line-by-line execution flow
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
               )}
             </Box>

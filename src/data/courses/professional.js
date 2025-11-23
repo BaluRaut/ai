@@ -62,7 +62,7 @@ export const professional = {
           codeExamples: [
             {
               title: 'Singleton Pattern',
-              code: `# Ensure only one instance of a class exists
+              code: String.raw`# Ensure only one instance of a class exists
 class DatabaseConnection:
     _instance = None
     
@@ -102,8 +102,22 @@ def singleton(cls):
 @singleton
 class Config:
     def __init__(self):
-        self.settings = {}`,
-              explanation: 'Singleton ensures only one instance exists. Useful for resources that should be shared (database connections, configs).'
+        self.settings = {}
+
+# Thread-safe Singleton
+import threading
+
+class ThreadSafeSingleton:
+    _instance = None
+    _lock = threading.Lock()
+    
+    def __new__(cls):
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = super().__new__(cls)
+        return cls._instance`,
+              explanation: 'Singleton ensures only one instance exists. Useful for resources that should be shared (database connections, configs). The thread-safe version prevents race conditions.'
             },
             {
               title: 'Factory Pattern',
@@ -148,21 +162,659 @@ doc2 = factory.create_document("word")
 print(doc1.create())  # Creating PDF document
 print(doc2.create())  # Creating Word document
 
-# More Pythonic approach using dictionary
+# More Pythonic approach with registration
 class DocumentFactory2:
-    _creators = {
-        "pdf": PDFDocument,
-        "word": WordDocument,
-        "excel": ExcelDocument
-    }
+    _creators = {}
+    
+    @classmethod
+    def register(cls, doc_type, creator):
+        cls._creators[doc_type] = creator
     
     @classmethod
     def create_document(cls, doc_type):
         creator = cls._creators.get(doc_type)
         if not creator:
             raise ValueError(f"Unknown type: {doc_type}")
-        return creator()`,
+        return creator()
+
+# Register document types
+DocumentFactory2.register("pdf", PDFDocument)
+DocumentFactory2.register("word", WordDocument)
+DocumentFactory2.register("excel", ExcelDocument)`,
               explanation: 'Factory pattern centralizes object creation logic, making code more flexible and easier to extend with new types.'
+            },
+            {
+              title: 'Builder Pattern',
+              code: String.raw`# Builder constructs complex objects step by step
+class Pizza:
+    def __init__(self):
+        self.size = None
+        self.cheese = False
+        self.pepperoni = False
+        self.mushrooms = False
+        self.olives = False
+    
+    def __str__(self):
+        toppings = []
+        if self.cheese: toppings.append("cheese")
+        if self.pepperoni: toppings.append("pepperoni")
+        if self.mushrooms: toppings.append("mushrooms")
+        if self.olives: toppings.append("olives")
+        return f"{self.size} pizza with {', '.join(toppings)}"
+
+class PizzaBuilder:
+    def __init__(self):
+        self.pizza = Pizza()
+    
+    def set_size(self, size):
+        self.pizza.size = size
+        return self
+    
+    def add_cheese(self):
+        self.pizza.cheese = True
+        return self
+    
+    def add_pepperoni(self):
+        self.pizza.pepperoni = True
+        return self
+    
+    def add_mushrooms(self):
+        self.pizza.mushrooms = True
+        return self
+    
+    def add_olives(self):
+        self.pizza.olives = True
+        return self
+    
+    def build(self):
+        return self.pizza
+
+# Usage - method chaining
+pizza = (PizzaBuilder()
+         .set_size("large")
+         .add_cheese()
+         .add_pepperoni()
+         .add_mushrooms()
+         .build())
+
+print(pizza)
+
+# Director class for common configurations
+class PizzaDirector:
+    @staticmethod
+    def margherita():
+        return (PizzaBuilder()
+                .set_size("medium")
+                .add_cheese()
+                .build())
+    
+    @staticmethod
+    def pepperoni_special():
+        return (PizzaBuilder()
+                .set_size("large")
+                .add_cheese()
+                .add_pepperoni()
+                .build())
+
+# Using director
+pizza1 = PizzaDirector.margherita()
+pizza2 = PizzaDirector.pepperoni_special()`,
+              explanation: 'Builder pattern separates construction from representation, allowing step-by-step object creation with method chaining. Great for objects with many optional parameters.'
+            },
+            {
+              title: 'Observer Pattern',
+              code: String.raw`# Observer pattern - subjects notify observers of changes
+class Subject:
+    def __init__(self):
+        self._observers = []
+        self._state = None
+    
+    def attach(self, observer):
+        if observer not in self._observers:
+            self._observers.append(observer)
+    
+    def detach(self, observer):
+        self._observers.remove(observer)
+    
+    def notify(self):
+        for observer in self._observers:
+            observer.update(self)
+    
+    def set_state(self, state):
+        self._state = state
+        self.notify()
+    
+    def get_state(self):
+        return self._state
+
+class Observer:
+    def update(self, subject):
+        pass
+
+class EmailAlert(Observer):
+    def update(self, subject):
+        print(f"Email: State changed to {subject.get_state()}")
+
+class SMSAlert(Observer):
+    def update(self, subject):
+        print(f"SMS: State changed to {subject.get_state()}")
+
+class LogAlert(Observer):
+    def update(self, subject):
+        print(f"Log: State changed to {subject.get_state()}")
+
+# Usage
+subject = Subject()
+
+email = EmailAlert()
+sms = SMSAlert()
+log = LogAlert()
+
+subject.attach(email)
+subject.attach(sms)
+subject.attach(log)
+
+subject.set_state("Processing")
+# Email: State changed to Processing
+# SMS: State changed to Processing
+# Log: State changed to Processing
+
+subject.detach(sms)
+subject.set_state("Complete")
+# Email: State changed to Complete
+# Log: State changed to Complete`,
+              explanation: 'Observer pattern defines one-to-many dependency - when subject changes, all observers are notified. Used in event systems, MVC frameworks, and data binding.'
+            },
+            {
+              title: 'Strategy Pattern',
+              code: String.raw`# Strategy pattern - select algorithm at runtime
+from abc import ABC, abstractmethod
+
+class PaymentStrategy(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCardPayment(PaymentStrategy):
+    def __init__(self, card_number):
+        self.card_number = card_number
+    
+    def pay(self, amount):
+        return f"Paid {amount} using Credit Card ending in {self.card_number[-4:]}"
+
+class PayPalPayment(PaymentStrategy):
+    def __init__(self, email):
+        self.email = email
+    
+    def pay(self, amount):
+        return f"Paid {amount} using PayPal ({self.email})"
+
+class CryptoPayment(PaymentStrategy):
+    def __init__(self, wallet_address):
+        self.wallet_address = wallet_address
+    
+    def pay(self, amount):
+        return f"Paid {amount} using Crypto ({self.wallet_address[:8]}...)"
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+        self.payment_strategy = None
+    
+    def add_item(self, item, price):
+        self.items.append({"item": item, "price": price})
+    
+    def set_payment_strategy(self, strategy):
+        self.payment_strategy = strategy
+    
+    def checkout(self):
+        total = sum(item["price"] for item in self.items)
+        if self.payment_strategy:
+            return self.payment_strategy.pay(total)
+        return "No payment method selected"
+
+# Usage
+cart = ShoppingCart()
+cart.add_item("Laptop", 1200)
+cart.add_item("Mouse", 25)
+
+# Pay with credit card
+cart.set_payment_strategy(CreditCardPayment("1234567890123456"))
+print(cart.checkout())
+
+# Pay with PayPal
+cart.set_payment_strategy(PayPalPayment("user@example.com"))
+print(cart.checkout())
+
+# Pay with Crypto
+cart.set_payment_strategy(CryptoPayment("0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb"))
+print(cart.checkout())`,
+              explanation: 'Strategy pattern defines a family of algorithms and makes them interchangeable. Client can choose which algorithm to use at runtime. Great for avoiding if-else chains.'
+            },
+            {
+              title: 'Decorator Pattern',
+              code: String.raw`# Decorator adds functionality without modifying original
+class Coffee:
+    def cost(self):
+        return 5
+    
+    def description(self):
+        return "Simple coffee"
+
+class CoffeeDecorator:
+    def __init__(self, coffee):
+        self._coffee = coffee
+    
+    def cost(self):
+        return self._coffee.cost()
+    
+    def description(self):
+        return self._coffee.description()
+
+class MilkDecorator(CoffeeDecorator):
+    def cost(self):
+        return self._coffee.cost() + 2
+    
+    def description(self):
+        return self._coffee.description() + ", milk"
+
+class SugarDecorator(CoffeeDecorator):
+    def cost(self):
+        return self._coffee.cost() + 1
+    
+    def description(self):
+        return self._coffee.description() + ", sugar"
+
+class WhippedCreamDecorator(CoffeeDecorator):
+    def cost(self):
+        return self._coffee.cost() + 3
+    
+    def description(self):
+        return self._coffee.description() + ", whipped cream"
+
+# Usage
+coffee = Coffee()
+print(f"{coffee.description()}: Price {coffee.cost()}")
+
+# Add milk
+coffee = MilkDecorator(coffee)
+print(f"{coffee.description()}: Price {coffee.cost()}")
+
+# Add sugar
+coffee = SugarDecorator(coffee)
+print(f"{coffee.description()}: Price {coffee.cost()}")
+
+# Add whipped cream
+coffee = WhippedCreamDecorator(coffee)
+print(f"{coffee.description()}: Price {coffee.cost()}")
+
+# Python's @decorator syntax
+def uppercase_decorator(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result.upper()
+    return wrapper
+
+@uppercase_decorator
+def greet(name):
+    return f"hello, {name}"
+
+print(greet("world"))  # HELLO, WORLD`,
+              explanation: 'Decorator pattern adds new functionality to objects dynamically without altering their structure. Python has built-in decorator syntax (@) for functions.'
+            },
+            {
+              title: 'Adapter Pattern',
+              code: String.raw`# Adapter makes incompatible interfaces work together
+class EuropeanSocket:
+    def voltage(self):
+        return 230
+    
+    def live(self):
+        return 1
+    
+    def neutral(self):
+        return -1
+
+class USASocket:
+    def voltage(self):
+        return 120
+    
+    def live(self):
+        return 1
+    
+    def neutral(self):
+        return -1
+
+class AmericanKettle:
+    def __init__(self, socket):
+        self.power = socket.voltage()
+    
+    def boil(self):
+        if self.power > 110:
+            return "Kettle is boiling!"
+        return "Voltage too low"
+
+# Adapter to use European socket with American kettle
+class Adapter:
+    def __init__(self, socket):
+        self.socket = socket
+    
+    def voltage(self):
+        # Convert 230V to 120V
+        return 120
+
+# Usage
+euro_socket = EuropeanSocket()
+adapter = Adapter(euro_socket)
+kettle = AmericanKettle(adapter)
+print(kettle.boil())
+
+# Another example: Media player adapter
+class MP3Player:
+    def play_mp3(self, filename):
+        print(f"Playing MP3: {filename}")
+
+class MP4Player:
+    def play_mp4(self, filename):
+        print(f"Playing MP4: {filename}")
+
+class MediaAdapter:
+    def __init__(self, file_type):
+        if file_type == "mp4":
+            self.player = MP4Player()
+        else:
+            self.player = None
+    
+    def play(self, file_type, filename):
+        if file_type == "mp4":
+            self.player.play_mp4(filename)
+
+class UniversalPlayer:
+    def play(self, file_type, filename):
+        if file_type == "mp3":
+            print(f"Playing MP3: {filename}")
+        else:
+            adapter = MediaAdapter(file_type)
+            adapter.play(file_type, filename)
+
+# Usage
+player = UniversalPlayer()
+player.play("mp3", "song.mp3")
+player.play("mp4", "video.mp4")`,
+              explanation: 'Adapter pattern allows incompatible interfaces to work together. Acts as a bridge between two incompatible interfaces. Common in legacy code integration.'
+            },
+            {
+              title: 'Facade Pattern',
+              code: String.raw`# Facade provides simplified interface to complex system
+class CPU:
+    def freeze(self):
+        print("CPU: Freezing...")
+    
+    def jump(self, position):
+        print(f"CPU: Jumping to {position}")
+    
+    def execute(self):
+        print("CPU: Executing...")
+
+class Memory:
+    def load(self, position, data):
+        print(f"Memory: Loading {data} at {position}")
+
+class HardDrive:
+    def read(self, sector, size):
+        return f"Data from sector {sector}"
+
+# Facade - simplified interface
+class ComputerFacade:
+    def __init__(self):
+        self.cpu = CPU()
+        self.memory = Memory()
+        self.hard_drive = HardDrive()
+    
+    def start(self):
+        print("Starting computer...")
+        self.cpu.freeze()
+        boot_data = self.hard_drive.read(0, 1024)
+        self.memory.load(0, boot_data)
+        self.cpu.jump(0)
+        self.cpu.execute()
+        print("Computer started!")
+
+# Usage - simple interface hides complexity
+computer = ComputerFacade()
+computer.start()
+
+# Another example: Restaurant facade
+class Chef:
+    def prepare_food(self, dish):
+        print(f"Chef preparing {dish}")
+
+class Waiter:
+    def take_order(self, dish):
+        print(f"Waiter taking order: {dish}")
+    
+    def serve_food(self):
+        print("Waiter serving food")
+
+class Cashier:
+    def process_payment(self, amount):
+        print(f"Processing payment: Price {amount}")
+
+class RestaurantFacade:
+    def __init__(self):
+        self.chef = Chef()
+        self.waiter = Waiter()
+        self.cashier = Cashier()
+    
+    def order_food(self, dish, price):
+        self.waiter.take_order(dish)
+        self.chef.prepare_food(dish)
+        self.waiter.serve_food()
+        self.cashier.process_payment(price)
+        print("Enjoy your meal!")
+
+# Simple usage
+restaurant = RestaurantFacade()
+restaurant.order_food("Pizza", 15)`,
+              explanation: 'Facade pattern provides a simplified interface to a complex subsystem. Reduces dependencies and makes code easier to use and understand.'
+            },
+            {
+              title: 'Command Pattern',
+              code: String.raw`# Command encapsulates requests as objects
+from abc import ABC, abstractmethod
+
+class Command(ABC):
+    @abstractmethod
+    def execute(self):
+        pass
+    
+    @abstractmethod
+    def undo(self):
+        pass
+
+class Light:
+    def on(self):
+        print("Light is ON")
+    
+    def off(self):
+        print("Light is OFF")
+
+class LightOnCommand(Command):
+    def __init__(self, light):
+        self.light = light
+    
+    def execute(self):
+        self.light.on()
+    
+    def undo(self):
+        self.light.off()
+
+class LightOffCommand(Command):
+    def __init__(self, light):
+        self.light = light
+    
+    def execute(self):
+        self.light.off()
+    
+    def undo(self):
+        self.light.on()
+
+class RemoteControl:
+    def __init__(self):
+        self.history = []
+    
+    def execute_command(self, command):
+        command.execute()
+        self.history.append(command)
+    
+    def undo_last(self):
+        if self.history:
+            command = self.history.pop()
+            command.undo()
+
+# Usage
+light = Light()
+light_on = LightOnCommand(light)
+light_off = LightOffCommand(light)
+
+remote = RemoteControl()
+remote.execute_command(light_on)   # Light is ON
+remote.execute_command(light_off)  # Light is OFF
+remote.undo_last()                 # Light is ON (undo)
+
+# Text editor with undo/redo
+class TextEditor:
+    def __init__(self):
+        self.text = ""
+    
+    def write(self, text):
+        self.text += text
+    
+    def delete(self, count):
+        self.text = self.text[:-count]
+
+class WriteCommand(Command):
+    def __init__(self, editor, text):
+        self.editor = editor
+        self.text = text
+    
+    def execute(self):
+        self.editor.write(self.text)
+    
+    def undo(self):
+        self.editor.delete(len(self.text))
+
+editor = TextEditor()
+cmd = WriteCommand(editor, "Hello")
+cmd.execute()
+print(editor.text)  # Hello
+cmd.undo()
+print(editor.text)  # (empty)`,
+              explanation: 'Command pattern encapsulates a request as an object, allowing parameterization and queuing of requests. Enables undo/redo functionality.'
+            },
+            {
+              title: 'Template Method Pattern',
+              code: String.raw`# Template method defines algorithm skeleton in base class
+from abc import ABC, abstractmethod
+
+class DataMiner(ABC):
+    # Template method
+    def mine(self, path):
+        data = self.open_file(path)
+        raw_data = self.extract_data(data)
+        analyzed = self.analyze_data(raw_data)
+        self.send_report(analyzed)
+        self.close_file(path)
+    
+    @abstractmethod
+    def open_file(self, path):
+        pass
+    
+    @abstractmethod
+    def extract_data(self, file):
+        pass
+    
+    @abstractmethod
+    def close_file(self, path):
+        pass
+    
+    # Common implementation
+    def analyze_data(self, data):
+        print(f"Analyzing data: {len(data)} records")
+        return data
+    
+    def send_report(self, data):
+        print(f"Report sent: {len(data)} records processed")
+
+class PDFDataMiner(DataMiner):
+    def open_file(self, path):
+        print(f"Opening PDF file: {path}")
+        return f"PDF content from {path}"
+    
+    def extract_data(self, file):
+        print("Extracting data from PDF")
+        return ["pdf_data_1", "pdf_data_2"]
+    
+    def close_file(self, path):
+        print(f"Closing PDF file: {path}")
+
+class CSVDataMiner(DataMiner):
+    def open_file(self, path):
+        print(f"Opening CSV file: {path}")
+        return f"CSV content from {path}"
+    
+    def extract_data(self, file):
+        print("Extracting data from CSV")
+        return ["csv_data_1", "csv_data_2", "csv_data_3"]
+    
+    def close_file(self, path):
+        print(f"Closing CSV file: {path}")
+
+# Usage
+pdf_miner = PDFDataMiner()
+pdf_miner.mine("data.pdf")
+
+print("---")
+
+csv_miner = CSVDataMiner()
+csv_miner.mine("data.csv")
+
+# Game AI template
+class GameAI(ABC):
+    def turn(self):
+        self.collect_resources()
+        self.build_structures()
+        self.build_units()
+        self.attack()
+    
+    def collect_resources(self):
+        print("Collecting resources")
+    
+    @abstractmethod
+    def build_structures(self):
+        pass
+    
+    @abstractmethod
+    def build_units(self):
+        pass
+    
+    def attack(self):
+        print("Attacking enemy")
+
+class AggressiveAI(GameAI):
+    def build_structures(self):
+        print("Building barracks")
+    
+    def build_units(self):
+        print("Building many soldiers")
+
+class DefensiveAI(GameAI):
+    def build_structures(self):
+        print("Building walls and towers")
+    
+    def build_units(self):
+        print("Building defensive units")`,
+              explanation: 'Template Method defines the skeleton of an algorithm in base class, letting subclasses override specific steps without changing overall structure.'
             }
           ]
         },

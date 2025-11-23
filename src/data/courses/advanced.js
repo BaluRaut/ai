@@ -1602,15 +1602,15 @@ except Exception as e:
         content: {
           overview: `Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.
 
-**Key Concepts:**
+Key Concepts:
 
-- **async/await**: Define and call asynchronous functions
-- **Event Loop**: Manages execution of async tasks
-- **Coroutines**: Functions that can pause and resume
-- **Tasks**: Wrapped coroutines that run concurrently
-- **asyncio**: Python's async programming library
+- async/await: Define and call asynchronous functions
+- Event Loop: Manages execution of async tasks
+- Coroutines: Functions that can pause and resume
+- Tasks: Wrapped coroutines that run concurrently
+- asyncio: Python's async programming library
 
-**When to Use:**
+When to Use:
 
 Use async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.`,
           keyPoints: [
@@ -1938,16 +1938,16 @@ asyncio.run(main())`,
         content: {
           overview: `Context managers ensure resources are properly acquired and released, even if errors occur. They implement the "with" statement protocol using __enter__ and __exit__ methods or the contextlib module.
 
-**What They Solve:**
+What They Solve:
 
 - Automatic resource cleanup (files, locks, connections)
 - Exception-safe resource handling
 - Clean, readable resource management code
 
-**Two Ways to Create:**
+Two Ways to Create:
 
-1. **Class-based**: Implement __enter__ and __exit__
-2. **Decorator-based**: Use @contextmanager decorator`,
+1. Class-based: Implement __enter__ and __exit__
+2. Decorator-based: Use @contextmanager decorator`,
           keyPoints: [
             'Context managers guarantee cleanup even if exceptions occur',
             '__enter__ acquires the resource and returns it',
@@ -2331,13 +2331,13 @@ asyncio.run(main())`,
         content: {
           overview: `Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.
 
-**Key Distinctions:**
+Key Distinctions:
 
-- **Iterable**: Any object that can return an iterator (__iter__ method)
-- **Iterator**: Object that produces values one at a time (__next__ method)
-- **Generator**: Special iterator created with yield
+- Iterable: Any object that can return an iterator (__iter__ method)
+- Iterator: Object that produces values one at a time (__next__ method)
+- Generator: Special iterator created with yield
 
-**When to Use:**
+When to Use:
 
 - Processing large datasets that don't fit in memory
 - Creating custom iteration logic
@@ -2717,14 +2717,14 @@ for batch_items in batch(range(10), 3):
         content: {
           overview: `Metaclasses are "classes of classes" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.
 
-**What Are Metaclasses?**
+What Are Metaclasses?
 
 - Classes are instances of metaclasses
 - The default metaclass is \`type\`
 - Metaclasses control class creation
 - Used for frameworks, ORMs, validation, logging
 
-**Key Insight:**
+Key Insight:
 
 \`\`\`python
 # Everything is an object
@@ -2733,7 +2733,7 @@ isinstance(int, type)       # True
 isinstance(type, type)      # True (type is its own metaclass!)
 \`\`\`
 
-**When to Use:**
+When to Use:
 
 Rarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.`,
           keyPoints: [

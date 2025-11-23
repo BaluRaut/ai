@@ -8,13 +8,13 @@ export const scikitLearnBasic = {
   content: {
     overview: `Start your machine learning journey with Scikit-learn! This module covers the fundamentals: what machine learning is, how to prepare data, and build your first predictive models.
 
-**What is Machine Learning?**
+What is Machine Learning?
 Machine learning enables computers to learn from data without explicit programming. Models identify patterns and make predictions on new, unseen data.
 
-**Why Scikit-learn?**
+Why Scikit-learn?
 Consistent API across algorithms, excellent documentation, production-ready code, and integration with the Python scientific stack.
 
-**What You'll Learn:**
+What You'll Learn:
 
 - Loading and exploring datasets
 - Splitting data for training and testing

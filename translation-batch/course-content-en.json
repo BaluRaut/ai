@@ -2,9 +2,9 @@
   "metadata": {
     "version": "1.0",
     "language": "en",
-    "totalCourses": 4,
-    "totalTopics": 44,
-    "createdAt": "2025-11-22T16:24:46.830Z"
+    "totalCourses": 5,
+    "totalTopics": 50,
+    "createdAt": "2025-11-23T15:49:03.725Z"
   },
   "courses": {
     "beginner": {
@@ -1520,7 +1520,7 @@
           "title": "List & Dict Comprehensions",
           "description": "Master Pythonic syntax for creating lists, dictionaries, and sets efficiently",
           "content": {
-            "overview": "Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.\n\n**List Comprehensions:** Create lists from iterables with optional filtering\n\n**Dict Comprehensions:** Build dictionaries with key-value transformations\n\n**Set Comprehensions:** Generate unique sets with filtering\n\n**Nested Comprehensions:** Handle multi-dimensional data structures\n\n**Why Use Comprehensions:**\n✓ More readable than equivalent for loops\n✓ Often faster than traditional loops\n✓ Pythonic and idiomatic code style\n✓ Compact syntax reduces code length",
+            "overview": "Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.\n\nList Comprehensions: Create lists from iterables with optional filtering\n\nDict Comprehensions: Build dictionaries with key-value transformations\n\nSet Comprehensions: Generate unique sets with filtering\n\nNested Comprehensions: Handle multi-dimensional data structures\n\nWhy Use Comprehensions:\n✓ More readable than equivalent for loops\n✓ Often faster than traditional loops\n✓ Pythonic and idiomatic code style\n✓ Compact syntax reduces code length",
             "keyPoints": [
               "Basic syntax: [expression for item in iterable]",
               "With condition: [expression for item in iterable if condition]",
@@ -1597,7 +1597,7 @@
           "title": "Decorators & Higher-Order Functions",
           "description": "Master function decorators and functional programming concepts",
           "content": {
-            "overview": "Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.\n\n**What are Decorators:**\n• Functions that take a function and return a modified function\n• Use @ symbol before function definition\n• Enable code reuse and separation of concerns\n\n**Common Use Cases:**\n• Logging and debugging\n• Performance timing\n• Access control and authentication\n• Caching/memoization\n• Input validation\n\n**Why Use Decorators:**\n✓ Don't repeat yourself (DRY principle)\n✓ Separate cross-cutting concerns\n✓ Clean and readable code\n✓ Widely used in frameworks (Flask, Django)",
+            "overview": "Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.\n\nWhat are Decorators:\n• Functions that take a function and return a modified function\n• Use @ symbol before function definition\n• Enable code reuse and separation of concerns\n\nCommon Use Cases:\n• Logging and debugging\n• Performance timing\n• Access control and authentication\n• Caching/memoization\n• Input validation\n\nWhy Use Decorators:\n✓ Don't repeat yourself (DRY principle)\n✓ Separate cross-cutting concerns\n✓ Clean and readable code\n✓ Widely used in frameworks (Flask, Django)",
             "keyPoints": [
               "Decorators are functions that wrap other functions",
               "Use @decorator_name syntax above function definition",
@@ -1674,7 +1674,7 @@
           "title": "Generators & Iterators",
           "description": "Master memory-efficient iteration with generators and iterators",
           "content": {
-            "overview": "Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.\n\n**What are Generators:**\n• Functions that use yield instead of return\n• Produce values one at a time (lazy evaluation)\n• Maintain state between calls\n• Can be infinite\n\n**Generator Expressions:**\n• Like list comprehensions but with () instead of []\n• Create generators without defining functions\n• Memory-efficient for large datasets\n\n**Why Use Generators:**\n✓ Memory efficient - don't store all values\n✓ Fast for large datasets\n✓ Can represent infinite sequences\n✓ Elegant for pipelines and streaming data",
+            "overview": "Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.\n\nWhat are Generators:\n• Functions that use yield instead of return\n• Produce values one at a time (lazy evaluation)\n• Maintain state between calls\n• Can be infinite\n\nGenerator Expressions:\n• Like list comprehensions but with () instead of []\n• Create generators without defining functions\n• Memory-efficient for large datasets\n\nWhy Use Generators:\n✓ Memory efficient - don't store all values\n✓ Fast for large datasets\n✓ Can represent infinite sequences\n✓ Elegant for pipelines and streaming data",
             "keyPoints": [
               "Use yield to create generator functions",
               "Generators are iterators - can only iterate once",
@@ -1751,7 +1751,7 @@
           "title": "Regular Expressions (Regex)",
           "description": "Master pattern matching and text processing with regular expressions",
           "content": {
-            "overview": "Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.\n\n**What are Regular Expressions:**\n• Pattern-matching language for strings\n• Used for searching, extracting, and replacing text\n• Supported across most programming languages\n• Essential for text processing and validation\n\n**Common Use Cases:**\n• Email/phone validation\n• Data extraction from text\n• Find and replace operations\n• Log file parsing\n• Web scraping\n\n**Why Learn Regex:**\n✓ Powerful text processing in one line\n✓ Industry standard for pattern matching\n✓ Works in Python, JavaScript, SQL, command line\n✓ Essential for data cleaning and validation",
+            "overview": "Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.\n\nWhat are Regular Expressions:\n• Pattern-matching language for strings\n• Used for searching, extracting, and replacing text\n• Supported across most programming languages\n• Essential for text processing and validation\n\nCommon Use Cases:\n• Email/phone validation\n• Data extraction from text\n• Find and replace operations\n• Log file parsing\n• Web scraping\n\nWhy Learn Regex:\n✓ Powerful text processing in one line\n✓ Industry standard for pattern matching\n✓ Works in Python, JavaScript, SQL, command line\n✓ Essential for data cleaning and validation",
             "keyPoints": [
               "Python re module provides regex functionality",
               ". matches any character, * means zero or more",
@@ -1828,7 +1828,7 @@
           "title": "Working with JSON & APIs",
           "description": "Master JSON data handling and REST API communication in Python",
           "content": {
-            "overview": "JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.\n\n**What is JSON:**\n• Lightweight data-interchange format\n• Human-readable text format\n• Based on JavaScript object syntax\n• Language-independent (works everywhere)\n\n**What are APIs:**\n• Application Programming Interfaces\n• Allow programs to communicate\n• REST APIs use HTTP requests (GET, POST, PUT, DELETE)\n• Return data usually in JSON format\n\n**Why Learn JSON & APIs:**\n✓ Essential for web development\n✓ Access data from any web service\n✓ Build data-driven applications\n✓ Integrate with third-party services",
+            "overview": "JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.\n\nWhat is JSON:\n• Lightweight data-interchange format\n• Human-readable text format\n• Based on JavaScript object syntax\n• Language-independent (works everywhere)\n\nWhat are APIs:\n• Application Programming Interfaces\n• Allow programs to communicate\n• REST APIs use HTTP requests (GET, POST, PUT, DELETE)\n• Return data usually in JSON format\n\nWhy Learn JSON & APIs:\n✓ Essential for web development\n✓ Access data from any web service\n✓ Build data-driven applications\n✓ Integrate with third-party services",
             "keyPoints": [
               "json.dumps() converts Python to JSON string",
               "json.loads() converts JSON string to Python",
@@ -2315,7 +2315,7 @@
           "title": "Async/Await & Concurrency",
           "description": "Master asynchronous programming for I/O-bound operations",
           "content": {
-            "overview": "Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.\n\n**Key Concepts:**\n\n- **async/await**: Define and call asynchronous functions\n- **Event Loop**: Manages execution of async tasks\n- **Coroutines**: Functions that can pause and resume\n- **Tasks**: Wrapped coroutines that run concurrently\n- **asyncio**: Python's async programming library\n\n**When to Use:**\n\nUse async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.",
+            "overview": "Asynchronous programming allows your program to perform other tasks while waiting for I/O operations (network requests, file operations, database queries). Python's async/await syntax makes concurrent programming more readable and efficient.\n\nKey Concepts:\n\n- async/await: Define and call asynchronous functions\n- Event Loop: Manages execution of async tasks\n- Coroutines: Functions that can pause and resume\n- Tasks: Wrapped coroutines that run concurrently\n- asyncio: Python's async programming library\n\nWhen to Use:\n\nUse async/await for I/O-bound operations (network, files, databases). For CPU-bound tasks, use multiprocessing instead.",
             "keyPoints": [
               "async def creates a coroutine function",
               "await pauses execution until the awaited task completes",
@@ -2398,7 +2398,7 @@
           "title": "Context Managers",
           "description": "Master resource management with context managers",
           "content": {
-            "overview": "Context managers ensure resources are properly acquired and released, even if errors occur. They implement the \"with\" statement protocol using __enter__ and __exit__ methods or the contextlib module.\n\n**What They Solve:**\n\n- Automatic resource cleanup (files, locks, connections)\n- Exception-safe resource handling\n- Clean, readable resource management code\n\n**Two Ways to Create:**\n\n1. **Class-based**: Implement __enter__ and __exit__\n2. **Decorator-based**: Use @contextmanager decorator",
+            "overview": "Context managers ensure resources are properly acquired and released, even if errors occur. They implement the \"with\" statement protocol using __enter__ and __exit__ methods or the contextlib module.\n\nWhat They Solve:\n\n- Automatic resource cleanup (files, locks, connections)\n- Exception-safe resource handling\n- Clean, readable resource management code\n\nTwo Ways to Create:\n\n1. Class-based: Implement __enter__ and __exit__\n2. Decorator-based: Use @contextmanager decorator",
             "keyPoints": [
               "Context managers guarantee cleanup even if exceptions occur",
               "__enter__ acquires the resource and returns it",
@@ -2481,7 +2481,7 @@
           "title": "Iterators & Iterables",
           "description": "Master iteration protocols and create custom iterators",
           "content": {
-            "overview": "Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.\n\n**Key Distinctions:**\n\n- **Iterable**: Any object that can return an iterator (__iter__ method)\n- **Iterator**: Object that produces values one at a time (__next__ method)\n- **Generator**: Special iterator created with yield\n\n**When to Use:**\n\n- Processing large datasets that don't fit in memory\n- Creating custom iteration logic\n- Lazy evaluation for performance\n- Infinite sequences",
+            "overview": "Iterators and iterables are fundamental to Python's for loops, comprehensions, and many built-in functions. Understanding them allows you to create memory-efficient, custom iteration logic.\n\nKey Distinctions:\n\n- Iterable: Any object that can return an iterator (__iter__ method)\n- Iterator: Object that produces values one at a time (__next__ method)\n- Generator: Special iterator created with yield\n\nWhen to Use:\n\n- Processing large datasets that don't fit in memory\n- Creating custom iteration logic\n- Lazy evaluation for performance\n- Infinite sequences",
             "keyPoints": [
               "Iterables have __iter__() returning an iterator",
               "Iterators have __next__() returning next value",
@@ -2564,7 +2564,7 @@
           "title": "Metaclasses",
           "description": "Master Python's class creation mechanism and metaprogramming",
           "content": {
-            "overview": "Metaclasses are \"classes of classes\" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.\n\n**What Are Metaclasses?**\n\n- Classes are instances of metaclasses\n- The default metaclass is `type`\n- Metaclasses control class creation\n- Used for frameworks, ORMs, validation, logging\n\n**Key Insight:**\n\n```python\n# Everything is an object\nisinstance(5, int)          # True\nisinstance(int, type)       # True\nisinstance(type, type)      # True (type is its own metaclass!)\n```\n\n**When to Use:**\n\nRarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.",
+            "overview": "Metaclasses are \"classes of classes\" - they define how classes behave. While rarely needed in everyday code, understanding metaclasses reveals Python's object model and enables powerful metaprogramming.\n\nWhat Are Metaclasses?\n\n- Classes are instances of metaclasses\n- The default metaclass is `type`\n- Metaclasses control class creation\n- Used for frameworks, ORMs, validation, logging\n\nKey Insight:\n\n```python\n# Everything is an object\nisinstance(5, int)          # True\nisinstance(int, type)       # True\nisinstance(type, type)      # True (type is its own metaclass!)\n```\n\nWhen to Use:\n\nRarely! Use when you need to modify class creation itself (frameworks, ORMs, DSLs). For most cases, decorators, descriptors, or __init_subclass__ are simpler.",
             "keyPoints": [
               "type is the default metaclass for all classes",
               "Classes are instances of their metaclass",
@@ -2707,11 +2707,43 @@
             "codeExamples": [
               {
                 "title": "Singleton Pattern",
-                "explanation": "Singleton ensures only one instance exists. Useful for resources that should be shared (database connections, configs)."
+                "explanation": "Singleton ensures only one instance exists. Useful for resources that should be shared (database connections, configs). The thread-safe version prevents race conditions."
               },
               {
                 "title": "Factory Pattern",
                 "explanation": "Factory pattern centralizes object creation logic, making code more flexible and easier to extend with new types."
+              },
+              {
+                "title": "Builder Pattern",
+                "explanation": "Builder pattern separates construction from representation, allowing step-by-step object creation with method chaining. Great for objects with many optional parameters."
+              },
+              {
+                "title": "Observer Pattern",
+                "explanation": "Observer pattern defines one-to-many dependency - when subject changes, all observers are notified. Used in event systems, MVC frameworks, and data binding."
+              },
+              {
+                "title": "Strategy Pattern",
+                "explanation": "Strategy pattern defines a family of algorithms and makes them interchangeable. Client can choose which algorithm to use at runtime. Great for avoiding if-else chains."
+              },
+              {
+                "title": "Decorator Pattern",
+                "explanation": "Decorator pattern adds new functionality to objects dynamically without altering their structure. Python has built-in decorator syntax (@) for functions."
+              },
+              {
+                "title": "Adapter Pattern",
+                "explanation": "Adapter pattern allows incompatible interfaces to work together. Acts as a bridge between two incompatible interfaces. Common in legacy code integration."
+              },
+              {
+                "title": "Facade Pattern",
+                "explanation": "Facade pattern provides a simplified interface to a complex subsystem. Reduces dependencies and makes code easier to use and understand."
+              },
+              {
+                "title": "Command Pattern",
+                "explanation": "Command pattern encapsulates a request as an object, allowing parameterization and queuing of requests. Enables undo/redo functionality."
+              },
+              {
+                "title": "Template Method Pattern",
+                "explanation": "Template Method defines the skeleton of an algorithm in base class, letting subclasses override specific steps without changing overall structure."
               }
             ]
           }
@@ -3445,6 +3477,667 @@
                 "explanation": "Entry point to start the chat server.\n\n**How to run:**\n```bash\npython run.py\n```\n\nThen open http://localhost:5000 in multiple browser windows to test!\n\n**Why separate run.py from app.py?**\n• Cleaner imports for testing\n• Can run with different configs\n• Production deployment easier (use WSGI server)"
               }
             ]
+          }
+        }
+      ]
+    },
+    "dataScience": {
+      "name": "dataScience",
+      "displayName": "Data Science with Python",
+      "topics": [
+        {
+          "id": "numpy",
+          "title": "NumPy Essentials",
+          "description": "Master numerical computing with NumPy arrays, operations, and best practices.",
+          "content": {
+            "overview": "NumPy (Numerical Python) is the foundational library for scientific computing in Python. It provides:\n\nPowerful N-dimensional array object (ndarray): Fast, memory-efficient arrays\n\nBroadcasting: Perform operations on arrays of different shapes\n\nMathematical functions: Linear algebra, Fourier transform, random numbers\n\nPerformance: Written in C, much faster than Python lists\n\nWhy NumPy?:\n✓ 10-100x faster than Python lists for numerical operations\n✓ Memory efficient - stores data contiguously\n✓ Enables vectorized operations (no loops needed)\n✓ Foundation for Pandas, SciPy, scikit-learn, TensorFlow",
+            "keyPoints": [
+              "NumPy arrays are homogeneous (all elements same type) and fixed-size",
+              "Vectorization eliminates slow Python loops - operate on entire arrays at once",
+              "Broadcasting allows operations between arrays of different shapes",
+              "Use .shape, .dtype, .ndim to inspect array properties",
+              "Indexing and slicing are powerful - support boolean and fancy indexing",
+              "Universal functions (ufuncs) apply element-wise operations efficiently"
+            ],
+            "useCases": [
+              {
+                "title": "Scientific Computing",
+                "description": "High-performance numerical simulations and mathematical computations",
+                "example": "Physics simulations, astronomy calculations, engineering analysis"
+              },
+              {
+                "title": "Machine Learning Preprocessing",
+                "description": "Prepare and transform data for ML models",
+                "example": "Feature scaling, normalization, array reshaping for neural networks"
+              },
+              {
+                "title": "Image & Signal Processing",
+                "description": "Manipulate images and audio signals as arrays",
+                "example": "Image filtering, compression, computer vision, audio processing"
+              },
+              {
+                "title": "Statistical Analysis",
+                "description": "Perform statistical computations and linear algebra operations",
+                "example": "Correlation analysis, regression, eigenvalue decomposition"
+              },
+              {
+                "title": "Financial Modeling",
+                "description": "Analyze financial data and build quantitative models",
+                "example": "Portfolio optimization, risk analysis, time series forecasting"
+              },
+              {
+                "title": "Deep Learning",
+                "description": "Matrix operations foundational to neural networks",
+                "example": "TensorFlow and PyTorch are built on NumPy arrays"
+              }
+            ],
+            "dos": [
+              "✓ Use vectorized operations instead of loops",
+              "✓ Specify dtype when creating arrays for memory efficiency",
+              "✓ Use .copy() when you need independent arrays",
+              "✓ Use broadcasting for operations on different-shaped arrays",
+              "✓ Pre-allocate arrays with zeros() or empty() for better performance",
+              "✓ Use axis parameter in functions like sum(), mean() for multi-dimensional ops"
+            ],
+            "donts": [
+              "✗ Don't use Python loops on large NumPy arrays (slow)",
+              "✗ Don't mix data types unnecessarily - causes upcasting",
+              "✗ Don't modify arrays during iteration",
+              "✗ Don't ignore views vs copies - understand when arrays share memory",
+              "✗ Don't use append() in loops - it's inefficient, pre-allocate instead",
+              "✗ Don't forget axis parameter - sum(arr) vs sum(arr, axis=0) are different"
+            ],
+            "bestPractices": [
+              "Use np.array() for small data, np.zeros/ones/empty for large arrays",
+              "Leverage broadcasting to avoid unnecessary array expansion",
+              "Use boolean indexing for filtering: arr[arr > 5]",
+              "Chain operations for readability: (arr * 2 + 3) / 5",
+              "Use np.where() for conditional operations instead of loops",
+              "Profile code with %timeit in Jupyter to measure performance gains"
+            ],
+            "codeExamples": [
+              {
+                "title": "1. Creating Arrays - Multiple Ways",
+                "explanation": "NumPy offers many ways to create arrays depending on your needs. Understanding when to use each method is crucial for performance."
+              },
+              {
+                "title": "2. Indexing and Slicing - Powerful Access",
+                "explanation": "NumPy indexing is similar to Python lists but more powerful with boolean and fancy indexing."
+              },
+              {
+                "title": "3. Vectorization - Avoid Loops!",
+                "explanation": "Vectorization is NumPy's superpower. Operations on entire arrays are 10-100x faster than Python loops."
+              },
+              {
+                "title": "4. Broadcasting - Different Shapes, No Problem",
+                "explanation": "Broadcasting allows NumPy to perform operations on arrays of different shapes without creating copies. It's memory-efficient and fast."
+              },
+              {
+                "title": "5. Reshaping and Transposing",
+                "explanation": "Changing array dimensions is common in data science. NumPy provides efficient methods for reshaping."
+              },
+              {
+                "title": "6. Aggregation Functions",
+                "explanation": "NumPy provides statistical functions that can operate on entire arrays or along specific axes."
+              },
+              {
+                "title": "7. Boolean Masking and np.where()",
+                "explanation": "Conditional operations without loops - filter and transform data efficiently."
+              },
+              {
+                "title": "8. Linear Algebra Operations",
+                "explanation": "NumPy excels at matrix operations - essential for data science and machine learning."
+              },
+              {
+                "title": "9. Random Numbers - Essential for ML",
+                "explanation": "NumPy's random module is crucial for data simulation, sampling, and machine learning."
+              },
+              {
+                "title": "10. Performance Tips - Views vs Copies",
+                "explanation": "Understanding when NumPy creates copies vs views is critical for memory and performance."
+              },
+              {
+                "title": "11. Advanced Indexing - Fancy and Multi-dimensional",
+                "explanation": "NumPy supports powerful indexing techniques for complex data selection including integer array indexing and multi-dimensional boolean indexing."
+              },
+              {
+                "title": "12. Array Stacking and Splitting",
+                "explanation": "Combine multiple arrays or split arrays into smaller pieces - essential for data manipulation and batch processing."
+              },
+              {
+                "title": "13. Universal Functions (ufuncs) - Fast Element-wise Operations",
+                "explanation": "Universal functions operate element-wise on arrays with C-level speed. They support broadcasting and are the key to NumPy performance."
+              },
+              {
+                "title": "14. Structured Arrays - Mix Data Types",
+                "explanation": "Structured arrays allow different data types in a single array, similar to database tables or pandas DataFrames."
+              },
+              {
+                "title": "15. Memory Layout and Performance Optimization",
+                "explanation": "Understanding C-contiguous vs Fortran-contiguous arrays and optimizing memory access patterns for maximum performance."
+              }
+            ]
+          }
+        },
+        {
+          "id": "pandas",
+          "title": "Pandas Mastery",
+          "description": "Master data manipulation and analysis with Pandas DataFrames and Series.",
+          "content": {
+            "overview": "Pandas is the most popular library for data manipulation and analysis in Python. Built on NumPy, it provides:\n\nDataFrame: 2D labeled data structure (like Excel spreadsheet or SQL table)\n\nSeries: 1D labeled array (single column/row)\n\nPowerful indexing: Access data by label or position\n\nData alignment: Automatic alignment in operations\n\nHandling missing data: Built-in functions for NaN handling\n\nGroupBy operations: Split-apply-combine for aggregations\n\nMerging/Joining: Combine datasets like SQL joins\n\nTime series: Extensive date/time functionality\n\nWhy Pandas?:\n✓ Handles real-world messy data (missing values, mixed types)\n✓ Intuitive syntax similar to SQL and Excel\n✓ Seamless integration with NumPy, Matplotlib, scikit-learn\n✓ Industry standard for data preprocessing in data science",
+            "keyPoints": [
+              "DataFrame is a 2D labeled data structure; Series is 1D",
+              "Use .loc[] for label-based indexing, .iloc[] for position-based indexing",
+              "Pandas automatically aligns data by index in operations",
+              "Missing data (NaN) is handled gracefully with fillna(), dropna()",
+              "GroupBy enables split-apply-combine pattern for aggregations",
+              "Merge, join, and concat combine multiple DataFrames"
+            ],
+            "useCases": [
+              {
+                "title": "Data Cleaning & Preprocessing",
+                "description": "Clean messy data and prepare it for machine learning models",
+                "example": "Handle missing values, remove duplicates, normalize data types"
+              },
+              {
+                "title": "Exploratory Data Analysis",
+                "description": "Analyze and understand datasets with summary statistics and grouping",
+                "example": "Customer segmentation, sales trend analysis, A/B testing"
+              },
+              {
+                "title": "Time Series Analysis",
+                "description": "Work with date/time data for forecasting and trend analysis",
+                "example": "Stock price analysis, weather forecasting, website traffic patterns"
+              },
+              {
+                "title": "Data Aggregation & Reporting",
+                "description": "Create pivot tables and aggregate data for business reports",
+                "example": "Sales dashboards, financial reports, KPI tracking"
+              },
+              {
+                "title": "ETL Operations",
+                "description": "Extract, Transform, Load data from multiple sources",
+                "example": "Merge CSV/Excel/SQL data, transform and export to databases"
+              },
+              {
+                "title": "Financial Analysis",
+                "description": "Analyze financial data and calculate key metrics",
+                "example": "Portfolio returns, risk metrics, accounting reconciliation"
+              }
+            ],
+            "dos": [
+              "✓ Use vectorized operations instead of iterrows() for performance",
+              "✓ Use .copy() to avoid SettingWithCopyWarning",
+              "✓ Chain operations for readability: df.dropna().groupby()",
+              "✓ Use .loc[] and .iloc[] explicitly to avoid ambiguity",
+              "✓ Set proper data types with .astype() to save memory",
+              "✓ Use inplace=True only when necessary (usually avoid it)"
+            ],
+            "donts": [
+              "✗ Don't use iterrows() on large DataFrames - use apply() or vectorization",
+              "✗ Don't modify a DataFrame while iterating over it",
+              "✗ Don't use chained assignment: df[df.A > 0]['B'] = 1 (causes warning)",
+              "✗ Don't ignore data types - int vs float vs object affects performance",
+              "✗ Don't use loops when Pandas has a built-in function",
+              "✗ Don't forget to reset_index() after filtering if needed"
+            ],
+            "bestPractices": [
+              "Read data with proper dtypes: pd.read_csv(..., dtype={...})",
+              "Check data with .head(), .info(), .describe() after loading",
+              "Use categorical dtype for low-cardinality string columns (saves memory)",
+              "Handle missing data explicitly: decide to drop, fill, or interpolate",
+              "Use .query() for readable filtering: df.query(\"age > 30\")",
+              "Profile memory usage with .memory_usage(deep=True)"
+            ],
+            "codeExamples": [
+              {
+                "title": "1. Creating DataFrames - Multiple Ways",
+                "explanation": "Pandas DataFrames can be created from dictionaries, lists, NumPy arrays, or read from files. Understanding creation methods is fundamental."
+              },
+              {
+                "title": "2. Indexing and Selection - .loc vs .iloc",
+                "explanation": "Pandas offers multiple ways to select data. .loc uses labels, .iloc uses integer positions. Master both to avoid confusion!"
+              },
+              {
+                "title": "3. Data Inspection and Exploration",
+                "explanation": "Always inspect your data after loading! These methods help you understand structure, types, and summary statistics."
+              },
+              {
+                "title": "4. Filtering and Querying Data",
+                "explanation": "Filtering is essential for data analysis. Pandas offers boolean indexing, .query(), and .isin() for flexible filtering."
+              },
+              {
+                "title": "5. Adding, Modifying, and Removing Columns",
+                "explanation": "DataFrames are mutable. You can add computed columns, modify existing ones, or remove columns easily."
+              },
+              {
+                "title": "6. Handling Missing Data",
+                "explanation": "Real-world data has missing values (NaN). Pandas provides powerful methods to detect, remove, or fill missing data."
+              },
+              {
+                "title": "7. GroupBy - Split-Apply-Combine",
+                "explanation": "GroupBy is one of Pandas' most powerful features. It splits data into groups, applies a function, and combines results."
+              },
+              {
+                "title": "8. Merging and Joining DataFrames",
+                "explanation": "Combining DataFrames is essential when working with relational data. Pandas provides merge (SQL-like joins) and concat (stacking)."
+              },
+              {
+                "title": "9. Sorting and Ranking",
+                "explanation": "Sorting is crucial for analysis and presentation. Pandas can sort by values or index, single or multiple columns."
+              },
+              {
+                "title": "10. Apply, Map, and Applymap",
+                "explanation": "Apply custom functions to Series or DataFrames. Use apply() for complex operations, map() for Series element-wise, applymap() for DataFrame element-wise."
+              },
+              {
+                "title": "11. Time Series Analysis - Resampling & Rolling Windows",
+                "explanation": "Pandas excels at time series analysis with date/time indexing, resampling, and rolling window operations for trend analysis."
+              },
+              {
+                "title": "12. Multi-Index (Hierarchical Indexing) - Advanced Operations",
+                "explanation": "Multi-index allows you to work with higher dimensional data in a 2D DataFrame. Essential for complex data analysis and pivot operations."
+              },
+              {
+                "title": "13. Advanced GroupBy - Transform, Apply, and Multiple Aggregations",
+                "explanation": "GroupBy is one of Pandas' most powerful features. Beyond basic aggregation, you can transform data, apply custom functions, and compute multiple statistics."
+              },
+              {
+                "title": "14. Pivot Tables and Cross-Tabulation - Advanced Reshaping",
+                "explanation": "Pivot tables are essential for data analysis and reporting. Pandas provides flexible pivot_table() and crosstab() for reshaping and aggregating data."
+              },
+              {
+                "title": "15. Performance Optimization - Memory & Speed",
+                "explanation": "Optimize Pandas for large datasets using proper dtypes, categorical data, chunking, and vectorization to improve both memory usage and execution speed."
+              }
+            ]
+          }
+        },
+        {
+          "id": "data-visualization",
+          "title": "Data Visualization",
+          "description": "Master data visualization with Matplotlib and Seaborn for stunning charts and insights.",
+          "content": {
+            "overview": "Data visualization transforms raw data into visual insights that are easy to understand and communicate. Python offers powerful libraries for creating professional visualizations.\n\nMatplotlib: The foundational plotting library for Python - highly customizable\n\nSeaborn: Built on Matplotlib, provides beautiful statistical visualizations with less code\n\nWhy Visualization Matters:\n✓ Reveals patterns and trends invisible in raw data\n✓ Communicates insights effectively to stakeholders\n✓ Essential for exploratory data analysis (EDA)\n✓ Makes data-driven decisions more accessible\n\nCommon Plot Types:\n• Line plots - Trends over time\n• Bar charts - Comparisons between categories\n• Scatter plots - Relationships between variables\n• Histograms - Distribution of data\n• Heatmaps - Correlation matrices\n• Box plots - Statistical distributions",
+            "keyPoints": [
+              "Matplotlib is the foundation - Seaborn builds on it for easier statistical plots",
+              "Use plt.figure() and plt.subplot() to create multiple plots in one figure",
+              "Seaborn automatically creates more beautiful plots with better default styling",
+              "Always label axes, add titles, and include legends for clarity",
+              "Choose the right plot type for your data - line for trends, scatter for correlation",
+              "Use color strategically - colormaps, palettes, and custom colors convey meaning"
+            ],
+            "useCases": [
+              {
+                "title": "Business Analytics",
+                "description": "Visualize sales trends, revenue, and KPIs for stakeholder presentations",
+                "example": "Sales dashboards, financial reports, marketing campaign performance"
+              },
+              {
+                "title": "Scientific Research",
+                "description": "Plot experimental results, statistical distributions, and correlations",
+                "example": "Research papers, lab reports, hypothesis testing visualizations"
+              },
+              {
+                "title": "Machine Learning",
+                "description": "Visualize model performance, feature importance, and decision boundaries",
+                "example": "Confusion matrices, ROC curves, learning curves, feature correlations"
+              },
+              {
+                "title": "Exploratory Data Analysis",
+                "description": "Discover patterns, outliers, and relationships in datasets",
+                "example": "Distribution plots, pair plots, correlation heatmaps"
+              },
+              {
+                "title": "Time Series Analysis",
+                "description": "Track trends, seasonality, and anomalies over time",
+                "example": "Stock prices, weather data, website traffic, sensor readings"
+              },
+              {
+                "title": "Statistical Analysis",
+                "description": "Visualize statistical relationships and probability distributions",
+                "example": "Regression plots, distribution fits, confidence intervals"
+              }
+            ],
+            "dos": [
+              "✓ Always label axes with units and meaningful names",
+              "✓ Add informative titles that explain what the plot shows",
+              "✓ Use legends when plotting multiple series",
+              "✓ Choose appropriate plot types for your data",
+              "✓ Use consistent color schemes across related plots",
+              "✓ Save plots in vector formats (PDF, SVG) for publications"
+            ],
+            "donts": [
+              "✗ Don't use 3D plots unless absolutely necessary (hard to read)",
+              "✗ Don't overuse colors - keep it simple and meaningful",
+              "✗ Don't create plots without labels - they become meaningless",
+              "✗ Don't use pie charts for more than 5-6 categories",
+              "✗ Don't ignore aspect ratios - distorted plots mislead",
+              "✗ Don't use default figure sizes for presentations - make them larger"
+            ],
+            "bestPractices": [
+              "Start with Seaborn for statistical plots, use Matplotlib for fine-tuning",
+              "Use plt.style.use() to set consistent styling across all plots",
+              "Set figure size with plt.figure(figsize=(width, height)) for readability",
+              "Use plt.tight_layout() to prevent label overlap",
+              "Save plots with high DPI for presentations: plt.savefig(..., dpi=300)",
+              "Use color-blind friendly palettes: sns.color_palette(\"colorblind\")"
+            ],
+            "codeExamples": [
+              {
+                "title": "1. Basic Line and Scatter Plots",
+                "explanation": "Line plots show trends over time. Scatter plots reveal relationships between variables. These are the most common visualization types."
+              },
+              {
+                "title": "2. Bar Charts and Histograms",
+                "explanation": "Bar charts compare categories. Histograms show distributions of continuous data. Essential for understanding data patterns."
+              },
+              {
+                "title": "3. Seaborn Statistical Plots",
+                "explanation": "Seaborn makes statistical plotting easier with beautiful defaults. Perfect for exploratory data analysis."
+              },
+              {
+                "title": "4. Correlation Heatmap",
+                "explanation": "Heatmaps visualize correlation matrices - essential for understanding relationships between multiple variables in datasets."
+              },
+              {
+                "title": "5. Subplots and Multiple Visualizations",
+                "explanation": "Create dashboard-style layouts with multiple plots to tell a complete data story."
+              },
+              {
+                "title": "6. Customization and Styling",
+                "explanation": "Make your plots publication-ready with custom styles, colors, and annotations."
+              },
+              {
+                "title": "7. Seaborn Regression and Distribution Plots",
+                "explanation": "Visualize relationships and distributions with Seaborn's powerful regression and distribution plotting functions."
+              },
+              {
+                "title": "8. Time Series Visualization",
+                "explanation": "Visualize trends, seasonality, and patterns in time-based data - crucial for financial and business analytics."
+              },
+              {
+                "title": "9. 3D Plotting - Surface and Scatter",
+                "explanation": "3D plots visualize three variables simultaneously. Use for surfaces, topography, or multi-dimensional relationships. While powerful, use sparingly as 2D projections often communicate better."
+              },
+              {
+                "title": "10. Advanced Subplots - GridSpec and Complex Layouts",
+                "explanation": "GridSpec provides fine-grained control over subplot layouts, allowing you to create complex dashboard-style figures with varying subplot sizes."
+              },
+              {
+                "title": "11. Interactive Elements and Annotations",
+                "explanation": "Add annotations, arrows, text boxes, and shapes to highlight key insights. Essential for presentations and reports to draw attention to important features."
+              },
+              {
+                "title": "12. Statistical Visualizations - Advanced Seaborn",
+                "explanation": "Seaborn excels at statistical visualizations. Explore violin plots, strip plots, swarm plots, and pair plots for multi-variable analysis."
+              },
+              {
+                "title": "13. Custom Colormaps and Color Palettes",
+                "explanation": "Color choice dramatically impacts readability and insights. Learn to create custom colormaps, use perceptually uniform palettes, and design color-blind friendly visualizations."
+              },
+              {
+                "title": "14. Saving Publication-Quality Figures",
+                "explanation": "Learn to export high-quality figures for papers, presentations, and web. Control DPI, format, transparency, and sizing for different output media."
+              }
+            ]
+          }
+        },
+        {
+          "id": "scikit-learn-basic",
+          "title": "Scikit-learn Basics",
+          "description": "Introduction to machine learning fundamentals with Scikit-learn",
+          "content": {
+            "overview": "Start your machine learning journey with Scikit-learn! This module covers the fundamentals: what machine learning is, how to prepare data, and build your first predictive models.\n\nWhat is Machine Learning?\nMachine learning enables computers to learn from data without explicit programming. Models identify patterns and make predictions on new, unseen data.\n\nWhy Scikit-learn?\nConsistent API across algorithms, excellent documentation, production-ready code, and integration with the Python scientific stack.\n\nWhat You'll Learn:\n\n- Loading and exploring datasets\n- Splitting data for training and testing\n- Building your first classification model\n- Building your first regression model\n- Evaluating model performance\n- Understanding the basics of preprocessing",
+            "keyPoints": [
+              "Machine learning learns patterns from data to make predictions",
+              "Always split data into training and testing sets",
+              "Classification predicts categories (spam/not spam, disease/healthy)",
+              "Regression predicts continuous values (house prices, temperature)",
+              "Feature scaling improves model performance for many algorithms",
+              "Accuracy tells you how often the model is correct",
+              "Scikit-learn has a consistent API: fit(), predict(), score()",
+              "Start simple - understand basic models before complex ones"
+            ],
+            "useCases": [
+              {
+                "title": "Email Spam Detection",
+                "description": "Classify emails as spam or not spam based on content and metadata.",
+                "example": "Email service uses Logistic Regression to filter spam with 95% accuracy"
+              },
+              {
+                "title": "House Price Estimation",
+                "description": "Predict house prices based on features like size, location, and age.",
+                "example": "Real estate app estimates prices within $20k using Linear Regression"
+              },
+              {
+                "title": "Customer Purchase Prediction",
+                "description": "Predict whether a customer will make a purchase based on browsing behavior.",
+                "example": "E-commerce site predicts purchases to show targeted offers"
+              }
+            ],
+            "dos": [
+              "Start by understanding your data - look at distributions and correlations",
+              "Always split data before any preprocessing",
+              "Use simple models first (Logistic Regression, Linear Regression)",
+              "Visualize your data and results",
+              "Check model accuracy on test data, not training data",
+              "Set random_state for reproducible results"
+            ],
+            "donts": [
+              "Don't train and test on the same data",
+              "Don't forget to scale features when needed",
+              "Don't ignore missing values - handle them properly",
+              "Don't skip data exploration",
+              "Don't expect perfect accuracy - no model is 100% accurate",
+              "Don't use complex models without understanding basics first"
+            ],
+            "bestPractices": [
+              "Always explore data with describe(), info(), and visualizations before modeling",
+              "Use train_test_split with test_size=0.2 or 0.3 as a good starting point",
+              "For classification, check class balance in your target variable",
+              "Start with default hyperparameters, then optimize later",
+              "Use appropriate metrics: accuracy for balanced classes, F1 for imbalanced"
+            ],
+            "codeExamples": [
+              {
+                "title": "1. Loading Data and Exploration",
+                "explanation": "First step in any ML project: load your data and understand it. We use built-in datasets to practice."
+              },
+              {
+                "title": "2. Train-Test Split - The Golden Rule",
+                "explanation": "Never test on training data! Split your data to get honest performance estimates."
+              },
+              {
+                "title": "3. Your First Classification Model",
+                "explanation": "Build a model to classify iris flowers into 3 species. This is your first complete ML workflow!"
+              },
+              {
+                "title": "4. Your First Regression Model",
+                "explanation": "Predict continuous values (disease progression) instead of categories. Learn the difference between classification and regression."
+              },
+              {
+                "title": "5. Feature Scaling - Why and When",
+                "explanation": "Some algorithms need features on similar scales. Learn when scaling helps and how to do it properly."
+              }
+            ]
+          }
+        },
+        {
+          "id": "scikit-learn-intermediate",
+          "title": "Scikit-learn Intermediate",
+          "description": "Master essential ML techniques: cross-validation, pipelines, and model optimization",
+          "content": {
+            "overview": "Build on your ML fundamentals with intermediate techniques. Learn to create robust models using cross-validation, automate workflows with pipelines, and optimize performance with hyperparameter tuning.\n\nWhat You'll Learn:\n\n- Cross-validation for reliable model evaluation  \n- Hyperparameter tuning with GridSearchCV\n- Building ML pipelines to prevent data leakage\n- Clustering for unsupervised learning\n- Handling imbalanced datasets\n- Feature importance and selection\n- Model persistence and deployment\n\nWhy These Skills Matter:\n\nCross-validation gives more reliable performance estimates than simple train-test splits. Pipelines prevent data leakage and make code production-ready. Hyperparameter tuning squeezes out maximum performance from your models.",
+            "keyPoints": [
+              "Cross-validation provides more reliable performance estimates",
+              "Pipelines prevent data leakage and make code reproducible",
+              "GridSearchCV automates hyperparameter tuning",
+              "Feature selection improves model performance and interpretability",
+              "Clustering finds patterns without labeled data",
+              "Handle imbalanced data with class_weight or resampling",
+              "Save models with joblib for production deployment",
+              "Combine preprocessing and modeling in pipelines",
+              "Use multiple metrics to evaluate model quality",
+              "Feature importance helps understand model decisions"
+            ],
+            "useCases": [
+              {
+                "title": "Customer Churn Prediction",
+                "description": "Use cross-validation and pipelines to build robust churn prediction models.",
+                "example": "Telecom company achieves 85% accuracy with RandomForest and proper validation"
+              },
+              {
+                "title": "Product Recommendation",
+                "description": "Clustering groups similar products for better recommendations.",
+                "example": "E-commerce site increases sales by 25% with K-Means product segmentation"
+              },
+              {
+                "title": "Credit Risk Assessment",
+                "description": "Handle imbalanced data (few defaults, many good loans) properly.",
+                "example": "Bank improves fraud detection recall from 60% to 85% with SMOTE"
+              }
+            ],
+            "dos": [
+              "Always use cross-validation for model selection",
+              "Build pipelines to automate preprocessing and prevent leakage",
+              "Tune hyperparameters systematically with GridSearchCV",
+              "Save entire pipelines, not just models",
+              "Use stratified cross-validation for classification",
+              "Check feature importance to understand models",
+              "Handle imbalanced data with appropriate techniques",
+              "Validate on multiple metrics, not just accuracy"
+            ],
+            "donts": [
+              "Don't tune hyperparameters on test data",
+              "Don't forget to include preprocessing in pipelines",
+              "Don't use default hyperparameters without tuning",
+              "Don't ignore class imbalance in classification",
+              "Don't save scalers and models separately",
+              "Don't skip cross-validation for final model selection",
+              "Don't use too many cross-validation folds on small datasets",
+              "Don't forget to set random_state for reproducibility"
+            ],
+            "bestPractices": [
+              "Use 5-10 folds for cross-validation (5 for small datasets, 10 for larger)",
+              "Combine Pipeline with GridSearchCV for proper hyperparameter tuning",
+              "Use StratifiedKFold for classification to maintain class proportions",
+              "For imbalanced data, use stratified splits and appropriate metrics (F1, ROC-AUC)",
+              "Save models with joblib.dump() including versioning information",
+              "Use RandomizedSearchCV for large hyperparameter spaces",
+              "Always inspect feature_importances_ to understand model decisions",
+              "Use cross_validate() to evaluate multiple metrics simultaneously"
+            ],
+            "codeExamples": [
+              {
+                "title": "1. Complete Classification Workflow",
+                "explanation": "End-to-end classification example with data splitting, preprocessing, training, and evaluation. This is the foundation of most ML projects."
+              },
+              {
+                "title": "2. Linear Regression with Evaluation",
+                "explanation": "Predict continuous values using linear regression. Includes multiple evaluation metrics and visualization of results."
+              },
+              {
+                "title": "3. Cross-Validation for Robust Evaluation",
+                "explanation": "Cross-validation splits data multiple ways to get more reliable performance estimates than a single train-test split."
+              },
+              {
+                "title": "4. Hyperparameter Tuning with GridSearchCV",
+                "explanation": "Automatically find the best hyperparameters by testing many combinations with cross-validation."
+              },
+              {
+                "title": "5. Pipeline for Streamlined Workflow",
+                "explanation": "Pipelines chain preprocessing and modeling steps, preventing data leakage and making code cleaner and more reproducible."
+              },
+              {
+                "title": "6. K-Means Clustering",
+                "explanation": "Unsupervised learning to group similar data points. Useful when you don't have labels and want to discover patterns."
+              },
+              {
+                "title": "7. Handling Imbalanced Datasets",
+                "explanation": "Real-world datasets often have imbalanced classes. Learn techniques to handle this and choose appropriate evaluation metrics."
+              },
+              {
+                "title": "8. Feature Importance and Selection",
+                "explanation": "Understand which features matter most and reduce dimensionality by keeping only important features."
+              },
+              {
+                "title": "9. Multi-class Classification with SVM",
+                "explanation": "Support Vector Machines for complex multi-class problems. SVM finds optimal boundaries between classes."
+              },
+              {
+                "title": "10. Model Persistence and Deployment",
+                "explanation": "Save trained models and load them later for predictions. Essential for deploying models to production."
+              }
+            ]
+          }
+        },
+        {
+          "id": "scikit-learn-advanced",
+          "title": "Scikit-learn Advanced",
+          "description": "Advanced ML techniques: ensemble methods, feature engineering, and production workflows",
+          "content": {
+            "overview": "Master advanced machine learning techniques used in production systems. Learn ensemble methods that win Kaggle competitions, feature engineering that makes or breaks models, and real-world workflows from data to deployment.\n\nWhat You'll Learn:\n\n- Ensemble methods (Bagging, Boosting, Stacking)\n- Advanced cross-validation strategies\n- Feature engineering and transformation pipelines\n- Handling real-world data challenges (missing values, outliers, imbalance)\n- End-to-end production ML workflows\n\nWhy These Skills Matter:\n\nEnsemble methods consistently outperform single models. Feature engineering often improves accuracy more than algorithm choice. Production ML requires handling messy real-world data and building robust, maintainable pipelines.",
+            "keyPoints": [
+              "Ensemble methods combine multiple models for better performance",
+              "Feature engineering creates informative features from raw data",
+              "Different CV strategies for different data types (time series, groups)",
+              "Real-world data has missing values, outliers, and class imbalance",
+              "Production ML requires robust pipelines and monitoring",
+              "Gradient Boosting usually wins on structured data",
+              "Polynomial features capture non-linear relationships",
+              "SMOTE and class_weight handle imbalanced datasets",
+              "End-to-end workflows combine all ML best practices",
+              "Model deployment includes preprocessing, prediction, and monitoring"
+            ],
+            "useCases": [
+              {
+                "title": "Kaggle Competitions",
+                "description": "Ensemble methods and feature engineering win competitions.",
+                "example": "Gradient Boosting + feature engineering achieves top 1% in house price prediction"
+              },
+              {
+                "title": "Production ML Systems",
+                "description": "Complete workflows from raw data to deployed models.",
+                "example": "Churn prediction system processes 1M customers daily with 85% accuracy"
+              },
+              {
+                "title": "Financial Forecasting",
+                "description": "Time series CV and robust preprocessing for stock/sales prediction.",
+                "example": "Retail chain forecasts sales 3 months ahead within 5% error"
+              }
+            ],
+            "dos": [
+              "Use ensemble methods for maximum performance",
+              "Engineer features based on domain knowledge",
+              "Use time series CV for temporal data",
+              "Handle missing values and outliers systematically",
+              "Build end-to-end pipelines for production",
+              "Monitor model performance in production",
+              "Version models and track experiments",
+              "Document feature engineering decisions"
+            ],
+            "donts": [
+              "Don't skip feature engineering - it's often more important than algorithms",
+              "Don't use regular CV for time series data",
+              "Don't ignore data leakage in feature engineering",
+              "Don't deploy models without monitoring",
+              "Don't overfit by creating too many features",
+              "Don't forget to handle edge cases in production",
+              "Don't use test data for any preprocessing decisions",
+              "Don't deploy without proper error handling"
+            ],
+            "bestPractices": [
+              "Start with Gradient Boosting for structured data",
+              "Create domain-specific features before trying complex algorithms",
+              "Use StratifiedKFold for classification, TimeSeriesSplit for temporal data",
+              "Build ColumnTransformer pipelines for mixed data types",
+              "Use SMOTE or class_weight for imbalanced data",
+              "Save preprocessing + model as single pipeline",
+              "Track experiments with version control and metadata",
+              "Deploy with proper monitoring and alerting"
+            ],
+            "codeExamples": []
           }
         }
       ]

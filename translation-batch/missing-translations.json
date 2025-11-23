@@ -1,0 +1,22 @@
+[
+  {
+    "course": "intermediate",
+    "path": "intermediate.name",
+    "text": "intermediate"
+  },
+  {
+    "course": "advanced",
+    "path": "advanced.topics[2].content.useCases[0].example",
+    "text": "utils.py, models.py, views.py, config.py"
+  },
+  {
+    "course": "advanced",
+    "path": "advanced.topics[2].content.useCases[3].example",
+    "text": "myapp.database, myapp.api, myapp.utils"
+  },
+  {
+    "course": "professional",
+    "path": "professional.name",
+    "text": "professional"
+  }
+]

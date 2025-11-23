@@ -6,6 +6,7 @@ import { beginner } from '../src/data/courses/beginner.js';
 import { intermediate } from '../src/data/courses/intermediate.js';
 import { advanced } from '../src/data/courses/advanced.js';
 import { professional } from '../src/data/courses/professional.js';
+import { dataScience } from '../src/data/courses/dataScience.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -47,7 +48,7 @@ async function main() {
     metadata: {
       version: '1.0',
       language: 'en',
-      totalCourses: 4,
+      totalCourses: 5,
       totalTopics: 0,
       createdAt: new Date().toISOString(),
     },
@@ -72,6 +73,11 @@ async function main() {
         displayName: 'Professional Python',
         topics: professional.topics.map(extractTopicContent),
       },
+      dataScience: {
+        name: 'dataScience',
+        displayName: 'Data Science with Python',
+        topics: dataScience.topics.map(extractTopicContent),
+      },
     }
   };
   
@@ -80,7 +86,8 @@ async function main() {
     consolidated.courses.beginner.topics.length +
     consolidated.courses.intermediate.topics.length +
     consolidated.courses.advanced.topics.length +
-    consolidated.courses.professional.topics.length;
+    consolidated.courses.professional.topics.length +
+    consolidated.courses.dataScience.topics.length;
   
   // Save consolidated JSON
   const outputPath = path.join(outputDir, 'course-content-en.json');
@@ -94,6 +101,7 @@ async function main() {
   console.log(`   - Intermediate: ${consolidated.courses.intermediate.topics.length}`);
   console.log(`   - Advanced: ${consolidated.courses.advanced.topics.length}`);
   console.log(`   - Professional: ${consolidated.courses.professional.topics.length}`);
+  console.log(`   - Data Science: ${consolidated.courses.dataScience.topics.length}`);
   
   // Calculate file size
   const stats = fs.statSync(outputPath);

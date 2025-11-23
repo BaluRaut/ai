@@ -1753,15 +1753,15 @@ def process_data(data: list[int]) -> dict[str, int]:
         content: {
           overview: `Comprehensions are a concise and readable way to create collections in Python. They provide elegant one-liner syntax for transforming, filtering, and combining data.
 
-**List Comprehensions:** Create lists from iterables with optional filtering
+List Comprehensions: Create lists from iterables with optional filtering
 
-**Dict Comprehensions:** Build dictionaries with key-value transformations
+Dict Comprehensions: Build dictionaries with key-value transformations
 
-**Set Comprehensions:** Generate unique sets with filtering
+Set Comprehensions: Generate unique sets with filtering
 
-**Nested Comprehensions:** Handle multi-dimensional data structures
+Nested Comprehensions: Handle multi-dimensional data structures
 
-**Why Use Comprehensions:**
+Why Use Comprehensions:
 ✓ More readable than equivalent for loops
 ✓ Often faster than traditional loops
 ✓ Pythonic and idiomatic code style
@@ -2046,19 +2046,19 @@ print("Transposed:", transposed)`,
         content: {
           overview: `Decorators are a powerful Python feature that allows you to modify or enhance functions without changing their code. They implement the decorator pattern from design patterns.
 
-**What are Decorators:**
+What are Decorators:
 • Functions that take a function and return a modified function
 • Use @ symbol before function definition
 • Enable code reuse and separation of concerns
 
-**Common Use Cases:**
+Common Use Cases:
 • Logging and debugging
 • Performance timing
 • Access control and authentication
 • Caching/memoization
 • Input validation
 
-**Why Use Decorators:**
+Why Use Decorators:
 ✓ Don't repeat yourself (DRY principle)
 ✓ Separate cross-cutting concerns
 ✓ Clean and readable code
@@ -2423,18 +2423,18 @@ print(delete_user(123))`,
         content: {
           overview: `Generators are a powerful Python feature for creating iterators in a memory-efficient way. They generate values on-the-fly instead of storing everything in memory.
 
-**What are Generators:**
+What are Generators:
 • Functions that use yield instead of return
 • Produce values one at a time (lazy evaluation)
 • Maintain state between calls
 • Can be infinite
 
-**Generator Expressions:**
+Generator Expressions:
 • Like list comprehensions but with () instead of []
 • Create generators without defining functions
 • Memory-efficient for large datasets
 
-**Why Use Generators:**
+Why Use Generators:
 ✓ Memory efficient - don't store all values
 ✓ Fast for large datasets
 ✓ Can represent infinite sequences
@@ -2819,20 +2819,20 @@ for key, group in itertools.groupby(data, key=lambda x: x[0]):
         content: {
           overview: `Regular expressions (regex) are powerful tools for matching patterns in text. They enable complex text searching, validation, and manipulation with concise syntax.
 
-**What are Regular Expressions:**
+What are Regular Expressions:
 • Pattern-matching language for strings
 • Used for searching, extracting, and replacing text
 • Supported across most programming languages
 • Essential for text processing and validation
 
-**Common Use Cases:**
+Common Use Cases:
 • Email/phone validation
 • Data extraction from text
 • Find and replace operations
 • Log file parsing
 • Web scraping
 
-**Why Learn Regex:**
+Why Learn Regex:
 ✓ Powerful text processing in one line
 ✓ Industry standard for pattern matching
 ✓ Works in Python, JavaScript, SQL, command line
@@ -3248,19 +3248,19 @@ print(f"\\nCase-insensitive matches: {matches}")`,
         content: {
           overview: `JSON (JavaScript Object Notation) is the standard format for data exchange on the web. Learning to work with JSON and APIs is essential for modern Python development.
 
-**What is JSON:**
+What is JSON:
 • Lightweight data-interchange format
 • Human-readable text format
 • Based on JavaScript object syntax
 • Language-independent (works everywhere)
 
-**What are APIs:**
+What are APIs:
 • Application Programming Interfaces
 • Allow programs to communicate
 • REST APIs use HTTP requests (GET, POST, PUT, DELETE)
 • Return data usually in JSON format
 
-**Why Learn JSON & APIs:**
+Why Learn JSON & APIs:
 ✓ Essential for web development
 ✓ Access data from any web service
 ✓ Build data-driven applications

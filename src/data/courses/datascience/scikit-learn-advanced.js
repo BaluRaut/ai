@@ -8,7 +8,7 @@ export const scikitLearnAdvanced = {
   content: {
     overview: `Master advanced machine learning techniques used in production systems. Learn ensemble methods that win Kaggle competitions, feature engineering that makes or breaks models, and real-world workflows from data to deployment.
 
-**What You'll Learn:**
+What You'll Learn:
 
 - Ensemble methods (Bagging, Boosting, Stacking)
 - Advanced cross-validation strategies
@@ -16,7 +16,7 @@ export const scikitLearnAdvanced = {
 - Handling real-world data challenges (missing values, outliers, imbalance)
 - End-to-end production ML workflows
 
-**Why These Skills Matter:**
+Why These Skills Matter:
 
 Ensemble methods consistently outperform single models. Feature engineering often improves accuracy more than algorithm choice. Production ML requires handling messy real-world data and building robust, maintainable pipelines.`,
 

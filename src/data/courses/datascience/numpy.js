@@ -6,15 +6,15 @@ export const numpy = {
   content: {
     overview: `NumPy (Numerical Python) is the foundational library for scientific computing in Python. It provides:
 
-**Powerful N-dimensional array object (ndarray):** Fast, memory-efficient arrays
+Powerful N-dimensional array object (ndarray): Fast, memory-efficient arrays
 
-**Broadcasting:** Perform operations on arrays of different shapes
+Broadcasting: Perform operations on arrays of different shapes
 
-**Mathematical functions:** Linear algebra, Fourier transform, random numbers
+Mathematical functions: Linear algebra, Fourier transform, random numbers
 
-**Performance:** Written in C, much faster than Python lists
+Performance: Written in C, much faster than Python lists
 
-**Why NumPy?:**
+Why NumPy?:
 ✓ 10-100x faster than Python lists for numerical operations
 ✓ Memory efficient - stores data contiguously
 ✓ Enables vectorized operations (no loops needed)

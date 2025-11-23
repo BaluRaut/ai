@@ -6,23 +6,23 @@ export const pandas = {
   content: {
     overview: `Pandas is the most popular library for data manipulation and analysis in Python. Built on NumPy, it provides:
 
-**DataFrame:** 2D labeled data structure (like Excel spreadsheet or SQL table)
+DataFrame: 2D labeled data structure (like Excel spreadsheet or SQL table)
 
-**Series:** 1D labeled array (single column/row)
+Series: 1D labeled array (single column/row)
 
-**Powerful indexing:** Access data by label or position
+Powerful indexing: Access data by label or position
 
-**Data alignment:** Automatic alignment in operations
+Data alignment: Automatic alignment in operations
 
-**Handling missing data:** Built-in functions for NaN handling
+Handling missing data: Built-in functions for NaN handling
 
-**GroupBy operations:** Split-apply-combine for aggregations
+GroupBy operations: Split-apply-combine for aggregations
 
-**Merging/Joining:** Combine datasets like SQL joins
+Merging/Joining: Combine datasets like SQL joins
 
-**Time series:** Extensive date/time functionality
+Time series: Extensive date/time functionality
 
-**Why Pandas?:**
+Why Pandas?:
 ✓ Handles real-world messy data (missing values, mixed types)
 ✓ Intuitive syntax similar to SQL and Excel
 ✓ Seamless integration with NumPy, Matplotlib, scikit-learn
