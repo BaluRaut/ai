@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "मुख्यपृष्ठ",
+    "learningPath": "शिकण्याचा मार्ग",
+    "progress": "प्रगती",
+    "quizPractice": "प्रश्नमंजुषा सराव",
+    "bookmarks": "खूणगाठी",
+    "achievements": "यश",
+    "giveFeedback": "अभिप्राय द्या"
+  },
+  "hero": {
+    "title": "क्लाउड कंप्युटिंगमध्ये निपुण व्हा",
+    "subtitle": "मूलभूत गोष्टींपासून व्यावसायिक-स्तरीय विकासापर्यंत क्लाउड शिकण्यासाठी तुमचा संपूर्ण मार्गदर्शक",
+    "startLearning": "शिकायला सुरुवात करा",
+    "viewProgress": "प्रगती",
+    "topicsCompleted": "विषय पूर्ण झाले!"
+  },
+  "_comment": "This file contains Marathi translations. You can fill in the rest of the translations based on the English common.json file structure."
+}

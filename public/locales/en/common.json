@@ -1,0 +1,407 @@
+{
+  "navigation": {
+    "home": "Home",
+    "learningPath": "Learning Path",
+    "progress": "Progress",
+    "quizPractice": "Quiz Practice",
+    "bookmarks": "Bookmarks",
+    "achievements": "Achievements",
+    "giveFeedback": "Give Feedback"
+  },
+  "hero": {
+    "title": "Master Cloud Computing",
+    "subtitle": "Your complete guide to learning Cloud from fundamentals to professional-level development",
+    "startLearning": "Start Learning",
+    "viewProgress": "Progress",
+    "topicsCompleted": "Topics Completed!"
+  },
+  "learningPath": {
+    "chooseYourPath": "Choose Your Learning Path",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "professional": "Professional",
+    "specialization": "Specialization",
+    "explorePaths": "Explore Paths",
+    "weeks": "weeks",
+    "days": "days",
+    "modules": "Modules",
+    "topics": "Topics",
+    "duration": "Duration",
+    "day": "Day",
+    "overview": "Overview"
+  },
+  "module": {
+    "keyPoints": "Key Points",
+    "examples": "Examples",
+    "practicalExercise": "Practical Exercise",
+    "additionalResources": "Additional Resources",
+    "diagramsAndVisuals": "Diagrams & Visuals",
+    "watchVideo": "Watch Video",
+    "viewDiagram": "View Diagram",
+    "relatedImage": "Related Image"
+  },
+  "quiz": {
+    "readyToTest": "Ready to Test Your Knowledge?",
+    "takeQuiz": "Take the quiz to reinforce what you've learned",
+    "startQuiz": "Start Quiz",
+    "questions": "Questions",
+    "question": "Question",
+    "of": "of",
+    "submitAnswer": "Submit Answer",
+    "nextQuestion": "Next Question",
+    "previousQuestion": "Previous",
+    "finishQuiz": "Finish Quiz",
+    "congratulations": "Congratulations!",
+    "keepLearning": "Keep Learning!",
+    "yourScore": "Your Score",
+    "passed": "Great job! You passed the quiz!",
+    "failed": "Review the material and try again!",
+    "retakeQuiz": "Retake Quiz",
+    "passingScore": "Passing Score",
+    "explanation": "Explanation"
+  },
+  "progress": {
+    "yourProgress": "Your Learning Progress",
+    "trackJourney": "Track your journey to cloud mastery!",
+    "topicsCompletedCount": "Topics Completed",
+    "quizzesPassed": "Quizzes Passed",
+    "overallProgress": "Overall Progress",
+    "daysActive": "Days Active",
+    "daysRemaining": "days remaining",
+    "outOf": "out of",
+    "completedModules": "Completed Modules",
+    "quizScores": "Quiz Scores",
+    "milestoneAchieved": "Milestone Achieved!",
+    "milestoneMessage": "You've completed",
+    "keepGoing": "of the course! Keep going!",
+    "moduleProgress": "Module Progress",
+    "currentStreak": "Current Streak",
+    "longestStreak": "Longest Streak",
+    "averageScore": "Average Quiz Score"
+  },
+  "actions": {
+    "markComplete": "Mark as Complete",
+    "completed": "Completed",
+    "backTo": "Back to",
+    "next": "Next",
+    "previous": "Previous",
+    "nextTopic": "Next Topic",
+    "previousTopic": "Previous Topic",
+    "learn": "Learn",
+    "review": "Review",
+    "continue": "Continue",
+    "start": "Start",
+    "finish": "Finish",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "download": "Download",
+    "print": "Print"
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "forLearners": "for Cloud learners",
+    "allRightsReserved": "All rights reserved",
+    "termsConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "aboutUs": "About Us",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us"
+  },
+  "phases": {
+    "phase": "Phase",
+    "foundation": "Foundation",
+    "coreServices": "Core Services",
+    "devOps": "DevOps",
+    "webServices": "Web Services",
+    "securityOps": "Security & Operations",
+    "advancedProjects": "Advanced & Projects"
+  },
+  "modules": {
+    "cloudIntro": {
+      "title": "Introduction to Cloud Computing",
+      "description": "Learn what cloud computing is, its history, how it works, and the different service models",
+      "topics": {
+        "whatIsCloud": "What is Cloud Computing?",
+        "history": "History of Cloud Computing",
+        "howItWorks": "How Cloud Computing Works",
+        "serviceModels": "Cloud Service Models (IaaS, PaaS, SaaS)",
+        "deploymentModels": "Cloud Deployment Models",
+        "benefits": "Benefits of Cloud Computing",
+        "challenges": "Challenges and Considerations",
+        "costModel": "Cloud Pricing Models",
+        "greenComputing": "Green Cloud Computing",
+        "futureOfCloud": "Future Trends in Cloud"
+      }
+    },
+    "networking": {
+      "title": "Networking Fundamentals",
+      "description": "Master networking basics, IP addresses, DNS, protocols, and cloud networking concepts",
+      "topics": {
+        "basics": "Networking Basics",
+        "ipAddresses": "IP Addresses Explained",
+        "dns": "DNS - The Internet's Phonebook",
+        "protocols": "Network Protocols",
+        "portsFirewalls": "Ports and Firewalls",
+        "tcpIp": "TCP/IP Model",
+        "subnet": "Subnetting and CIDR",
+        "routing": "Routing and Switching",
+        "loadBalancing": "Load Balancing",
+        "cdn": "Content Delivery Networks (CDN)"
+      }
+    },
+    "cloudProviders": {
+      "title": "Cloud Providers & Services",
+      "description": "Explore AWS, Google Cloud, Azure and their core services in depth",
+      "topics": {
+        "awsIntro": "Amazon Web Services (AWS) Overview",
+        "awsCore": "AWS Core Services",
+        "awsCompute": "AWS Compute Services Deep Dive",
+        "gcpIntro": "Google Cloud Platform Overview",
+        "gcpServices": "GCP Core Services",
+        "azureIntro": "Microsoft Azure Overview",
+        "azureServices": "Azure Core Services",
+        "comparison": "Provider Comparison",
+        "freeGier": "Free Tier and Credits",
+        "certification": "Cloud Certifications Path"
+      }
+    },
+    "compute": {
+      "title": "Compute Services",
+      "description": "VMs, Serverless, Containers, Kubernetes, and Auto Scaling",
+      "topics": {
+        "virtualMachines": "Virtual Machines in Cloud",
+        "ec2DeepDive": "AWS EC2 Deep Dive",
+        "instanceTypes": "Instance Types and Selection",
+        "serverless": "Serverless Computing",
+        "lambda": "AWS Lambda Functions",
+        "containers": "Introduction to Containers",
+        "docker": "Docker Fundamentals",
+        "kubernetes": "Kubernetes Basics",
+        "autoScaling": "Auto Scaling Strategies",
+        "costOptimization": "Compute Cost Optimization"
+      }
+    },
+    "storage": {
+      "title": "Storage Services",
+      "description": "Object, Block, File storage and Backup strategies",
+      "topics": {
+        "storageTypes": "Types of Cloud Storage",
+        "objectStorage": "Object Storage (S3, GCS, Blob)",
+        "blockStorage": "Block Storage (EBS, Persistent Disks)",
+        "fileStorage": "File Storage (EFS, Cloud Filestore)",
+        "databaseStorage": "Database Storage Options",
+        "backup": "Backup and Archive Strategies",
+        "dataLifecycle": "Data Lifecycle Management",
+        "dataMigration": "Data Migration to Cloud",
+        "storageClasses": "Storage Classes and Tiers",
+        "performance": "Storage Performance Optimization"
+      }
+    },
+    "databases": {
+      "title": "Database Services",
+      "description": "Relational, NoSQL, In-Memory, and Data Warehousing",
+      "topics": {
+        "sqlBasics": "SQL Database Fundamentals",
+        "rds": "Managed Relational Databases (RDS)",
+        "nosql": "NoSQL Databases Overview",
+        "documentDb": "Document Databases (MongoDB, DynamoDB)",
+        "keyValue": "Key-Value Stores (Redis, Memcached)",
+        "graphDb": "Graph Databases",
+        "timeSeriesDb": "Time-Series Databases",
+        "dataWarehousing": "Data Warehousing (Redshift, BigQuery)",
+        "databaseMigration": "Database Migration Strategies",
+        "performanceTuning": "Database Performance Tuning"
+      }
+    },
+    "git": {
+      "title": "Version Control with Git",
+      "description": "Master Git, GitHub, and collaboration workflows",
+      "topics": {
+        "gitBasics": "Git Fundamentals",
+        "gitCommands": "Essential Git Commands",
+        "branching": "Branching Strategies",
+        "github": "GitHub Workflow",
+        "pullRequests": "Pull Requests and Code Review",
+        "gitFlow": "Git Flow Model",
+        "conflicts": "Resolving Merge Conflicts",
+        "bestPractices": "Git Best Practices",
+        "advancedGit": "Advanced Git Techniques",
+        "githubActions": "Introduction to GitHub Actions"
+      }
+    },
+    "cicd": {
+      "title": "CI/CD Pipelines",
+      "description": "Continuous Integration, Delivery, and Deployment automation",
+      "topics": {
+        "whatIsCI": "What is Continuous Integration (CI)?",
+        "whatIsCD": "What is Continuous Delivery (CD)?",
+        "pipeline": "CI/CD Pipeline Explained",
+        "githubActions": "GitHub Actions for CI/CD",
+        "jenkins": "Jenkins Pipeline",
+        "gitlabCI": "GitLab CI/CD",
+        "testing": "Automated Testing in CI/CD",
+        "deployment": "Deployment Strategies",
+        "monitoring": "Pipeline Monitoring",
+        "bestPractices": "CI/CD Best Practices"
+      }
+    },
+    "iac": {
+      "title": "Infrastructure as Code",
+      "description": "Terraform, CloudFormation, and automated infrastructure",
+      "topics": {
+        "whatIsIaC": "What is Infrastructure as Code?",
+        "terraform": "Terraform Basics",
+        "terraformAdvanced": "Advanced Terraform",
+        "cloudFormation": "AWS CloudFormation",
+        "arm": "Azure Resource Manager",
+        "pulumi": "Pulumi - Modern IaC",
+        "ansible": "Ansible for Configuration",
+        "stateManagement": "State Management",
+        "modules": "Reusable IaC Modules",
+        "bestPractices": "IaC Best Practices"
+      }
+    },
+    "domains": {
+      "title": "Domain & Email Management",
+      "description": "Domain registration, DNS, subdomains, email setup, and SSL certificates",
+      "topics": {
+        "domainBasics": "What is a Domain Name?",
+        "registration": "How to Register a Domain",
+        "dnsRecords": "DNS Records Explained",
+        "subdomains": "Creating Subdomains",
+        "emailSetup": "Email with Custom Domain",
+        "mxRecords": "MX Records for Email",
+        "emailSecurity": "SPF, DKIM, and DMARC",
+        "ssl": "SSL Certificates (HTTPS)",
+        "domainTransfer": "Domain Transfer Process",
+        "domainPrivacy": "Domain Privacy Protection"
+      }
+    },
+    "security": {
+      "title": "Cloud Security",
+      "description": "IAM, Security best practices, Secrets management, and Compliance",
+      "topics": {
+        "securityBasics": "Cloud Security Fundamentals",
+        "iam": "Identity and Access Management (IAM)",
+        "encryption": "Encryption at Rest and in Transit",
+        "secrets": "Secrets Management",
+        "compliance": "Compliance and Governance",
+        "securityGroups": "Security Groups and NACLs",
+        "waf": "Web Application Firewall (WAF)",
+        "ddos": "DDoS Protection",
+        "penetrationTesting": "Security Testing",
+        "bestPractices": "Security Best Practices"
+      }
+    },
+    "monitoring": {
+      "title": "Monitoring & Logging",
+      "description": "CloudWatch, APM, Log management, and Alerting",
+      "topics": {
+        "monitoring": "Infrastructure Monitoring",
+        "cloudWatch": "AWS CloudWatch",
+        "logging": "Centralized Logging",
+        "metrics": "Custom Metrics and Dashboards",
+        "alerting": "Alerting and Notifications",
+        "apm": "Application Performance Monitoring",
+        "tracing": "Distributed Tracing",
+        "logAnalysis": "Log Analysis and Insights",
+        "incidents": "Incident Management",
+        "sla": "SLAs, SLOs, and SLIs"
+      }
+    },
+    "containersAdvanced": {
+      "title": "Advanced Containers & K8s",
+      "description": "Docker deep dive, Kubernetes mastery, Service mesh",
+      "topics": {
+        "dockerAdvanced": "Advanced Docker Concepts",
+        "dockerCompose": "Docker Compose",
+        "k8sArchitecture": "Kubernetes Architecture",
+        "k8sObjects": "Kubernetes Objects",
+        "deployments": "Deployments and StatefulSets",
+        "services": "Services and Ingress",
+        "configMaps": "ConfigMaps and Secrets",
+        "helm": "Helm Package Manager",
+        "serviceMesh": "Service Mesh (Istio)",
+        "k8sProduction": "Production Kubernetes"
+      }
+    },
+    "capstone": {
+      "title": "Capstone Projects",
+      "description": "Build complete cloud applications and prepare for certification",
+      "topics": {
+        "project1": "3-Tier Web Application",
+        "project2": "Serverless API with DynamoDB",
+        "project3": "Containerized Microservices",
+        "project4": "CI/CD Pipeline Implementation",
+        "project5": "Infrastructure as Code Project",
+        "certification": "AWS Certification Preparation",
+        "portfolio": "Building Your Cloud Portfolio",
+        "interview": "Cloud Interview Preparation",
+        "resume": "Cloud Resume Challenge",
+        "nextSteps": "Career Path and Next Steps"
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "notFound": "Not Found",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "reset": "Reset",
+    "apply": "Apply",
+    "clear": "Clear",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All"
+  },
+  "notifications": {
+    "topicCompleted": "Topic completed! Great job!",
+    "quizPassed": "Quiz passed! Moving forward!",
+    "quizFailed": "Quiz not passed. Review and try again!",
+    "progressSaved": "Progress saved successfully",
+    "errorOccurred": "An error occurred. Please try again.",
+    "accountCreated": "Account created successfully",
+    "settingsUpdated": "Settings updated successfully"
+  },
+  "placeholders": {
+    "search": "Search topics, modules...",
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "name": "Enter your name",
+    "comment": "Write a comment..."
+  },
+  "validation": {
+    "required": "This field is required",
+    "emailInvalid": "Please enter a valid email",
+    "passwordShort": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match",
+    "selectOption": "Please select an option"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "account": "Account",
+    "preferences": "Preferences",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "systemDefault": "System Default"
+  }
+}
