@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import * as amplitude from '@amplitude/analytics-browser';
+import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { ThemeModeProvider, useThemeMode } from './context/ThemeContext';
 import { ProgressProvider } from './context/ProgressContext';
@@ -15,7 +17,8 @@ import Terms from './pages/Terms/Terms';
 function AppContent() {
   const { mode } = useThemeMode();
   const theme = getTheme(mode);
-
+amplitude.add(sessionReplayPlugin());
+amplitude.init('cf9409dbde4fb96686ac8fabd345e057', {"autocapture":{"attribution":true,"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

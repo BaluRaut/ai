@@ -4,7 +4,7 @@
     "language": "en",
     "totalCourses": 5,
     "totalTopics": 50,
-    "createdAt": "2025-11-23T15:49:03.725Z"
+    "createdAt": "2025-11-24T12:13:13.636Z"
   },
   "courses": {
     "beginner": {
@@ -947,19 +947,19 @@
             ],
             "codeExamples": [
               {
-                "title": "Basic Input",
-                "explanation": "input() displays a prompt and waits for user to type and press Enter"
+                "title": "Basic Input (Simulated)",
+                "explanation": "input() displays a prompt and waits for user input. Note: Not available in browser-based Python environments. Run in a local IDE for interactive input."
               },
               {
-                "title": "Converting Input Types",
-                "explanation": "Use int(), float(), bool() to convert string input to other types"
+                "title": "Converting Input Types (Simulated)",
+                "explanation": "Convert string input to numbers using int() or float(). Always validate to prevent errors."
               },
               {
-                "title": "Input Validation",
-                "explanation": "Always validate input to prevent errors and ensure data quality"
+                "title": "Input Validation (Concept)",
+                "explanation": "Always validate input to prevent errors and ensure data quality. Note: Use these patterns in local Python IDE for interactive programs."
               },
               {
-                "title": "Real-World Example: Simple Calculator",
+                "title": "Calculator Example (Simulated)",
                 "explanation": "Robust input handling makes programs user-friendly and error-resistant"
               }
             ]

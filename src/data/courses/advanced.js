@@ -62,15 +62,20 @@ export const advanced = {
           codeExamples: [
             {
               title: 'Basic Exception Handling',
-              code: `# Basic try/except
-try:
-    number = int(input("Enter a number: "))
-    result = 10 / number
-    print("Result:", result)
-except ValueError:
-    print("Invalid input! Please enter a valid number.")
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
+              code: `# Basic try/except with simulated input
+# Simulated test cases
+test_inputs = ["5", "abc", "0", "10"]
+
+for test_val in test_inputs:
+    print(f"\\nTesting with input: '{test_val}'")
+    try:
+        number = int(test_val)  # In real Python: int(input("Enter a number: "))
+        result = 10 / number
+        print(f"✓ Result: {result}")
+    except ValueError:
+        print("✗ Invalid input! Please enter a valid number.")
+    except ZeroDivisionError:
+        print("✗ Cannot divide by zero!")
 
 # Catching multiple exceptions
 try:
@@ -79,6 +84,9 @@ except (ValueError, TypeError) as e:
     print("Error:", e)
 
 # Generic exception catch (use sparingly)
+def risky_operation():
+    raise RuntimeError("Something went wrong")
+
 try:
     risky_operation()
 except Exception as e:

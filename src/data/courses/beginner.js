@@ -1279,30 +1279,50 @@ print("Blast off! 🚀")
             },
             {
               title: 'while Loop - Condition-Based Repetition',
-              code: `# Input validation with while loop
+              code: `# Input validation with while loop (simulated)
 password = ""
 attempts = 0
 max_attempts = 3
 
-while len(password) < 8 and attempts < max_attempts:
-    password = input("Enter password (8+ chars): ")
+# Simulated password attempts
+test_passwords = ["abc", "pass", "password123"]
+
+for test_pass in test_passwords:
+    password = test_pass
     attempts += 1
     
     if len(password) < 8:
-        print(f"Too short! {max_attempts - attempts} attempts left")
+        print(f"'{password}' - Too short! {max_attempts - attempts} attempts left")
+        if attempts >= max_attempts:
+            break
+    else:
+        print(f"'{password}' - ✓ Password accepted!")
+        break
 
 if len(password) >= 8:
-    print("✓ Password accepted!")
+    print("Final: ✓ Password accepted!")
 else:
-    print("✗ Too many failed attempts")
+    print("Final: ✗ Too many failed attempts")
 
-# Game loop example
+# Game loop simulation
 score = 0
-playing = True
+# Simulated user actions
+actions = ["play", "play", "invalid", "play", "quit"]
 
-while playing:
+for action in actions:
     print(f"\\nCurrent score: {score}")
-    action = input("Enter 'play' to continue, 'quit' to exit: ")
+    print(f"Action: '{action}'")
+    
+    if action == "play":
+        score += 10
+        print("You earned 10 points!")
+    elif action == "quit":
+        print(f"Game over! Final score: {score}")
+        break
+    else:
+        print("Invalid action!")
+
+# Note: Real Python uses: password = input("Enter password: ")
     
     if action == "play":
         score += 10
@@ -2395,158 +2415,175 @@ def process_data(data):
           ],
           codeExamples: [
             {
-              title: 'Basic Input',
-              code: `# Simple input (returns string)
-name = input("What is your name? ")
+              title: 'Basic Input (Simulated)',
+              code: `# NOTE: input() is not supported in browser environment
+# This example demonstrates the concept using pre-defined values
+
+# Simulating input() - in real Python:
+# name = input("What is your name? ")
+name = "Alice"  # Simulated user input
 print(f"Hello, {name}!")
 
-# Input with prompt
-age = input("How old are you? ")
+# Simulating age input
+# age = input("How old are you? ")
+age = "25"  # input() always returns STRING
 print(f"You are {age} years old")
-# Note: age is a STRING, not a number!
+print(f"Type of age: {type(age)}")  # Shows it's a string
 
-# Multiple inputs
-first_name = input("First name: ")
-last_name = input("Last name: ")
+# Multiple inputs simulation
+first_name = "John"
+last_name = "Doe"
 full_name = f"{first_name} {last_name}"
 print(f"Full name: {full_name}")
 
-# Input without prompt (less user-friendly)
-data = input()  # Waits for input, no prompt displayed`,
-              explanation: 'input() displays a prompt and waits for user to type and press Enter'
+# Note: In terminal/IDE, use: input("Enter value: ")`,
+              explanation: 'input() displays a prompt and waits for user input. Note: Not available in browser-based Python environments. Run in a local IDE for interactive input.'
             },
             {
-              title: 'Converting Input Types',
-              code: `# Convert string input to integer
-age_str = input("Enter your age: ")
-age = int(age_str)  # Convert to integer
+              title: 'Converting Input Types (Simulated)',
+              code: `# Simulating type conversion from input
+# In real Python: age_str = input("Enter your age: ")
+age_str = "25"  # Simulated input
+age = int(age_str)  # Convert string to integer
 print(f"Next year you'll be {age + 1}")
 
-# Shorter version (convert immediately)
-age = int(input("Enter your age: "))
-height = float(input("Enter your height in meters: "))
+# Simulating immediate conversion
+# age = int(input("Enter your age: "))
+age = int("30")
+# height = float(input("Enter your height in meters: "))
+height = float("1.75")
+print(f"Age: {age}, Height: {height}m")
 
-# Multiple numeric inputs
-print("Enter two numbers:")
-num1 = int(input("First number: "))
-num2 = int(input("Second number: "))
+# Simulating numeric operations
+num1 = int("10")
+num2 = int("20")
 total = num1 + num2
 print(f"{num1} + {num2} = {total}")
 
-# Boolean input
-answer = input("Continue? (yes/no): ")
+# Boolean conversion
+answer = "yes"  # Simulated input
 should_continue = answer.lower() == "yes"
+print(f"Continue: {should_continue}")
 
-# Example with validation
-while True:
+# Validation example with simulated input
+test_ages = ["25", "150", "abc", "-5", "30"]
+for age_input in test_ages:
     try:
-        age = int(input("Enter your age: "))
+        age = int(age_input)
         if age > 0 and age < 150:
-            break
+            print(f"✓ Valid age: {age}")
         else:
-            print("Please enter a valid age (1-149)")
+            print(f"✗ Age out of range: {age}")
     except ValueError:
-        print("Please enter a number")`,
-              explanation: 'Use int(), float(), bool() to convert string input to other types'
+        print(f"✗ Invalid input: {age_input}")`,
+              explanation: 'Convert string input to numbers using int() or float(). Always validate to prevent errors.'
             },
             {
-              title: 'Input Validation',
-              code: `# Validate numeric input
-def get_positive_number(prompt):
-    """Get a positive number from user with validation."""
-    while True:
-        try:
-            value = float(input(prompt))
-            if value > 0:
-                return value
-            else:
-                print("❌ Please enter a positive number")
-        except ValueError:
-            print("❌ Please enter a valid number")
+              title: 'Input Validation (Concept)',
+              code: `# Input validation demonstration (simulated)
+def validate_positive_number(value_str):
+    """Validate and convert string to positive number."""
+    try:
+        value = float(value_str)
+        if value > 0:
+            return value, None  # Valid, no error
+        else:
+            return None, "Please enter a positive number"
+    except ValueError:
+        return None, "Please enter a valid number"
 
-price = get_positive_number("Enter price: $")
+# Test validation
+test_inputs = ["25.5", "-10", "abc", "0", "100"]
+for test_val in test_inputs:
+    result, error = validate_positive_number(test_val)
+    if error:
+        print(f"❌ '{test_val}': {error}")
+    else:
+        print(f"✓ '{test_val}' -> {result}")
 
 # Validate choice from options
-def get_choice(prompt, valid_options):
-    """Get user choice from valid options."""
-    while True:
-        choice = input(prompt).strip().lower()
-        if choice in valid_options:
-            return choice
-        else:
-            print(f"❌ Please choose from: {', '.join(valid_options)}")
+def validate_choice(choice_str, valid_options):
+    """Check if choice is in valid options."""
+    choice = choice_str.strip().lower()
+    if choice in valid_options:
+        return choice, None
+    else:
+        return None, f"Please choose from: {', '.join(valid_options)}"
 
-operation = get_choice(
-    "Choose operation (add/subtract/multiply/divide): ",
-    ["add", "subtract", "multiply", "divide"]
-)
+# Test choice validation
+operations = ["add", "multiply", "invalid", "divide"]
+valid_ops = ["add", "subtract", "multiply", "divide"]
+for op in operations:
+    result, error = validate_choice(op, valid_ops)
+    print(f"'{op}': {result if result else error}")
 
-# Validate yes/no
-def get_yes_no(prompt):
-    """Get yes/no answer from user."""
-    while True:
-        answer = input(prompt + " (yes/no): ").strip().lower()
-        if answer in ["yes", "y"]:
-            return True
-        elif answer in ["no", "n"]:
-            return False
-        else:
-            print("❌ Please answer 'yes' or 'no'")
+# Yes/No validation
+def validate_yes_no(answer_str):
+    """Convert yes/no to boolean."""
+    answer = answer_str.strip().lower()
+    if answer in ["yes", "y"]:
+        return True
+    elif answer in ["no", "n"]:
+        return False
+    else:
+        return None  # Invalid
 
-continue_program = get_yes_no("Do you want to continue?")`,
-              explanation: 'Always validate input to prevent errors and ensure data quality'
+responses = ["yes", "no", "maybe", "y", "n"]
+for resp in responses:
+    result = validate_yes_no(resp)
+    print(f"'{resp}' -> {result}")`,
+              explanation: 'Always validate input to prevent errors and ensure data quality. Note: Use these patterns in local Python IDE for interactive programs.'
             },
             {
-              title: 'Real-World Example: Simple Calculator',
-              code: `# Interactive calculator with input validation
-print("=== Simple Calculator ===")
-print()
+              title: 'Calculator Example (Simulated)',
+              code: `# Calculator demonstration with simulated inputs
+print("=== Simple Calculator ===\\n")
 
-# Get first number
-while True:
+# Simulated test cases
+test_cases = [
+    {"num1": "10", "op": "+", "num2": "5"},
+    {"num1": "20", "op": "-", "num2": "8"},
+    {"num1": "6", "op": "*", "num2": "7"},
+    {"num1": "15", "op": "/", "num2": "3"},
+    {"num1": "10", "op": "/", "num2": "0"},  # Error case
+]
+
+def calculate(num1_str, operation, num2_str):
+    """Perform calculation with validation."""
     try:
-        num1 = float(input("Enter first number: "))
-        break
-    except ValueError:
-        print("❌ Invalid number. Try again.")
-
-# Get operation
-while True:
-    operation = input("Choose operation (+, -, *, /): ").strip()
-    if operation in ['+', '-', '*', '/']:
-        break
-    else:
-        print("❌ Please choose +, -, *, or /")
-
-# Get second number
-while True:
-    try:
-        num2 = float(input("Enter second number: "))
+        num1 = float(num1_str)
+        num2 = float(num2_str)
+        
+        if operation not in ['+', '-', '*', '/']:
+            return f"❌ Invalid operation: {operation}"
+        
         if operation == '/' and num2 == 0:
-            print("❌ Cannot divide by zero. Try again.")
-        else:
-            break
+            return "❌ Cannot divide by zero"
+        
+        if operation == '+':
+            result = num1 + num2
+        elif operation == '-':
+            result = num1 - num2
+        elif operation == '*':
+            result = num1 * num2
+        else:  # operation == '/'
+            result = num1 / num2
+        
+        return f"{num1} {operation} {num2} = {result}"
     except ValueError:
-        print("❌ Invalid number. Try again.")
+        return "❌ Invalid number"
 
-# Perform calculation
-if operation == '+':
-    result = num1 + num2
-elif operation == '-':
-    result = num1 - num2
-elif operation == '*':
-    result = num1 * num2
-else:  # operation == '/'
-    result = num1 / num2
+# Test all cases
+for i, test in enumerate(test_cases, 1):
+    print(f"Test {i}:")
+    result = calculate(test["num1"], test["op"], test["num2"])
+    print(result)
+    print()
 
-print(f"\\n{num1} {operation} {num2} = {result}")
-
-# Ask to continue
-continue_calc = input("\\nCalculate again? (yes/no): ")
-if continue_calc.lower() in ['yes', 'y']:
-    print("Restarting calculator...")
-else:
-    print("Goodbye!")`,
+# Note: In real Python with input():
+# num1 = float(input("Enter first number: "))
+# operation = input("Choose operation (+, -, *, /): ")
+# num2 = float(input("Enter second number: "))`,
               explanation: 'Robust input handling makes programs user-friendly and error-resistant'
             }
           ]
