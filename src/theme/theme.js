@@ -5,14 +5,14 @@ export const getTheme = (mode) => createTheme({
   palette: {
     mode,
     primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
+      main: '#FF6B6B',
+      light: '#FF8787',
+      dark: '#E85555',
     },
     secondary: {
-      main: '#ff9800',
-      light: '#ffb74d',
-      dark: '#f57c00',
+      main: '#4ECDC4',
+      light: '#6FD9D1',
+      dark: '#3BB8AF',
     },
     success: {
       main: '#4caf50',

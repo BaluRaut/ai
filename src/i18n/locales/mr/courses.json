@@ -1,0 +1,117 @@
+{
+  "paths": {
+    "beginner": {
+      "title": "AI मूलभूत",
+      "description": "शून्य पासून AI आणि ML सुरू करा",
+      "level": "नवशिक्या"
+    },
+    "intermediate": {
+      "title": "मशीन लर्निंग",
+      "description": "ML अल्गोरिदम आणि डेटा सायन्स शिका",
+      "level": "मध्यम"
+    },
+    "professional": {
+      "title": "प्रगत AI",
+      "description": "डीप लर्निंग आणि प्रोडक्शन AI",
+      "level": "प्रगत"
+    },
+    "dataVisualization": {
+      "title": "डेटा व्हिज्युअलायझेशन",
+      "description": "Matplotlib, Seaborn, Plotly आणि Streamlit शिका",
+      "level": "मध्यम"
+    },
+    "professionalPractices": {
+      "title": "व्यावसायिक पद्धती",
+      "description": "ML प्रकल्प रचना, डिप्लॉयमेंट आणि MLOps",
+      "level": "प्रगत"
+    }
+  },
+  "modules": {
+    "fundamentals": "AI मूलतत्त्वे",
+    "machineLearning": "मशीन लर्निंग",
+    "deepLearning": "डीप लर्निंग",
+    "advancedAI": "प्रगत AI",
+    "specializations": "विशेषज्ञता",
+    "dataVisualization": "डेटा व्हिज्युअलायझेशन",
+    "professionalPractices": "व्यावसायिक पद्धती"
+  },
+  "topics": {
+    "matplotlib": "Matplotlib मूलभूत",
+    "seaborn": "Seaborn सह सांख्यिकी व्हिज्युअलायझेशन",
+    "plotly": "Plotly सह परस्परसंवादी आलेख",
+    "streamlit": "Streamlit सह अॅप्स तयार करणे",
+    "dashboards": "डेटा डॅशबोर्ड",
+    "mlProjectStructure": "ML प्रकल्प रचना",
+    "modelDeployment": "मॉडेल डिप्लॉयमेंट",
+    "automl": "AutoML प्लॅटफॉर्म",
+    "industryAI": "उद्योग AI अनुप्रयोग",
+    "capstoneProjects": "कॅपस्टोन प्रकल्प"
+  },
+  "topic": {
+    "overview": "विहंगावलोकन",
+    "keyPoints": "मुख्य मुद्दे",
+    "useCases": "वास्तविक-जगातील वापर प्रकरणे",
+    "codeExamples": "कोड उदाहरणे",
+    "practiceExercises": "सराव व्यायाम",
+    "bestPractices": "सर्वोत्तम पद्धती",
+    "quiz": "प्रश्नमंजुषा घ्या",
+    "downloadProject": "प्रकल्प डाउनलोड करा",
+    "completed": "पूर्ण झाले",
+    "bookmark": "वाचनखूण",
+    "removeBookmark": "वाचनखूण काढा",
+    "markComplete": "पूर्ण म्हणून चिन्हांकित करा",
+    "previous": "मागील",
+    "next": "पुढील",
+    "difficulty": "कठीणता",
+    "estimatedTime": "अंदाजे वेळ",
+    "prerequisites": "पूर्वअपेक्षा",
+    "minutes": "मिनिटे",
+    "hours": "तास",
+    "dos": "काय करावे",
+    "donts": "काय करू नये",
+    "fileStructure": "फाईल रचना",
+    "explanation": "स्पष्टीकरण",
+    "realWorldApplications": "वास्तविक-जगातील अनुप्रयोग",
+    "concepts": "मुख्य संकल्पना",
+    "hints": "सूचना",
+    "apps": "अॅप्स",
+    "features": "वैशिष्ट्ये",
+    "domain": "डोमेन"
+  },
+  "progress": {
+    "title": "तुमची प्रगती",
+    "subtitle": "तुमच्या AI शिकण्याच्या प्रवासाचा मागोवा घ्या",
+    "topicsCompleted": "पूर्ण झालेले विषय",
+    "totalTopics": "एकूण विषय",
+    "quizzesTaken": "घेतलेल्या प्रश्नमंजुषा",
+    "averageScore": "सरासरी गुण",
+    "learningStreak": "शिकण्याचा सलग क्रम",
+    "days": "दिवस",
+    "continueLearning": "शिकणे सुरू ठेवा",
+    "recentActivity": "अलीकडील क्रियाकलाप",
+    "completionRate": "पूर्णता दर",
+    "overallProgress": "एकूण प्रगती",
+    "outOf": "पैकी",
+    "total": "एकूण",
+    "assessmentsCompleted": "मूल्यांकन पूर्ण",
+    "quizPerformance": "प्रश्नमंजुषा कामगिरी",
+    "progressByPath": "शिकण्याच्या मार्गानुसार प्रगती",
+    "of": "चे",
+    "topicsCompletedLower": "विषय पूर्ण झाले"
+  },
+  "bookmarks": {
+    "title": "वाचनखुणांकित विषय",
+    "noBookmarks": "अद्याप कोणतीही वाचनखूण नाही",
+    "addBookmarks": "नंतर त्यांना द्रुतगतीने प्रवेश करण्यासाठी विषयांना वाचनखूण करा",
+    "removeAll": "सर्व काढा",
+    "viewTopic": "विषय पहा",
+    "bookmarkedTopics": "वाचनखुणा केलेले विषय"
+  },
+  "achievements": {
+    "title": "तुमची यशे",
+    "unlocked": "अनलॉक केले",
+    "locked": "लॉक केलेले",
+    "earned": "मिळवले",
+    "progress": "प्रगती"
+  }
+}

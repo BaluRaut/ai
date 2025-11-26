@@ -1,0 +1,1452 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "language": "en",
+    "platform": "AI Learning Platform",
+    "totalCourses": 5,
+    "totalTopics": 54,
+    "createdAt": "2025-11-24",
+    "description": "Complete AI and Machine Learning curriculum from fundamentals to specializations"
+  },
+  "courses": {
+    "fundamentals": {
+      "name": "fundamentals",
+      "displayName": "AI Fundamentals",
+      "description": "Build a strong foundation in artificial intelligence concepts, terminology, and basic applications",
+      "topics": [
+        {
+          "id": "what-is-ai",
+          "title": "What is Artificial Intelligence?",
+          "description": "Understanding AI, its history, and modern applications",
+          "content": {
+            "overview": "Artificial Intelligence (AI) is the science of making computers smart - teaching machines to think, learn, and make decisions like humans. Think of AI as giving computers a brain. Just like you learned to recognize cats by seeing many cat pictures, AI systems learn patterns from data. AI is already everywhere: Netflix recommendations, voice assistants like Siri, self-driving cars, and spam filters in your email.",
+            "keyPoints": [
+              "AI makes machines smart - they can learn, reason, and solve problems",
+              "Machine Learning is the main way we create AI today (computers learn from examples)",
+              "AI is narrow (good at one task) or general (human-like, still future)",
+              "AI needs lots of data to learn patterns",
+              "AI is used in healthcare, finance, entertainment, transportation"
+            ],
+            "useCases": [
+              {
+                "title": "Healthcare - Disease Detection",
+                "description": "AI analyzes medical images to detect cancer, predict diseases, recommend treatments",
+                "example": "AI scans X-rays and finds tumors doctors might miss, saving lives"
+              },
+              {
+                "title": "Finance - Fraud Detection",
+                "description": "AI monitors millions of transactions to catch fraud in real-time",
+                "example": "Your credit card company uses AI to block suspicious purchases instantly"
+              },
+              {
+                "title": "Entertainment - Recommendations",
+                "description": "AI learns what you like and suggests movies, music, products",
+                "example": "Netflix knows what shows you'll love based on what you watched before"
+              },
+              {
+                "title": "Transportation - Self-Driving Cars",
+                "description": "AI drives cars by recognizing roads, pedestrians, traffic signs",
+                "example": "Tesla cars can park themselves and drive on highways"
+              }
+            ],
+            "dos": [
+              "Think of AI as pattern recognition - computers finding patterns in data",
+              "Understand AI needs training data to learn (like you need examples to learn)",
+              "Know that current AI is narrow - good at specific tasks, not everything",
+              "Remember AI complements humans, doesn't replace human judgment entirely"
+            ],
+            "donts": [
+              "Don't think AI is magic - it's math and statistics",
+              "Don't expect AI to be perfect - it makes mistakes like humans",
+              "Don't believe AI can do everything - it's specialized",
+              "Don't ignore AI ethics - bias and fairness are real concerns"
+            ],
+            "bestPractices": [
+              "Learn the basics before diving into complex topics",
+              "Start with real-world examples to understand AI applications",
+              "Understand both capabilities and limitations of AI",
+              "Consider ethical implications of AI systems"
+            ]
+          }
+        },
+        {
+          "id": "ai-ml-dl-differences",
+          "title": "AI vs Machine Learning vs Deep Learning",
+          "description": "Understanding the relationship and differences between AI, ML, and DL",
+          "content": {
+            "overview": "AI, Machine Learning, and Deep Learning are related but different. Think of them as nested circles: AI is the biggest circle (the goal), Machine Learning is inside AI (the method), and Deep Learning is inside ML (a special technique). AI is the dream of smart machines. Machine Learning is how we achieve it today (computers learn from examples). Deep Learning is a powerful ML technique inspired by human brains.",
+            "keyPoints": [
+              "AI is the broadest concept - any technique making machines smart",
+              "Machine Learning is a subset of AI - computers learn from data without being programmed",
+              "Deep Learning is a subset of ML - uses brain-inspired neural networks",
+              "AI existed before ML (rule-based systems), but ML dominates today",
+              "Deep Learning needs lots of data and computing power, but achieves amazing results"
+            ]
+          }
+        },
+        {
+          "id": "types-of-ai",
+          "title": "Types of AI: Narrow, General, and Super AI",
+          "description": "Understanding different classifications of AI systems",
+          "content": {
+            "overview": "AI comes in three types based on capability. Narrow AI (what we have now) is smart at one specific task - like playing chess or recognizing faces. It can't do anything outside its specialty. General AI (not yet invented) would be as smart as humans - able to learn any task a human can. Super AI (science fiction for now) would be smarter than all humans combined. Today's AI is all narrow - very smart at specific jobs but can't do everything.",
+            "keyPoints": [
+              "Narrow AI: Specialized in one task (all current AI)",
+              "General AI: Human-level intelligence across all tasks (future)",
+              "Super AI: Smarter than humans (theoretical)",
+              "We only have Narrow AI today - even advanced systems are specialized",
+              "General AI could arrive in decades, Super AI is uncertain"
+            ]
+          }
+        },
+        {
+          "id": "real-world-applications",
+          "title": "Real-World AI Applications",
+          "description": "How AI is being used across different industries today",
+          "content": {
+            "overview": "AI is transforming every industry. In healthcare, AI diagnoses diseases from scans and predicts patient risks. In finance, AI detects fraud and manages investments. In retail, AI recommends products and optimizes inventory. In manufacturing, AI predicts machine failures and controls robots. In entertainment, AI creates personalized recommendations and generates content. AI is not future technology - it's working today in apps and services you use daily.",
+            "keyPoints": [
+              "Healthcare: Diagnosis, drug discovery, patient monitoring",
+              "Finance: Fraud detection, trading, credit scoring",
+              "Transportation: Self-driving cars, route optimization",
+              "Retail: Recommendations, demand forecasting, chatbots",
+              "Manufacturing: Quality control, predictive maintenance, robotics"
+            ]
+          }
+        },
+        {
+          "id": "ai-ethics",
+          "title": "AI Ethics and Responsible AI",
+          "description": "Understanding ethical considerations in AI development and deployment",
+          "content": {
+            "overview": "AI is powerful but raises important ethical questions. Bias: AI learns from data, so if data is biased, AI will be too (hiring AI rejecting women because past data was biased). Privacy: AI needs data, but how much personal data should we share? Transparency: Can we understand why AI made a decision? Accountability: Who is responsible when AI makes mistakes? Fairness: Does AI treat everyone equally? These aren't just technical problems - they affect real people's lives. Responsible AI means building systems that are fair, transparent, and beneficial.",
+            "keyPoints": [
+              "Bias: AI reflects biases in training data",
+              "Privacy: AI needs data but must protect personal information",
+              "Transparency: AI decisions should be explainable",
+              "Accountability: Clear responsibility when AI fails",
+              "Fairness: AI should treat all people equitably"
+            ]
+          }
+        },
+        {
+          "id": "python-numpy-basics",
+          "title": "Python for AI: NumPy Fundamentals",
+          "description": "Master NumPy arrays for AI and data manipulation",
+          "content": {
+            "overview": "NumPy (Numerical Python) is the foundation of AI in Python. It provides powerful arrays that are much faster than regular Python lists. Think of NumPy as Excel on steroids - instead of working with one number at a time, you work with entire tables of numbers at once. AI algorithms need to process millions of numbers quickly - NumPy makes this possible. Every AI library (TensorFlow, PyTorch, scikit-learn) is built on NumPy. Learn NumPy, and you unlock the entire AI ecosystem.",
+            "keyPoints": [
+              "NumPy arrays are 10-100x faster than Python lists for math",
+              "Vectorization: Do math on entire arrays at once (no loops needed)",
+              "Arrays can be 1D (list), 2D (table), 3D (cube) or higher dimensions",
+              "NumPy is the foundation - all AI libraries use it underneath",
+              "Essential for handling datasets, images, mathematical computations"
+            ]
+          }
+        },
+        {
+          "id": "python-pandas-basics",
+          "title": "Python for AI: Pandas for Data Manipulation",
+          "description": "Master Pandas DataFrames for data analysis and preparation",
+          "content": {
+            "overview": "Pandas is Excel for Python - but much more powerful. It handles tables of data (called DataFrames) with millions of rows. In AI, 80% of your time is cleaning and preparing data. Pandas makes this easy. Load CSV files, clean missing values, filter rows, calculate statistics, merge datasets - all with simple commands. Think of Pandas as your data cleaning and exploration tool before AI modeling. Every data scientist uses Pandas daily.",
+            "keyPoints": [
+              "DataFrame: Table with rows and columns (like Excel spreadsheet)",
+              "Series: Single column of data",
+              "Easy to load data from CSV, Excel, databases",
+              "Powerful filtering, grouping, and aggregation",
+              "Handle missing data, duplicates, and data cleaning"
+            ]
+          }
+        },
+        {
+          "id": "supervised-vs-unsupervised",
+          "title": "Supervised vs Unsupervised Learning",
+          "description": "Understanding the two main types of machine learning",
+          "content": {
+            "overview": "Machine Learning has two main types. Supervised Learning: You teach the computer with examples that have answers (like flashcards with questions and answers). Example: Show AI thousands of emails labeled 'spam' or 'not spam', it learns to detect spam. Unsupervised Learning: You give the computer data without answers, it finds patterns on its own. Example: Give AI customer data, it groups customers into segments automatically. Most real-world AI uses supervised learning because we have labeled data.",
+            "keyPoints": [
+              "Supervised: Learn from labeled examples (input + correct output)",
+              "Unsupervised: Find patterns in unlabeled data",
+              "Supervised needs labeled data (expensive to create)",
+              "Unsupervised discovers hidden patterns",
+              "Most business applications use supervised learning"
+            ]
+          }
+        },
+        {
+          "id": "what-is-agentic-ai",
+          "title": "What is Agentic AI? The Future of Autonomous Systems",
+          "description": "Understanding AI agents that can act autonomously to achieve goals",
+          "content": {
+            "overview": "Agentic AI is the next big thing - AI that acts on its own to achieve goals. Traditional AI: You ask ChatGPT a question, it answers. Agentic AI: You give it a goal ('plan my wedding'), it breaks it down into steps, uses tools (search, calculator, calendar), and executes the plan autonomously. Agents can use multiple tools, remember context, learn from feedback, and adapt their approach. Think of it as hiring an AI assistant that actually does tasks, not just answers questions.",
+            "keyPoints": [
+              "Agents act autonomously to achieve goals (not just respond to prompts)",
+              "Can use tools: search engines, calculators, APIs, databases",
+              "Plan multi-step tasks and execute them in sequence",
+              "Maintain memory across interactions",
+              "Adapt strategy based on results and feedback"
+            ]
+          }
+        },
+        {
+          "id": "data-preprocessing",
+          "title": "Data Preprocessing: Preparing Data for AI",
+          "description": "Essential techniques for cleaning and preparing data",
+          "content": {
+            "overview": "Garbage in, garbage out - the golden rule of AI. Raw data is messy: missing values, wrong formats, different scales, outliers. Data preprocessing transforms messy data into clean data AI can learn from. Steps: Handle missing values (fill or remove), encode categories into numbers (Male=0, Female=1), scale features (normalize salary and age to same range), remove outliers (that $10M house is skewing your data). This takes 70-80% of an AI project's time, but it's crucial. Clean data = accurate models.",
+            "keyPoints": [
+              "Handle missing data: Fill with mean/median or remove rows",
+              "Encode categories: Convert text to numbers AI understands",
+              "Scale features: Normalize so all features are on same scale",
+              "Split data: 80% training, 20% testing (never test on training data)",
+              "Preprocessing quality determines model accuracy"
+            ]
+          }
+        },
+        {
+          "id": "classification-vs-regression",
+          "title": "Classification vs Regression: Prediction Types",
+          "description": "Understanding the two main types of supervised learning",
+          "content": {
+            "overview": "Supervised learning has two flavors based on what you predict. Classification: Predict categories (spam or not spam, cat or dog, disease type A/B/C). Output is a label from fixed choices. Regression: Predict numbers (house price, temperature, age). Output can be any number. How to choose? Ask: Am I predicting a category or a number? Email is spam (category) = Classification. House costs $425,000 (number) = Regression. Simple rule, huge impact on which algorithm you use.",
+            "keyPoints": [
+              "Classification: Predict discrete categories (yes/no, cat/dog/bird)",
+              "Regression: Predict continuous numbers (prices, temperatures)",
+              "Binary classification: Two classes (spam/not spam)",
+              "Multi-class: Multiple classes (dog/cat/bird)",
+              "Different algorithms for each: Logistic Regression vs Linear Regression"
+            ]
+          }
+        },
+        {
+          "id": "model-evaluation-metrics",
+          "title": "Model Evaluation: Measuring AI Performance",
+          "description": "How to measure and understand AI model accuracy",
+          "content": {
+            "overview": "How do you know if your AI is good? Metrics! But accuracy alone is misleading. Imagine disease detection: 99% accuracy sounds great, but if only 1% have the disease, an AI that always says 'healthy' gets 99% accuracy while missing all diseases! You need multiple metrics. Precision: Of predicted positives, how many are correct? Recall: Of actual positives, how many did we catch? F1-Score: Balance of both. For regression: MSE (average error squared), R² (variance explained). Always use multiple metrics to understand true performance.",
+            "keyPoints": [
+              "Accuracy: Overall correctness (can be misleading)",
+              "Precision: Avoid false alarms",
+              "Recall: Catch all positive cases",
+              "F1-Score: Balance precision and recall",
+              "Confusion Matrix: Shows all prediction types (TP, FP, TN, FN)"
+            ]
+          }
+        },
+        {
+          "id": "first-ml-model",
+          "title": "Building Your First Machine Learning Model",
+          "description": "Complete walkthrough of creating an ML model from scratch",
+          "content": {
+            "overview": "Time to build your first AI! The workflow: Load data (CSV file of customers), Explore (check for missing values, understand features), Preprocess (clean data, encode categories, scale), Split (80% train, 20% test), Choose model (Decision Tree is simple to start), Train (fit model to training data), Predict (test on new data), Evaluate (check accuracy). It's that simple! You'll start with predicting customer purchases from age and salary. From raw data to predictions in 8 steps. This is the foundation of all AI projects.",
+            "keyPoints": [
+              "Load data from CSV, database, or API",
+              "Explore: Check missing values, statistics, distributions",
+              "Preprocess: Clean, encode, scale",
+              "Split: 80/20 train/test (never test on training data)",
+              "Train: Fit model to learn patterns",
+              "Predict: Make predictions on test data",
+              "Evaluate: Measure accuracy, precision, recall",
+              "Iterate: Improve features, try different models"
+            ]
+          }
+        },
+        {
+          "id": "ai-tools-platforms",
+          "title": "AI Tools & Platforms: Your Development Toolkit",
+          "description": "Essential tools for AI development and deployment",
+          "content": {
+            "overview": "The right tools make AI development 10x easier. Development: Google Colab (free GPU, no setup, runs in browser - perfect for learning), Jupyter Notebooks (interactive coding). Libraries: Scikit-learn (easiest for classical ML), TensorFlow/PyTorch (deep learning). Data: Pandas (data manipulation), NumPy (numerical computing). Cloud: AWS/Google Cloud/Azure (deploy models at scale). Learning: Kaggle (datasets, competitions, tutorials). Start with Google Colab + Scikit-learn - you can build real AI without installing anything!",
+            "keyPoints": [
+              "Google Colab: Free GPU, zero setup, browser-based",
+              "Jupyter: Interactive notebooks mixing code and notes",
+              "Scikit-learn: Easiest library for ML algorithms",
+              "TensorFlow/PyTorch: Industry-standard deep learning",
+              "Kaggle: Datasets, competitions, community learning"
+            ]
+          }
+        }
+      ]
+    },
+    "machine-learning": {
+      "name": "machine-learning",
+      "displayName": "Machine Learning",
+      "description": "Master classical machine learning algorithms from linear regression to ensemble methods",
+      "topics": [
+        {
+          "id": "linear-regression",
+          "title": "Linear Regression: Predicting Numbers",
+          "description": "Learn to predict continuous values with linear models",
+          "content": {
+            "overview": "Linear Regression is the simplest and most used algorithm for predicting numbers. It draws a straight line through your data points. Remember y = mx + b from school? That's linear regression! Example: Predict house price from size. Plot size vs price on graph, draw best-fitting line. The line equation might be: Price = 150 × Size + 50,000. For a 2000 sqft house: Price = 150 × 2000 + 50,000 = $350,000. Simple, interpretable, and works surprisingly well for many real problems.",
+            "keyPoints": [
+              "Fits a straight line (or plane) through data points",
+              "Equation: y = mx + b (slope and intercept)",
+              "Finds line that minimizes prediction errors",
+              "Works with one feature (simple) or many (multiple linear regression)",
+              "Easy to interpret: see exact impact of each feature"
+            ],
+            "useCases": [
+              {
+                "title": "House Price Prediction",
+                "description": "Predict price based on size, bedrooms, location",
+                "example": "Price = 150×Size + 50000×Bedrooms + 30000×Location"
+              },
+              {
+                "title": "Sales Forecasting",
+                "description": "Predict sales from advertising spend and seasonality",
+                "example": "Sales = 5×AdSpend + 2000×Season + 0.8×PrevSales"
+              },
+              {
+                "title": "Grade Prediction",
+                "description": "Predict exam score from study hours and attendance",
+                "example": "Grade = 3×StudyHours + 0.5×Attendance + 40"
+              }
+            ],
+            "dos": [
+              "Use when relationship is roughly linear (straight line fits)",
+              "Check for and remove outliers (they skew the line)",
+              "Scale features if they have very different ranges",
+              "Visualize data first to check if linear model makes sense"
+            ],
+            "donts": [
+              "Don't use if relationship is clearly curved (use polynomial)",
+              "Don't ignore highly correlated features (multicollinearity)",
+              "Don't predict too far beyond training data range",
+              "Don't expect high accuracy with too few data points"
+            ],
+            "bestPractices": [
+              "Start with linear regression before complex models",
+              "Check R² score: >0.7 is good, <0.5 means poor fit",
+              "Plot residuals (errors) to check assumptions",
+              "Use regularization (Ridge, Lasso) with many features"
+            ]
+          }
+        },
+        {
+          "id": "logistic-regression",
+          "title": "Logistic Regression: Classification Algorithm",
+          "description": "Predict categories using logistic regression",
+          "content": {
+            "overview": "Logistic Regression predicts categories (yes/no, spam/not spam, fraud/legitimate). Despite the name 'regression', it's for classification! It calculates the probability of something belonging to a category. Example: Is this email spam? Logistic regression looks at features (number of links, exclamation marks, sender) and outputs: 85% spam. If >50%, classify as spam. The magic is the S-curve (sigmoid function) that converts any number into a probability between 0 and 1. Used everywhere: spam filters, medical diagnosis, credit scoring.",
+            "keyPoints": [
+              "Classification algorithm despite having 'regression' in name",
+              "Outputs probability (0 to 1) of belonging to a class",
+              "Uses sigmoid function to create S-shaped curve",
+              "Binary: Two classes (spam/not spam, yes/no)",
+              "Multi-class: Can extend to multiple classes with One-vs-Rest"
+            ],
+            "useCases": [
+              {
+                "title": "Email Spam Detection",
+                "description": "Classify emails as spam or not spam",
+                "example": "Based on links, words, sender → 92% spam → Block it"
+              },
+              {
+                "title": "Medical Diagnosis",
+                "description": "Predict disease presence from symptoms",
+                "example": "Patient symptoms → 78% probability of diabetes → Further tests"
+              },
+              {
+                "title": "Credit Approval",
+                "description": "Approve or reject loan applications",
+                "example": "Income, credit score, history → 65% approval → Approve loan"
+              },
+              {
+                "title": "Customer Churn",
+                "description": "Predict if customer will leave",
+                "example": "Usage patterns → 80% will churn → Offer discount"
+              }
+            ],
+            "dos": [
+              "Use for binary classification problems",
+              "Scale features for better performance",
+              "Interpret coefficients to understand feature importance",
+              "Use threshold tuning (not always 0.5) based on business needs"
+            ],
+            "donts": [
+              "Don't use for regression (predicting numbers)",
+              "Don't ignore class imbalance (adjust with class_weight)",
+              "Don't forget to encode categorical variables",
+              "Don't expect linear decision boundaries for complex data"
+            ],
+            "bestPractices": [
+              "Start with logistic regression as baseline for classification",
+              "Use regularization (L1/L2) to prevent overfitting",
+              "Tune threshold based on precision/recall tradeoff",
+              "Check feature correlations before training"
+            ]
+          }
+        },
+        {
+          "id": "decision-trees",
+          "title": "Decision Trees: Visual Decision Making",
+          "description": "Make decisions using tree-like flowcharts",
+          "content": {
+            "overview": "Decision Trees make decisions like a flowchart. Each branch asks a yes/no question, leading to a decision. Example: Approve loan? Is income >50K? Yes → Is credit score >700? Yes → APPROVE. No → REJECT. Trees are easy to understand (you can draw them!), handle both numbers and categories, and don't need feature scaling. They work for classification (approve/reject) and regression (predict price). Problem: Trees memorize training data (overfit). Solution: Limit depth or use Random Forests (many trees voting together).",
+            "keyPoints": [
+              "Makes decisions using if-then rules in tree structure",
+              "Each node asks a question, branches are answers",
+              "Leaves contain final predictions",
+              "Easy to visualize and explain to non-technical people",
+              "Prone to overfitting (memorizing training data)"
+            ],
+            "useCases": [
+              {
+                "title": "Loan Approval",
+                "description": "Decide loan approval based on multiple factors",
+                "example": "Income? Credit score? Debt? → Approve or Reject"
+              },
+              {
+                "title": "Medical Diagnosis",
+                "description": "Diagnose based on symptoms and test results",
+                "example": "Fever? Cough? Blood test? → Disease A/B/C"
+              },
+              {
+                "title": "Customer Segmentation",
+                "description": "Classify customers into groups",
+                "example": "Age? Spending? Visits? → VIP/Regular/Inactive"
+              }
+            ],
+            "dos": [
+              "Use when you need interpretable models",
+              "Limit tree depth (max_depth) to prevent overfitting",
+              "Visualize tree to understand decisions",
+              "Use for both classification and regression"
+            ],
+            "donts": [
+              "Don't let trees grow too deep (they memorize data)",
+              "Don't use single tree for production (use Random Forest)",
+              "Don't ignore pruning (removing unnecessary branches)",
+              "Don't expect smooth predictions (trees create steps)"
+            ],
+            "bestPractices": [
+              "Set max_depth=3 to 10 for interpretability",
+              "Use min_samples_split to control splitting",
+              "Visualize tree with graphviz or plot_tree",
+              "Prefer Random Forests over single trees for accuracy"
+            ]
+          }
+        },
+        {
+          "id": "random-forests",
+          "title": "Random Forests: Ensemble of Trees",
+          "description": "Combine many decision trees for better predictions",
+          "content": {
+            "overview": "Random Forest is like asking 100 experts instead of 1. It creates many decision trees (a forest!), each trained on different random samples of data. For prediction, all trees vote, and majority wins. Why powerful? Single tree overfits (memorizes), but 100 trees voting cancel out individual mistakes. It's one of the best algorithms - works great out-of-the-box, handles missing values, doesn't need scaling, and rarely overfits. Used by winning Kaggle solutions and in production everywhere.",
+            "keyPoints": [
+              "Creates many trees (typically 100-500), each on random data sample",
+              "Each tree votes, majority wins (classification) or average (regression)",
+              "More accurate than single tree, less prone to overfitting",
+              "Can measure feature importance (which features matter most)",
+              "Works well without much tuning (good default algorithm)"
+            ],
+            "useCases": [
+              {
+                "title": "Credit Scoring",
+                "description": "Predict loan default risk",
+                "example": "Thousands of applicants, hundreds of features → Default risk score"
+              },
+              {
+                "title": "Fraud Detection",
+                "description": "Detect fraudulent transactions",
+                "example": "Transaction patterns → Fraud/Legitimate with high accuracy"
+              },
+              {
+                "title": "Disease Prediction",
+                "description": "Predict disease from patient data",
+                "example": "Medical history, tests → Disease probability"
+              }
+            ],
+            "dos": [
+              "Use as strong baseline for most problems",
+              "Increase n_estimators (more trees) for better accuracy",
+              "Check feature_importances_ to understand model",
+              "Use for both classification and regression"
+            ],
+            "donts": [
+              "Don't use for linear relationships (overkill, use linear models)",
+              "Don't ignore training time (more trees = slower)",
+              "Don't expect interpretability (100 trees hard to explain)",
+              "Don't use for very high-dimensional sparse data"
+            ],
+            "bestPractices": [
+              "Start with 100 trees, increase if needed",
+              "Use max_features='sqrt' for classification",
+              "Set max_depth to prevent individual tree overfitting",
+              "Use out-of-bag score for validation without separate test set"
+            ]
+          }
+        },
+        {
+          "id": "svm",
+          "title": "Support Vector Machines (SVM)",
+          "description": "Find the best boundary to separate classes",
+          "content": {
+            "overview": "SVM finds the best line (or surface) to separate classes. Imagine two groups of dots on paper - SVM draws the widest possible road between them. The 'margin' is the road width, and SVM maximizes it. Support Vectors are the dots closest to the road (they support the boundary). Powerful for high-dimensional data (many features). Can create curved boundaries using 'kernel trick'. Works great for text classification, image recognition, and when you have more features than samples.",
+            "keyPoints": [
+              "Finds optimal boundary that maximizes margin between classes",
+              "Support vectors are the critical points defining boundary",
+              "Kernel trick allows curved boundaries without computing high dimensions",
+              "Works well with high-dimensional data",
+              "Slower to train on large datasets compared to other algorithms"
+            ],
+            "useCases": [
+              {
+                "title": "Text Classification",
+                "description": "Classify documents by topic",
+                "example": "News articles → Sports/Politics/Technology"
+              },
+              {
+                "title": "Image Recognition",
+                "description": "Recognize handwritten digits",
+                "example": "Pixel values → Digit 0-9"
+              },
+              {
+                "title": "Cancer Detection",
+                "description": "Classify tumors as benign or malignant",
+                "example": "Cell measurements → Benign/Malignant"
+              }
+            ],
+            "dos": [
+              "Scale features (SVM is sensitive to feature scales)",
+              "Use RBF kernel for non-linear boundaries",
+              "Tune C parameter (controls margin vs misclassification)",
+              "Use for high-dimensional data"
+            ],
+            "donts": [
+              "Don't use on very large datasets (slow training)",
+              "Don't forget to scale features",
+              "Don't use without tuning C and gamma parameters",
+              "Don't expect interpretability (hard to explain boundary)"
+            ],
+            "bestPractices": [
+              "Always scale features with StandardScaler",
+              "Use GridSearchCV to tune C and gamma",
+              "Start with RBF kernel for non-linear problems",
+              "Use linear kernel for high-dimensional sparse data (text)"
+            ]
+          }
+        },
+        {
+          "id": "knn",
+          "title": "K-Nearest Neighbors (KNN)",
+          "description": "Classify based on similarity to neighbors",
+          "content": {
+            "overview": "KNN is the simplest ML algorithm: 'You are the average of your friends'. To classify a new point, find K closest points in training data and take majority vote. Example: Is this house expensive? Find 5 nearest houses by size and location. If 4 are expensive, classify as expensive. No training needed - it just remembers all data. K=1 (1 neighbor) overfits, K=too large underfits. Typically use K=5 or K=10. Simple but slow for large datasets (must compare to all training points).",
+            "keyPoints": [
+              "Classifies based on K nearest training examples",
+              "No training phase - lazy learning (stores all data)",
+              "K is hyperparameter (number of neighbors to check)",
+              "Distance metric matters (Euclidean, Manhattan, etc.)",
+              "Slow for large datasets (must search all points)"
+            ],
+            "useCases": [
+              {
+                "title": "Recommendation Systems",
+                "description": "Recommend items based on similar users",
+                "example": "Find users with similar taste → Recommend their favorites"
+              },
+              {
+                "title": "Pattern Recognition",
+                "description": "Recognize handwritten characters",
+                "example": "Compare new character to stored examples"
+              },
+              {
+                "title": "Anomaly Detection",
+                "description": "Detect unusual data points",
+                "example": "If nearest neighbors are far → Anomaly"
+              }
+            ],
+            "dos": [
+              "Scale features (distance-based algorithm)",
+              "Use cross-validation to find best K",
+              "Use odd K for binary classification (avoid ties)",
+              "Consider weighted KNN (closer neighbors count more)"
+            ],
+            "donts": [
+              "Don't use on large datasets (too slow)",
+              "Don't forget to scale features",
+              "Don't use K=1 (overfits) or K=N (underfits)",
+              "Don't use with irrelevant features (they add noise)"
+            ],
+            "bestPractices": [
+              "Start with K=5, tune with cross-validation",
+              "Use distance-weighted voting for better accuracy",
+              "Remove irrelevant features before applying KNN",
+              "Use KD-tree or Ball-tree for faster searches"
+            ]
+          }
+        },
+        {
+          "id": "naive-bayes",
+          "title": "Naive Bayes: Probabilistic Classification",
+          "description": "Fast classification using Bayes' theorem",
+          "content": {
+            "overview": "Naive Bayes uses probability to classify. It asks: Given these features, what's the probability of each class? Example: Is email spam? P(Spam | contains 'free', 'click here') = very high → Spam! Called 'naive' because it assumes features are independent (which is often false but works surprisingly well). Extremely fast, works great with text (spam filters, sentiment analysis), needs little training data. Best for high-dimensional data like text classification.",
+            "keyPoints": [
+              "Based on Bayes' theorem and probability",
+              "Assumes features are independent (naive assumption)",
+              "Very fast training and prediction",
+              "Works great with text classification",
+              "Needs less training data than other algorithms"
+            ],
+            "useCases": [
+              {
+                "title": "Spam Detection",
+                "description": "Classic application of Naive Bayes",
+                "example": "Email words → Spam/Not Spam probability"
+              },
+              {
+                "title": "Sentiment Analysis",
+                "description": "Classify text as positive/negative",
+                "example": "Movie review → Positive/Negative sentiment"
+              },
+              {
+                "title": "Document Classification",
+                "description": "Categorize documents by topic",
+                "example": "Article text → Sports/Politics/Tech"
+              }
+            ],
+            "dos": [
+              "Use for text classification (works excellently)",
+              "Use when you need fast training and prediction",
+              "Use MultinomialNB for text, GaussianNB for continuous data",
+              "Good baseline for classification problems"
+            ],
+            "donts": [
+              "Don't expect high accuracy on complex problems",
+              "Don't use when feature independence assumption is very wrong",
+              "Don't use for regression problems",
+              "Don't ignore zero probability problem (use smoothing)"
+            ],
+            "bestPractices": [
+              "Use with TF-IDF for text classification",
+              "Apply Laplace smoothing to handle zero probabilities",
+              "Good for high-dimensional sparse data",
+              "Fast baseline before trying complex models"
+            ]
+          }
+        },
+        {
+          "id": "kmeans-clustering",
+          "title": "K-Means Clustering: Finding Groups",
+          "description": "Discover natural groups in data automatically",
+          "content": {
+            "overview": "K-Means finds groups (clusters) in data without labels (unsupervised learning). You specify K (number of groups), it finds them automatically. How it works: Place K random points (centroids), assign each data point to nearest centroid, move centroids to center of their group, repeat until stable. Example: Customer segmentation - give K-Means customer data, it groups similar customers (budget shoppers, premium buyers, etc.). You don't label data; the algorithm discovers patterns. Choose K using elbow method.",
+            "keyPoints": [
+              "Unsupervised learning - no labels needed",
+              "Groups data into K clusters",
+              "Each point belongs to nearest cluster center (centroid)",
+              "You must specify K (number of clusters)",
+              "Fast and simple, but sensitive to initial centroids"
+            ],
+            "useCases": [
+              {
+                "title": "Customer Segmentation",
+                "description": "Group customers by behavior",
+                "example": "Purchase patterns → Budget/Regular/Premium segments"
+              },
+              {
+                "title": "Image Compression",
+                "description": "Reduce colors in image",
+                "example": "Million colors → 16 main colors (smaller file)"
+              },
+              {
+                "title": "Document Clustering",
+                "description": "Group similar documents",
+                "example": "News articles → Auto-discovered topics"
+              }
+            ],
+            "dos": [
+              "Use elbow method to find optimal K",
+              "Scale features before clustering",
+              "Run multiple times with different initializations",
+              "Visualize clusters to validate results"
+            ],
+            "donts": [
+              "Don't assume K-Means will find perfect circles (use DBSCAN for weird shapes)",
+              "Don't forget to scale features",
+              "Don't use with categorical data (use K-Modes)",
+              "Don't ignore cluster validation metrics"
+            ],
+            "bestPractices": [
+              "Try K-Means++ initialization (better starting points)",
+              "Use silhouette score to evaluate cluster quality",
+              "Plot elbow curve to choose K",
+              "Consider DBSCAN for non-spherical clusters"
+            ]
+          }
+        },
+        {
+          "id": "pca",
+          "title": "Principal Component Analysis (PCA)",
+          "description": "Reduce dimensions while keeping important information",
+          "content": {
+            "overview": "PCA reduces features while keeping important patterns. Imagine a 3D object - you can represent it well with a 2D photo from the right angle. PCA finds the best 'angle' to view high-dimensional data in fewer dimensions. Example: 100 features → 10 principal components that capture 95% of variance. Why use it? Faster training, less overfitting, easier visualization, remove correlated features. Used for: exploratory data analysis, visualization, preprocessing before ML, noise reduction.",
+            "keyPoints": [
+              "Dimensionality reduction technique",
+              "Finds directions of maximum variance in data",
+              "Transforms features into uncorrelated components",
+              "Loses some information but keeps most important patterns",
+              "First few components capture most variance"
+            ],
+            "useCases": [
+              {
+                "title": "Data Visualization",
+                "description": "Visualize high-dimensional data in 2D/3D",
+                "example": "100 features → 2D plot to see patterns"
+              },
+              {
+                "title": "Preprocessing",
+                "description": "Reduce features before ML",
+                "example": "1000 features → 50 components → Faster training"
+              },
+              {
+                "title": "Image Compression",
+                "description": "Compress images while keeping key features",
+                "example": "Reduce pixels but maintain recognizable image"
+              }
+            ],
+            "dos": [
+              "Scale features before PCA (sensitive to scale)",
+              "Check explained variance ratio to choose components",
+              "Use for visualization (reduce to 2-3 dimensions)",
+              "Apply before ML to speed up training"
+            ],
+            "donts": [
+              "Don't use without scaling features first",
+              "Don't expect interpretable components (they're combinations)",
+              "Don't use if you need to interpret feature importance",
+              "Don't discard too many components (lose information)"
+            ],
+            "bestPractices": [
+              "Keep components that explain 95% of variance",
+              "Always scale data with StandardScaler first",
+              "Plot explained variance to choose number of components",
+              "Use for EDA (Exploratory Data Analysis) visualization"
+            ]
+          }
+        },
+        {
+          "id": "gradient-boosting",
+          "title": "Gradient Boosting: Powerful Ensemble Method",
+          "description": "Build strong models by combining weak learners",
+          "content": {
+            "overview": "Gradient Boosting builds strong models from weak ones. It trains trees sequentially - each new tree corrects mistakes of previous trees. Like a student improving: Tree 1 learns basics (has errors) → Tree 2 focuses on fixing Tree 1's mistakes → Tree 3 fixes Tree 2's mistakes → Final prediction combines all trees. XGBoost, LightGBM, CatBoost are popular implementations. Wins most Kaggle competitions! Powerful but needs careful tuning to avoid overfitting.",
+            "keyPoints": [
+              "Sequential ensemble - trees learn from previous mistakes",
+              "Each tree corrects errors of previous trees",
+              "More powerful than Random Forest but easier to overfit",
+              "Requires careful tuning (learning rate, depth, trees)",
+              "XGBoost, LightGBM are optimized implementations"
+            ],
+            "useCases": [
+              {
+                "title": "Kaggle Competitions",
+                "description": "Win data science competitions",
+                "example": "XGBoost/LightGBM dominate leaderboards"
+              },
+              {
+                "title": "Credit Scoring",
+                "description": "Predict loan defaults accurately",
+                "example": "Better accuracy than other algorithms on tabular data"
+              },
+              {
+                "title": "Ranking Systems",
+                "description": "Rank search results or recommendations",
+                "example": "Google uses gradient boosting in search ranking"
+              }
+            ],
+            "dos": [
+              "Use for structured/tabular data (best algorithm)",
+              "Tune learning_rate, max_depth, n_estimators",
+              "Use early stopping to prevent overfitting",
+              "Try XGBoost or LightGBM (faster than sklearn)"
+            ],
+            "donts": [
+              "Don't use default parameters (must tune)",
+              "Don't use for image/text data (use neural networks)",
+              "Don't skip validation (overfits easily)",
+              "Don't use too many trees without early stopping"
+            ],
+            "bestPractices": [
+              "Start with learning_rate=0.1, tune down if needed",
+              "Use cross-validation for hyperparameter tuning",
+              "Enable early_stopping_rounds for optimal tree count",
+              "LightGBM for large datasets (faster than XGBoost)"
+            ]
+          }
+        },
+        {
+          "id": "feature-engineering",
+          "title": "Feature Engineering: Creating Better Features",
+          "description": "Transform raw data into powerful predictive features",
+          "content": {
+            "overview": "Feature Engineering is creating new features from existing data to improve model accuracy. Raw data rarely has perfect features. Example: Date → Extract day, month, year, weekday, is_weekend, days_since_start. Age → Create age_group (teen, adult, senior). Text → Extract length, word_count, sentiment. Often more impactful than choosing algorithm! Good features can make simple models outperform complex ones. Andrew Ng: 'Applied ML is basically feature engineering.' Requires domain knowledge and creativity.",
+            "keyPoints": [
+              "Create new features from existing data",
+              "More impactful than algorithm choice",
+              "Requires domain knowledge and creativity",
+              "Common techniques: binning, interactions, aggregations, time features",
+              "Can turn weak model into strong one"
+            ],
+            "useCases": [
+              {
+                "title": "Date/Time Features",
+                "description": "Extract meaningful time components",
+                "example": "Timestamp → hour, day_of_week, is_holiday, season"
+              },
+              {
+                "title": "Text Features",
+                "description": "Extract signals from text",
+                "example": "Review → length, sentiment, capital_ratio, exclamation_count"
+              },
+              {
+                "title": "Interaction Features",
+                "description": "Combine features for new insights",
+                "example": "Price × Quantity = Revenue, Height/Weight² = BMI"
+              }
+            ],
+            "dos": [
+              "Use domain knowledge to create meaningful features",
+              "Create interaction features (multiply/divide columns)",
+              "Extract time-based features from dates",
+              "Encode categories intelligently (not just dummy variables)"
+            ],
+            "donts": [
+              "Don't create too many features (curse of dimensionality)",
+              "Don't use future information (data leakage)",
+              "Don't forget to apply same transformations to test data",
+              "Don't ignore correlation with target variable"
+            ],
+            "bestPractices": [
+              "Analyze feature importance to guide engineering",
+              "Create ratio/product features from related columns",
+              "Use target encoding for high-cardinality categories",
+              "Document all feature engineering steps for reproducibility"
+            ]
+          }
+        },
+        {
+          "id": "hyperparameter-tuning",
+          "title": "Hyperparameter Tuning: Optimize Model Performance",
+          "description": "Find the best settings for your ML algorithms",
+          "content": {
+            "overview": "Hyperparameters are settings you choose before training (depth of tree, learning rate, number of neighbors). Unlike parameters (learned from data), hyperparameters control how learning happens. Finding best values = hyperparameter tuning. Methods: Grid Search (try all combinations - slow but thorough), Random Search (try random combinations - faster), Bayesian Optimization (smart search). Example: Random Forest - tune n_estimators, max_depth, min_samples_split. Good tuning can improve accuracy from 80% to 90%!",
+            "keyPoints": [
+              "Hyperparameters control learning process (not learned from data)",
+              "Tuning finds best hyperparameter values",
+              "Grid Search: Exhaustive but slow",
+              "Random Search: Faster, often good enough",
+              "Cross-validation essential to avoid overfitting"
+            ],
+            "useCases": [
+              {
+                "title": "Model Optimization",
+                "description": "Get best performance from algorithm",
+                "example": "Tune SVM: C, gamma → Accuracy 80% to 88%"
+              },
+              {
+                "title": "Production Models",
+                "description": "Optimize before deployment",
+                "example": "Tune all hyperparameters for business-critical model"
+              },
+              {
+                "title": "Competition",
+                "description": "Squeeze out extra accuracy",
+                "example": "Kaggle winners tune extensively"
+              }
+            ],
+            "dos": [
+              "Use cross-validation during tuning",
+              "Start with Random Search (faster)",
+              "Tune most important hyperparameters first",
+              "Use wide ranges first, then narrow down"
+            ],
+            "donts": [
+              "Don't tune on test data (use validation set)",
+              "Don't tune too many hyperparameters at once",
+              "Don't skip cross-validation (will overfit)",
+              "Don't waste time tuning if data quality is poor"
+            ],
+            "bestPractices": [
+              "Use RandomizedSearchCV for initial exploration",
+              "Follow with GridSearchCV for fine-tuning",
+              "Log all experiments to track what works",
+              "Use Optuna or Hyperopt for advanced optimization"
+            ]
+          }
+        },
+        {
+          "id": "cross-validation",
+          "title": "Cross-Validation: Robust Model Evaluation",
+          "description": "Get reliable performance estimates for your models",
+          "content": {
+            "overview": "Cross-Validation prevents overfitting to test data. Single train/test split is unreliable - results depend on which data points ended up in test set. K-Fold CV solution: Split data into K parts (usually 5 or 10), train K times, each time using different part as test set, average results. Example: 5-Fold CV trains 5 models, each tested on different 20% of data. Final score is average of 5 tests - much more reliable! Use Stratified K-Fold for classification (maintains class balance).",
+            "keyPoints": [
+              "Tests model on multiple train/test splits",
+              "K-Fold: Split into K parts, test on each",
+              "More reliable than single train/test split",
+              "Stratified K-Fold maintains class distribution",
+              "Time Series Split for temporal data"
+            ],
+            "useCases": [
+              {
+                "title": "Model Selection",
+                "description": "Compare algorithms reliably",
+                "example": "Which is better: Random Forest or XGBoost? CV tells you"
+              },
+              {
+                "title": "Hyperparameter Tuning",
+                "description": "Find best parameters without overfitting",
+                "example": "GridSearchCV uses CV to evaluate each parameter set"
+              },
+              {
+                "title": "Performance Estimation",
+                "description": "Get honest performance estimate",
+                "example": "CV score closer to production performance"
+              }
+            ],
+            "dos": [
+              "Use 5 or 10 folds (common choices)",
+              "Use StratifiedKFold for classification",
+              "Use TimeSeriesSplit for time-dependent data",
+              "Report mean and standard deviation of scores"
+            ],
+            "donts": [
+              "Don't use CV for final model (train on all data)",
+              "Don't use regular K-Fold for imbalanced classes",
+              "Don't use regular K-Fold for time series",
+              "Don't forget to set random_state for reproducibility"
+            ],
+            "bestPractices": [
+              "Use cross_val_score for quick evaluation",
+              "Use cross_validate for multiple metrics",
+              "Stratified K-Fold for classification (maintains class ratios)",
+              "Always use CV for hyperparameter tuning"
+            ]
+          }
+        }
+      ]
+    },
+    "deep-learning": {
+      "title": "Deep Learning",
+      "description": "Neural networks and deep learning architectures",
+      "level": "Advanced",
+      "topics": {
+        "1": {
+          "title": "Neural Networks Basics",
+          "overview": "Neural Networks are inspired by how our brain works. Think of them as layers of simple decision-makers working together. Each 'neuron' takes inputs, does simple math, and passes the result forward. When you stack many layers together, they can learn very complex patterns - like recognizing faces in photos or understanding speech.\n\nA simple neural network has 3 parts: Input layer (receives data), Hidden layers (does the learning), and Output layer (gives prediction). During training, the network adjusts tiny numbers called 'weights' to get better at its task. It's like learning to ride a bike - you make small adjustments until you get it right.\n\nThe magic happens through 'backpropagation' - when the network makes a mistake, it goes backward and adjusts the weights. After seeing thousands of examples, it learns patterns that even humans might miss. This is why neural networks power everything from photo filters to self-driving cars.",
+          "keyPoints": [
+            "Layers of neurons working together to learn patterns",
+            "Forward pass: data flows input → hidden → output",
+            "Backward pass: errors flow back to adjust weights",
+            "Activation functions add non-linearity (ReLU, Sigmoid, Tanh)",
+            "Need lots of data and computing power to train"
+          ],
+          "useCases": [
+            {
+              "title": "Image Recognition",
+              "description": "Identifying objects in photos - cats, dogs, cars, people",
+              "example": "Facebook auto-tagging friends in photos with 97% accuracy"
+            },
+            {
+              "title": "Speech Recognition",
+              "description": "Converting spoken words to text",
+              "example": "Siri and Alexa understanding your voice commands"
+            },
+            {
+              "title": "Medical Diagnosis",
+              "description": "Detecting diseases from X-rays and MRI scans",
+              "example": "Finding tumors in medical images faster than radiologists"
+            },
+            {
+              "title": "Credit Card Fraud",
+              "description": "Detecting unusual spending patterns in real-time",
+              "example": "Banks blocking suspicious transactions before money is lost"
+            }
+          ],
+          "dos": [
+            "Start with 1-2 hidden layers, add more only if needed",
+            "Normalize your input data (mean=0, std=1)",
+            "Use ReLU activation for hidden layers - it's fast and works well",
+            "Monitor training and validation loss to detect overfitting"
+          ],
+          "donts": [
+            "Don't use too many layers without enough data - you'll overfit",
+            "Don't forget to split data: 70% train, 15% validation, 15% test",
+            "Don't use Sigmoid/Tanh everywhere - they cause vanishing gradients",
+            "Don't train without GPU if you have more than 10,000 samples"
+          ],
+          "bestPractices": [
+            "Use frameworks like TensorFlow or PyTorch - don't code from scratch",
+            "Start simple, add complexity gradually",
+            "Use batch normalization to train faster and more stable",
+            "Save model checkpoints during training - don't lose progress"
+          ]
+        },
+        "2": {
+          "title": "Convolutional Neural Networks (CNN)",
+          "overview": "CNNs are specialized neural networks for images. Think of them as having 'sliding windows' that scan across an image looking for patterns. First layers detect simple things like edges and corners. Deeper layers combine these to recognize complex objects like eyes, wheels, or leaves.\n\nThe key innovation is 'convolution' - instead of looking at the entire image at once, CNN looks at small patches (like 3×3 pixels). This means a cat detector learns to find cat features anywhere in the image, not just in one position. It's like learning to recognize your friend's face whether they're on the left or right side of a photo.\n\nCNNs have three main types of layers: Convolutional layers (find patterns), Pooling layers (reduce size and keep important info), and Fully connected layers (make final decision). This architecture is why your phone can recognize your face in milliseconds, even in different lighting.",
+          "keyPoints": [
+            "Specialized for images - automatically learns visual features",
+            "Convolutional filters scan image to detect patterns (edges, shapes, objects)",
+            "Pooling layers reduce size while keeping important information",
+            "Position-invariant: recognizes objects anywhere in image",
+            "Much fewer parameters than regular neural networks for images"
+          ],
+          "useCases": [
+            {
+              "title": "Face Recognition",
+              "description": "Identifying people from their faces",
+              "example": "iPhone Face ID unlocking your phone in 0.5 seconds"
+            },
+            {
+              "title": "Self-Driving Cars",
+              "description": "Detecting pedestrians, traffic signs, and lane markings",
+              "example": "Tesla Autopilot recognizing stop signs and traffic lights"
+            },
+            {
+              "title": "Medical Imaging",
+              "description": "Analyzing X-rays, CT scans, and MRIs for diseases",
+              "example": "Detecting COVID-19 from chest X-rays with 95% accuracy"
+            },
+            {
+              "title": "Quality Control",
+              "description": "Finding defects in manufactured products",
+              "example": "Smartphone factories detecting screen scratches automatically"
+            }
+          ],
+          "dos": [
+            "Use data augmentation: rotate, flip, zoom images to increase dataset",
+            "Start with pre-trained models like ResNet or VGG (transfer learning)",
+            "Use small filters (3×3 or 5×5) stacked deep rather than large filters",
+            "Apply batch normalization after convolutional layers"
+          ],
+          "donts": [
+            "Don't use fully connected layers for images - use CNN instead",
+            "Don't train from scratch if you have less than 10,000 images",
+            "Don't use large filter sizes (7×7 or bigger) - inefficient",
+            "Don't skip data augmentation - it prevents overfitting"
+          ],
+          "bestPractices": [
+            "Use transfer learning: fine-tune ResNet50 or MobileNet",
+            "Apply MaxPooling after 2-3 convolutional layers",
+            "Use dropout (0.3-0.5) before fully connected layers",
+            "Monitor class-wise accuracy - some classes might need more data"
+          ]
+        },
+        "3": {
+          "title": "Recurrent Neural Networks (RNN)",
+          "overview": "RNNs are designed for sequences - data where order matters. Think of reading a sentence: each word depends on previous words. RNNs have 'memory' - they remember what they saw before. When processing word 5, they still remember words 1-4.\n\nImagine predicting the next word: 'The cat sat on the ___'. You need to remember 'cat' to guess 'mat'. Regular neural networks forget previous inputs, but RNNs maintain a hidden state that carries information forward. It's like having a notebook where you write down important things as you read.\n\nRNNs process one item at a time: read word → update memory → read next word. This makes them perfect for text, speech, and time-series data. However, basic RNNs struggle with long sequences (they 'forget' things from 50 steps ago). That's why we use improved versions like LSTM and GRU.",
+          "keyPoints": [
+            "Designed for sequential data: text, speech, time-series",
+            "Has memory: remembers previous inputs through hidden state",
+            "Processes sequences one step at a time",
+            "Shares weights across time steps - efficient learning",
+            "Vanilla RNN has vanishing gradient problem for long sequences"
+          ],
+          "useCases": [
+            {
+              "title": "Language Translation",
+              "description": "Translating text from one language to another",
+              "example": "Google Translate converting English to Hindi in real-time"
+            },
+            {
+              "title": "Speech Recognition",
+              "description": "Converting audio waveforms to text",
+              "example": "YouTube auto-generating captions for videos"
+            },
+            {
+              "title": "Stock Price Prediction",
+              "description": "Forecasting future prices based on historical patterns",
+              "example": "Predicting tomorrow's price using last 60 days of data"
+            },
+            {
+              "title": "Music Generation",
+              "description": "Creating new melodies based on learned patterns",
+              "example": "AI composing background music for videos"
+            }
+          ],
+          "dos": [
+            "Use LSTM or GRU instead of vanilla RNN for better results",
+            "Normalize your time-series data before feeding to RNN",
+            "Use bidirectional RNN to see both past and future context",
+            "Apply gradient clipping to prevent exploding gradients"
+          ],
+          "donts": [
+            "Don't use vanilla RNN for sequences longer than 20-30 steps",
+            "Don't forget to reset hidden state between different sequences",
+            "Don't use RNN for very long sequences - use Transformers instead",
+            "Don't use large batch sizes - RNN training is memory-intensive"
+          ],
+          "bestPractices": [
+            "Start with LSTM (2-3 layers with 128-256 units each)",
+            "Use teacher forcing during training for faster convergence",
+            "Apply dropout between RNN layers (not within timesteps)",
+            "For language tasks, use embeddings (Word2Vec or GloVe)"
+          ]
+        },
+        "4": {
+          "title": "Long Short-Term Memory (LSTM)",
+          "overview": "LSTM is a smarter version of RNN that can remember information for very long sequences. Think of it as having a selective memory - it decides what to remember, what to forget, and what to pay attention to. This makes it much better than basic RNN for real-world tasks.\n\nLSTM has 'gates' - like doors that control information flow. Forget gate decides 'should I forget old info?', Input gate decides 'should I store new info?', and Output gate decides 'what should I output?'. It's like taking notes during a lecture - you don't write everything, only important points.\n\nThis architecture solves the vanishing gradient problem. While RNN forgets things after 20-30 steps, LSTM can remember patterns from hundreds of steps ago. That's why it's the go-to choice for language translation, speech recognition, and any task involving long sequences.",
+          "keyPoints": [
+            "Improved RNN that can remember long-term dependencies",
+            "Has 3 gates: Forget, Input, Output - control information flow",
+            "Cell state acts as memory highway carrying information",
+            "Solves vanishing gradient problem of vanilla RNN",
+            "More parameters than RNN but much better performance"
+          ],
+          "useCases": [
+            {
+              "title": "Machine Translation",
+              "description": "Translating long sentences preserving context",
+              "example": "Translating entire paragraphs while maintaining meaning"
+            },
+            {
+              "title": "Video Captioning",
+              "description": "Generating descriptions for video sequences",
+              "example": "Describing what's happening in a 2-minute video clip"
+            },
+            {
+              "title": "Handwriting Recognition",
+              "description": "Converting handwritten text to digital text",
+              "example": "OCR apps reading handwritten notes accurately"
+            },
+            {
+              "title": "Anomaly Detection",
+              "description": "Finding unusual patterns in time-series data",
+              "example": "Detecting server failures before they happen"
+            }
+          ],
+          "dos": [
+            "Use 2-3 LSTM layers with 128-512 units per layer",
+            "Apply dropout (0.2-0.5) between LSTM layers",
+            "Use return_sequences=True for all layers except last",
+            "Monitor validation loss - LSTM can overfit easily"
+          ],
+          "donts": [
+            "Don't use more than 4-5 LSTM layers - diminishing returns",
+            "Don't forget to normalize/standardize your input sequences",
+            "Don't use very large hidden sizes (>1024) without good reason",
+            "Don't ignore computational cost - LSTM is 3-4x slower than GRU"
+          ],
+          "bestPractices": [
+            "Start with GRU (faster) - switch to LSTM if you need better accuracy",
+            "Use bidirectional LSTM for tasks where future context helps",
+            "Apply gradient clipping (clip value 1.0-5.0)",
+            "Use Adam optimizer with learning rate 0.001 or lower"
+          ]
+        },
+        "5": {
+          "title": "Transfer Learning",
+          "overview": "Transfer Learning is like using someone else's knowledge to learn faster. Instead of training a model from scratch, you start with a model that's already trained on millions of images. Then you fine-tune it for your specific task. It's like learning to drive a truck when you already know how to drive a car.\n\nImagine training an image classifier from scratch - you'd need 100,000+ images and weeks of training. With transfer learning, you take a pre-trained model (like ResNet trained on ImageNet's 14 million images) and adapt it to your 1,000 images in hours. The early layers already learned to detect edges, shapes, and textures - you just teach the final layers your specific classes.\n\nThis is revolutionary for small datasets. A model pre-trained on cats and dogs already knows 'what fur looks like' - you just need to teach it the difference between your specific dog breeds. It's why you can build a custom image classifier with just 100 images per class.",
+          "keyPoints": [
+            "Use pre-trained models instead of training from scratch",
+            "Lower layers learn general features (edges, textures)",
+            "Upper layers learn task-specific features",
+            "Requires much less data and training time",
+            "Common pre-trained models: ResNet, VGG, BERT, GPT"
+          ],
+          "useCases": [
+            {
+              "title": "Custom Image Classification",
+              "description": "Building classifier with limited data",
+              "example": "Detecting plant diseases with only 500 images using ResNet50"
+            },
+            {
+              "title": "Medical Imaging",
+              "description": "Diagnosing rare diseases with few examples",
+              "example": "Detecting rare skin conditions with 100 images per class"
+            },
+            {
+              "title": "Text Classification",
+              "description": "Sentiment analysis or topic classification",
+              "example": "Fine-tuning BERT for customer review sentiment with 1,000 reviews"
+            },
+            {
+              "title": "Object Detection",
+              "description": "Detecting custom objects in images",
+              "example": "Detecting specific car models using YOLO pre-trained weights"
+            }
+          ],
+          "dos": [
+            "Freeze early layers, only train final layers initially",
+            "Use smaller learning rate (0.0001) when fine-tuning",
+            "Gradually unfreeze more layers if you have enough data",
+            "Apply data augmentation even with pre-trained models"
+          ],
+          "donts": [
+            "Don't train all layers immediately - start with last few layers",
+            "Don't use same learning rate as training from scratch",
+            "Don't skip pre-training if you have less than 10,000 images",
+            "Don't use pre-trained models from completely different domain"
+          ],
+          "bestPractices": [
+            "For images: Use ResNet50, EfficientNet, or MobileNet",
+            "For text: Use BERT, RoBERTa, or GPT-based models",
+            "Start with frozen base, train only classifier layer",
+            "After initial training, unfreeze top 2-3 layers and fine-tune"
+          ]
+        },
+        "6": {
+          "title": "Generative Adversarial Networks (GAN)",
+          "overview": "GANs are like a forger and a detective playing a game. The Generator (forger) creates fake images, and the Discriminator (detective) tries to tell real from fake. As the detective gets better at spotting fakes, the forger gets better at creating realistic fakes. Eventually, the fakes become so good that even experts can't tell the difference.\n\nThink of it as two neural networks competing: Generator creates fake data from random noise, Discriminator judges if data is real or fake. The Generator learns from the Discriminator's feedback. When the Discriminator says 'this looks fake because...', the Generator adjusts to fool it next time.\n\nGANs can create incredibly realistic faces, convert horses to zebras, turn sketches into photos, and generate art. However, they're hard to train - if one network becomes too strong, the other gives up. It's like a game where both players must improve at the same rate.",
+          "keyPoints": [
+            "Two neural networks competing: Generator vs Discriminator",
+            "Generator creates fake data from random noise",
+            "Discriminator tries to distinguish real from fake",
+            "Training is adversarial: they improve each other",
+            "Notoriously difficult to train - requires careful tuning"
+          ],
+          "useCases": [
+            {
+              "title": "Face Generation",
+              "description": "Creating realistic human faces that don't exist",
+              "example": "ThisPersonDoesNotExist.com generating unlimited unique faces"
+            },
+            {
+              "title": "Image-to-Image Translation",
+              "description": "Converting images from one style to another",
+              "example": "Turning day photos to night, summer to winter, horses to zebras"
+            },
+            {
+              "title": "Super Resolution",
+              "description": "Enhancing low-resolution images to high-resolution",
+              "example": "Upscaling old 480p videos to 4K quality"
+            },
+            {
+              "title": "Art Generation",
+              "description": "Creating artwork in specific styles",
+              "example": "Generating paintings in the style of Van Gogh or Picasso"
+            }
+          ],
+          "dos": [
+            "Use separate learning rates for Generator and Discriminator",
+            "Apply label smoothing: use 0.9 instead of 1.0 for real labels",
+            "Monitor both losses - they should stay relatively balanced",
+            "Use techniques like WGAN or StyleGAN for stable training"
+          ],
+          "donts": [
+            "Don't let Discriminator become too strong - it kills learning",
+            "Don't use batch normalization in Discriminator's first layer",
+            "Don't expect stable training - GANs are inherently unstable",
+            "Don't skip regularization techniques like gradient penalty"
+          ],
+          "bestPractices": [
+            "Start with DCGAN (Deep Convolutional GAN) architecture",
+            "Use LeakyReLU in Discriminator, ReLU in Generator",
+            "Apply Spectral Normalization for training stability",
+            "Generate samples every epoch to monitor quality visually"
+          ]
+        },
+        "7": {
+          "title": "Autoencoders",
+          "overview": "Autoencoders compress data and then reconstruct it, like a smart zip file. They learn to capture the 'essence' of data in a smaller form. Imagine describing a photo in 10 words instead of 1000 - that's what the encoder does. Then the decoder tries to recreate the original photo from those 10 words.\n\nThe network has a bottleneck in the middle - forcing it to compress information. This bottleneck learns meaningful features. For example, when compressing face images, it might learn features like 'has glasses', 'smiling', 'age', etc. These compressed features are often more useful than raw pixels.\n\nAutoencoders have many uses: noise removal (compress noisy image, reconstruct clean version), anomaly detection (if reconstruction is bad, input is unusual), and dimensionality reduction (like PCA but non-linear). They're unsupervised - no labels needed, just raw data.",
+          "keyPoints": [
+            "Compresses data into smaller representation, then reconstructs it",
+            "Encoder reduces dimensions, Decoder expands back",
+            "Learns meaningful features in the bottleneck layer",
+            "Unsupervised learning - doesn't need labeled data",
+            "Variants: Denoising, Variational, Sparse Autoencoders"
+          ],
+          "useCases": [
+            {
+              "title": "Image Denoising",
+              "description": "Removing noise from corrupted images",
+              "example": "Cleaning up old scanned photos or low-light camera images"
+            },
+            {
+              "title": "Anomaly Detection",
+              "description": "Finding unusual patterns in data",
+              "example": "Detecting fraudulent credit card transactions or network intrusions"
+            },
+            {
+              "title": "Dimensionality Reduction",
+              "description": "Compressing high-dimensional data for visualization",
+              "example": "Reducing 1000 features to 2D for plotting"
+            },
+            {
+              "title": "Feature Learning",
+              "description": "Learning useful representations for downstream tasks",
+              "example": "Pre-training features for image classification with unlabeled data"
+            }
+          ],
+          "dos": [
+            "Make bottleneck layer much smaller than input (1/4 to 1/10)",
+            "Use same architecture for encoder and decoder (mirrored)",
+            "Start with simple autoencoder before trying VAE or DAE",
+            "Normalize input data to 0-1 range"
+          ],
+          "donts": [
+            "Don't make bottleneck too large - it won't learn compression",
+            "Don't use different activation functions in encoder vs decoder",
+            "Don't expect perfect reconstruction - some loss is normal",
+            "Don't use autoencoders for labeled classification tasks directly"
+          ],
+          "bestPractices": [
+            "Use Mean Squared Error (MSE) loss for reconstruction",
+            "For images, use convolutional autoencoders (CAE)",
+            "Apply dropout in bottleneck layer for robustness",
+            "Visualize reconstructions during training to monitor quality"
+          ]
+        },
+        "8": {
+          "title": "Optimization Algorithms",
+          "overview": "Optimization algorithms are methods to train neural networks efficiently. Think of training as climbing down a mountain in fog - you can't see the bottom, you only feel the slope under your feet. The optimizer decides which direction to step and how big the step should be.\n\nGradient Descent is the basic idea: calculate the slope (gradient), step in the opposite direction (downhill). But there are many improvements: SGD adds randomness (faster but noisy), Momentum remembers previous directions (smoother path), Adam adapts learning rate for each parameter (most popular).\n\nChoosing the right optimizer is like choosing the right vehicle for terrain. SGD is a bicycle (simple, reliable), Momentum is a motorcycle (faster, smoother), Adam is an all-terrain vehicle (works almost everywhere). For most tasks, Adam is the safe default choice - it converges fast and needs less tuning.",
+          "keyPoints": [
+            "Algorithms to minimize loss function during training",
+            "Gradient Descent: basic idea - follow slope downhill",
+            "SGD with Momentum: remembers previous updates for smoother path",
+            "Adam: adapts learning rate per parameter - most popular",
+            "Learning rate is crucial: too high = unstable, too low = slow"
+          ],
+          "useCases": [
+            {
+              "title": "Training Deep Networks",
+              "description": "Optimizing millions of parameters efficiently",
+              "example": "Training ResNet-50 (25M parameters) in reasonable time"
+            },
+            {
+              "title": "Fine-tuning Models",
+              "description": "Adjusting pre-trained models with low learning rate",
+              "example": "Fine-tuning BERT with learning rate 2e-5"
+            },
+            {
+              "title": "Hyperparameter Search",
+              "description": "Finding best optimizer settings automatically",
+              "example": "Testing learning rates from 0.0001 to 0.1"
+            },
+            {
+              "title": "Transfer Learning",
+              "description": "Different learning rates for different layers",
+              "example": "Freeze early layers, higher LR for final layers"
+            }
+          ],
+          "dos": [
+            "Use Adam as default optimizer - works 90% of the time",
+            "Start with learning rate 0.001 for Adam, 0.01 for SGD",
+            "Use learning rate schedules: reduce on plateau or cosine annealing",
+            "Monitor training loss curve - should decrease smoothly"
+          ],
+          "donts": [
+            "Don't use same learning rate for all optimizers - they differ",
+            "Don't keep learning rate constant - use schedules for better results",
+            "Don't use very large learning rates (>0.1) without warmup",
+            "Don't switch optimizers mid-training - restart if you change"
+          ],
+          "bestPractices": [
+            "Adam for most tasks: beta1=0.9, beta2=0.999, lr=0.001",
+            "SGD+Momentum for computer vision: momentum=0.9, lr=0.01",
+            "Use learning rate finder to find optimal initial LR",
+            "Apply gradient clipping if training is unstable"
+          ]
+        },
+        "9": {
+          "title": "Transformers",
+          "overview": "Transformers revolutionized AI by using 'attention' instead of recurrence. Instead of reading text word-by-word like RNN, Transformers look at all words simultaneously and focus on the most relevant ones. It's like reading a paragraph and highlighting important words - that's what attention does.\n\nThe key innovation is 'self-attention' - each word figures out which other words are important. In 'The cat sat on the mat', when processing 'sat', the model attends strongly to 'cat' and 'mat'. This allows parallel processing (much faster than RNN) and understanding long-range dependencies.\n\nTransformers power all modern large language models: GPT (ChatGPT), BERT (Google Search), T5 (translation). They're also used for images (Vision Transformers), speech, and proteins. The architecture is simple but powerful: stack attention layers, add residual connections, and layer normalization.",
+          "keyPoints": [
+            "Uses attention mechanism instead of recurrence",
+            "Processes entire sequence in parallel - much faster than RNN",
+            "Self-attention: each token attends to all other tokens",
+            "Positional encoding tells model word order",
+            "Powers GPT, BERT, T5, and most modern LLMs"
+          ],
+          "useCases": [
+            {
+              "title": "Language Models",
+              "description": "Generating human-like text",
+              "example": "ChatGPT, GPT-4 for conversations, writing, coding"
+            },
+            {
+              "title": "Machine Translation",
+              "description": "Translating between languages accurately",
+              "example": "Google Translate achieving near-human quality"
+            },
+            {
+              "title": "Text Summarization",
+              "description": "Condensing long documents to key points",
+              "example": "Summarizing 10-page report to 1 paragraph"
+            },
+            {
+              "title": "Question Answering",
+              "description": "Extracting answers from text passages",
+              "example": "BERT answering questions from Wikipedia articles"
+            }
+          ],
+          "dos": [
+            "Use pre-trained Transformers (BERT, GPT) via transfer learning",
+            "Apply layer normalization before attention and feedforward layers",
+            "Use warmup learning rate schedule for stable training",
+            "Increase model size (layers, heads, dimensions) if you have data"
+          ],
+          "donts": [
+            "Don't train Transformer from scratch with small dataset (<1M examples)",
+            "Don't forget positional encoding - order matters in sequences",
+            "Don't use very long sequences (>512) without efficient attention",
+            "Don't skip residual connections - they're crucial for deep models"
+          ],
+          "bestPractices": [
+            "For text: Fine-tune BERT (encoder) or GPT (decoder)",
+            "Use multi-head attention (8-16 heads typical)",
+            "Apply dropout (0.1-0.3) after attention and feedforward",
+            "Use libraries like HuggingFace Transformers - don't implement from scratch"
+          ]
+        },
+        "10": {
+          "title": "Attention Mechanisms",
+          "overview": "Attention is the brain's ability to focus on what's important. In AI, attention mechanisms let models focus on relevant parts of input while ignoring noise. When translating 'I love dogs' to Spanish, the model attends to 'love' when generating 'amo', and 'dogs' when generating 'perros'.\n\nThink of reading a textbook: you don't memorize every word, you highlight key concepts. Attention does the same - it learns which inputs are important for each output. This is computed using Query, Key, Value (QKV) triplets. Query asks 'what am I looking for?', Keys answer 'what do I have?', and Values provide 'here's the information'.\n\nAttention solved the bottleneck problem in sequence-to-sequence models. Previously, encoders compressed everything into a single vector (information loss). With attention, the decoder can look back at all encoder states and pick what it needs. This dramatically improved translation, summarization, and image captioning.",
+          "keyPoints": [
+            "Focuses on relevant parts of input dynamically",
+            "Computes alignment scores between query and keys",
+            "Weighted sum of values based on attention scores",
+            "Self-attention: input attends to itself (used in Transformers)",
+            "Cross-attention: output attends to input (used in encoder-decoder)"
+          ],
+          "useCases": [
+            {
+              "title": "Machine Translation",
+              "description": "Aligning source and target language words",
+              "example": "Translating 'Le chat noir' to 'The black cat' with correct word alignment"
+            },
+            {
+              "title": "Image Captioning",
+              "description": "Focusing on different image regions when generating words",
+              "example": "Looking at dog when saying 'dog', at grass when saying 'playing'"
+            },
+            {
+              "title": "Document Summarization",
+              "description": "Attending to most important sentences",
+              "example": "Extracting key points from 100-page document"
+            },
+            {
+              "title": "Speech Recognition",
+              "description": "Aligning audio frames to text characters",
+              "example": "Mapping 'h-e-l-l-o' sounds to letters accurately"
+            }
+          ],
+          "dos": [
+            "Use scaled dot-product attention for efficiency",
+            "Apply multi-head attention to capture different aspects",
+            "Visualize attention weights to understand model behavior",
+            "Use attention masks for padding and causal (left-to-right) modeling"
+          ],
+          "donts": [
+            "Don't forget to scale attention scores by sqrt(d_k)",
+            "Don't use attention for very long sequences without optimization",
+            "Don't skip softmax - it normalizes attention weights to sum to 1",
+            "Don't use too many attention heads (>16) without good reason"
+          ],
+          "bestPractices": [
+            "For sequences <512: use standard attention",
+            "For long sequences: use sparse attention or linear attention",
+            "Combine with residual connections and layer normalization",
+            "Use attention dropout (0.1) to prevent overfitting"
+          ]
+        }
+      }
+    }
+  }
+}

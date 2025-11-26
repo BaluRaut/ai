@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Home",
+    "quizPractice": "Quiz Practice",
+    "bookmarks": "Bookmarks",
+    "progress": "Progress",
+    "achievements": "Achievements",
+    "learningPaths": "Learning Paths",
+    "interviewPrep": "Interview Prep",
+    "flashCards": "Flash Cards",
+    "cheatSheets": "Cheat Sheets",
+    "feedback": "Give Feedback"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "notFound": "Not Found",
+    "goBack": "Go Back",
+    "language": "Language",
+    "english": "English",
+    "marathi": "मराठी",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "previous": "Previous",
+    "next": "Next",
+    "submit": "Submit",
+    "reset": "Reset",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "viewAll": "View All",
+    "learnMore": "Learn More"
+  },
+  "difficulty": {
+    "beginner": "Beginner",
+    "easy": "Easy",
+    "intermediate": "Intermediate",
+    "medium": "Medium",
+    "advanced": "Advanced",
+    "hard": "Hard",
+    "expert": "Expert"
+  },
+  "time": {
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "weeks": "weeks"
+  },
+  "actions": {
+    "start": "Start",
+    "continue": "Continue",
+    "complete": "Complete",
+    "retry": "Retry",
+    "skip": "Skip",
+    "download": "Download",
+    "share": "Share",
+    "print": "Print"
+  }
+}

@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import {
+  Container,
   Typography,
   Box,
   Paper,
@@ -21,6 +22,13 @@ import {
   Tooltip,
   useMediaQuery,
   useTheme,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Fab,
 } from '@mui/material';
 import {
   NavigateNext,
@@ -39,15 +47,19 @@ import {
   Schedule,
   SignalCellularAlt,
   Link as LinkIcon,
+  SmartToy,
 } from '@mui/icons-material';
 import { learningPaths, courseData } from '../../data/courseContent';
 import extendedQuizzes from '../../data/extendedQuizzes';
 import CodeBlock from '../../components/CodeBlock/CodeBlock';
-import CodeEditor from '../../components/CodeEditor/CodeEditor';
+import CodeSandbox from '../../components/CodeSandbox/CodeSandbox';
 import Quiz from '../../components/Quiz/Quiz';
+import AITutor from '../../components/AITutor/AITutor';
+import NeuralNetworkViz from '../../components/Visualizations/NeuralNetworkViz';
+import PracticeAssignments from '../../components/PracticeAssignments/PracticeAssignments';
 import { useProgress } from '../../context/ProgressContext';
 import { useCourseTranslation } from '../../hooks/useCourseTranslation';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useTranslation } from 'react-i18next';
@@ -59,16 +71,50 @@ const TopicDetail = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { markTopicComplete, isTopicComplete, toggleBookmark, isBookmarked } = useProgress();
   const [showQuiz, setShowQuiz] = useState(false);
+  const [showAITutor, setShowAITutor] = useState(false);
   const { t } = useTranslation();
   const { mergeTopicWithTranslation } = useCourseTranslation();
 
+  // Reset AI Tutor when topic changes
+  useEffect(() => {
+    setShowAITutor(false);
+    setShowQuiz(false);
+    // Scroll to top when topic changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [topicId, pathId]);
+
   const path = learningPaths.find(p => p.id === pathId);
   const topics = courseData[pathId]?.topics || [];
-  const originalTopic = topics.find(t => t.id === topicId);
+  
+  // Debug logging
+  console.log('Looking for topic:', { pathId, topicId, topicIdType: typeof topicId });
+  console.log('Available topics:', topics.map(t => ({ id: t.id, idType: typeof t.id, title: t.title })));
+  
+  const originalTopic = topics.find(t => String(t.id) === String(topicId));
+  
+  console.log('Found topic:', originalTopic?.title || 'NOT FOUND');
   
   // Get translated topic
-  const topic = mergeTopicWithTranslation(originalTopic, pathId);
-  const currentIndex = topics.findIndex(t => t.id === topicId);
+  const topic = originalTopic ? mergeTopicWithTranslation(originalTopic, pathId) : null;
+  const currentIndex = topics.findIndex(t => String(t.id) === String(topicId));
+
+  // Normalize topic content - some topics have data in content, others directly on topic
+  const topicContent = useMemo(() => {
+    if (!topic) return {};
+    return {
+      overview: topic.content?.overview || topic.overview || '',
+      keyPoints: topic.content?.keyPoints || topic.keyPoints || [],
+      useCases: topic.content?.useCases || topic.useCases || [],
+      codeExamples: topic.content?.codeExamples || topic.codeExamples || [],
+      dos: topic.content?.dos || topic.dos || [],
+      donts: topic.content?.donts || topic.donts || [],
+      diagram: topic.content?.diagram || topic.diagram,
+      comparisonTable: topic.content?.comparisonTable || topic.comparisonTable,
+      fileStructure: topic.content?.fileStructure || topic.fileStructure,
+      concepts: topic.content?.concepts || topic.concepts || [],
+      exercises: topic.content?.exercises || topic.exercises || [],
+    };
+  }, [topic]);
 
   // Merge basic quizzes with extended quizzes
   const allQuizzes = useMemo(() => {
@@ -92,7 +138,7 @@ const TopicDetail = () => {
   const bookmarked = isBookmarked(topicId);
 
   // Check if this is a mini project
-  const isMiniProject = topic.id?.includes('project') || topic.title?.includes('Mini Project');
+  const isMiniProject = String(topic?.id || '').includes('project') || topic?.title?.includes('Mini Project');
 
   // Download project files as ZIP
   const handleDownloadProject = async () => {
@@ -140,7 +186,7 @@ Generated from Python Learning Platform
     
     // Add all code examples as separate files
     if (topic.content?.codeExamples) {
-      topic.content.codeExamples.forEach((example, index) => {
+      topicContent.codeExamples.forEach((example, index) => {
         // Extract filename from title or use a default
         let filename = 'example_' + (index + 1);
         
@@ -347,7 +393,7 @@ data/cache/
           📚 {t('topic.overview')}
         </Typography>
         <Box sx={{ '& > *': { mb: 2 } }}>
-          {topic.content.overview.split('\n\n').map((paragraph, idx) => {
+          {topicContent.overview.split('\n\n').map((paragraph, idx) => {
             // Handle bold text with **
             if (paragraph.startsWith('**') && paragraph.includes(':**')) {
               const [heading, ...content] = paragraph.split(':**');
@@ -374,6 +420,28 @@ data/cache/
                 </Box>
               );
             }
+            
+            // Handle inline bold text (**text**)
+            const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+            const hasInlineBold = parts.some(part => part.startsWith('**') && part.endsWith('**'));
+            
+            if (hasInlineBold) {
+              return (
+                <Typography key={idx} variant="body1" component="div">
+                  {parts.map((part, i) => {
+                    if (part.startsWith('**') && part.endsWith('**')) {
+                      return (
+                        <Box key={i} component="span" sx={{ fontWeight: 700 }}>
+                          {part.replace(/\*\*/g, '')}
+                        </Box>
+                      );
+                    }
+                    return <span key={i}>{part}</span>;
+                  })}
+                </Typography>
+              );
+            }
+            
             // Regular paragraphs
             return (
               <Typography key={idx} variant="body1">
@@ -387,7 +455,7 @@ data/cache/
           {t('topic.keyPoints')}
         </Typography>
         <List>
-          {topic.content.keyPoints.map((point, index) => (
+          {topicContent.keyPoints.map((point, index) => (
             <ListItem key={index}>
               <ListItemIcon>
                 <CheckCircle color="primary" />
@@ -398,8 +466,153 @@ data/cache/
         </List>
       </Paper>
 
+      {/* Diagram - Visual Representation */}
+      {topicContent.diagram && (
+        <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom>
+            🎨 {topicContent.diagram.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary" paragraph>
+            {topicContent.diagram.description}
+          </Typography>
+          
+          {topicContent.diagram.type === 'nested-circles' && (
+            <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              py: 4,
+              position: 'relative',
+              minHeight: 400
+            }}>
+              {/* Nested circles visualization */}
+              {topicContent.diagram.layers.map((layer, index) => {
+                const size = 350 - (index * 100);
+                const opacity = 0.3 - (index * 0.05);
+                return (
+                  <Box
+                    key={index}
+                    sx={{
+                      position: 'absolute',
+                      width: size,
+                      height: size,
+                      borderRadius: '50%',
+                      border: `3px solid ${layer.color}`,
+                      bgcolor: `${layer.color}${Math.round(opacity * 255).toString(16).padStart(2, '0')}`,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: topicContent.diagram.layers.length - index,
+                      transition: 'transform 0.3s',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        zIndex: 100
+                      }
+                    }}
+                  >
+                    <Typography 
+                      variant={index === 0 ? 'h6' : index === 1 ? 'subtitle1' : 'body1'}
+                      fontWeight={600}
+                      sx={{ 
+                        color: layer.color,
+                        textAlign: 'center',
+                        px: 2,
+                        mb: 0.5
+                      }}
+                    >
+                      {layer.label}
+                    </Typography>
+                    <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        textAlign: 'center',
+                        px: 2,
+                        color: 'text.secondary',
+                        fontSize: index === 2 ? '0.65rem' : '0.75rem'
+                      }}
+                    >
+                      {layer.description}
+                    </Typography>
+                  </Box>
+                );
+              })}
+            </Box>
+          )}
+          
+          {/* Legend */}
+          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center', mt: 3 }}>
+            {topicContent.diagram.layers.map((layer, index) => (
+              <Chip
+                key={index}
+                label={layer.label}
+                sx={{
+                  bgcolor: layer.color,
+                  color: 'white',
+                  fontWeight: 600
+                }}
+              />
+            ))}
+          </Box>
+        </Paper>
+      )}
+
+      {/* Comparison Table */}
+      {topicContent.comparisonTable && (
+        <Paper elevation={2} sx={{ p: isMobile ? 1 : 3, mb: 3 }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ px: isMobile ? 2 : 0, pt: isMobile ? 2 : 0 }}>
+            📊 {topicContent.comparisonTable.title}
+          </Typography>
+          <TableContainer sx={{ mt: 2 }}>
+            <Table size={isMobile ? 'small' : 'medium'}>
+              <TableHead>
+                <TableRow sx={{ bgcolor: 'primary.main' }}>
+                  {topicContent.comparisonTable.headers.map((header, index) => (
+                    <TableCell 
+                      key={index}
+                      sx={{ 
+                        color: 'white',
+                        fontWeight: 700,
+                        fontSize: isMobile ? '0.75rem' : '0.875rem',
+                        whiteSpace: isMobile ? 'normal' : 'nowrap'
+                      }}
+                    >
+                      {header}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {topicContent.comparisonTable.rows.map((row, rowIndex) => (
+                  <TableRow 
+                    key={rowIndex}
+                    sx={{ 
+                      '&:nth-of-type(odd)': { bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50' },
+                      '&:hover': { bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100' }
+                    }}
+                  >
+                    {row.map((cell, cellIndex) => (
+                      <TableCell 
+                        key={cellIndex}
+                        sx={{
+                          fontWeight: cellIndex === 0 ? 600 : 400,
+                          fontSize: isMobile ? '0.7rem' : '0.875rem',
+                          color: cellIndex === 0 ? 'primary.main' : 'text.primary'
+                        }}
+                      >
+                        {cell}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+      )}
+
       {/* File Structure - For Mini Projects */}
-      {isMiniProject && topic.content.fileStructure && (
+      {isMiniProject && topicContent.fileStructure && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             📁 {t('topic.fileStructure', 'File Structure')}
@@ -414,19 +627,19 @@ data/cache/
             whiteSpace: 'pre'
           }}>
             <Typography component="pre" sx={{ m: 0, fontFamily: 'inherit', fontSize: 'inherit' }}>
-              {topic.content.fileStructure}
+              {topicContent.fileStructure}
             </Typography>
           </Box>
         </Paper>
       )}
 
       {/* Key Concepts - For Mini Projects */}
-      {isMiniProject && topic.content.concepts && (
+      {isMiniProject && topicContent.concepts && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             🔑 {t('topic.concepts', 'Key Concepts')}
           </Typography>
-          {topic.content.concepts.map((concept, index) => (
+          {topicContent.concepts.map((concept, index) => (
             <Card key={index} variant="outlined" sx={{ mb: 2 }}>
               <CardContent>
                 <Typography variant="h6" color="primary" gutterBottom>
@@ -445,12 +658,12 @@ data/cache/
       )}
 
       {/* Use Cases */}
-      {topic.content.useCases && (
+      {topicContent.useCases && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             💡 Real-World Use Cases
           </Typography>
-          {topic.content.useCases.map((useCase, index) => (
+          {topicContent.useCases.map((useCase, index) => (
             <Card key={index} variant="outlined" sx={{ mb: 2 }}>
               <CardContent>
                 <Typography variant="h6" color="primary" gutterBottom>
@@ -467,19 +680,19 @@ data/cache/
       )}
 
       {/* Do's and Don'ts */}
-      {(topic.content.dos || topic.content.donts) && (
+      {(topicContent.dos || topicContent.donts) && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             ✅ Do's and Don'ts
           </Typography>
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3, mt: 2 }}>
-            {topic.content.dos && (
+            {topicContent.dos && (
               <Box>
                 <Typography variant="h6" color="success.main" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <CheckCircle /> Do's
                 </Typography>
                 <List>
-                  {topic.content.dos.map((item, index) => (
+                  {topicContent.dos.map((item, index) => (
                     <ListItem key={index}>
                       <ListItemIcon>
                         <CheckCircle color="success" fontSize="small" />
@@ -490,13 +703,13 @@ data/cache/
                 </List>
               </Box>
             )}
-            {topic.content.donts && (
+            {topicContent.donts && (
               <Box>
                 <Typography variant="h6" color="error.main" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <Cancel /> Don'ts
                 </Typography>
                 <List>
-                  {topic.content.donts.map((item, index) => (
+                  {topicContent.donts.map((item, index) => (
                     <ListItem key={index}>
                       <ListItemIcon>
                         <Cancel color="error" fontSize="small" />
@@ -512,16 +725,16 @@ data/cache/
       )}
 
       {/* Best Practices */}
-      {topic.content.bestPractices && (
+      {topicContent.bestPractices && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Lightbulb color="warning" /> Best Practices
           </Typography>
           
           {/* Handle array format (simple list) */}
-          {Array.isArray(topic.content.bestPractices) && (
+          {Array.isArray(topicContent.bestPractices) && (
             <List>
-              {topic.content.bestPractices.map((practice, index) => (
+              {topicContent.bestPractices.map((practice, index) => (
                 <ListItem key={index}>
                   <ListItemIcon>
                     <Lightbulb color="warning" />
@@ -533,9 +746,9 @@ data/cache/
           )}
           
           {/* Handle object format (categorized) */}
-          {!Array.isArray(topic.content.bestPractices) && topic.content.bestPractices && (
+          {!Array.isArray(topicContent.bestPractices) && topicContent.bestPractices && (
             <Box>
-              {Object.entries(topic.content.bestPractices).map(([category, practices], idx) => (
+              {Object.entries(topicContent.bestPractices).map(([category, practices], idx) => (
                 <Box key={idx} sx={{ mb: 3 }}>
                   <Typography variant="h6" color="primary" gutterBottom sx={{ textTransform: 'capitalize' }}>
                     {category.replace(/([A-Z])/g, ' $1').trim()}
@@ -558,19 +771,19 @@ data/cache/
       )}
 
       {/* Real-World Applications - For projects with detailed structure */}
-      {isMiniProject && topic.content.realWorldApplications && !Array.isArray(topic.content.realWorldApplications) && (
+      {isMiniProject && topicContent.realWorldApplications && !Array.isArray(topicContent.realWorldApplications) && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             🌍 {t('topic.realWorldApplications', 'Real-World Applications')}
           </Typography>
-          {topic.content.realWorldApplications.description && (
+          {topicContent.realWorldApplications.description && (
             <Typography variant="body1" paragraph>
-              {topic.content.realWorldApplications.description}
+              {topicContent.realWorldApplications.description}
             </Typography>
           )}
-          {topic.content.realWorldApplications.examples && (
+          {topicContent.realWorldApplications.examples && (
             <Box sx={{ mt: 2 }}>
-              {topic.content.realWorldApplications.examples.map((example, index) => (
+              {topicContent.realWorldApplications.examples.map((example, index) => (
                 <Card key={index} variant="outlined" sx={{ mb: 2 }}>
                   <CardContent>
                     <Typography variant="h6" color="primary" gutterBottom>
@@ -591,12 +804,12 @@ data/cache/
       )}
 
       {/* Practice Exercises - For projects */}
-      {isMiniProject && topic.content.practiceExercises && (
+      {isMiniProject && topicContent.practiceExercises && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom>
             💪 Practice Exercises
           </Typography>
-          {topic.content.practiceExercises.map((exercise, index) => (
+          {topicContent.practiceExercises.map((exercise, index) => (
             <Card key={index} variant="outlined" sx={{ mb: 2 }}>
               <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
@@ -640,12 +853,12 @@ data/cache/
       )}
 
       {/* Code Examples */}
-      {topic.content.codeExamples && (
+      {topicContent.codeExamples && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
           <Typography variant="h5" fontWeight={600} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Code /> Code Examples
           </Typography>
-          {topic.content.codeExamples.map((example, index) => (
+          {topicContent.codeExamples.map((example, index) => (
             <Accordion key={index} defaultExpanded={index === 0}>
               <AccordionSummary expandIcon={<ExpandMore />}>
                 <Typography variant="h6">{example.title}</Typography>
@@ -675,35 +888,23 @@ data/cache/
         </Paper>
       )}
 
-      {/* Interactive Code Editor */}
-      <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
-        <Typography variant="h5" fontWeight={600} gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Code /> Try It Yourself - Interactive Python Editor
-        </Typography>
-        <Typography variant="body2" color="text.secondary" paragraph>
-          Write and run Python code directly in your browser. Experiment with the concepts you've learned!
-        </Typography>
-        <CodeEditor 
-          initialCode={
-            topic.content.codeExamples && topic.content.codeExamples.length > 0 
-              ? topic.content.codeExamples[0].code 
-              : `# Write your Python code here
-print("Hello, Python!")
-
-# Try some examples:
-# Variables
-name = "Learner"
-age = 25
-print(f"My name is {name} and I am {age} years old")
-
-# Lists
-fruits = ["apple", "banana", "cherry"]
-print("Fruits:", fruits)
-`
+      {/* Interactive Code Sandbox */}
+      {topicContent.codeExamples && topicContent.codeExamples.length > 0 && (
+        <CodeSandbox
+          initialCode={topicContent.codeExamples[0].code}
+          initialJsCode={topicContent.codeExamples[0].jsCode}
+          title="🚀 Interactive Code Sandbox - Try & Modify the Code!"
+          height="450px"
+          supportedLanguages={
+            topicContent.codeExamples[0].jsCode 
+              ? ['python', 'javascript'] 
+              : ['python']
           }
-          height="500px"
         />
-      </Paper>
+      )}
+
+      {/* Practice Assignments */}
+      <PracticeAssignments topicId={topicId} />
 
       {/* Quiz Section */}
       {allQuizzes.length > 0 && (
@@ -763,6 +964,48 @@ print("Fruits:", fruits)
           Next
         </Button>
       </Box>
+
+      {/* Interactive Visualizations */}
+      {pathId === 'deep-learning' && topicId === '1' && (
+        <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom>
+            🎨 Interactive Neural Network Visualization
+          </Typography>
+          <Typography variant="body2" color="text.secondary" paragraph>
+            Watch how signals propagate through a neural network. Adjust the architecture, speed, and activation functions to see how they affect the network behavior.
+          </Typography>
+          <NeuralNetworkViz 
+            layers={[3, 5, 3, 2]}
+            title="Forward Propagation Demo"
+            description="See how input data flows through layers to produce output"
+          />
+        </Paper>
+      )}
+
+      {/* AI Tutor Floating Button */}
+      <Tooltip title="Ask AI Tutor" placement="left">
+        <Fab 
+          color="primary" 
+          onClick={() => setShowAITutor(true)}
+          sx={{ 
+            position: 'fixed', 
+            bottom: 24, 
+            right: 24,
+            zIndex: 1000,
+          }}
+        >
+          <SmartToy />
+        </Fab>
+      </Tooltip>
+
+      {/* AI Tutor Dialog */}
+      {showAITutor && (
+        <AITutor 
+          topic={topic} 
+          pathId={pathId} 
+          onClose={() => setShowAITutor(false)} 
+        />
+      )}
     </Box>
   );
 };

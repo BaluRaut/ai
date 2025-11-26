@@ -1,21 +1,26 @@
-// Modular course content structure
-// Each learning path is now in its own file for better maintainability
+// AI Learning Platform - Course Content Structure
+// Progressive learning from AI fundamentals to specializations
 
-import { learningPaths } from './courses/learningPaths.js';
-import { beginner } from './courses/beginner.js';
-import { intermediate } from './courses/intermediate.js';
-import { advanced } from './courses/advanced.js';
-import { professional } from './courses/professional.js';
-import { dataScience } from './courses/dataScience.js';
+import { aiLearningPaths } from './ai-courses/aiLearningPaths.js';
+import { fundamentals } from './ai-courses/fundamentals.js';
+import { machineLearning } from './ai-courses/machine-learning.js';
+import { deepLearning } from './ai-courses/deep-learning.js';
+import { advancedAI } from './ai-courses/advanced-ai.js';
+import { specializations } from './ai-courses/specializations.js';
+import { dataVisualization } from './ai-courses/data-visualization.js';
+import { professionalPractices } from './ai-courses/professional-practices.js';
 
 // Re-export learning paths configuration
-export { learningPaths };
+export { aiLearningPaths as learningPaths };
 
-// Aggregate all course data
+// Aggregate all AI course data
 export const courseData = {
-  beginner,
-  intermediate,
-  advanced,
-  professional,
-  dataScience,
+  fundamentals,
+  'machine-learning': machineLearning,
+  'deep-learning': deepLearning,
+  'advanced-ai': advancedAI,
+  specializations,
+  'data-visualization': dataVisualization,
+  'professional-practices': professionalPractices,
 };
+

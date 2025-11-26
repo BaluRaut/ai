@@ -1,0 +1,219 @@
+{
+  "title": "AI Specializations",
+  "description": "Advanced applications: Computer Vision, Time Series, Recommender Systems, and more",
+  "computerVision": {
+    "id": "computer-vision",
+    "title": "Computer Vision",
+    "description": "Teaching computers to see and understand images",
+    "overview": "Computer Vision enables machines to extract information from images and videos. From facial recognition to self-driving cars, it powers visual understanding. Core tasks: image classification (cat vs dog), object detection (finding objects and their locations), semantic segmentation (pixel-level classification), and image generation.",
+    "modernCV": "Modern CV uses CNNs (Convolutional Neural Networks) that automatically learn features like edges, textures, and patterns. Pre-trained models like ResNet, EfficientNet, and YOLO achieve human-level accuracy on many tasks.",
+    "transferLearning": "Transfer learning is standard - fine-tune pre-trained models on your data instead of training from scratch.",
+    "keyPoints": [
+      "Enables machines to understand images and videos",
+      "Tasks: classification, detection, segmentation, generation",
+      "CNNs (ResNet, EfficientNet, YOLO) are the backbone",
+      "Transfer learning: fine-tune pre-trained models",
+      "Applications: medical imaging, autonomous vehicles, retail"
+    ],
+    "useCases": {
+      "medicalImaging": {
+        "title": "Medical Imaging",
+        "description": "Detect diseases from X-rays, MRIs, CT scans",
+        "example": "AI detecting breast cancer with 94% accuracy from mammograms"
+      },
+      "autonomousVehicles": {
+        "title": "Autonomous Vehicles",
+        "description": "Identify pedestrians, vehicles, traffic signs",
+        "example": "Tesla FSD detecting and tracking 100+ objects in real-time"
+      },
+      "qualityControl": {
+        "title": "Quality Control",
+        "description": "Detect manufacturing defects automatically",
+        "example": "Factories inspecting 1000+ products/hour for defects"
+      },
+      "visualSearch": {
+        "title": "Visual Search",
+        "description": "Find similar products from photos",
+        "example": "Pinterest visual search: photo of shoes → similar products"
+      }
+    }
+  },
+  "timeSeries": {
+    "id": "time-series",
+    "title": "Time Series Forecasting",
+    "description": "Predicting future values from historical data",
+    "overview": "Time series analysis focuses on data points collected over time. Stock prices, weather, sales, sensor readings - all are time series. The goal is to understand patterns and predict future values.",
+    "patterns": {
+      "trend": "Trend: Long-term increase or decrease",
+      "seasonality": "Seasonality: Regular patterns that repeat (daily, weekly, yearly)",
+      "cyclical": "Cyclical: Irregular patterns over longer periods",
+      "noise": "Noise: Random fluctuations"
+    },
+    "keyPoints": [
+      "Data points collected over time with temporal dependencies",
+      "Patterns: trend, seasonality, cyclical, noise",
+      "Classical methods: ARIMA, Exponential Smoothing",
+      "Modern methods: LSTM, Transformer-based models",
+      "Applications: stock prediction, weather forecasting, demand planning"
+    ],
+    "useCases": {
+      "stockPrediction": {
+        "title": "Stock Price Prediction",
+        "description": "Forecast future stock prices based on historical data",
+        "example": "Predicting next week's price using past 60 days"
+      },
+      "demandForecasting": {
+        "title": "Demand Forecasting",
+        "description": "Predict future product demand for inventory",
+        "example": "Retail stores predicting holiday season demand"
+      },
+      "weatherForecasting": {
+        "title": "Weather Forecasting",
+        "description": "Predict future weather conditions",
+        "example": "7-day temperature and precipitation forecasts"
+      },
+      "anomalyDetection": {
+        "title": "Anomaly Detection",
+        "description": "Identify unusual patterns in sensor data",
+        "example": "Detecting machine failures before they happen"
+      }
+    }
+  },
+  "recommenderSystems": {
+    "id": "recommender-systems",
+    "title": "Recommender Systems",
+    "description": "Personalized recommendations for users",
+    "overview": "Recommender systems predict what users might like based on their behavior and preferences. Netflix suggestions, Amazon product recommendations, Spotify playlists - all powered by recommender systems.",
+    "types": {
+      "collaborative": "Collaborative Filtering: Recommend based on similar users' preferences",
+      "contentBased": "Content-Based: Recommend based on item features",
+      "hybrid": "Hybrid: Combine both approaches for better results"
+    },
+    "keyPoints": [
+      "Collaborative filtering: users who liked X also liked Y",
+      "Content-based: recommend items similar to what user liked",
+      "Matrix factorization: decompose user-item interaction matrix",
+      "Deep learning: neural collaborative filtering, autoencoders",
+      "Cold start problem: new users/items have no history"
+    ],
+    "useCases": {
+      "streaming": {
+        "title": "Video/Music Streaming",
+        "description": "Personalized content recommendations",
+        "example": "Netflix: 80% of watched content comes from recommendations"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Product recommendations based on browsing/purchase history",
+        "example": "Amazon: 35% of revenue from recommendations"
+      },
+      "socialMedia": {
+        "title": "Social Media",
+        "description": "Friend suggestions and content feed",
+        "example": "Facebook suggesting people you may know"
+      },
+      "news": {
+        "title": "News/Content",
+        "description": "Personalized news and article recommendations",
+        "example": "Google News tailoring stories to your interests"
+      }
+    }
+  },
+  "reinforcementLearning": {
+    "id": "reinforcement-learning",
+    "title": "Reinforcement Learning",
+    "description": "Learning through trial and error",
+    "overview": "Reinforcement Learning (RL) is learning by doing - an agent takes actions in an environment to maximize rewards. Like training a dog: good behavior gets treats (rewards), bad behavior doesn't.",
+    "components": {
+      "agent": "Agent: The learner/decision maker",
+      "environment": "Environment: What the agent interacts with",
+      "state": "State: Current situation",
+      "action": "Action: What the agent can do",
+      "reward": "Reward: Feedback signal (positive or negative)"
+    },
+    "keyPoints": [
+      "Agent learns through trial and error to maximize rewards",
+      "Key concepts: state, action, reward, policy, value function",
+      "Algorithms: Q-Learning, DQN, PPO, A3C",
+      "Applications: games, robotics, autonomous systems",
+      "Challenges: exploration vs exploitation, sparse rewards"
+    ],
+    "useCases": {
+      "games": {
+        "title": "Game AI",
+        "description": "AI that learns to play games at superhuman level",
+        "example": "AlphaGo defeating world champion in Go"
+      },
+      "robotics": {
+        "title": "Robotics",
+        "description": "Robots learning to walk, grasp, navigate",
+        "example": "Boston Dynamics robots learning locomotion"
+      },
+      "trading": {
+        "title": "Algorithmic Trading",
+        "description": "Learning optimal trading strategies",
+        "example": "Hedge funds using RL for portfolio management"
+      },
+      "resourceManagement": {
+        "title": "Resource Management",
+        "description": "Optimizing resource allocation",
+        "example": "Google using RL to reduce data center cooling costs by 40%"
+      }
+    }
+  },
+  "generativeAI": {
+    "id": "generative-ai",
+    "title": "Generative AI",
+    "description": "AI that creates new content",
+    "overview": "Generative AI creates new content - images, text, music, code, videos. Unlike discriminative AI that classifies, generative AI produces. DALL-E, Stable Diffusion, ChatGPT, and Midjourney are examples.",
+    "types": {
+      "textGeneration": "Text Generation: LLMs like GPT-4, Claude creating human-like text",
+      "imageGeneration": "Image Generation: DALL-E, Midjourney, Stable Diffusion creating images from text",
+      "codeGeneration": "Code Generation: GitHub Copilot, CodeWhisperer writing code",
+      "audioGeneration": "Audio Generation: Text-to-speech, music generation"
+    },
+    "keyPoints": [
+      "Creates new content: text, images, audio, video, code",
+      "Diffusion models for images (Stable Diffusion, DALL-E)",
+      "Large Language Models for text (GPT-4, Claude)",
+      "Prompt engineering is crucial for good results",
+      "Ethical concerns: deepfakes, copyright, bias"
+    ],
+    "useCases": {
+      "contentCreation": {
+        "title": "Content Creation",
+        "description": "Generate marketing copy, articles, social media posts",
+        "example": "Jasper AI writing blog posts and ad copy"
+      },
+      "artDesign": {
+        "title": "Art & Design",
+        "description": "Create images, logos, illustrations from descriptions",
+        "example": "Midjourney generating concept art for games"
+      },
+      "coding": {
+        "title": "Code Generation",
+        "description": "Auto-complete code, generate functions from descriptions",
+        "example": "GitHub Copilot suggesting code as you type"
+      },
+      "personalization": {
+        "title": "Personalization",
+        "description": "Generate personalized content at scale",
+        "example": "AI creating personalized video messages for customers"
+      }
+    }
+  },
+  "common": {
+    "labels": {
+      "keyPoints": "Key Points",
+      "useCases": "Use Cases",
+      "codeExample": "Code Example",
+      "dos": "Do's",
+      "donts": "Don'ts",
+      "bestPractices": "Best Practices",
+      "overview": "Overview",
+      "types": "Types",
+      "components": "Components",
+      "patterns": "Patterns"
+    }
+  }
+}

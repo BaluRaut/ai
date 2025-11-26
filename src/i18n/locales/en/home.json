@@ -1,0 +1,41 @@
+{
+  "title": "Master AI & Machine Learning",
+  "subtitle": "Your journey from beginner to expert",
+  "description": "Learn AI through interactive tutorials, hands-on projects, and real-world applications",
+  "getStarted": "Get Started",
+  "exploreTopics": "Explore Topics",
+  "selectPath": "Select a Learning Path",
+  "pathDescription": "Choose the path that matches your goals",
+  "heroTitle": "Master AI & Machine Learning 🧠",
+  "heroSubtitle": "Your complete guide to learning AI from fundamentals to professional-level development",
+  "startLearning": "Start Learning",
+  "explorePaths": "Explore Paths",
+  "features": {
+    "comprehensive": {
+      "title": "Comprehensive Content",
+      "description": "Learn everything from basics to advanced AI concepts with detailed explanations and examples."
+    },
+    "interactive": {
+      "title": "Interactive Learning",
+      "description": "Practice with code examples, quizzes, and real-world use cases for hands-on experience."
+    },
+    "trackProgress": {
+      "title": "Track Progress",
+      "description": "Monitor your learning journey with progress tracking, bookmarks, and achievement badges."
+    },
+    "bestPractices": {
+      "title": "Best Practices",
+      "description": "Master AI with do's, don'ts, and industry-standard coding practices."
+    }
+  },
+  "learningPaths": "Learning Paths",
+  "quickStats": "Quick Stats",
+  "topicsCompleted": "Topics Completed",
+  "totalTopics": "Total Topics",
+  "whyLearnHere": "Why Learn Here?",
+  "cta": {
+    "title": "Ready to Start Your AI Journey?",
+    "subtitle": "Join thousands of learners mastering AI and Machine Learning",
+    "button": "Begin Learning Now"
+  }
+}

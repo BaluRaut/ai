@@ -1,0 +1,117 @@
+{
+  "paths": {
+    "beginner": {
+      "title": "AI Foundations",
+      "description": "Start AI and ML from zero",
+      "level": "Beginner"
+    },
+    "intermediate": {
+      "title": "Machine Learning",
+      "description": "Learn ML algorithms and data science",
+      "level": "Intermediate"
+    },
+    "professional": {
+      "title": "Advanced AI",
+      "description": "Deep learning and production AI",
+      "level": "Advanced"
+    },
+    "dataVisualization": {
+      "title": "Data Visualization",
+      "description": "Master Matplotlib, Seaborn, Plotly & Streamlit",
+      "level": "Intermediate"
+    },
+    "professionalPractices": {
+      "title": "Professional Practices",
+      "description": "ML project structure, deployment & MLOps",
+      "level": "Advanced"
+    }
+  },
+  "modules": {
+    "fundamentals": "AI Fundamentals",
+    "machineLearning": "Machine Learning",
+    "deepLearning": "Deep Learning",
+    "advancedAI": "Advanced AI",
+    "specializations": "Specializations",
+    "dataVisualization": "Data Visualization",
+    "professionalPractices": "Professional Practices"
+  },
+  "topics": {
+    "matplotlib": "Matplotlib Fundamentals",
+    "seaborn": "Statistical Visualization with Seaborn",
+    "plotly": "Interactive Plots with Plotly",
+    "streamlit": "Building Apps with Streamlit",
+    "dashboards": "Data Dashboards",
+    "mlProjectStructure": "ML Project Structure",
+    "modelDeployment": "Model Deployment",
+    "automl": "AutoML Platforms",
+    "industryAI": "Industry AI Applications",
+    "capstoneProjects": "Capstone Projects"
+  },
+  "topic": {
+    "overview": "Overview",
+    "keyPoints": "Key Points",
+    "useCases": "Real-World Use Cases",
+    "codeExamples": "Code Examples",
+    "practiceExercises": "Practice Exercises",
+    "bestPractices": "Best Practices",
+    "quiz": "Take Quiz",
+    "downloadProject": "Download Project",
+    "completed": "Completed",
+    "bookmark": "Bookmark",
+    "removeBookmark": "Remove bookmark",
+    "markComplete": "Mark as Complete",
+    "previous": "Previous",
+    "next": "Next",
+    "difficulty": "Difficulty",
+    "estimatedTime": "Estimated Time",
+    "prerequisites": "Prerequisites",
+    "minutes": "minutes",
+    "hours": "hours",
+    "dos": "Do's",
+    "donts": "Don'ts",
+    "fileStructure": "File Structure",
+    "explanation": "Explanation",
+    "realWorldApplications": "Real-World Applications",
+    "concepts": "Key Concepts",
+    "hints": "Hints",
+    "apps": "Apps",
+    "features": "Features",
+    "domain": "Domain"
+  },
+  "progress": {
+    "title": "Your Progress",
+    "subtitle": "Track your AI learning journey",
+    "topicsCompleted": "Topics Completed",
+    "totalTopics": "Total Topics",
+    "quizzesTaken": "Quizzes Taken",
+    "averageScore": "Average Score",
+    "learningStreak": "Learning Streak",
+    "days": "days",
+    "continueLearning": "Continue Learning",
+    "recentActivity": "Recent Activity",
+    "completionRate": "Completion Rate",
+    "overallProgress": "Overall Progress",
+    "outOf": "out of",
+    "total": "total",
+    "assessmentsCompleted": "assessments completed",
+    "quizPerformance": "quiz performance",
+    "progressByPath": "Progress by Learning Path",
+    "of": "of",
+    "topicsCompletedLower": "topics completed"
+  },
+  "bookmarks": {
+    "title": "Bookmarked Topics",
+    "noBookmarks": "No bookmarks yet",
+    "addBookmarks": "Bookmark topics to access them quickly later",
+    "removeAll": "Remove All",
+    "viewTopic": "View Topic",
+    "bookmarkedTopics": "bookmarked topics"
+  },
+  "achievements": {
+    "title": "Your Achievements",
+    "unlocked": "Unlocked",
+    "locked": "Locked",
+    "earned": "Earned",
+    "progress": "Progress"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "title": "Interview Preparation",
+  "subtitle": "Comprehensive preparation for Data Science and ML interviews",
+  "tabs": {
+    "coding": "Coding",
+    "mlTheory": "ML Theory",
+    "systemDesign": "System Design",
+    "behavioral": "Behavioral",
+    "studyPlan": "Study Plan"
+  },
+  "coding": {
+    "title": "Coding Challenges",
+    "description": "Practice LeetCode-style problems commonly asked in tech interviews",
+    "easy": "Easy - Great for warming up",
+    "medium": "Medium - Common interview level",
+    "hard": "Hard - Challenge yourself",
+    "solution": "Solution",
+    "examples": "Examples",
+    "hints": "Hints",
+    "complexity": "Time Complexity"
+  },
+  "mlTheory": {
+    "title": "ML Theory Questions",
+    "description": "Master fundamental ML concepts frequently asked in interviews",
+    "answer": "Answer",
+    "keyPoints": "Key Points",
+    "followUp": "Follow-up Question"
+  },
+  "systemDesign": {
+    "title": "ML System Design",
+    "description": "Design end-to-end ML systems for real-world problems",
+    "clarifyingQuestions": "Clarifying Questions",
+    "requirements": "Requirements",
+    "functional": "Functional Requirements",
+    "nonFunctional": "Non-Functional Requirements",
+    "solution": "Full Solution",
+    "keyTakeaways": "Key Takeaways",
+    "duration": "Duration"
+  },
+  "behavioral": {
+    "title": "Behavioral Questions",
+    "description": "STAR method answers for data science roles",
+    "tips": "Tips",
+    "exampleAnswer": "Example Answer Structure",
+    "questionsToAsk": "Questions to Ask Your Interviewer"
+  },
+  "studyPlan": {
+    "title": "4-Week Study Plan",
+    "week": "Week",
+    "focus": "Focus",
+    "tasks": "Tasks",
+    "resources": "Recommended Resources"
+  },
+  "status": {
+    "known": "Known",
+    "needReview": "Need Review",
+    "completed": "Completed",
+    "inProgress": "In Progress"
+  }
+}

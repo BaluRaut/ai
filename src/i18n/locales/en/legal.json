@@ -1,0 +1,227 @@
+{
+  "footer": {
+    "description": "Master AI and Machine Learning from basics to advanced with interactive tutorials, hands-on projects, and real-world applications.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "about": "About Us",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "forLearners": "for AI learners"
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last Updated",
+    "effectiveDate": "November 26, 2025",
+    "introduction": "Introduction",
+    "introText": "Welcome to AI Learner Platform ('we', 'our', 'us'). By accessing and using this platform, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our platform.",
+    
+    "definitions": "Definitions",
+    "definitionsText": "In these Terms and Conditions:",
+    "definitionsList": {
+      "platform": "'Platform' refers to the AI Learner website, applications, and all related services.",
+      "content": "'Content' includes all educational materials, tutorials, code examples, quizzes, projects, and any other materials provided on the Platform.",
+      "user": "'User', 'you', or 'your' refers to any individual accessing or using the Platform.",
+      "aiTools": "'AI Tools' refers to any artificial intelligence features, including but not limited to AI tutors, code assistants, and interactive learning tools."
+    },
+    
+    "educationalPurpose": "Educational Purpose",
+    "educationalText": "This platform is provided for educational purposes only. All content, including tutorials, code examples, projects, and AI-assisted learning tools, is intended to help you learn AI, Machine Learning, Deep Learning, and related technologies. We make no guarantees about:",
+    "educationalList": [
+      "Job placement or career advancement",
+      "Certification or credentials recognition",
+      "Specific learning outcomes or skill levels",
+      "Accuracy of AI-generated responses or suggestions"
+    ],
+    
+    "contentUsage": "Content Usage & License",
+    "contentUsageText": "All code examples and projects provided on this platform are licensed for learning purposes under the following terms:",
+    "contentUsageList": [
+      "You may use, modify, and distribute code examples for personal and commercial projects",
+      "You may not republish or redistribute the entire course content without written permission",
+      "Code examples are provided 'as is' without warranty of fitness for any particular purpose",
+      "Attribution is appreciated but not required for code snippets"
+    ],
+    
+    "aiUsage": "AI Tools & Features",
+    "aiUsageText": "Our platform includes AI-powered features to enhance your learning experience. By using these features, you acknowledge that:",
+    "aiUsageList": [
+      "AI responses are generated automatically and may contain errors or inaccuracies",
+      "AI suggestions should be verified before use in production environments",
+      "AI tutors provide educational guidance, not professional advice",
+      "We continuously improve AI features but cannot guarantee specific accuracy levels",
+      "AI-generated code should be reviewed and tested before deployment"
+    ],
+    
+    "userResponsibilities": "User Responsibilities",
+    "userResponsibilitiesText": "By using our platform, you agree to:",
+    "userResponsibilitiesList": [
+      "Use the platform in compliance with all applicable laws and regulations",
+      "Not attempt to reverse engineer, hack, or disrupt platform services",
+      "Not use the platform to generate harmful, illegal, or malicious content",
+      "Take responsibility for verifying AI-generated content before use",
+      "Respect intellectual property rights of all content",
+      "Not share access credentials with unauthorized users"
+    ],
+    
+    "codeExecution": "Code Execution Environment",
+    "codeExecutionText": "Our platform provides browser-based code execution using Pyodide. You understand that:",
+    "codeExecutionList": [
+      "Code runs in a sandboxed environment with limited capabilities",
+      "Some Python libraries may not be available or fully functional",
+      "Execution performance may vary based on your device and browser",
+      "We are not responsible for any issues arising from code you execute",
+      "Long-running or resource-intensive code may be automatically terminated"
+    ],
+    
+    "intellectualProperty": "Intellectual Property",
+    "intellectualPropertyText": "The platform content, design, curriculum, and materials are protected by copyright and other intellectual property laws:",
+    "intellectualPropertyList": [
+      "The 'AI Learner' name and logo are trademarks",
+      "Course structure and educational methodology are proprietary",
+      "Original content created by our team is copyrighted",
+      "Third-party content is used with permission or under fair use"
+    ],
+    
+    "thirdPartyContent": "Third-Party Content & Links",
+    "thirdPartyText": "Our platform may include links to third-party websites and resources. We are not responsible for:",
+    "thirdPartyList": [
+      "Content, accuracy, or availability of external websites",
+      "Privacy practices of third-party services",
+      "Any transactions or interactions with third-party providers",
+      "Third-party AI models or APIs used in demonstrations"
+    ],
+    
+    "dataPrivacy": "Data & Privacy",
+    "dataPrivacyText": "Your privacy is important to us. Please refer to our Privacy Policy for detailed information on how we collect, use, and protect your data. Key points:",
+    "dataPrivacyList": [
+      "We store learning progress and preferences locally in your browser",
+      "We use analytics to improve platform performance",
+      "We do not sell your personal information to third parties",
+      "You can request deletion of your data at any time"
+    ],
+    
+    "disclaimer": "Disclaimer of Warranties",
+    "disclaimerText": "THE PLATFORM AND ALL CONTENT ARE PROVIDED 'AS IS' AND 'AS AVAILABLE' WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:",
+    "disclaimerList": [
+      "Merchantability or fitness for a particular purpose",
+      "Accuracy, reliability, or completeness of content",
+      "Uninterrupted, secure, or error-free operation",
+      "Compatibility with your devices or software",
+      "Results or outcomes from using the platform"
+    ],
+    
+    "limitationOfLiability": "Limitation of Liability",
+    "limitationText": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, AI LEARNER AND ITS AFFILIATES SHALL NOT BE LIABLE FOR:",
+    "limitationList": [
+      "Any indirect, incidental, special, or consequential damages",
+      "Loss of profits, data, or business opportunities",
+      "Damages arising from use of AI-generated content",
+      "Issues arising from code examples used in production",
+      "Any damages exceeding the amount paid for premium services (if applicable)"
+    ],
+    
+    "indemnification": "Indemnification",
+    "indemnificationText": "You agree to indemnify and hold harmless AI Learner, its officers, directors, employees, and agents from any claims, damages, or expenses arising from:",
+    "indemnificationList": [
+      "Your use of the platform",
+      "Your violation of these terms",
+      "Your violation of any third-party rights",
+      "Any content you submit or create using the platform"
+    ],
+    
+    "termination": "Termination",
+    "terminationText": "We reserve the right to terminate or suspend access to the platform at any time, without notice, for conduct that we believe:",
+    "terminationList": [
+      "Violates these Terms and Conditions",
+      "Is harmful to other users or the platform",
+      "Is fraudulent or illegal",
+      "Otherwise warrants such action"
+    ],
+    
+    "changesToTerms": "Changes to Terms",
+    "changesText": "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to the platform. We will notify users of significant changes via:",
+    "changesList": [
+      "Banner notification on the platform",
+      "Email notification (if you've provided an email)",
+      "Updated 'Last Updated' date on this page"
+    ],
+    "changesNote": "Your continued use of the platform after changes constitutes acceptance of the modified terms.",
+    
+    "governingLaw": "Governing Law",
+    "governingLawText": "These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.",
+    
+    "severability": "Severability",
+    "severabilityText": "If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.",
+    
+    "contact": "Contact Us",
+    "contactText": "If you have any questions about these Terms & Conditions, please contact us at:",
+    "contactEmail": "support@ailearner.com",
+    "contactNote": "We aim to respond to all inquiries within 48 hours."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "effectiveDate": "November 26, 2025",
+    
+    "introduction": "Introduction",
+    "introText": "AI Learner ('we', 'our', 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our platform.",
+    
+    "dataCollection": "Information We Collect",
+    "dataCollectionText": "We collect the following types of information:",
+    "dataCollectionList": {
+      "localStorage": "Learning progress, bookmarks, and preferences stored locally in your browser",
+      "analytics": "Anonymous usage data including page views, feature usage, and performance metrics",
+      "device": "Browser type, device information, and operating system for optimization",
+      "voluntary": "Any information you voluntarily provide through contact forms or feedback"
+    },
+    
+    "dataUsage": "How We Use Your Information",
+    "dataUsageText": "We use collected information to:",
+    "dataUsageList": [
+      "Save and restore your learning progress",
+      "Personalize your learning experience",
+      "Improve platform performance and features",
+      "Analyze usage patterns to enhance content",
+      "Respond to your inquiries and support requests"
+    ],
+    
+    "cookies": "Cookies & Local Storage",
+    "cookiesText": "We use cookies and local storage to:",
+    "cookiesList": [
+      "Remember your preferences and settings",
+      "Store your learning progress locally",
+      "Maintain your language preference",
+      "Enable dark/light theme persistence"
+    ],
+    
+    "thirdParty": "Third-Party Services",
+    "thirdPartyText": "We may use third-party services that have their own privacy policies:",
+    "thirdPartyList": [
+      "Google Analytics for anonymous usage tracking",
+      "Pyodide for in-browser Python execution",
+      "Content delivery networks (CDNs) for performance"
+    ],
+    
+    "dataSecurity": "Data Security",
+    "dataSecurityText": "We implement appropriate security measures to protect your information. However, no method of transmission over the internet is 100% secure.",
+    
+    "yourRights": "Your Rights",
+    "yourRightsText": "You have the right to:",
+    "yourRightsList": [
+      "Access the personal information we hold about you",
+      "Request correction of inaccurate information",
+      "Request deletion of your data",
+      "Opt-out of analytics tracking",
+      "Clear local storage data at any time through your browser settings"
+    ],
+    
+    "children": "Children's Privacy",
+    "childrenText": "Our platform is designed for learners of all ages. We do not knowingly collect personal information from children under 13 without parental consent.",
+    
+    "changes": "Changes to Privacy Policy",
+    "changesText": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the 'Last Updated' date."
+
+  }
+}

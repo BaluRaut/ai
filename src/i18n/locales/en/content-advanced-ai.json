@@ -1,0 +1,263 @@
+{
+  "title": "Advanced AI",
+  "description": "NLP, LLMs, RAG, AI Agents, and MLOps",
+  "nlp": {
+    "id": "natural-language-processing",
+    "title": "Natural Language Processing (NLP)",
+    "description": "Teaching computers to understand human language",
+    "overview": "NLP enables computers to read, understand, and generate human language. From Google Translate to ChatGPT, it powers text analysis, sentiment detection, question answering, and language generation. It's challenging because language is ambiguous, context-dependent, and culturally nuanced.",
+    "coreTasks": "Core tasks include tokenization (splitting text into words), part-of-speech tagging, named entity recognition (finding names, places), sentiment analysis, and machine translation.",
+    "modernNLP": "Modern NLP uses transformers (BERT, GPT) that understand context bidirectionally, replacing older methods like Bag-of-Words.",
+    "keyPoints": [
+      "Enables computers to understand and generate human language",
+      "Core tasks: tokenization, NER, sentiment, translation, generation",
+      "Modern NLP uses transformers (BERT, GPT) for context understanding",
+      "spaCy, NLTK for traditional NLP; Hugging Face for transformers",
+      "Applications: chatbots, translation, sentiment analysis, summarization"
+    ],
+    "useCases": {
+      "sentimentAnalysis": {
+        "title": "Sentiment Analysis",
+        "description": "Detect emotions in customer reviews",
+        "example": "Amazon analyzing millions of product reviews to identify issues"
+      },
+      "chatbots": {
+        "title": "Chatbots",
+        "description": "Customer service automation",
+        "example": "Banking chatbots handling 80% of customer queries"
+      },
+      "machineTranslation": {
+        "title": "Machine Translation",
+        "description": "Translate between languages",
+        "example": "Google Translate supporting 133+ languages"
+      },
+      "ner": {
+        "title": "Named Entity Recognition",
+        "description": "Extract names, places, organizations",
+        "example": "News agencies auto-tagging articles with people and locations"
+      }
+    },
+    "dos": [
+      "Use pre-trained models from Hugging Face (saves weeks of training)",
+      "Clean text: lowercase, remove special chars, handle emojis",
+      "Use spaCy for production (fast), NLTK for learning",
+      "Fine-tune pre-trained models on your specific domain"
+    ],
+    "donts": [
+      "Don't train from scratch - use transfer learning",
+      "Don't ignore language-specific preprocessing (stemming, lemmatization)",
+      "Don't forget to handle out-of-vocabulary words",
+      "Don't use outdated methods (Bag-of-Words) for complex tasks"
+    ],
+    "bestPractices": [
+      "Start with pre-trained transformers (bert-base, distilbert)",
+      "Use Hugging Face tokenizers - handle subword tokenization properly",
+      "For production, optimize with ONNX or quantization",
+      "Evaluate with domain-specific test sets, not generic benchmarks"
+    ]
+  },
+  "wordEmbeddings": {
+    "id": "word-embeddings",
+    "title": "Word Embeddings",
+    "description": "Converting words to meaningful vectors",
+    "overview": "Word embeddings represent words as dense vectors (e.g., 300 dimensions) where similar words have similar vectors. 'king' is close to 'queen', 'man' is close to 'woman'. This captures semantic relationships: king - man + woman ≈ queen.",
+    "traditionalVsModern": "Traditional one-hot encoding represents words as sparse vectors: [0,0,1,0,0,...] - no meaning captured. Embeddings like Word2Vec, GloVe, and FastText learn from billions of words, discovering that 'dog' and 'puppy' appear in similar contexts.",
+    "contextualEmbeddings": "Modern transformers (BERT, GPT) create contextualized embeddings - 'bank' has different vectors in 'river bank' vs 'money bank'.",
+    "keyPoints": [
+      "Represent words as dense vectors (e.g., 300D) capturing meaning",
+      "Similar words have similar vectors (semantic similarity)",
+      "Word2Vec, GloVe, FastText are classic embeddings",
+      "BERT/GPT create contextualized embeddings (same word, different contexts)",
+      "Pre-trained embeddings available for 100+ languages"
+    ],
+    "useCases": {
+      "semanticSearch": {
+        "title": "Semantic Search",
+        "description": "Find similar documents by meaning",
+        "example": "Search 'cheap laptop' finds 'affordable computer'"
+      },
+      "recommendations": {
+        "title": "Recommendation Systems",
+        "description": "Recommend similar content",
+        "example": "YouTube suggesting videos based on title similarity"
+      },
+      "textClassification": {
+        "title": "Text Classification",
+        "description": "Features for ML models",
+        "example": "Spam detection using email embeddings"
+      }
+    }
+  },
+  "bert": {
+    "id": "bert-transformers",
+    "title": "BERT & Transformers",
+    "description": "Bidirectional context understanding",
+    "overview": "BERT (Bidirectional Encoder Representations from Transformers) revolutionized NLP in 2018. Unlike previous models that read text left-to-right, BERT reads both directions simultaneously.",
+    "pretraining": "BERT is pre-trained on massive text (Wikipedia + Books) using masked language modeling: randomly mask 15% of words, predict them. This teaches deep understanding of language.",
+    "finetuning": "You can fine-tune BERT for your task (classification, NER, QA) with just 1,000-10,000 labeled examples.",
+    "attention": "Transformers architecture (attention mechanism) replaced RNNs. Attention lets model focus on relevant words: in 'The animal didn't cross the street because it was too tired', attention connects 'it' to 'animal', not 'street'.",
+    "keyPoints": [
+      "Bidirectional: reads text both left-to-right and right-to-left",
+      "Pre-trained on massive text via masked language modeling",
+      "Fine-tune with small labeled data (1K-10K examples)",
+      "Transformers use attention to focus on relevant context",
+      "BERT for understanding, GPT for generation"
+    ],
+    "useCases": {
+      "qa": {
+        "title": "Question Answering",
+        "description": "Find answers in documents",
+        "example": "Google Search using BERT to understand search intent"
+      },
+      "textClassification": {
+        "title": "Text Classification",
+        "description": "Categorize documents with high accuracy",
+        "example": "Email classification (spam, important, promotional)"
+      },
+      "ner": {
+        "title": "Named Entity Recognition",
+        "description": "Extract entities with context understanding",
+        "example": "Medical NER extracting diseases, symptoms, treatments"
+      },
+      "semanticSearch": {
+        "title": "Semantic Search",
+        "description": "Search by meaning, not keywords",
+        "example": "E-commerce finding products by description similarity"
+      }
+    }
+  },
+  "llm": {
+    "id": "large-language-models",
+    "title": "Large Language Models (LLMs)",
+    "description": "GPT, Claude, and the foundation of modern AI",
+    "overview": "Large Language Models are AI systems trained on vast amounts of text that can understand and generate human-like text. GPT-4, Claude, Gemini, and LLaMA are examples that power chatbots, coding assistants, and content generation.",
+    "howTheyWork": "LLMs predict the next word given previous words. By training on trillions of words, they learn grammar, facts, reasoning, and even coding. They use transformer architecture with billions of parameters.",
+    "capabilities": [
+      "Text generation and conversation",
+      "Code writing and debugging",
+      "Translation and summarization",
+      "Question answering and analysis",
+      "Creative writing and brainstorming"
+    ],
+    "keyPoints": [
+      "Trained on massive text data (trillions of tokens)",
+      "Use transformer architecture with billions of parameters",
+      "Emergent capabilities at scale (reasoning, coding, math)",
+      "Can be fine-tuned for specific tasks",
+      "Foundation for AI assistants like ChatGPT, Claude"
+    ]
+  },
+  "rag": {
+    "id": "rag",
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "description": "Combining LLMs with external knowledge",
+    "overview": "RAG combines the generative power of LLMs with a retrieval system that fetches relevant information from external documents. This allows LLMs to answer questions using up-to-date or domain-specific information they weren't trained on.",
+    "howItWorks": "1. User asks a question. 2. Retrieve relevant documents from a knowledge base. 3. Pass documents + question to LLM. 4. LLM generates answer grounded in retrieved context.",
+    "benefits": [
+      "Access to current information beyond training cutoff",
+      "Cite sources and reduce hallucinations",
+      "Keep proprietary data secure (not in model weights)",
+      "Update knowledge without retraining"
+    ],
+    "keyPoints": [
+      "Retrieval: Find relevant documents using embeddings/search",
+      "Augmented: Add retrieved context to LLM prompt",
+      "Generation: LLM produces grounded, accurate responses",
+      "Reduces hallucination by providing factual context",
+      "Used in enterprise Q&A, customer support, research"
+    ],
+    "useCases": {
+      "enterpriseQA": {
+        "title": "Enterprise Q&A",
+        "description": "Answer questions using company documents",
+        "example": "HR chatbot answering policy questions from employee handbook"
+      },
+      "customerSupport": {
+        "title": "Customer Support",
+        "description": "Provide accurate product information",
+        "example": "Tech support bot retrieving troubleshooting guides"
+      },
+      "research": {
+        "title": "Research Assistant",
+        "description": "Search and summarize academic papers",
+        "example": "AI finding relevant papers and synthesizing findings"
+      }
+    }
+  },
+  "aiAgents": {
+    "id": "ai-agents",
+    "title": "AI Agents",
+    "description": "Autonomous AI systems that take actions",
+    "overview": "AI Agents are systems that can autonomously plan, execute actions, and achieve goals. Unlike chatbots that just respond, agents take initiative - browsing the web, writing code, managing files, and calling APIs.",
+    "components": {
+      "planning": "Breaking down complex goals into steps",
+      "memory": "Remembering context and past actions",
+      "tools": "Using external tools (search, code execution, APIs)",
+      "reasoning": "Deciding what to do next based on results"
+    },
+    "keyPoints": [
+      "Autonomous: work toward goals without constant guidance",
+      "Tool use: interact with external systems and APIs",
+      "Planning: break complex tasks into actionable steps",
+      "Memory: maintain context across interactions",
+      "Examples: AutoGPT, BabyAGI, LangChain agents"
+    ],
+    "useCases": {
+      "coding": {
+        "title": "Coding Agents",
+        "description": "Write, test, and debug code autonomously",
+        "example": "Devin - the AI software engineer"
+      },
+      "research": {
+        "title": "Research Agents",
+        "description": "Search, read, and synthesize information",
+        "example": "AI researching a topic and writing reports"
+      },
+      "automation": {
+        "title": "Task Automation",
+        "description": "Automate complex workflows",
+        "example": "Agent managing calendars, emails, and scheduling"
+      }
+    }
+  },
+  "mlops": {
+    "id": "mlops",
+    "title": "MLOps: Deploying AI to Production",
+    "description": "Best practices for AI in production",
+    "overview": "MLOps (Machine Learning Operations) is the practice of deploying and maintaining ML models in production. It bridges the gap between data science experiments and reliable production systems.",
+    "keyPractices": {
+      "versionControl": "Track code, data, and model versions",
+      "cicd": "Automated testing and deployment pipelines",
+      "monitoring": "Track model performance and detect drift",
+      "scalability": "Handle production traffic efficiently",
+      "documentation": "Clear documentation for reproducibility"
+    },
+    "keyPoints": [
+      "Version control for code, data, and models",
+      "Automated CI/CD pipelines for ML",
+      "Model monitoring and performance tracking",
+      "Feature stores for consistent feature engineering",
+      "A/B testing and gradual rollouts"
+    ],
+    "tools": [
+      "MLflow - experiment tracking and model registry",
+      "Kubeflow - ML workflows on Kubernetes",
+      "DVC - data version control",
+      "Seldon/KServe - model serving",
+      "Weights & Biases - experiment tracking"
+    ]
+  },
+  "common": {
+    "labels": {
+      "keyPoints": "Key Points",
+      "useCases": "Use Cases",
+      "codeExample": "Code Example",
+      "dos": "Do's",
+      "donts": "Don'ts",
+      "bestPractices": "Best Practices",
+      "overview": "Overview",
+      "tools": "Tools",
+      "components": "Components"
+    }
+  }
+}

@@ -13,7 +13,8 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { NavigateNext, School, Search as SearchIcon } from '@mui/icons-material';
-import { learningPaths, courseData } from '../../data/courseContent';
+import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
+import { courseData } from '../../data/courseContent';
 import TopicCard from '../../components/TopicCard/TopicCard';
 import { useProgress } from '../../context/ProgressContext';
 import { useCourseTranslation } from '../../hooks/useCourseTranslation';
@@ -24,7 +25,7 @@ const LearningPath = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { mergeTopicWithTranslation, isMarathi } = useCourseTranslation();
   
-  const path = learningPaths.find(p => p.id === pathId);
+  const path = aiLearningPaths.find(p => p.id === pathId);
   const topics = courseData[pathId]?.topics || [];
   
   // Translate all topics if Marathi is active

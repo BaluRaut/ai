@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Link, Divider, Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { Code, GitHub, Twitter, LinkedIn } from '@mui/icons-material';
+import { Psychology, GitHub, Twitter, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -22,13 +22,13 @@ const Footer = () => {
           {/* About Section */}
           <Grid item xs={12} sm={6} md={4}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-              <Code sx={{ mr: 1, color: 'primary.main' }} />
+              <Psychology sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6" fontWeight={700}>
-                Python Learning
+                AI Learner
               </Typography>
             </Box>
             <Typography variant="body2" color="text.secondary" paragraph>
-              {t('footer.description', 'Master Python programming from basics to advanced with interactive tutorials, hands-on projects, and real-world applications.')}
+              {t('footer.description', 'Master AI & Machine Learning from basics to advanced with interactive tutorials, hands-on projects, and real-world applications.')}
             </Typography>
           </Grid>
 
@@ -90,8 +90,8 @@ const Footer = () => {
         {/* Copyright */}
         <Box sx={{ textAlign: 'center' }}>
           <Typography variant="body2" color="text.secondary">
-            © {currentYear} Python Learning Platform. {t('footer.rights', 'All rights reserved.')}{' '}
-            {t('footer.madeWith', 'Made with')} ❤️ {t('footer.forLearners', 'for Python learners')}
+            © {currentYear} AI Learner. {t('footer.rights', 'All rights reserved.')}{' '}
+            {t('footer.madeWith', 'Made with')} ❤️ {t('footer.forLearners', 'for AI learners')}
           </Typography>
         </Box>
       </Container>

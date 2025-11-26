@@ -1,0 +1,363 @@
+{
+  "professionalPractices": {
+    "title": "Professional AI/ML Practices",
+    "description": "Industry-standard practices for building production-ready AI systems",
+    "topics": {
+      "mlProjectStructure": {
+        "title": "ML Project Structure",
+        "overview": "A well-organized project structure is crucial for maintainable, reproducible, and collaborative ML projects. Learn industry-standard patterns for organizing code, data, models, and experiments.",
+        "keyPoints": [
+          "Cookiecutter Data Science project template",
+          "Separation of concerns: data, features, models, evaluation",
+          "Configuration management with YAML/JSON",
+          "Environment management with requirements.txt and conda",
+          "Documentation standards for ML projects",
+          "Git best practices for ML code and data"
+        ],
+        "useCases": [
+          {
+            "title": "Enterprise ML Teams",
+            "description": "Standardize project structures across teams for easier collaboration"
+          },
+          {
+            "title": "Research to Production",
+            "description": "Bridge the gap between experimental notebooks and production code"
+          },
+          {
+            "title": "Open Source Projects",
+            "description": "Create reproducible ML projects that others can use and contribute to"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Standard Project Structure",
+            "code": "my_ml_project/\n├── README.md                 # Project overview and setup instructions\n├── requirements.txt          # Python dependencies\n├── setup.py                  # Package installation\n├── config/\n│   ├── config.yaml          # Training configuration\n│   └── logging.yaml         # Logging configuration\n├── data/\n│   ├── raw/                  # Original, immutable data\n│   ├── processed/            # Cleaned, transformed data\n│   └── external/             # Data from third-party sources\n├── notebooks/\n│   ├── 01_exploration.ipynb  # Data exploration\n│   ├── 02_preprocessing.ipynb\n│   └── 03_modeling.ipynb\n├── src/\n│   ├── __init__.py\n│   ├── data/\n│   │   ├── make_dataset.py   # Data download/generation\n│   │   └── preprocess.py     # Data cleaning\n│   ├── features/\n│   │   └── build_features.py # Feature engineering\n│   ├── models/\n│   │   ├── train.py          # Training scripts\n│   │   ├── predict.py        # Inference scripts\n│   │   └── evaluate.py       # Model evaluation\n│   └── utils/\n│       ├── logger.py         # Logging utilities\n│       └── helpers.py        # Common helpers\n├── models/                    # Trained model files\n├── reports/\n│   └── figures/              # Generated graphics\n└── tests/                     # Unit tests\n    ├── test_data.py\n    └── test_models.py",
+            "explanation": "Industry-standard project structure following Cookiecutter Data Science template."
+          },
+          {
+            "title": "Configuration Management",
+            "code": "# config/config.yaml\nproject:\n  name: sentiment_classifier\n  version: 1.0.0\n  seed: 42\n\ndata:\n  raw_path: data/raw/reviews.csv\n  processed_path: data/processed/\n  test_size: 0.2\n  max_features: 10000\n\nmodel:\n  type: lstm\n  embedding_dim: 128\n  hidden_dim: 256\n  num_layers: 2\n  dropout: 0.3\n\ntraining:\n  batch_size: 32\n  epochs: 50\n  learning_rate: 0.001\n  early_stopping_patience: 5\n\nlogging:\n  level: INFO\n  mlflow_tracking_uri: http://localhost:5000\n  experiment_name: sentiment_v1\n\n---\n# Python code to load config\nimport yaml\nfrom pathlib import Path\n\ndef load_config(config_path: str = 'config/config.yaml'):\n    with open(config_path, 'r') as f:\n        config = yaml.safe_load(f)\n    return config\n\nconfig = load_config()\nprint(f\"Training with batch size: {config['training']['batch_size']}\")",
+            "explanation": "Centralized configuration keeps hyperparameters and settings in one place, making experiments reproducible."
+          },
+          {
+            "title": "Training Pipeline Script",
+            "code": "# src/models/train.py\nimport argparse\nimport logging\nfrom pathlib import Path\nimport mlflow\n\nfrom src.data.preprocess import load_and_preprocess\nfrom src.features.build_features import create_features\nfrom src.models.model import create_model\nfrom src.utils.logger import setup_logging\n\ndef train(config_path: str):\n    # Setup\n    config = load_config(config_path)\n    setup_logging(config['logging']['level'])\n    logger = logging.getLogger(__name__)\n    \n    # MLflow tracking\n    mlflow.set_tracking_uri(config['logging']['mlflow_tracking_uri'])\n    mlflow.set_experiment(config['logging']['experiment_name'])\n    \n    with mlflow.start_run():\n        # Log parameters\n        mlflow.log_params(config['model'])\n        mlflow.log_params(config['training'])\n        \n        # Data pipeline\n        logger.info('Loading and preprocessing data...')\n        X_train, X_test, y_train, y_test = load_and_preprocess(\n            config['data']['raw_path'],\n            config['data']['test_size']\n        )\n        \n        # Feature engineering\n        logger.info('Creating features...')\n        X_train_feat, X_test_feat = create_features(X_train, X_test, config)\n        \n        # Model training\n        logger.info('Training model...')\n        model = create_model(config['model'])\n        history = model.fit(\n            X_train_feat, y_train,\n            validation_data=(X_test_feat, y_test),\n            **config['training']\n        )\n        \n        # Evaluation & logging\n        metrics = evaluate_model(model, X_test_feat, y_test)\n        mlflow.log_metrics(metrics)\n        \n        # Save model\n        model_path = Path('models') / f\"{config['project']['name']}_v{config['project']['version']}.pkl\"\n        save_model(model, model_path)\n        mlflow.log_artifact(model_path)\n        \n        logger.info(f'Training complete. Accuracy: {metrics[\"accuracy\"]:.4f}')\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--config', default='config/config.yaml')\n    args = parser.parse_args()\n    train(args.config)",
+            "explanation": "A production-ready training script with logging, configuration, and experiment tracking."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Convert Notebook to Project",
+            "description": "Take an existing Jupyter notebook with ML code and refactor it into a proper project structure with separate modules.",
+            "hints": ["Extract data loading into src/data/", "Move model code to src/models/", "Create a config.yaml for parameters"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Use version control for code and config (Git)",
+            "Use DVC or similar for data versioning",
+            "Write docstrings and type hints",
+            "Include README with setup instructions"
+          ],
+          "donts": [
+            "Don't commit large data files to Git",
+            "Avoid hardcoding paths and parameters",
+            "Don't skip writing tests",
+            "Avoid mixing exploration and production code"
+          ]
+        }
+      },
+      "modelDeployment": {
+        "title": "Model Deployment",
+        "overview": "Learn to deploy ML models as production services. Cover REST APIs with Flask/FastAPI, containerization with Docker, and cloud deployment strategies.",
+        "keyPoints": [
+          "Creating REST APIs for model inference",
+          "FastAPI for high-performance APIs",
+          "Docker containerization for reproducibility",
+          "Model serialization (pickle, joblib, ONNX)",
+          "Batch vs real-time inference patterns",
+          "Scaling and load balancing strategies"
+        ],
+        "useCases": [
+          {
+            "title": "Microservices Architecture",
+            "description": "Deploy models as independent services in a larger system"
+          },
+          {
+            "title": "Mobile/Edge Deployment",
+            "description": "Optimize and deploy models for edge devices"
+          },
+          {
+            "title": "Batch Processing",
+            "description": "Process large datasets offline with model predictions"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "FastAPI Model Server",
+            "code": "# app.py\nfrom fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport joblib\nimport numpy as np\n\napp = FastAPI(title='ML Model API', version='1.0.0')\n\n# Load model on startup\nmodel = None\n\n@app.on_event('startup')\nasync def load_model():\n    global model\n    model = joblib.load('models/classifier.pkl')\n\n# Request/Response schemas\nclass PredictionRequest(BaseModel):\n    features: list[float]\n    \n    class Config:\n        schema_extra = {\n            'example': {\n                'features': [5.1, 3.5, 1.4, 0.2]\n            }\n        }\n\nclass PredictionResponse(BaseModel):\n    prediction: int\n    probability: list[float]\n    class_name: str\n\n# Endpoints\n@app.get('/')\nasync def root():\n    return {'message': 'ML Model API is running'}\n\n@app.get('/health')\nasync def health():\n    return {'status': 'healthy', 'model_loaded': model is not None}\n\n@app.post('/predict', response_model=PredictionResponse)\nasync def predict(request: PredictionRequest):\n    try:\n        features = np.array(request.features).reshape(1, -1)\n        prediction = model.predict(features)[0]\n        probability = model.predict_proba(features)[0].tolist()\n        class_names = ['setosa', 'versicolor', 'virginica']\n        \n        return PredictionResponse(\n            prediction=int(prediction),\n            probability=probability,\n            class_name=class_names[prediction]\n        )\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))\n\n# Run: uvicorn app:app --reload",
+            "explanation": "A production-ready FastAPI server with automatic documentation, validation, and error handling."
+          },
+          {
+            "title": "Dockerfile for ML API",
+            "code": "# Dockerfile\nFROM python:3.10-slim\n\n# Set working directory\nWORKDIR /app\n\n# Install dependencies\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\n# Copy application code\nCOPY app.py .\nCOPY models/ models/\n\n# Expose port\nEXPOSE 8000\n\n# Health check\nHEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \\\n    CMD curl -f http://localhost:8000/health || exit 1\n\n# Run the application\nCMD [\"uvicorn\", \"app:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]\n\n---\n# docker-compose.yml\nversion: '3.8'\n\nservices:\n  ml-api:\n    build: .\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - ./models:/app/models\n    environment:\n      - MODEL_PATH=/app/models/classifier.pkl\n    restart: unless-stopped\n\n---\n# Build and run\n# docker build -t ml-api .\n# docker run -p 8000:8000 ml-api",
+            "explanation": "Docker configuration for containerizing an ML API with health checks and docker-compose for easy deployment."
+          },
+          {
+            "title": "Batch Inference Pipeline",
+            "code": "# batch_predict.py\nimport pandas as pd\nimport joblib\nfrom pathlib import Path\nimport logging\nfrom datetime import datetime\n\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n\ndef batch_predict(\n    input_path: str,\n    output_path: str,\n    model_path: str,\n    batch_size: int = 1000\n):\n    \"\"\"Process large datasets in batches for memory efficiency.\"\"\"\n    \n    logger.info(f'Loading model from {model_path}')\n    model = joblib.load(model_path)\n    \n    logger.info(f'Processing {input_path}')\n    \n    # Process in chunks\n    predictions = []\n    for chunk_idx, chunk in enumerate(pd.read_csv(input_path, chunksize=batch_size)):\n        # Extract features\n        feature_cols = [c for c in chunk.columns if c.startswith('feature_')]\n        X = chunk[feature_cols].values\n        \n        # Predict\n        chunk_preds = model.predict(X)\n        chunk_proba = model.predict_proba(X).max(axis=1)\n        \n        # Store results\n        chunk['prediction'] = chunk_preds\n        chunk['confidence'] = chunk_proba\n        chunk['predicted_at'] = datetime.now().isoformat()\n        \n        predictions.append(chunk)\n        logger.info(f'Processed batch {chunk_idx + 1}')\n    \n    # Save results\n    result_df = pd.concat(predictions)\n    result_df.to_csv(output_path, index=False)\n    logger.info(f'Saved {len(result_df)} predictions to {output_path}')\n    \n    return result_df\n\nif __name__ == '__main__':\n    batch_predict(\n        input_path='data/new_customers.csv',\n        output_path='data/predictions.csv',\n        model_path='models/classifier.pkl'\n    )",
+            "explanation": "Memory-efficient batch prediction for processing large datasets."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Deploy a Sentiment API",
+            "description": "Create a FastAPI service that accepts text and returns sentiment predictions.",
+            "hints": ["Use a pre-trained model or train a simple one", "Add input validation", "Include confidence scores"]
+          },
+          {
+            "title": "Containerize Your Model",
+            "description": "Create a Dockerfile for any ML model API and deploy it locally.",
+            "hints": ["Start with a slim Python image", "Copy only necessary files", "Test with docker-compose"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Use async/await for I/O-bound operations",
+            "Implement proper error handling and logging",
+            "Add health check endpoints",
+            "Use environment variables for configuration"
+          ],
+          "donts": [
+            "Don't load models on every request",
+            "Avoid blocking the event loop with heavy computation",
+            "Don't expose internal errors to clients",
+            "Avoid running as root in containers"
+          ]
+        }
+      },
+      "automl": {
+        "title": "AutoML Platforms",
+        "overview": "AutoML automates the machine learning pipeline including feature engineering, model selection, and hyperparameter tuning. Learn to use tools like Auto-sklearn, TPOT, H2O, and cloud AutoML services.",
+        "keyPoints": [
+          "Automated feature engineering",
+          "Neural Architecture Search (NAS)",
+          "Hyperparameter optimization strategies",
+          "Model selection and ensembling",
+          "Cloud AutoML services (Google, AWS, Azure)",
+          "When to use AutoML vs manual ML"
+        ],
+        "useCases": [
+          {
+            "title": "Rapid Prototyping",
+            "description": "Quickly establish baseline models for new problems"
+          },
+          {
+            "title": "Non-ML Teams",
+            "description": "Enable domain experts to build models without deep ML expertise"
+          },
+          {
+            "title": "Hyperparameter Tuning",
+            "description": "Optimize existing model architectures"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Auto-sklearn Example",
+            "code": "import autosklearn.classification\nfrom sklearn.datasets import load_breast_cancer\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score, classification_report\n\n# Load data\nX, y = load_breast_cancer(return_X_y=True)\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Create AutoML classifier\nautoml = autosklearn.classification.AutoSklearnClassifier(\n    time_left_for_this_task=300,  # 5 minutes total\n    per_run_time_limit=30,        # 30 seconds per model\n    n_jobs=-1,\n    memory_limit=4096,\n    seed=42\n)\n\n# Fit - AutoML handles everything\nprint('Starting AutoML training...')\nautoml.fit(X_train, y_train)\n\n# Results\nprint('\\nBest models found:')\nprint(automl.leaderboard())\n\n# Predictions\ny_pred = automl.predict(X_test)\nprint(f'\\nTest Accuracy: {accuracy_score(y_test, y_pred):.4f}')\nprint('\\nClassification Report:')\nprint(classification_report(y_test, y_pred))\n\n# Show final ensemble\nprint('\\nFinal Ensemble:')\nprint(automl.show_models())",
+            "explanation": "Auto-sklearn automatically tries multiple algorithms and hyperparameters to find the best model."
+          },
+          {
+            "title": "Optuna Hyperparameter Tuning",
+            "code": "import optuna\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn.datasets import load_iris\nimport joblib\n\n# Load data\nX, y = load_iris(return_X_y=True)\n\ndef objective(trial):\n    # Suggest hyperparameters\n    n_estimators = trial.suggest_int('n_estimators', 10, 200)\n    max_depth = trial.suggest_int('max_depth', 2, 32)\n    min_samples_split = trial.suggest_int('min_samples_split', 2, 20)\n    min_samples_leaf = trial.suggest_int('min_samples_leaf', 1, 10)\n    max_features = trial.suggest_categorical('max_features', ['sqrt', 'log2', None])\n    \n    # Create and evaluate model\n    model = RandomForestClassifier(\n        n_estimators=n_estimators,\n        max_depth=max_depth,\n        min_samples_split=min_samples_split,\n        min_samples_leaf=min_samples_leaf,\n        max_features=max_features,\n        random_state=42\n    )\n    \n    # Cross-validation score\n    scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')\n    return scores.mean()\n\n# Create study and optimize\nstudy = optuna.create_study(direction='maximize')\nstudy.optimize(objective, n_trials=100, show_progress_bar=True)\n\n# Best results\nprint(f'Best accuracy: {study.best_value:.4f}')\nprint(f'Best hyperparameters: {study.best_params}')\n\n# Train final model with best params\nbest_model = RandomForestClassifier(**study.best_params, random_state=42)\nbest_model.fit(X, y)\njoblib.dump(best_model, 'best_model.pkl')\n\n# Visualization\noptuna.visualization.plot_optimization_history(study).show()\noptuna.visualization.plot_param_importances(study).show()",
+            "explanation": "Optuna provides advanced hyperparameter optimization with visualization and pruning strategies."
+          },
+          {
+            "title": "H2O AutoML",
+            "code": "import h2o\nfrom h2o.automl import H2OAutoML\n\n# Initialize H2O\nh2o.init()\n\n# Load data\ndata = h2o.import_file('data/train.csv')\n\n# Split data\ntrain, test = data.split_frame(ratios=[0.8], seed=42)\n\n# Define target and features\ny = 'target'\nx = [col for col in train.columns if col != y]\n\n# Convert target to factor for classification\ntrain[y] = train[y].asfactor()\ntest[y] = test[y].asfactor()\n\n# Run AutoML\naml = H2OAutoML(\n    max_runtime_secs=300,\n    max_models=20,\n    seed=42,\n    exclude_algos=['DeepLearning'],  # Optional: exclude slow algorithms\n    sort_metric='AUC'\n)\n\naml.train(x=x, y=y, training_frame=train)\n\n# Leaderboard\nlb = aml.leaderboard\nprint('AutoML Leaderboard:')\nprint(lb.head(10))\n\n# Best model performance\nbest_model = aml.leader\nperf = best_model.model_performance(test)\nprint(f'\\nBest Model AUC: {perf.auc():.4f}')\n\n# Save best model\nh2o.save_model(best_model, path='models/', force=True)\n\n# Shutdown H2O\nh2o.shutdown()",
+            "explanation": "H2O AutoML trains and tunes many models including stacked ensembles."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "AutoML Comparison",
+            "description": "Compare Auto-sklearn, TPOT, and H2O on the same dataset. Report accuracy, training time, and model complexity.",
+            "hints": ["Use the same train/test split", "Set similar time limits", "Compare final ensemble sizes"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Set reasonable time limits for experiments",
+            "Start with AutoML for baselines",
+            "Understand the models AutoML selects",
+            "Use cross-validation for reliable estimates"
+          ],
+          "donts": [
+            "Don't blindly trust AutoML without validation",
+            "Avoid using AutoML for very large datasets without proper resources",
+            "Don't skip feature engineering entirely",
+            "Avoid ignoring interpretability requirements"
+          ]
+        }
+      },
+      "industryAI": {
+        "title": "Industry AI Applications",
+        "overview": "Explore how AI is applied across different industries. Learn domain-specific challenges, datasets, models, and ethical considerations for Healthcare, Finance, Retail, and Manufacturing.",
+        "keyPoints": [
+          "Healthcare: Medical imaging, drug discovery, patient outcomes",
+          "Finance: Fraud detection, algorithmic trading, credit scoring",
+          "Retail: Recommendation systems, demand forecasting, pricing",
+          "Manufacturing: Predictive maintenance, quality control, optimization",
+          "Domain-specific challenges and regulations",
+          "Ethical AI and fairness considerations"
+        ],
+        "useCases": [
+          {
+            "title": "Healthcare AI",
+            "description": "Diagnostic imaging, disease prediction, drug discovery"
+          },
+          {
+            "title": "Financial AI",
+            "description": "Risk assessment, fraud detection, portfolio optimization"
+          },
+          {
+            "title": "Retail AI",
+            "description": "Personalization, inventory optimization, customer analytics"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Healthcare: Disease Prediction",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split, StratifiedKFold\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.ensemble import GradientBoostingClassifier\nfrom sklearn.metrics import classification_report, roc_auc_score, confusion_matrix\nimport shap\n\n# Load patient data (example: diabetes prediction)\n# Features: glucose, blood pressure, BMI, age, etc.\ndf = pd.read_csv('patient_data.csv')\n\n# Preprocessing\nX = df.drop(['patient_id', 'diabetes'], axis=1)\ny = df['diabetes']\n\n# Handle missing values (critical in healthcare)\nX = X.fillna(X.median())\n\n# Scale features\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)\n\n# Stratified split (important for imbalanced medical data)\nX_train, X_test, y_train, y_test = train_test_split(\n    X_scaled, y, test_size=0.2, stratify=y, random_state=42\n)\n\n# Model with calibrated probabilities (important for medical decisions)\nmodel = GradientBoostingClassifier(\n    n_estimators=100,\n    max_depth=4,\n    min_samples_leaf=20,  # Regularization to prevent overfitting\n    random_state=42\n)\n\n# Cross-validation for reliable estimates\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluation\ny_pred = model.predict(X_test)\ny_proba = model.predict_proba(X_test)[:, 1]\n\nprint('Classification Report:')\nprint(classification_report(y_test, y_pred))\nprint(f'AUC-ROC: {roc_auc_score(y_test, y_proba):.4f}')\n\n# SHAP for interpretability (required in healthcare)\nexplainer = shap.TreeExplainer(model)\nshap_values = explainer.shap_values(X_test)\nshap.summary_plot(shap_values, X_test, feature_names=X.columns)",
+            "explanation": "Medical prediction model with interpretability using SHAP - crucial for healthcare applications."
+          },
+          {
+            "title": "Finance: Fraud Detection",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.ensemble import IsolationForest\nfrom imblearn.over_sampling import SMOTE\nfrom xgboost import XGBClassifier\nfrom sklearn.metrics import precision_recall_curve, average_precision_score\nimport matplotlib.pyplot as plt\n\n# Load transaction data\ndf = pd.read_csv('transactions.csv')\n\n# Feature engineering for fraud detection\ndf['hour'] = pd.to_datetime(df['timestamp']).dt.hour\ndf['is_weekend'] = pd.to_datetime(df['timestamp']).dt.dayofweek >= 5\ndf['amount_zscore'] = (df['amount'] - df['amount'].mean()) / df['amount'].std()\n\n# Features\nfeature_cols = ['amount', 'hour', 'is_weekend', 'amount_zscore', \n                'merchant_category', 'distance_from_home']\nX = df[feature_cols]\ny = df['is_fraud']\n\n# Handle class imbalance (fraud is rare: ~0.1%)\nprint(f'Fraud rate: {y.mean():.4%}')\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, stratify=y, random_state=42\n)\n\n# SMOTE for training data only\nsmote = SMOTE(random_state=42)\nX_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)\n\n# XGBoost with scale_pos_weight for imbalance\nmodel = XGBClassifier(\n    n_estimators=100,\n    max_depth=6,\n    scale_pos_weight=len(y_train[y_train==0]) / len(y_train[y_train==1]),\n    eval_metric='aucpr',\n    random_state=42\n)\n\nmodel.fit(X_train_balanced, y_train_balanced)\n\n# Precision-Recall curve (better than ROC for imbalanced data)\ny_proba = model.predict_proba(X_test)[:, 1]\nprecision, recall, thresholds = precision_recall_curve(y_test, y_proba)\nap = average_precision_score(y_test, y_proba)\n\nplt.figure(figsize=(8, 6))\nplt.plot(recall, precision, label=f'AP = {ap:.3f}')\nplt.xlabel('Recall')\nplt.ylabel('Precision')\nplt.title('Precision-Recall Curve for Fraud Detection')\nplt.legend()\nplt.show()\n\n# Choose threshold based on business requirements\n# High precision = fewer false positives = better customer experience\n# High recall = catch more fraud = less financial loss",
+            "explanation": "Fraud detection with class imbalance handling and business-aware threshold selection."
+          },
+          {
+            "title": "Retail: Recommendation System",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.metrics.pairwise import cosine_similarity\nfrom scipy.sparse import csr_matrix\nfrom sklearn.decomposition import TruncatedSVD\n\n# Load user-item interactions\nratings = pd.read_csv('user_ratings.csv')\n\n# Create user-item matrix\nuser_item_matrix = ratings.pivot(\n    index='user_id', \n    columns='product_id', \n    values='rating'\n).fillna(0)\n\n# Convert to sparse matrix for efficiency\nsparse_matrix = csr_matrix(user_item_matrix.values)\n\n# Matrix Factorization with SVD\nsvd = TruncatedSVD(n_components=50, random_state=42)\nuser_factors = svd.fit_transform(sparse_matrix)\nitem_factors = svd.components_.T\n\n# Recommendation function\ndef recommend_products(user_id, n_recommendations=5):\n    user_idx = user_item_matrix.index.get_loc(user_id)\n    user_vector = user_factors[user_idx]\n    \n    # Calculate scores for all items\n    scores = np.dot(item_factors, user_vector)\n    \n    # Get items user hasn't rated\n    rated_items = user_item_matrix.loc[user_id]\n    unrated_mask = rated_items == 0\n    \n    # Rank unrated items\n    item_scores = pd.Series(scores, index=user_item_matrix.columns)\n    recommendations = item_scores[unrated_mask].nlargest(n_recommendations)\n    \n    return recommendations\n\n# Content-based filtering (for cold start)\ndef content_based_recommend(product_id, product_features, n=5):\n    \"\"\"\n    Recommend similar products based on features.\n    product_features: DataFrame with product_id as index and feature columns\n    \"\"\"\n    product_vector = product_features.loc[product_id].values.reshape(1, -1)\n    similarities = cosine_similarity(product_vector, product_features.values)[0]\n    \n    similar_indices = similarities.argsort()[::-1][1:n+1]\n    similar_products = product_features.index[similar_indices]\n    \n    return list(zip(similar_products, similarities[similar_indices]))\n\n# Example usage\nprint('Recommendations for user 123:')\nprint(recommend_products(123))",
+            "explanation": "Hybrid recommendation system combining collaborative filtering and content-based approaches."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Build an Industry Solution",
+            "description": "Choose an industry (Healthcare, Finance, or Retail) and build a complete ML solution with appropriate preprocessing, modeling, and evaluation.",
+            "hints": ["Consider domain-specific challenges", "Address class imbalance if present", "Include interpretability"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Understand domain-specific regulations (HIPAA, GDPR)",
+            "Prioritize model interpretability in high-stakes decisions",
+            "Validate models with domain experts",
+            "Monitor for data drift in production"
+          ],
+          "donts": [
+            "Don't deploy without proper validation",
+            "Avoid black-box models in regulated industries",
+            "Don't ignore fairness and bias issues",
+            "Avoid using sensitive attributes without proper handling"
+          ]
+        }
+      },
+      "capstoneProjects": {
+        "title": "Capstone Projects",
+        "overview": "End-to-end projects that combine all skills learned. Each project covers problem definition, data collection, preprocessing, modeling, evaluation, and deployment.",
+        "keyPoints": [
+          "Complete ML pipeline from data to deployment",
+          "Real-world datasets and problems",
+          "Best practices in code organization",
+          "Model evaluation and iteration",
+          "Documentation and presentation",
+          "Portfolio-ready projects"
+        ],
+        "projects": [
+          {
+            "title": "Customer Churn Prediction",
+            "description": "Build a system to predict which customers are likely to cancel their subscription.",
+            "skills": ["Classification", "Feature Engineering", "Class Imbalance", "Model Interpretation"],
+            "dataset": "Telco Customer Churn (Kaggle)",
+            "steps": [
+              "Exploratory Data Analysis",
+              "Feature engineering (tenure groups, service bundles)",
+              "Handle class imbalance with SMOTE",
+              "Train multiple models and compare",
+              "SHAP analysis for interpretability",
+              "Deploy as API with retention recommendations"
+            ]
+          },
+          {
+            "title": "Real-time Object Detection",
+            "description": "Build a system that detects objects in real-time video streams.",
+            "skills": ["Computer Vision", "Deep Learning", "Transfer Learning", "Optimization"],
+            "dataset": "COCO Dataset or custom dataset",
+            "steps": [
+              "Dataset preparation and augmentation",
+              "Fine-tune YOLOv8 on custom classes",
+              "Optimize for inference speed",
+              "Deploy with OpenCV for real-time processing",
+              "Add tracking for persistent object IDs"
+            ]
+          },
+          {
+            "title": "Sentiment Analysis API",
+            "description": "Create an API that analyzes sentiment of text in multiple languages.",
+            "skills": ["NLP", "Transformers", "API Development", "Multilingual"],
+            "dataset": "Amazon Reviews or Twitter data",
+            "steps": [
+              "Data collection and preprocessing",
+              "Fine-tune multilingual BERT",
+              "Evaluate on multiple languages",
+              "Build FastAPI server",
+              "Deploy with Docker and CI/CD"
+            ]
+          },
+          {
+            "title": "Recommender System",
+            "description": "Build a movie/product recommendation engine with multiple approaches.",
+            "skills": ["Collaborative Filtering", "Content-Based", "Matrix Factorization", "A/B Testing"],
+            "dataset": "MovieLens or Amazon Product Reviews",
+            "steps": [
+              "EDA on user behavior patterns",
+              "Implement collaborative filtering",
+              "Add content-based recommendations",
+              "Build hybrid system",
+              "Create Streamlit demo with explanations"
+            ]
+          },
+          {
+            "title": "Time Series Forecasting",
+            "description": "Predict future sales/stock prices with advanced time series methods.",
+            "skills": ["Time Series", "ARIMA", "Prophet", "LSTM", "Feature Engineering"],
+            "dataset": "Store Sales (Kaggle) or Stock Data",
+            "steps": [
+              "Time series decomposition and analysis",
+              "Feature engineering (lags, rolling stats)",
+              "Compare classical vs ML approaches",
+              "Ensemble predictions",
+              "Build dashboard for monitoring"
+            ]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Start with clear problem definition",
+            "Document every step of your process",
+            "Version control code and experiments",
+            "Write clean, modular code"
+          ],
+          "donts": [
+            "Don't skip the EDA phase",
+            "Avoid overfitting to validation data",
+            "Don't forget to test edge cases",
+            "Avoid complex solutions for simple problems"
+          ]
+        }
+      }
+    }
+  }
+}

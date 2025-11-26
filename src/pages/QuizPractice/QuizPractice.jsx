@@ -29,9 +29,12 @@ import {
   Refresh,
   FilterList,
   EmojiEvents,
-  Timer
+  Timer,
+  Psychology,
+  Code
 } from '@mui/icons-material';
 import { getRandomQuestions, getQuestionsByDifficulty, getQuestionsByTag, getTotalQuestionCount } from '../../data/pythonQuizBank';
+import { getRandomAIQuestions, getAIQuestionsByDifficulty, getAIQuestionCount } from '../../data/aiQuizBank';
 import { useTranslation } from 'react-i18next';
 
 const QuizPractice = () => {
@@ -46,7 +49,8 @@ const QuizPractice = () => {
   const [quizSettings, setQuizSettings] = useState({
     count: 10,
     difficulty: 'all',
-    level: 'all'
+    level: 'all',
+    topic: 'all' // 'all', 'python', 'ai'
   });
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
@@ -69,15 +73,51 @@ const QuizPractice = () => {
   };
 
   const startQuiz = () => {
-    let selectedQuestions;
+    let selectedQuestions = [];
+    const { count, difficulty, level, topic } = quizSettings;
     
-    if (quizSettings.level !== 'all') {
-      selectedQuestions = getRandomQuestions(quizSettings.count, quizSettings.level);
-    } else if (quizSettings.difficulty !== 'all') {
-      selectedQuestions = getQuestionsByDifficulty(quizSettings.difficulty);
-      selectedQuestions = selectedQuestions.sort(() => 0.5 - Math.random()).slice(0, quizSettings.count);
+    // Get questions based on topic selection
+    if (topic === 'python') {
+      // Python questions only
+      if (level !== 'all') {
+        selectedQuestions = getRandomQuestions(count, level);
+      } else if (difficulty !== 'all') {
+        selectedQuestions = getQuestionsByDifficulty(difficulty);
+        selectedQuestions = selectedQuestions.sort(() => 0.5 - Math.random()).slice(0, count);
+      } else {
+        selectedQuestions = getRandomQuestions(count);
+      }
+    } else if (topic === 'ai') {
+      // AI questions only
+      if (difficulty !== 'all') {
+        selectedQuestions = getAIQuestionsByDifficulty(difficulty);
+        selectedQuestions = selectedQuestions.sort(() => 0.5 - Math.random()).slice(0, count);
+      } else {
+        selectedQuestions = getRandomAIQuestions(count);
+      }
     } else {
-      selectedQuestions = getRandomQuestions(quizSettings.count);
+      // Mixed - both Python and AI questions
+      const pythonCount = Math.ceil(count / 2);
+      const aiCount = count - pythonCount;
+      
+      let pythonQuestions = [];
+      let aiQuestions = [];
+      
+      if (difficulty !== 'all') {
+        pythonQuestions = getQuestionsByDifficulty(difficulty)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, pythonCount);
+        aiQuestions = getAIQuestionsByDifficulty(difficulty)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, aiCount);
+      } else {
+        pythonQuestions = getRandomQuestions(pythonCount);
+        aiQuestions = getRandomAIQuestions(aiCount);
+      }
+      
+      // Mix and shuffle
+      selectedQuestions = [...pythonQuestions, ...aiQuestions]
+        .sort(() => 0.5 - Math.random());
     }
     
     setQuestions(selectedQuestions);
@@ -175,8 +215,22 @@ const QuizPractice = () => {
             {t('quiz.practiceTitle')}
           </Typography>
           <Typography variant="h6" color="text.secondary" paragraph>
-            {t('quiz.practiceSubtitle')} {getTotalQuestionCount()}+ {t('quiz.questions')}!
+            {t('quiz.practiceSubtitle')} {getTotalQuestionCount() + getAIQuestionCount()}+ {t('quiz.questions')}!
           </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 2 }}>
+            <Chip 
+              icon={<Code />}
+              label={`Python: ${getTotalQuestionCount()}+ questions`} 
+              color="primary" 
+              variant="outlined"
+            />
+            <Chip 
+              icon={<Psychology />}
+              label={`AI/ML: ${getAIQuestionCount()}+ questions`} 
+              color="secondary" 
+              variant="outlined"
+            />
+          </Box>
         </Box>
 
         <Card elevation={3}>
@@ -186,6 +240,33 @@ const QuizPractice = () => {
             </Typography>
 
             <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <FormControl fullWidth>
+                  <InputLabel>{t('quiz.topic', 'Topic')}</InputLabel>
+                  <Select
+                    value={quizSettings.topic}
+                    label={t('quiz.topic', 'Topic')}
+                    onChange={(e) => setQuizSettings({...quizSettings, topic: e.target.value})}
+                  >
+                    <MenuItem value="all">
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        🎯 {t('quiz.allTopics', 'All Topics (Python + AI/ML)')}
+                      </Box>
+                    </MenuItem>
+                    <MenuItem value="python">
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        🐍 {t('quiz.pythonOnly', 'Python Programming Only')}
+                      </Box>
+                    </MenuItem>
+                    <MenuItem value="ai">
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        🤖 {t('quiz.aiOnly', 'AI & Machine Learning Only')}
+                      </Box>
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>{t('quiz.numberOfQuestions')}</InputLabel>

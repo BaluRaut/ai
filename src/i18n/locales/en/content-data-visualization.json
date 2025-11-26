@@ -1,0 +1,343 @@
+{
+  "dataVisualization": {
+    "title": "Data Visualization",
+    "description": "Master the art of visualizing data with Python's powerful libraries",
+    "topics": {
+      "matplotlib": {
+        "title": "Matplotlib Fundamentals",
+        "overview": "Matplotlib is the foundational plotting library in Python. It provides a MATLAB-like interface for creating static, animated, and interactive visualizations. Understanding Matplotlib is essential as it forms the basis for many other visualization libraries.",
+        "keyPoints": [
+          "Create line plots, bar charts, scatter plots, and histograms",
+          "Customize colors, labels, titles, and legends",
+          "Work with subplots for multiple visualizations",
+          "Save figures in various formats (PNG, PDF, SVG)",
+          "Understand the Figure and Axes objects",
+          "Apply different plot styles and themes"
+        ],
+        "useCases": [
+          {
+            "title": "Scientific Research",
+            "description": "Visualize experimental data and research findings"
+          },
+          {
+            "title": "Financial Analysis",
+            "description": "Create stock price charts and financial indicators"
+          },
+          {
+            "title": "Academic Publications",
+            "description": "Generate publication-quality figures for papers"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Line Plot",
+            "code": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Create data\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\n\n# Create figure and plot\nplt.figure(figsize=(10, 6))\nplt.plot(x, y, 'b-', linewidth=2, label='sin(x)')\nplt.xlabel('X axis')\nplt.ylabel('Y axis')\nplt.title('Sine Wave')\nplt.legend()\nplt.grid(True)\nplt.show()",
+            "explanation": "This creates a simple sine wave plot with labels, title, legend, and grid."
+          },
+          {
+            "title": "Multiple Subplots",
+            "code": "import matplotlib.pyplot as plt\nimport numpy as np\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\n\n# Line plot\naxes[0, 0].plot([1, 2, 3, 4], [1, 4, 2, 3])\naxes[0, 0].set_title('Line Plot')\n\n# Bar chart\naxes[0, 1].bar(['A', 'B', 'C'], [3, 7, 5], color='green')\naxes[0, 1].set_title('Bar Chart')\n\n# Scatter plot\naxes[1, 0].scatter(np.random.rand(50), np.random.rand(50))\naxes[1, 0].set_title('Scatter Plot')\n\n# Histogram\naxes[1, 1].hist(np.random.randn(1000), bins=30, color='purple')\naxes[1, 1].set_title('Histogram')\n\nplt.tight_layout()\nplt.show()",
+            "explanation": "Creates a 2x2 grid of different plot types using subplots."
+          },
+          {
+            "title": "Customized Plot with Styles",
+            "code": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Use a built-in style\nplt.style.use('seaborn-v0_8-darkgrid')\n\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Multiple lines with custom styling\nx = np.linspace(0, 10, 50)\nax.plot(x, np.sin(x), 'o-', color='#FF6B6B', markersize=4, label='sin(x)')\nax.plot(x, np.cos(x), 's--', color='#4ECDC4', markersize=4, label='cos(x)')\n\nax.set_xlabel('X Values', fontsize=12)\nax.set_ylabel('Y Values', fontsize=12)\nax.set_title('Trigonometric Functions', fontsize=14, fontweight='bold')\nax.legend(loc='upper right', framealpha=0.9)\n\nplt.savefig('trig_functions.png', dpi=300, bbox_inches='tight')\nplt.show()",
+            "explanation": "Demonstrates custom styling, markers, colors, and saving high-quality figures."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Temperature Trends",
+            "description": "Create a line plot showing monthly temperature data for a year. Add proper labels, title, and customize the line color.",
+            "hints": ["Use plt.plot() with date data", "Add xlabel, ylabel, title", "Consider using plt.xticks() for month labels"]
+          },
+          {
+            "title": "Sales Comparison",
+            "description": "Create a bar chart comparing sales across 4 quarters with different colors for each bar.",
+            "hints": ["Use plt.bar() with list of values", "Add color parameter", "Include value labels on top of bars"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Always add clear labels and titles",
+            "Choose appropriate plot types for your data",
+            "Use consistent color schemes",
+            "Save figures in vector format (SVG, PDF) for publications"
+          ],
+          "donts": [
+            "Don't overcrowd plots with too much data",
+            "Avoid using too many colors that confuse readers",
+            "Don't use 3D plots when 2D suffices",
+            "Avoid truncating axes in misleading ways"
+          ]
+        }
+      },
+      "seaborn": {
+        "title": "Statistical Visualization with Seaborn",
+        "overview": "Seaborn is built on top of Matplotlib and provides a high-level interface for drawing attractive statistical graphics. It integrates closely with Pandas DataFrames and makes complex visualizations simple.",
+        "keyPoints": [
+          "Create statistical plots with minimal code",
+          "Built-in themes and color palettes",
+          "Direct integration with Pandas DataFrames",
+          "Automatic estimation and visualization of statistical relationships",
+          "Specialized plots for categorical and distribution data",
+          "Faceting for multi-plot grids"
+        ],
+        "useCases": [
+          {
+            "title": "Exploratory Data Analysis",
+            "description": "Quickly visualize distributions and relationships in datasets"
+          },
+          {
+            "title": "Statistical Reports",
+            "description": "Create publication-ready statistical visualizations"
+          },
+          {
+            "title": "Machine Learning EDA",
+            "description": "Understand feature distributions and correlations"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Distribution Plots",
+            "code": "import seaborn as sns\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Set theme\nsns.set_theme(style='whitegrid')\n\n# Generate sample data\ndata = np.random.normal(0, 1, 1000)\n\nfig, axes = plt.subplots(1, 3, figsize=(15, 4))\n\n# Histogram with KDE\nsns.histplot(data, kde=True, ax=axes[0], color='steelblue')\naxes[0].set_title('Histogram with KDE')\n\n# Box plot\nsns.boxplot(data=data, ax=axes[1], color='lightcoral')\naxes[1].set_title('Box Plot')\n\n# Violin plot\nsns.violinplot(data=data, ax=axes[2], color='lightgreen')\naxes[2].set_title('Violin Plot')\n\nplt.tight_layout()\nplt.show()",
+            "explanation": "Shows three different ways to visualize the distribution of data."
+          },
+          {
+            "title": "Correlation Heatmap",
+            "code": "import seaborn as sns\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Create sample DataFrame\nnp.random.seed(42)\ndf = pd.DataFrame({\n    'Feature_A': np.random.randn(100),\n    'Feature_B': np.random.randn(100),\n    'Feature_C': np.random.randn(100),\n    'Feature_D': np.random.randn(100)\n})\ndf['Feature_E'] = df['Feature_A'] * 0.5 + np.random.randn(100) * 0.5\n\n# Calculate correlation matrix\ncorr_matrix = df.corr()\n\n# Create heatmap\nplt.figure(figsize=(10, 8))\nsns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0,\n            square=True, linewidths=0.5, fmt='.2f')\nplt.title('Feature Correlation Heatmap')\nplt.show()",
+            "explanation": "Creates a correlation heatmap to visualize relationships between features - essential for ML feature analysis."
+          },
+          {
+            "title": "Categorical Data Visualization",
+            "code": "import seaborn as sns\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load sample dataset\ntips = sns.load_dataset('tips')\n\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\n\n# Bar plot with hue\nsns.barplot(data=tips, x='day', y='total_bill', hue='sex', ax=axes[0, 0])\naxes[0, 0].set_title('Average Bill by Day and Gender')\n\n# Count plot\nsns.countplot(data=tips, x='day', hue='time', ax=axes[0, 1])\naxes[0, 1].set_title('Visits by Day and Time')\n\n# Box plot with categories\nsns.boxplot(data=tips, x='day', y='tip', hue='smoker', ax=axes[1, 0])\naxes[1, 0].set_title('Tip Distribution by Day and Smoker Status')\n\n# Swarm plot\nsns.swarmplot(data=tips, x='day', y='total_bill', hue='sex', ax=axes[1, 1])\naxes[1, 1].set_title('Bill Distribution (Individual Points)')\n\nplt.tight_layout()\nplt.show()",
+            "explanation": "Demonstrates various ways to visualize categorical data with Seaborn."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Dataset Exploration",
+            "description": "Load the 'iris' dataset from seaborn and create a pairplot showing relationships between all numeric features, colored by species.",
+            "hints": ["Use sns.load_dataset('iris')", "sns.pairplot() with hue parameter", "Observe clusters for different species"]
+          },
+          {
+            "title": "Correlation Analysis",
+            "description": "Create a heatmap of correlations for a dataset of your choice. Annotate the cells with correlation values.",
+            "hints": ["Calculate correlations with df.corr()", "Use annot=True in heatmap", "Choose an appropriate colormap"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Use seaborn for quick statistical plots",
+            "Leverage built-in datasets for practice",
+            "Use appropriate plot types for data types",
+            "Combine with pandas for seamless data handling"
+          ],
+          "donts": [
+            "Don't ignore the statistical assumptions behind plots",
+            "Avoid using violin plots for small datasets",
+            "Don't forget to set appropriate figure sizes",
+            "Avoid cluttered legends with too many categories"
+          ]
+        }
+      },
+      "plotly": {
+        "title": "Interactive Visualizations with Plotly",
+        "overview": "Plotly is a graphing library that creates interactive, publication-quality graphs. Charts can be zoomed, panned, and hovered for detailed information. Plotly Express provides a simple API for common chart types.",
+        "keyPoints": [
+          "Create interactive charts with zoom, pan, and hover",
+          "Export charts as HTML for web embedding",
+          "Plotly Express for quick charts, Graph Objects for customization",
+          "3D visualizations and animations",
+          "Works in Jupyter notebooks and web applications",
+          "Supports real-time data updates"
+        ],
+        "useCases": [
+          {
+            "title": "Business Dashboards",
+            "description": "Interactive reports for stakeholder presentations"
+          },
+          {
+            "title": "Web Applications",
+            "description": "Embed interactive charts in websites"
+          },
+          {
+            "title": "Data Exploration",
+            "description": "Interactively explore large datasets"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Interactive Scatter Plot",
+            "code": "import plotly.express as px\nimport pandas as pd\n\n# Load sample data\ndf = px.data.gapminder()\ndf_2007 = df[df['year'] == 2007]\n\n# Create interactive scatter plot\nfig = px.scatter(\n    df_2007,\n    x='gdpPercap',\n    y='lifeExp',\n    size='pop',\n    color='continent',\n    hover_name='country',\n    log_x=True,\n    size_max=60,\n    title='GDP vs Life Expectancy (2007)'\n)\n\nfig.update_layout(\n    xaxis_title='GDP per Capita (log scale)',\n    yaxis_title='Life Expectancy (years)'\n)\n\nfig.show()",
+            "explanation": "Creates a bubble chart where you can hover over points to see country details."
+          },
+          {
+            "title": "Animated Chart",
+            "code": "import plotly.express as px\n\n# Load gapminder data\ndf = px.data.gapminder()\n\n# Create animated scatter plot\nfig = px.scatter(\n    df,\n    x='gdpPercap',\n    y='lifeExp',\n    animation_frame='year',\n    animation_group='country',\n    size='pop',\n    color='continent',\n    hover_name='country',\n    log_x=True,\n    size_max=55,\n    range_x=[100, 100000],\n    range_y=[25, 90],\n    title='World Development Over Time'\n)\n\nfig.show()",
+            "explanation": "Creates an animated visualization showing how countries developed from 1952 to 2007."
+          },
+          {
+            "title": "3D Surface Plot",
+            "code": "import plotly.graph_objects as go\nimport numpy as np\n\n# Create data for 3D surface\nx = np.linspace(-5, 5, 50)\ny = np.linspace(-5, 5, 50)\nX, Y = np.meshgrid(x, y)\nZ = np.sin(np.sqrt(X**2 + Y**2))\n\n# Create 3D surface\nfig = go.Figure(data=[go.Surface(z=Z, x=X, y=Y, colorscale='Viridis')])\n\nfig.update_layout(\n    title='3D Surface Plot',\n    scene=dict(\n        xaxis_title='X',\n        yaxis_title='Y',\n        zaxis_title='Z'\n    ),\n    width=800,\n    height=600\n)\n\nfig.show()",
+            "explanation": "Creates a 3D surface plot that can be rotated and zoomed interactively."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Interactive Dashboard",
+            "description": "Create an interactive bar chart showing top 10 countries by population using the gapminder dataset.",
+            "hints": ["Use px.bar() with sorted data", "Add hover_data for more info", "Use color to highlight regions"]
+          },
+          {
+            "title": "Time Series Animation",
+            "description": "Create an animated line chart showing stock price or sales data over time.",
+            "hints": ["Use animation_frame parameter", "Set range_x and range_y for stable axes", "Consider using cumulative sums"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Use Plotly Express for common charts",
+            "Add meaningful hover information",
+            "Use animations to show trends over time",
+            "Export to HTML for sharing"
+          ],
+          "donts": [
+            "Don't create overly complex animations that distract",
+            "Avoid too many data points that slow rendering",
+            "Don't rely on 3D when 2D is clearer",
+            "Avoid default titles - always customize"
+          ]
+        }
+      },
+      "streamlit": {
+        "title": "Building Data Apps with Streamlit",
+        "overview": "Streamlit is a Python framework for creating interactive web applications for data science and machine learning. It turns Python scripts into shareable web apps in minutes without requiring web development knowledge.",
+        "keyPoints": [
+          "Create web apps using only Python",
+          "Automatic UI generation from code",
+          "Built-in widgets for interactivity",
+          "Hot reloading for rapid development",
+          "Easy deployment to Streamlit Cloud",
+          "Integration with ML models and data pipelines"
+        ],
+        "useCases": [
+          {
+            "title": "ML Model Demos",
+            "description": "Create interactive demos for machine learning models"
+          },
+          {
+            "title": "Data Exploration Tools",
+            "description": "Build tools for non-technical users to explore data"
+          },
+          {
+            "title": "Internal Dashboards",
+            "description": "Create quick dashboards for team use"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Basic Streamlit App",
+            "code": "import streamlit as st\nimport pandas as pd\nimport numpy as np\n\n# Page config\nst.set_page_config(page_title='My Data App', layout='wide')\n\n# Title and description\nst.title('📊 Data Explorer')\nst.markdown('Explore your data interactively!')\n\n# Sidebar for inputs\nst.sidebar.header('Settings')\nnum_rows = st.sidebar.slider('Number of rows', 10, 100, 50)\nshow_stats = st.sidebar.checkbox('Show statistics', value=True)\n\n# Generate sample data\ndf = pd.DataFrame({\n    'Date': pd.date_range('2024-01-01', periods=num_rows),\n    'Sales': np.random.randint(100, 1000, num_rows),\n    'Region': np.random.choice(['North', 'South', 'East', 'West'], num_rows)\n})\n\n# Display data\nst.subheader('Data Preview')\nst.dataframe(df)\n\n# Conditional statistics\nif show_stats:\n    st.subheader('Statistics')\n    st.write(df.describe())\n\n# Chart\nst.subheader('Sales Trend')\nst.line_chart(df.set_index('Date')['Sales'])",
+            "explanation": "A complete Streamlit app with sidebar controls, data display, and charts. Run with: streamlit run app.py"
+          },
+          {
+            "title": "ML Model Prediction App",
+            "code": "import streamlit as st\nimport numpy as np\nfrom sklearn.datasets import load_iris\nfrom sklearn.ensemble import RandomForestClassifier\n\n# Load model (in practice, load a trained model)\n@st.cache_resource\ndef load_model():\n    iris = load_iris()\n    model = RandomForestClassifier(n_estimators=100)\n    model.fit(iris.data, iris.target)\n    return model, iris.target_names\n\nmodel, target_names = load_model()\n\nst.title('🌸 Iris Flower Classifier')\nst.write('Enter flower measurements to predict the species')\n\n# Input widgets\ncol1, col2 = st.columns(2)\nwith col1:\n    sepal_length = st.slider('Sepal Length (cm)', 4.0, 8.0, 5.0)\n    sepal_width = st.slider('Sepal Width (cm)', 2.0, 4.5, 3.0)\nwith col2:\n    petal_length = st.slider('Petal Length (cm)', 1.0, 7.0, 4.0)\n    petal_width = st.slider('Petal Width (cm)', 0.1, 2.5, 1.0)\n\n# Prediction\nif st.button('Predict Species'):\n    features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])\n    prediction = model.predict(features)\n    proba = model.predict_proba(features)\n    \n    st.success(f'Predicted Species: **{target_names[prediction[0]]}**')\n    st.write('Confidence:')\n    for name, prob in zip(target_names, proba[0]):\n        st.progress(prob, text=f'{name}: {prob:.1%}')",
+            "explanation": "An interactive ML model demo with sliders for input and probability display."
+          },
+          {
+            "title": "File Upload and Analysis",
+            "code": "import streamlit as st\nimport pandas as pd\nimport plotly.express as px\n\nst.title('📁 CSV Analyzer')\n\n# File upload\nuploaded_file = st.file_uploader('Upload a CSV file', type='csv')\n\nif uploaded_file is not None:\n    df = pd.read_csv(uploaded_file)\n    \n    st.subheader('Data Preview')\n    st.dataframe(df.head())\n    \n    st.subheader('Data Shape')\n    st.write(f'Rows: {df.shape[0]}, Columns: {df.shape[1]}')\n    \n    # Column selector for visualization\n    numeric_cols = df.select_dtypes(include=['number']).columns.tolist()\n    \n    if len(numeric_cols) >= 2:\n        st.subheader('Create Visualization')\n        col1, col2 = st.columns(2)\n        with col1:\n            x_col = st.selectbox('X-axis', numeric_cols)\n        with col2:\n            y_col = st.selectbox('Y-axis', numeric_cols, index=1)\n        \n        fig = px.scatter(df, x=x_col, y=y_col, title=f'{x_col} vs {y_col}')\n        st.plotly_chart(fig, use_container_width=True)\nelse:\n    st.info('Please upload a CSV file to get started')",
+            "explanation": "A file upload app that analyzes and visualizes uploaded CSV data."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "Personal Dashboard",
+            "description": "Create a personal finance tracker with input widgets for expenses and visualizations for spending categories.",
+            "hints": ["Use st.number_input() for amounts", "Use st.selectbox() for categories", "Store data in session_state"]
+          },
+          {
+            "title": "ML Model Explorer",
+            "description": "Build an app that lets users upload data, select a model type, train it, and see predictions.",
+            "hints": ["Use st.file_uploader()", "Use st.selectbox() for model selection", "Show training metrics and predictions"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Use @st.cache_data for expensive computations",
+            "Organize layout with columns and containers",
+            "Provide clear instructions for users",
+            "Use session_state for persistent data"
+          ],
+          "donts": [
+            "Don't put heavy computations in the main flow",
+            "Avoid too many widgets that overwhelm users",
+            "Don't forget error handling for user inputs",
+            "Avoid blocking operations without progress indicators"
+          ]
+        }
+      },
+      "dashboards": {
+        "title": "Building Data Dashboards",
+        "overview": "Data dashboards combine multiple visualizations to provide a comprehensive view of key metrics. Learn to design effective dashboards that tell a story and enable data-driven decisions.",
+        "keyPoints": [
+          "Dashboard design principles",
+          "Combining multiple chart types effectively",
+          "Real-time data integration",
+          "User interaction and filtering",
+          "Performance optimization for large datasets",
+          "Responsive layouts for different screens"
+        ],
+        "useCases": [
+          {
+            "title": "Executive Dashboards",
+            "description": "High-level KPI tracking for leadership"
+          },
+          {
+            "title": "Operations Monitoring",
+            "description": "Real-time system and process monitoring"
+          },
+          {
+            "title": "Sales Analytics",
+            "description": "Track sales performance and trends"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "Complete Dashboard with Streamlit",
+            "code": "import streamlit as st\nimport pandas as pd\nimport plotly.express as px\nimport plotly.graph_objects as go\n\nst.set_page_config(page_title='Sales Dashboard', layout='wide')\n\n# Generate sample data\n@st.cache_data\ndef load_data():\n    import numpy as np\n    dates = pd.date_range('2024-01-01', periods=365)\n    df = pd.DataFrame({\n        'Date': dates,\n        'Sales': np.random.randint(1000, 10000, 365) + np.sin(np.arange(365) * 2 * np.pi / 365) * 2000,\n        'Region': np.random.choice(['North', 'South', 'East', 'West'], 365),\n        'Product': np.random.choice(['A', 'B', 'C'], 365)\n    })\n    return df\n\ndf = load_data()\n\n# Header\nst.title('📈 Sales Dashboard')\nst.markdown('---')\n\n# Filters\ncol1, col2, col3 = st.columns(3)\nwith col1:\n    selected_region = st.multiselect('Region', df['Region'].unique(), default=df['Region'].unique())\nwith col2:\n    selected_product = st.multiselect('Product', df['Product'].unique(), default=df['Product'].unique())\nwith col3:\n    date_range = st.date_input('Date Range', value=(df['Date'].min(), df['Date'].max()))\n\n# Filter data\nfiltered_df = df[\n    (df['Region'].isin(selected_region)) &\n    (df['Product'].isin(selected_product)) &\n    (df['Date'] >= pd.Timestamp(date_range[0])) &\n    (df['Date'] <= pd.Timestamp(date_range[1]))\n]\n\n# KPI Cards\nst.markdown('### Key Metrics')\nkpi1, kpi2, kpi3, kpi4 = st.columns(4)\nkpi1.metric('Total Sales', f'${filtered_df[\"Sales\"].sum():,.0f}')\nkpi2.metric('Average Sale', f'${filtered_df[\"Sales\"].mean():,.0f}')\nkpi3.metric('Total Transactions', f'{len(filtered_df):,}')\nkpi4.metric('Best Day', f'${filtered_df[\"Sales\"].max():,.0f}')\n\n# Charts\nst.markdown('---')\nchart1, chart2 = st.columns(2)\n\nwith chart1:\n    st.subheader('Sales Trend')\n    daily_sales = filtered_df.groupby('Date')['Sales'].sum().reset_index()\n    fig = px.line(daily_sales, x='Date', y='Sales')\n    st.plotly_chart(fig, use_container_width=True)\n\nwith chart2:\n    st.subheader('Sales by Region')\n    region_sales = filtered_df.groupby('Region')['Sales'].sum().reset_index()\n    fig = px.pie(region_sales, values='Sales', names='Region', hole=0.4)\n    st.plotly_chart(fig, use_container_width=True)",
+            "explanation": "A complete interactive dashboard with filters, KPI cards, and multiple charts."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "COVID Dashboard Clone",
+            "description": "Recreate a simplified COVID-19 dashboard with cases, recoveries, and deaths by country.",
+            "hints": ["Use real data from public APIs", "Add date range filters", "Include a map visualization"]
+          },
+          {
+            "title": "Personal Finance Dashboard",
+            "description": "Build a dashboard to track income, expenses, and savings over time.",
+            "hints": ["Add category-wise breakdowns", "Include budget vs actual comparisons", "Add goal tracking"]
+          }
+        ],
+        "bestPractices": {
+          "dos": [
+            "Put most important metrics at the top",
+            "Use consistent color coding across charts",
+            "Provide context with comparisons (vs last period)",
+            "Allow users to drill down into details"
+          ],
+          "donts": [
+            "Don't overcrowd with too many charts",
+            "Avoid confusing color schemes",
+            "Don't show data without context",
+            "Avoid real-time updates that distract users"
+          ]
+        }
+      }
+    }
+  }
+}

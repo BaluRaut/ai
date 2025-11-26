@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "मुख्यपृष्ठ",
+    "quizPractice": "प्रश्नमंजुषा सराव",
+    "bookmarks": "वाचनखुणा",
+    "progress": "प्रगती",
+    "achievements": "यश",
+    "learningPaths": "शिकण्याचे मार्ग",
+    "interviewPrep": "मुलाखत तयारी",
+    "flashCards": "फ्लॅश कार्ड्स",
+    "cheatSheets": "चीट शीट्स",
+    "feedback": "अभिप्राय द्या"
+  },
+  "common": {
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी",
+    "notFound": "सापडले नाही",
+    "goBack": "मागे जा",
+    "language": "भाषा",
+    "english": "English",
+    "marathi": "मराठी",
+    "save": "जतन करा",
+    "cancel": "रद्द करा",
+    "delete": "हटवा",
+    "edit": "संपादित करा",
+    "close": "बंद करा",
+    "search": "शोधा",
+    "filter": "फिल्टर",
+    "all": "सर्व",
+    "none": "काहीही नाही",
+    "previous": "मागील",
+    "next": "पुढील",
+    "submit": "सबमिट करा",
+    "reset": "रीसेट",
+    "copy": "कॉपी करा",
+    "copied": "कॉपी झाले!",
+    "viewAll": "सर्व पहा",
+    "learnMore": "अधिक जाणून घ्या"
+  },
+  "difficulty": {
+    "beginner": "नवशिक्या",
+    "easy": "सोपे",
+    "intermediate": "मध्यम",
+    "medium": "मध्यम",
+    "advanced": "प्रगत",
+    "hard": "कठीण",
+    "expert": "तज्ञ"
+  },
+  "time": {
+    "minutes": "मिनिटे",
+    "hours": "तास",
+    "days": "दिवस",
+    "weeks": "आठवडे"
+  },
+  "actions": {
+    "start": "सुरू करा",
+    "continue": "सुरू ठेवा",
+    "complete": "पूर्ण करा",
+    "retry": "पुन्हा प्रयत्न करा",
+    "skip": "वगळा",
+    "download": "डाउनलोड करा",
+    "share": "शेअर करा",
+    "print": "प्रिंट करा"
+  }
+}

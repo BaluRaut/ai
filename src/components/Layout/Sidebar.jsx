@@ -18,9 +18,15 @@ import {
   TrendingUp,
   Quiz,
   Feedback,
+  WorkOutline,
+  Style,
+  Article,
+  RocketLaunch,
+  BusinessCenter,
+  VideoLibrary,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { learningPaths } from '../../data/courseContent';
+import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
 import { useProgress } from '../../context/ProgressContext';
 import { useTranslation } from 'react-i18next';
 import SearchBar from '../SearchBar/SearchBar';
@@ -37,6 +43,12 @@ const Sidebar = ({ open, onClose, isMobile }) => {
   const menuItems = [
     { text: t('nav.home'), icon: <Home />, path: '/' },
     { text: t('nav.quizPractice'), icon: <Quiz />, path: '/quiz' },
+    { text: 'Interview Prep', icon: <WorkOutline />, path: '/interview-prep' },
+    { text: 'Flash Cards', icon: <Style />, path: '/flashcards' },
+    { text: 'Cheat Sheets', icon: <Article />, path: '/cheatsheets' },
+    { text: 'Capstone Projects', icon: <RocketLaunch />, path: '/capstone-projects' },
+    { text: 'Case Studies', icon: <BusinessCenter />, path: '/case-studies' },
+    { text: 'Resources', icon: <VideoLibrary />, path: '/resources' },
     { text: t('nav.bookmarks'), icon: <BookmarkBorder />, path: '/bookmarks' },
     { text: t('nav.progress'), icon: <TrendingUp />, path: '/progress' },
     { text: t('nav.achievements'), icon: <EmojiEvents />, path: '/achievements' },
@@ -112,7 +124,7 @@ const Sidebar = ({ open, onClose, isMobile }) => {
       </Box>
 
       <List>
-        {learningPaths.map((path) => (
+        {aiLearningPaths.map((path) => (
           <ListItem key={path.id} disablePadding>
             <ListItemButton
               selected={location.pathname === `/path/${path.id}`}
@@ -123,7 +135,7 @@ const Sidebar = ({ open, onClose, isMobile }) => {
               </ListItemIcon>
               <ListItemText
                 primary={path.title}
-                secondary={path.level}
+                secondary={path.difficulty}
                 primaryTypographyProps={{ variant: 'body2' }}
                 secondaryTypographyProps={{ variant: 'caption' }}
               />

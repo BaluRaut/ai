@@ -1,0 +1,337 @@
+{
+  "whatIsAI": {
+    "id": "what-is-ai",
+    "title": "What is Artificial Intelligence?",
+    "description": "Understanding AI, its types, and real-world applications",
+    "overview": "Artificial Intelligence (AI) is the simulation of human intelligence in machines programmed to think and learn. It encompasses everything from simple automation to complex decision-making systems. AI has transformed industries from healthcare to entertainment, making it one of the most important technologies of our time.",
+    "keyPoints": [
+      "AI mimics human cognitive functions like learning and problem-solving",
+      "Three types: Narrow AI (current), General AI (future), Super AI (theoretical)",
+      "Machine Learning is a subset of AI that learns from data",
+      "Deep Learning uses neural networks to process complex patterns",
+      "AI is used in smartphones, recommendations, autonomous vehicles, and more"
+    ],
+    "useCases": {
+      "virtualAssistants": {
+        "title": "Virtual Assistants",
+        "description": "Siri, Alexa, Google Assistant use NLP to understand voice commands",
+        "example": "Ask 'What's the weather?' and AI processes language, fetches data, and responds"
+      },
+      "recommendationSystems": {
+        "title": "Recommendation Systems",
+        "description": "Netflix, YouTube, Amazon suggest content based on your preferences",
+        "example": "Watch action movies → AI learns preference → Recommends similar content"
+      },
+      "medicalDiagnosis": {
+        "title": "Medical Diagnosis",
+        "description": "AI analyzes medical images to detect diseases early",
+        "example": "Scan X-rays for cancer with 95%+ accuracy, faster than humans"
+      },
+      "selfDrivingCars": {
+        "title": "Self-Driving Cars",
+        "description": "Tesla, Waymo use AI to navigate roads autonomously",
+        "example": "Computer vision + sensors detect pedestrians, traffic signs, obstacles"
+      }
+    },
+    "dos": [
+      "Start with understanding basic concepts before diving into code",
+      "Explore different AI applications to see what interests you",
+      "Learn Python - it's the most popular AI programming language",
+      "Practice with real-world datasets",
+      "Stay updated with latest AI developments"
+    ],
+    "donts": [
+      "Don't expect to build complex AI overnight - it takes time",
+      "Don't skip the math fundamentals (statistics, linear algebra)",
+      "Don't rely only on theory - practical implementation is crucial",
+      "Don't ignore ethical implications of AI systems",
+      "Don't get overwhelmed - take one concept at a time"
+    ],
+    "bestPractices": [
+      "Follow a structured learning path from basics to advanced",
+      "Build small projects to reinforce learning",
+      "Join AI communities and forums for support",
+      "Read research papers to understand cutting-edge work",
+      "Experiment with different AI tools and frameworks"
+    ]
+  },
+  "aiMlDl": {
+    "id": "ai-ml-dl-differences",
+    "title": "AI vs ML vs Deep Learning",
+    "description": "Understanding the relationship between AI, Machine Learning, and Deep Learning",
+    "overview": "AI, ML, and DL are related but distinct concepts. Think of them as nested dolls: AI is the outermost layer (broadest concept), Machine Learning sits inside AI, and Deep Learning is a specialized technique within ML. Understanding these distinctions is crucial for navigating the AI landscape.",
+    "diagram": {
+      "title": "The Relationship Between AI, ML, and Deep Learning",
+      "description": "AI is the broadest field, ML is a subset of AI, and DL is a subset of ML",
+      "layers": {
+        "ai": "Artificial Intelligence - Machines that can perform intelligent tasks",
+        "ml": "Machine Learning - Systems that learn from data",
+        "dl": "Deep Learning - Neural networks with multiple layers"
+      }
+    },
+    "comparisonTable": {
+      "title": "AI vs Machine Learning vs Deep Learning",
+      "headers": ["Aspect", "Artificial Intelligence", "Machine Learning", "Deep Learning"],
+      "definition": ["Definition", "Machines performing intelligent tasks", "Systems learning from data without explicit programming", "Neural networks with multiple layers learning hierarchical features"],
+      "scope": ["Scope", "Broadest - includes all intelligent systems", "Subset of AI focused on learning", "Subset of ML using neural networks"],
+      "dataRequirements": ["Data Requirements", "Varies (can work with little or no data)", "Moderate datasets (hundreds to thousands)", "Large datasets (thousands to millions)"],
+      "examples": ["Examples", "Rule-based chatbots, game AI, expert systems", "Spam filters, recommendation systems, linear regression", "Image recognition, speech synthesis, language models"],
+      "computingPower": ["Computing Power", "Low to moderate", "Moderate", "High - requires GPUs/TPUs"]
+    },
+    "keyPoints": [
+      "AI: Broad field of making machines intelligent",
+      "ML: Subset of AI that learns patterns from data without explicit programming",
+      "DL: Subset of ML using neural networks with multiple layers",
+      "AI can exist without ML (rule-based systems)",
+      "DL requires large amounts of data and computing power"
+    ],
+    "useCases": {
+      "ruleBasedAI": {
+        "title": "AI without ML: Rule-Based Chatbot",
+        "description": "Simple if-then rules handle conversations",
+        "example": "If user says 'hello' → respond 'Hi there!'. No learning involved."
+      },
+      "mlSpamFilter": {
+        "title": "Machine Learning: Spam Filter",
+        "description": "Learns to identify spam from labeled examples",
+        "example": "Train on 10,000 emails (spam/not spam) → Predicts new emails accurately"
+      },
+      "dlImageRecognition": {
+        "title": "Deep Learning: Image Recognition",
+        "description": "Neural networks identify objects in photos",
+        "example": "Show 1M cat pictures → Network learns features → Recognizes cats in new photos"
+      }
+    }
+  },
+  "typesOfAI": {
+    "id": "types-of-ai",
+    "title": "Types of AI: Narrow, General, and Super AI",
+    "description": "Categorizing AI based on capabilities and functionality",
+    "overview": "Artificial Intelligence can be categorized based on its capabilities and functionality. Understanding these types helps you recognize what's currently possible, what's being researched, and what remains science fiction.",
+    "narrowAI": {
+      "title": "Narrow AI (Weak AI)",
+      "description": "AI designed to perform a specific task. All AI systems we use today fall into this category - from virtual assistants to recommendation engines to self-driving cars. Each excels at one task but cannot generalize to others."
+    },
+    "generalAI": {
+      "title": "General AI (Strong AI)",
+      "description": "AI with human-level intelligence across all tasks. It can learn, understand, and apply intelligence to solve any problem that a human can. This doesn't exist yet and is the focus of ongoing research."
+    },
+    "superAI": {
+      "title": "Super AI",
+      "description": "AI that surpasses human intelligence in all aspects. It's purely theoretical and raises important ethical and existential questions about the future of AI."
+    },
+    "keyPoints": [
+      "Narrow AI: Specialized in one task (all current AI)",
+      "General AI: Human-level intelligence across all tasks (not yet achieved)",
+      "Super AI: Exceeds human intelligence (theoretical)",
+      "Current technology is exclusively Narrow AI",
+      "AGI (Artificial General Intelligence) is the goal of AI research"
+    ],
+    "useCases": {
+      "narrowExamples": {
+        "title": "Narrow AI Examples",
+        "description": "Siri (voice assistant), AlphaGo (game playing), Tesla Autopilot (driving), ChatGPT (language), DALL-E (image generation) - each excels at its specific task"
+      },
+      "whyGeneralAIHard": {
+        "title": "Why General AI is Hard",
+        "description": "A chess AI cannot drive a car. A language model cannot diagnose diseases without specific training. Current AI lacks transfer learning and common sense reasoning"
+      },
+      "agiChallenge": {
+        "title": "The AGI Challenge",
+        "description": "Creating AI that can learn new tasks like humans do, understand context, reason abstractly, and apply knowledge across domains remains unsolved"
+      }
+    }
+  },
+  "aiApplications": {
+    "id": "ai-applications",
+    "title": "Real-World AI Applications Across Industries",
+    "description": "How AI is transforming every industry",
+    "overview": "AI is transforming every industry imaginable. Understanding where and how AI is applied helps you identify opportunities in your field and appreciate the breadth of AI's impact on modern life.",
+    "industries": {
+      "healthcare": {
+        "title": "Healthcare",
+        "description": "AI analyzes medical images, predicts diseases, discovers drugs, and personalizes treatment plans. Systems can detect cancer in X-rays with accuracy matching or exceeding human radiologists."
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "AI detects fraud in real-time, trades stocks, assesses credit risk, and provides personalized financial advice. Banks use AI to prevent billions in fraudulent transactions annually."
+      },
+      "transportation": {
+        "title": "Transportation",
+        "description": "Self-driving cars, traffic optimization, route planning, and predictive maintenance. AI processes sensor data to make split-second driving decisions."
+      },
+      "retail": {
+        "title": "Retail",
+        "description": "Recommendation engines, inventory management, price optimization, and visual search. Amazon's recommendations drive 35% of their sales through AI."
+      },
+      "manufacturing": {
+        "title": "Manufacturing",
+        "description": "Quality control, predictive maintenance, supply chain optimization, and robot automation. AI reduces defects and downtime significantly."
+      }
+    },
+    "keyPoints": [
+      "Healthcare: Medical imaging, drug discovery, diagnosis",
+      "Finance: Fraud detection, trading, risk assessment",
+      "Transportation: Autonomous vehicles, route optimization",
+      "Retail: Recommendations, inventory, customer service",
+      "Manufacturing: Quality control, predictive maintenance"
+    ],
+    "useCases": {
+      "medicalDiagnosis": {
+        "title": "AI in Medical Diagnosis",
+        "description": "Google's AI detects diabetic retinopathy from eye scans with 90%+ accuracy. IBM Watson helps oncologists identify cancer treatment options based on medical literature."
+      },
+      "fraudDetection": {
+        "title": "AI in Financial Fraud Detection",
+        "description": "PayPal uses AI to analyze millions of transactions per second, identifying suspicious patterns and blocking fraud before it happens. Saved $2B+ annually."
+      },
+      "contentRecommendation": {
+        "title": "AI in Content Recommendation",
+        "description": "Netflix saves $1B yearly by using AI recommendations to reduce churn. 80% of watched content comes from recommendations, not search."
+      },
+      "agriculture": {
+        "title": "AI in Agriculture",
+        "description": "John Deere uses computer vision to identify weeds and spray only where needed, reducing herbicide use by 90%. Drones monitor crop health using AI."
+      }
+    }
+  },
+  "aiEthics": {
+    "id": "ai-ethics",
+    "title": "AI Ethics and Responsible AI Development",
+    "description": "Ethical considerations for AI systems",
+    "overview": "As AI becomes more powerful and widespread, ethical considerations become critical. Responsible AI ensures systems are fair, transparent, accountable, and beneficial to society.",
+    "concepts": {
+      "bias": {
+        "title": "Bias in AI",
+        "description": "AI systems can perpetuate or amplify human biases present in training data. A hiring AI trained on historical data might discriminate against women if past hiring was biased."
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "AI systems often require vast amounts of personal data. Balancing AI capabilities with user privacy is a fundamental challenge."
+      },
+      "transparency": {
+        "title": "Transparency",
+        "description": "Many AI systems are 'black boxes' - we don't understand how they make decisions. This lack of explainability is problematic in high-stakes domains like healthcare and criminal justice."
+      },
+      "accountability": {
+        "title": "Accountability",
+        "description": "When AI makes mistakes, who is responsible? The developer? The company? The user? Clear accountability frameworks are needed."
+      },
+      "jobDisplacement": {
+        "title": "Job Displacement",
+        "description": "AI automation may eliminate certain jobs. Society must prepare for this transition through education and policy."
+      }
+    },
+    "keyPoints": [
+      "Bias: AI can inherit and amplify human biases from data",
+      "Privacy: AI systems need data, raising privacy concerns",
+      "Transparency: 'Black box' AI lacks explainability",
+      "Accountability: Unclear responsibility when AI fails",
+      "Fairness: AI should treat all groups equitably"
+    ],
+    "useCases": {
+      "facialRecognition": {
+        "title": "Facial Recognition Bias",
+        "description": "Studies show facial recognition is less accurate for people with darker skin, leading to false arrests. AI systems trained primarily on lighter-skinned faces perpetuate this bias."
+      },
+      "hiringDiscrimination": {
+        "title": "Hiring Algorithm Discrimination",
+        "description": "Amazon scrapped an AI recruiting tool that discriminated against women. Trained on resumes from male-dominated tech industry, it penalized resumes containing the word 'women's'."
+      },
+      "creditScoring": {
+        "title": "Credit Scoring Fairness",
+        "description": "AI credit systems must avoid discrimination based on protected characteristics like race, gender, or zip code, while still accurately assessing risk."
+      },
+      "healthcareTransparency": {
+        "title": "Healthcare AI Transparency",
+        "description": "Doctors need to understand why an AI recommends a treatment. Black-box systems without explanations are unsuitable for medical decisions."
+      }
+    }
+  },
+  "pythonForAI": {
+    "numpy": {
+      "id": "python-numpy-basics",
+      "title": "Python for AI: NumPy Fundamentals",
+      "description": "The foundation of data science and AI in Python",
+      "overview": "NumPy (Numerical Python) is the foundation of data science and AI in Python. It provides powerful tools for working with arrays and matrices, which are essential for machine learning algorithms.",
+      "whyNumPy": "Machine learning works with large datasets represented as multi-dimensional arrays. NumPy makes operations on these arrays incredibly fast (often 50-100x faster than pure Python) through vectorization and optimized C code.",
+      "keyPoints": [
+        "NumPy arrays are faster and more memory-efficient than Python lists",
+        "Vectorization allows operations on entire arrays without loops",
+        "Arrays can be 1D (vectors), 2D (matrices), or higher dimensions",
+        "NumPy is the foundation of pandas, TensorFlow, and scikit-learn",
+        "Essential for data preprocessing, feature engineering, and model implementation"
+      ]
+    },
+    "pandas": {
+      "id": "python-pandas-basics",
+      "title": "Python for AI: Pandas for Data Manipulation",
+      "description": "The go-to library for data manipulation and analysis",
+      "overview": "Pandas is the go-to library for data manipulation and analysis in Python. While NumPy works with arrays, Pandas works with DataFrames - spreadsheet-like structures with labeled rows and columns.",
+      "whyPandas": "Real-world data is messy - missing values, different data types, dates, categories. Pandas makes it easy to clean, transform, and prepare data for machine learning. It's the bridge between raw data and ML-ready datasets.",
+      "keyPoints": [
+        "DataFrames are labeled 2D tables, Series are labeled 1D arrays",
+        "Handle missing data, merge datasets, group by categories",
+        "Read/write CSV, Excel, JSON, SQL databases easily",
+        "Filter and select data with powerful indexing",
+        "Essential for data cleaning and feature engineering"
+      ]
+    }
+  },
+  "agenticAI": {
+    "id": "what-is-agentic-ai",
+    "title": "What is Agentic AI? The Future of Autonomous Systems",
+    "description": "AI systems that can act autonomously to achieve goals",
+    "overview": "Agentic AI represents the next evolution in artificial intelligence - systems that can act autonomously to achieve goals, make decisions, use tools, and adapt to changing environments without constant human intervention.",
+    "traditionalVsAgentic": "Traditional AI responds to inputs (you ask ChatGPT a question, it answers). Agentic AI takes initiative - it can break down complex goals into steps, use multiple tools, remember context, learn from feedback, and execute multi-step plans autonomously.",
+    "keyCharacteristics": {
+      "autonomy": "Autonomy: Can operate independently without human guidance for each step",
+      "goalOriented": "Goal-Oriented: Works toward defined objectives, not just responding to prompts",
+      "toolUse": "Tool Use: Can access and use external tools (search, calculators, APIs, databases)",
+      "planning": "Planning: Breaks complex tasks into sub-tasks and executes them in sequence",
+      "memory": "Memory: Maintains context across interactions and learns from experience",
+      "adaptability": "Adaptability: Adjusts strategy based on results and feedback"
+    },
+    "useCases": {
+      "researchAgent": {
+        "title": "Research Agent",
+        "description": "You ask 'What are the top AI trends in 2025?' Agent searches web, reads articles, compares sources, synthesizes findings, creates report.",
+        "example": "Goal: Research report → Agent: Search → Read → Analyze → Summarize → Present"
+      },
+      "codingAgent": {
+        "title": "Coding Agent (Devin)",
+        "description": "You describe a feature. Agent writes code, runs tests, debugs errors, refactors, commits to GitHub - all autonomously.",
+        "example": "Goal: 'Add login feature' → Agent: Plan → Code → Test → Debug → Deploy"
+      },
+      "personalAssistant": {
+        "title": "Personal Assistant Agent",
+        "description": "You say 'Book a trip to Paris'. Agent checks flights, hotels, creates itinerary, books reservations, adds to calendar.",
+        "example": "Goal: Paris trip → Agent: Search → Compare → Book → Organize → Confirm"
+      },
+      "customerService": {
+        "title": "Customer Service Agent",
+        "description": "Customer: 'My order is late'. Agent checks order status, finds issue, updates shipping, sends tracking, offers discount.",
+        "example": "Goal: Resolve complaint → Agent: Diagnose → Act → Update → Follow-up"
+      }
+    }
+  },
+  "common": {
+    "labels": {
+      "keyPoints": "Key Points",
+      "useCases": "Use Cases",
+      "codeExample": "Code Example",
+      "dos": "Do's",
+      "donts": "Don'ts",
+      "bestPractices": "Best Practices",
+      "overview": "Overview",
+      "prerequisites": "Prerequisites",
+      "estimatedTime": "Estimated Time",
+      "difficulty": "Difficulty",
+      "quiz": "Quiz",
+      "explanation": "Explanation",
+      "example": "Example",
+      "diagram": "Diagram",
+      "comparisonTable": "Comparison Table"
+    }
+  }
+}

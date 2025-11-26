@@ -12,7 +12,14 @@ import TopicDetail from './pages/TopicDetail/TopicDetail';
 import Bookmarks from './pages/Bookmarks/Bookmarks';
 import Progress from './pages/Progress/Progress';
 import QuizPractice from './pages/QuizPractice/QuizPractice';
+import InterviewPrep from './pages/InterviewPrep/InterviewPrep';
+import Flashcards from './pages/Flashcards/Flashcards';
+import CheatSheets from './pages/CheatSheets/CheatSheets';
+import CapstoneProjects from './pages/CapstoneProjects/CapstoneProjects';
+import CaseStudies from './pages/CaseStudies/CaseStudies';
+import Resources from './pages/Resources/Resources';
 import Terms from './pages/Terms/Terms';
+import Privacy from './pages/Privacy/Privacy';
 
 function AppContent() {
   const { mode } = useThemeMode();
@@ -31,7 +38,14 @@ amplitude.init('cf9409dbde4fb96686ac8fabd345e057', {"autocapture":{"attribution"
             <Route path="/bookmarks" element={<Bookmarks />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/quiz" element={<QuizPractice />} />
+            <Route path="/interview-prep" element={<InterviewPrep />} />
+            <Route path="/flashcards" element={<Flashcards />} />
+            <Route path="/cheatsheets" element={<CheatSheets />} />
+            <Route path="/capstone-projects" element={<CapstoneProjects />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </Layout>
       </Router>

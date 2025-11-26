@@ -1,0 +1,75 @@
+{
+  "title": "मुलाखत तयारी",
+  "subtitle": "AI/ML मुलाखतींसाठी तयार व्हा",
+  "tabs": {
+    "coding": "कोडिंग आव्हाने",
+    "mlTheory": "ML सिद्धांत",
+    "systemDesign": "सिस्टम डिझाइन",
+    "behavioral": "वर्तणूक प्रश्न"
+  },
+  "coding": {
+    "title": "कोडिंग आव्हाने",
+    "description": "Python आणि ML कोडिंग समस्यांचा सराव करा",
+    "problem": "समस्या",
+    "solution": "उपाय",
+    "hints": "संकेत",
+    "showHint": "संकेत दाखवा",
+    "hideHint": "संकेत लपवा",
+    "showSolution": "उपाय दाखवा",
+    "hideSolution": "उपाय लपवा",
+    "tryYourself": "स्वतः प्रयत्न करा",
+    "timeComplexity": "वेळ गुंतागुंत",
+    "spaceComplexity": "जागा गुंतागुंत"
+  },
+  "mlTheory": {
+    "title": "ML सिद्धांत प्रश्न",
+    "description": "मशीन लर्निंग संकल्पनांचे पुनरावलोकन करा",
+    "question": "प्रश्न",
+    "answer": "उत्तर",
+    "showAnswer": "उत्तर दाखवा",
+    "hideAnswer": "उत्तर लपवा",
+    "category": "श्रेणी",
+    "topics": "विषय"
+  },
+  "systemDesign": {
+    "title": "ML सिस्टम डिझाइन",
+    "description": "स्केलेबल ML सिस्टम डिझाइन करायला शिका",
+    "problem": "समस्या",
+    "requirements": "आवश्यकता",
+    "approach": "दृष्टीकोन",
+    "components": "घटक",
+    "tradeoffs": "तडजोड",
+    "showApproach": "दृष्टीकोन दाखवा",
+    "hideApproach": "दृष्टीकोन लपवा"
+  },
+  "behavioral": {
+    "title": "वर्तणूक प्रश्न",
+    "description": "सामान्य मुलाखत प्रश्नांसाठी तयारी करा",
+    "question": "प्रश्न",
+    "tips": "टिप्स",
+    "sampleAnswer": "नमुना उत्तर",
+    "showTips": "टिप्स दाखवा",
+    "hideTips": "टिप्स लपवा",
+    "starMethod": "STAR पद्धत",
+    "situation": "परिस्थिती",
+    "task": "कार्य",
+    "action": "कृती",
+    "result": "परिणाम"
+  },
+  "difficulty": {
+    "easy": "सोपे",
+    "medium": "मध्यम",
+    "hard": "कठीण"
+  },
+  "filters": {
+    "all": "सर्व",
+    "difficulty": "अवघडपणा",
+    "category": "श्रेणी",
+    "topic": "विषय"
+  },
+  "progress": {
+    "completed": "पूर्ण",
+    "inProgress": "चालू",
+    "notStarted": "सुरू नाही"
+  }
+}

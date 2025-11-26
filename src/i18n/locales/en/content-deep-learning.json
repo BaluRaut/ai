@@ -1,0 +1,251 @@
+{
+  "title": "Deep Learning",
+  "description": "Neural networks and deep learning architectures",
+  "neuralNetworks": {
+    "id": "neural-networks-basics",
+    "title": "Neural Networks Basics",
+    "description": "Understanding artificial neural networks",
+    "overview": "Neural Networks are inspired by how our brain works. Think of them as layers of simple decision-makers working together. Each 'neuron' takes inputs, does simple math, and passes the result forward. When you stack many layers together, they can learn very complex patterns - like recognizing faces in photos or understanding speech.",
+    "structure": {
+      "inputLayer": "Input layer (receives data)",
+      "hiddenLayers": "Hidden layers (does the learning)",
+      "outputLayer": "Output layer (gives prediction)"
+    },
+    "training": "During training, the network adjusts tiny numbers called 'weights' to get better at its task. It's like learning to ride a bike - you make small adjustments until you get it right.",
+    "backpropagation": "The magic happens through 'backpropagation' - when the network makes a mistake, it goes backward and adjusts the weights. After seeing thousands of examples, it learns patterns that even humans might miss.",
+    "keyPoints": [
+      "Layers of neurons working together to learn patterns",
+      "Forward pass: data flows input → hidden → output",
+      "Backward pass: errors flow back to adjust weights",
+      "Activation functions add non-linearity (ReLU, Sigmoid, Tanh)",
+      "Need lots of data and computing power to train"
+    ],
+    "useCases": {
+      "imageRecognition": {
+        "title": "Image Recognition",
+        "description": "Identifying objects in photos - cats, dogs, cars, people",
+        "example": "Facebook auto-tagging friends in photos with 97% accuracy"
+      },
+      "speechRecognition": {
+        "title": "Speech Recognition",
+        "description": "Converting spoken words to text",
+        "example": "Siri and Alexa understanding your voice commands"
+      },
+      "medicalDiagnosis": {
+        "title": "Medical Diagnosis",
+        "description": "Detecting diseases from X-rays and MRI scans",
+        "example": "Finding tumors in medical images faster than radiologists"
+      },
+      "fraudDetection": {
+        "title": "Credit Card Fraud",
+        "description": "Detecting unusual spending patterns in real-time",
+        "example": "Banks blocking suspicious transactions before money is lost"
+      }
+    },
+    "dos": [
+      "Start with 1-2 hidden layers, add more only if needed",
+      "Normalize your input data (mean=0, std=1)",
+      "Use ReLU activation for hidden layers - it's fast and works well",
+      "Monitor training and validation loss to detect overfitting"
+    ],
+    "donts": [
+      "Don't use too many layers without enough data - you'll overfit",
+      "Don't forget to split data: 70% train, 15% validation, 15% test",
+      "Don't use Sigmoid/Tanh everywhere - they cause vanishing gradients",
+      "Don't train without GPU if you have more than 10,000 samples"
+    ],
+    "bestPractices": [
+      "Use frameworks like TensorFlow or PyTorch - don't code from scratch",
+      "Start simple, add complexity gradually",
+      "Use batch normalization to train faster and more stable",
+      "Save model checkpoints during training - don't lose progress"
+    ]
+  },
+  "cnn": {
+    "id": "convolutional-neural-networks",
+    "title": "Convolutional Neural Networks (CNN)",
+    "description": "Deep learning for images and visual data",
+    "overview": "CNNs are specialized neural networks for images. Think of them as having 'sliding windows' that scan across an image looking for patterns. First layers detect simple things like edges and corners. Deeper layers combine these to recognize complex objects like eyes, wheels, or leaves.",
+    "convolution": "The key innovation is 'convolution' - instead of looking at the entire image at once, CNN looks at small patches (like 3×3 pixels). This means a cat detector learns to find cat features anywhere in the image, not just in one position.",
+    "layers": {
+      "convolutional": "Convolutional layers (find patterns)",
+      "pooling": "Pooling layers (reduce size and keep important info)",
+      "fullyConnected": "Fully connected layers (make final decision)"
+    },
+    "keyPoints": [
+      "Specialized for images - automatically learns visual features",
+      "Convolutional filters scan image to detect patterns (edges, shapes, objects)",
+      "Pooling layers reduce size while keeping important information",
+      "Position-invariant: recognizes objects anywhere in image",
+      "Much fewer parameters than regular neural networks for images"
+    ],
+    "useCases": {
+      "faceRecognition": {
+        "title": "Face Recognition",
+        "description": "Identifying people from their faces",
+        "example": "iPhone Face ID unlocking your phone in 0.5 seconds"
+      },
+      "selfDrivingCars": {
+        "title": "Self-Driving Cars",
+        "description": "Detecting pedestrians, traffic signs, and lane markings",
+        "example": "Tesla Autopilot recognizing stop signs and traffic lights"
+      },
+      "medicalImaging": {
+        "title": "Medical Imaging",
+        "description": "Analyzing X-rays, CT scans, and MRIs for diseases",
+        "example": "Detecting COVID-19 from chest X-rays with 95% accuracy"
+      },
+      "qualityControl": {
+        "title": "Quality Control",
+        "description": "Finding defects in manufactured products",
+        "example": "Smartphone factories detecting screen scratches automatically"
+      }
+    },
+    "dos": [
+      "Use data augmentation: rotate, flip, zoom images to increase dataset",
+      "Start with pre-trained models like ResNet or VGG (transfer learning)",
+      "Use small filters (3×3 or 5×5) stacked deep rather than large filters",
+      "Apply batch normalization after convolutional layers"
+    ],
+    "donts": [
+      "Don't use fully connected layers for images - use CNN instead",
+      "Don't train from scratch if you have less than 10,000 images",
+      "Don't use large filter sizes (7×7 or bigger) - inefficient",
+      "Don't skip data augmentation - it prevents overfitting"
+    ],
+    "bestPractices": [
+      "Use transfer learning: fine-tune ResNet50 or MobileNet",
+      "Apply MaxPooling after 2-3 convolutional layers",
+      "Use dropout (0.3-0.5) before fully connected layers",
+      "Monitor class-wise accuracy - some classes might need more data"
+    ]
+  },
+  "rnn": {
+    "id": "recurrent-neural-networks",
+    "title": "Recurrent Neural Networks (RNN)",
+    "description": "Neural networks for sequences and time-series",
+    "overview": "RNNs are designed for sequences - data where order matters. Think of reading a sentence: each word depends on previous words. RNNs have 'memory' - they remember what they saw before. When processing word 5, they still remember words 1-4.",
+    "memory": "Imagine predicting the next word: 'The cat sat on the ___'. You need to remember 'cat' to guess 'mat'. Regular neural networks forget previous inputs, but RNNs maintain a hidden state that carries information forward.",
+    "processing": "RNNs process one item at a time: read word → update memory → read next word. This makes them perfect for text, speech, and time-series data.",
+    "limitation": "Basic RNNs struggle with long sequences (they 'forget' things from 50 steps ago). That's why we use improved versions like LSTM and GRU.",
+    "keyPoints": [
+      "Designed for sequential data: text, speech, time-series",
+      "Has memory: remembers previous inputs through hidden state",
+      "Processes sequences one step at a time",
+      "Shares weights across time steps - efficient learning",
+      "Vanilla RNN has vanishing gradient problem for long sequences"
+    ],
+    "useCases": {
+      "languageTranslation": {
+        "title": "Language Translation",
+        "description": "Translating text from one language to another",
+        "example": "Google Translate converting English to Hindi in real-time"
+      },
+      "speechRecognition": {
+        "title": "Speech Recognition",
+        "description": "Converting audio waveforms to text",
+        "example": "YouTube auto-generating captions for videos"
+      },
+      "stockPrediction": {
+        "title": "Stock Price Prediction",
+        "description": "Forecasting future prices based on historical patterns",
+        "example": "Predicting tomorrow's price using last 60 days of data"
+      },
+      "musicGeneration": {
+        "title": "Music Generation",
+        "description": "Creating new melodies based on learned patterns",
+        "example": "AI composing background music for videos"
+      }
+    },
+    "dos": [
+      "Use LSTM or GRU instead of vanilla RNN for better results",
+      "Normalize your time-series data before feeding to RNN",
+      "Use bidirectional RNN to see both past and future context",
+      "Apply gradient clipping to prevent exploding gradients"
+    ],
+    "donts": [
+      "Don't use vanilla RNN for sequences longer than 20-30 steps",
+      "Don't forget to reset hidden state between different sequences",
+      "Don't use RNN for very long sequences - use Transformers instead",
+      "Don't use large batch sizes - RNN training is memory-intensive"
+    ],
+    "bestPractices": [
+      "Start with LSTM (2-3 layers with 128-256 units each)",
+      "Use teacher forcing during training for faster convergence",
+      "Apply dropout between RNN layers (not within timesteps)",
+      "For language tasks, use embeddings (Word2Vec or GloVe)"
+    ]
+  },
+  "lstm": {
+    "id": "lstm",
+    "title": "Long Short-Term Memory (LSTM)",
+    "description": "Advanced RNN with long-term memory",
+    "overview": "LSTM is a smarter version of RNN that can remember information for very long sequences. Think of it as having a selective memory - it decides what to remember, what to forget, and what to pay attention to.",
+    "gates": {
+      "forget": "Forget gate decides 'should I forget old info?'",
+      "input": "Input gate decides 'should I store new info?'",
+      "output": "Output gate decides 'what should I output?'"
+    },
+    "analogy": "It's like taking notes during a lecture - you don't write everything, only important points.",
+    "advantage": "This architecture solves the vanishing gradient problem. While RNN forgets things after 20-30 steps, LSTM can remember patterns from hundreds of steps ago.",
+    "keyPoints": [
+      "Improved RNN that can remember long-term dependencies",
+      "Has 3 gates: Forget, Input, Output - control information flow",
+      "Cell state acts as memory highway carrying information",
+      "Solves vanishing gradient problem of vanilla RNN",
+      "More parameters than RNN but much better performance"
+    ],
+    "useCases": {
+      "machineTranslation": {
+        "title": "Machine Translation",
+        "description": "Translating long sentences preserving context",
+        "example": "Translating entire paragraphs while maintaining meaning"
+      },
+      "videoCaptioning": {
+        "title": "Video Captioning",
+        "description": "Generating descriptions for video sequences",
+        "example": "Describing what's happening in a 2-minute video clip"
+      },
+      "handwritingRecognition": {
+        "title": "Handwriting Recognition",
+        "description": "Converting handwritten text to digital text",
+        "example": "OCR apps reading handwritten notes accurately"
+      }
+    },
+    "dos": [
+      "Use 2-3 LSTM layers with 128-512 units per layer",
+      "Apply dropout (0.2-0.5) between LSTM layers",
+      "Use return_sequences=True for all layers except last",
+      "Monitor validation loss - LSTM can overfit easily"
+    ],
+    "donts": [
+      "Don't use more than 4-5 LSTM layers - diminishing returns",
+      "Don't forget to normalize/standardize your input sequences",
+      "Don't use very large hidden sizes (>1024) without good reason",
+      "Don't ignore computational cost - LSTM is 3-4x slower than GRU"
+    ],
+    "bestPractices": [
+      "Start with GRU (faster) - switch to LSTM if you need better accuracy",
+      "Use bidirectional LSTM for tasks where future context helps",
+      "Apply gradient clipping (clip value 1.0-5.0)",
+      "Use Adam optimizer with learning rate 0.001 or lower"
+    ]
+  },
+  "common": {
+    "labels": {
+      "keyPoints": "Key Points",
+      "useCases": "Use Cases",
+      "codeExample": "Code Example",
+      "dos": "Do's",
+      "donts": "Don'ts",
+      "bestPractices": "Best Practices",
+      "overview": "Overview",
+      "prerequisites": "Prerequisites",
+      "estimatedTime": "Estimated Time",
+      "difficulty": "Difficulty",
+      "quiz": "Quiz",
+      "explanation": "Explanation",
+      "example": "Example"
+    }
+  }
+}

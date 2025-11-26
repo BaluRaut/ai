@@ -1,0 +1,177 @@
+{
+  "nav": {
+    "home": "Home",
+    "learningPath": "Learning Path",
+    "progress": "Progress",
+    "bookmarks": "Bookmarks",
+    "quizPractice": "Quiz Practice",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Master Artificial Intelligence & Machine Learning",
+    "subtitle": "From basics to advanced topics - Learn AI at your own pace",
+    "startLearning": "Start Learning",
+    "chooseYourPath": "Choose Your Learning Path",
+    "topics": "Topics",
+    "hours": "Hours",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "professional": "Professional",
+    "expert": "Expert"
+  },
+  "topic": {
+    "overview": "Overview",
+    "keyPoints": "Key Points",
+    "useCases": "Real-World Use Cases",
+    "codeExample": "Interactive Code",
+    "dos": "Do's",
+    "donts": "Don'ts",
+    "bestPractices": "Best Practices",
+    "quiz": "Test Your Knowledge",
+    "difficulty": "Difficulty",
+    "estimatedTime": "Estimated Time",
+    "prerequisites": "Prerequisites",
+    "markComplete": "Mark as Complete",
+    "completed": "Completed",
+    "bookmark": "Bookmark",
+    "bookmarked": "Bookmarked",
+    "nextTopic": "Next Topic",
+    "previousTopic": "Previous Topic",
+    "minutes": "minutes"
+  },
+  "code": {
+    "run": "Run Code",
+    "reset": "Reset",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "output": "Output",
+    "running": "Running...",
+    "python": "Python",
+    "javascript": "JavaScript",
+    "selectLanguage": "Select Language",
+    "loading": "Loading environment...",
+    "ready": "Ready",
+    "error": "Error"
+  },
+  "quiz": {
+    "question": "Question",
+    "of": "of",
+    "checkAnswer": "Check Answer",
+    "nextQuestion": "Next Question",
+    "finish": "Finish Quiz",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "explanation": "Explanation",
+    "score": "Your Score",
+    "tryAgain": "Try Again",
+    "excellent": "Excellent!",
+    "good": "Good job!",
+    "needsPractice": "Keep practicing!"
+  },
+  "progress": {
+    "title": "Your Learning Progress",
+    "overallProgress": "Overall Progress",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started",
+    "totalTopics": "Total Topics",
+    "hoursLearned": "Hours Learned",
+    "streak": "Day Streak",
+    "achievements": "Achievements"
+  },
+  "bookmarks": {
+    "title": "Bookmarked Topics",
+    "noBookmarks": "No bookmarks yet",
+    "addBookmarks": "Bookmark topics to review them later"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None"
+  },
+  "learningPaths": {
+    "fundamentals": {
+      "title": "AI Fundamentals",
+      "description": "Build a strong foundation in artificial intelligence concepts, terminology, and basic applications.",
+      "outcomes": [
+        "Understand what AI, ML, and Deep Learning are",
+        "Know different types of AI and their applications",
+        "Learn Python basics for AI (NumPy, Pandas)",
+        "Build your first machine learning model",
+        "Understand AI ethics and responsible AI"
+      ]
+    },
+    "machineLearning": {
+      "title": "Machine Learning",
+      "description": "Master classical machine learning algorithms and techniques for solving real-world problems.",
+      "outcomes": [
+        "Master supervised learning algorithms",
+        "Understand unsupervised learning techniques",
+        "Learn ensemble methods and boosting",
+        "Optimize models with hyperparameter tuning",
+        "Handle real-world messy data"
+      ]
+    },
+    "deepLearning": {
+      "title": "Deep Learning",
+      "description": "Dive into neural networks, CNNs, RNNs, and modern deep learning architectures.",
+      "outcomes": [
+        "Build neural networks from scratch",
+        "Master CNNs for computer vision",
+        "Learn RNNs and LSTMs for sequences",
+        "Understand transfer learning",
+        "Work with GANs and autoencoders"
+      ]
+    },
+    "advancedAI": {
+      "title": "Advanced AI",
+      "description": "Explore cutting-edge AI topics including NLP, transformers, and large language models.",
+      "outcomes": [
+        "Master natural language processing",
+        "Work with transformers and attention",
+        "Understand large language models",
+        "Build AI agents and RAG systems",
+        "Deploy models to production"
+      ]
+    },
+    "specializations": {
+      "title": "Specializations",
+      "description": "Specialize in specific AI domains like computer vision, time series, or recommendation systems.",
+      "outcomes": [
+        "Master computer vision applications",
+        "Build recommendation systems",
+        "Work with time series forecasting",
+        "Understand reinforcement learning",
+        "Apply AI to specific industries"
+      ]
+    }
+  },
+  "topics": {
+    "whatIsAI": "What is Artificial Intelligence?",
+    "aiVsMlVsDl": "AI vs ML vs Deep Learning",
+    "typesOfAI": "Types of AI: Narrow, General, Super",
+    "realWorldApplications": "Real-World AI Applications",
+    "aiEthics": "AI Ethics and Responsible AI",
+    "pythonNumpy": "Python for AI: NumPy Fundamentals",
+    "pythonPandas": "Python for AI: Pandas for Data",
+    "supervisedVsUnsupervised": "Supervised vs Unsupervised Learning",
+    "agenticAI": "What is Agentic AI?",
+    "dataPreprocessing": "Data Preprocessing Fundamentals",
+    "classificationVsRegression": "Classification vs Regression",
+    "modelEvaluation": "Model Evaluation Metrics",
+    "firstMLModel": "Building Your First ML Model",
+    "aiTools": "AI Tools & Platforms",
+    "linearRegression": "Linear Regression: Predicting Numbers"
+  }
+}

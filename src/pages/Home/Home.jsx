@@ -19,7 +19,7 @@ import {
   ArrowForward,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { learningPaths } from '../../data/courseContent';
+import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
 import { useProgress } from '../../context/ProgressContext';
 import { useTranslation } from 'react-i18next';
 
@@ -86,7 +86,7 @@ const Home = () => {
             variant="contained"
             size="large"
             endIcon={<ArrowForward />}
-            onClick={() => navigate('/path/beginner')}
+            onClick={() => navigate('/path/fundamentals')}
             sx={{ px: 4, py: 1.5 }}
           >
             {t('home.startLearning')}
@@ -117,8 +117,8 @@ const Home = () => {
           Choose Your Learning Path
         </Typography>
         <Grid container spacing={3}>
-          {learningPaths.map((path) => (
-            <Grid item xs={12} sm={6} md={6} lg={3} key={path.id}>
+          {aiLearningPaths.map((path) => (
+            <Grid item xs={12} sm={6} md={4} key={path.id}>
               <Card
                 sx={{
                   height: '100%',
@@ -142,7 +142,7 @@ const Home = () => {
                     {path.title}
                   </Typography>
                   <Chip
-                    label={path.level}
+                    label={path.difficulty}
                     size="small"
                     sx={{ mb: 2, bgcolor: path.color, color: 'white' }}
                   />
@@ -151,7 +151,7 @@ const Home = () => {
                   </Typography>
                   <Typography variant="caption" color="text.secondary" display="flex" alignItems="center">
                     <School fontSize="small" sx={{ mr: 0.5 }} />
-                    {path.estimatedTime}
+                    {path.topics} topics • {path.estimatedHours}h
                   </Typography>
                   <Button
                     variant="outlined"
@@ -236,7 +236,7 @@ const Home = () => {
             },
           }}
           endIcon={<ArrowForward />}
-          onClick={() => navigate('/path/beginner')}
+          onClick={() => navigate('/path/fundamentals')}
         >
           {t('home.cta.button')}
         </Button>

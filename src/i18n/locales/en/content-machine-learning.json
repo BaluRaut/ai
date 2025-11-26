@@ -1,0 +1,257 @@
+{
+  "title": "Machine Learning",
+  "description": "Master classical machine learning algorithms, from linear regression to ensemble methods. Learn when and how to use each algorithm effectively.",
+  "linearRegression": {
+    "id": "linear-regression",
+    "title": "Linear Regression: Predicting Numbers",
+    "description": "The simplest and most widely used algorithm for predicting continuous values",
+    "overview": "Linear Regression is the simplest and most widely used algorithm for predicting continuous values. It finds a straight line (or plane) that best fits your data.",
+    "howItWorks": "Imagine plotting house prices vs size on a graph. Linear regression draws the best-fitting line through these points. The line equation is: y = mx + b. The algorithm finds the best values for m (slope) and b (intercept).",
+    "whenToUse": [
+      "Predicting continuous numbers (prices, temperature, sales)",
+      "Understanding relationships (does study time affect grades?)",
+      "When you need interpretable results (see exact impact of each feature)"
+    ],
+    "keyPoints": [
+      "Predicts continuous values by fitting a straight line to data",
+      "Equation: y = mx + b (for one feature) or y = w1×x1 + w2×x2 + ... + b (multiple features)",
+      "Finds the best line by minimizing prediction errors (squared distances)",
+      "Easy to interpret: each coefficient shows feature impact",
+      "Assumptions: linear relationship, no extreme outliers, features not too correlated"
+    ],
+    "useCases": {
+      "housePrice": {
+        "title": "House Price Prediction",
+        "description": "Predict house price based on size, bedrooms, location score. Most common use of linear regression.",
+        "example": "Price = 150×Size + 50000×Bedrooms + 30000×Location - 100000"
+      },
+      "salesForecasting": {
+        "title": "Sales Forecasting",
+        "description": "Predict next month sales based on advertising spend, season, previous sales.",
+        "example": "Sales = 5×AdSpend + 2000×Season + 0.8×PrevSales"
+      },
+      "gradesPrediction": {
+        "title": "Student Grade Prediction",
+        "description": "Predict final exam score based on study hours, attendance, previous test scores.",
+        "example": "Grade = 3×StudyHours + 0.5×Attendance + 0.4×PrevTest"
+      }
+    },
+    "dos": [
+      "Use when relationship between features and target is roughly linear",
+      "Check for and remove outliers - they heavily affect the line",
+      "Scale/normalize features if they have very different ranges",
+      "Visualize data first to check if linear model makes sense"
+    ],
+    "donts": [
+      "Don't use if relationship is clearly non-linear (use polynomial or other models)",
+      "Don't ignore multicollinearity (highly correlated features)",
+      "Don't extrapolate too far beyond training data range",
+      "Don't expect high accuracy with too few data points"
+    ],
+    "bestPractices": [
+      "Start with simple linear regression before complex models",
+      "Check R² score: >0.7 is good, <0.5 means poor fit",
+      "Plot residuals (errors) to check if model assumptions hold",
+      "Use regularization (Ridge, Lasso) if you have many features"
+    ]
+  },
+  "logisticRegression": {
+    "id": "logistic-regression",
+    "title": "Logistic Regression",
+    "description": "Binary classification - predicting yes/no outcomes",
+    "overview": "Logistic Regression is for classification despite its name. It predicts probabilities between 0 and 1, then converts to yes/no decisions. Think of it as a smart decision-maker: 'Is this email spam? 85% probability → Yes, it's spam.'",
+    "keyPoints": [
+      "For binary classification: yes/no, true/false, 1/0",
+      "Outputs probability (0 to 1), then converts to class",
+      "Uses sigmoid function to convert scores to probabilities",
+      "Fast to train and predict - scales to large datasets",
+      "Interpretable: can see feature importance"
+    ],
+    "useCases": {
+      "spamDetection": {
+        "title": "Email Spam Detection",
+        "description": "Classify emails as spam or not spam",
+        "example": "Gmail filtering billions of emails daily with 99%+ accuracy"
+      },
+      "medicalDiagnosis": {
+        "title": "Medical Diagnosis",
+        "description": "Predict disease presence from symptoms",
+        "example": "Detecting diabetes risk from patient data"
+      },
+      "customerChurn": {
+        "title": "Customer Churn",
+        "description": "Predict if customer will leave",
+        "example": "Telecom identifying customers likely to cancel subscription"
+      },
+      "creditApproval": {
+        "title": "Credit Approval",
+        "description": "Decide loan approval based on applicant data",
+        "example": "Banks automating loan decisions in seconds"
+      }
+    }
+  },
+  "decisionTrees": {
+    "id": "decision-trees",
+    "title": "Decision Trees",
+    "description": "Visual flowchart-like model for decisions",
+    "overview": "Decision Trees work like a flowchart of yes/no questions. 'Is age > 30? Yes → Is income > 50K? Yes → Approved!' Each branch represents a decision based on a feature, making them incredibly easy to understand and explain.",
+    "keyPoints": [
+      "Tree of if-then-else decisions based on features",
+      "Each node asks a yes/no question about a feature",
+      "Leaves contain the final prediction",
+      "Extremely interpretable - can visualize the entire logic",
+      "Prone to overfitting without depth limits"
+    ],
+    "useCases": {
+      "loanApproval": {
+        "title": "Loan Approval",
+        "description": "Decide loan eligibility with clear rules",
+        "example": "Banks explaining rejection: 'Credit score < 650 and income < $40K'"
+      },
+      "medicalDiagnosis": {
+        "title": "Medical Diagnosis",
+        "description": "Diagnose based on symptoms and test results",
+        "example": "If fever > 102°F AND cough present → Check for flu"
+      },
+      "customerSegmentation": {
+        "title": "Customer Segmentation",
+        "description": "Categorize customers by behavior",
+        "example": "High spender vs low spender based on age, income, purchase history"
+      }
+    }
+  },
+  "randomForests": {
+    "id": "random-forests",
+    "title": "Random Forests",
+    "description": "Ensemble of decision trees for robust predictions",
+    "overview": "Random Forest is like asking 100 experts instead of 1. It creates hundreds of decision trees, each trained on a random subset of data and features. Then all trees vote, and majority wins. This 'wisdom of crowds' cancels out individual tree mistakes.",
+    "keyPoints": [
+      "Ensemble of 100-500 decision trees voting together",
+      "Each tree trained on random data subset (bootstrap)",
+      "Each split considers random feature subset",
+      "More accurate and robust than single tree",
+      "Less prone to overfitting"
+    ]
+  },
+  "supervisedVsUnsupervised": {
+    "id": "supervised-vs-unsupervised",
+    "title": "Supervised vs Unsupervised Learning",
+    "description": "Two main paradigms of machine learning",
+    "overview": "Machine Learning has two main paradigms that define how models learn from data: Supervised and Unsupervised Learning.",
+    "supervised": {
+      "title": "Supervised Learning",
+      "description": "You provide the model with labeled examples (input + correct answer). The model learns to map inputs to outputs. Like a student learning with answer keys - you show examples with correct answers, and the model learns the pattern."
+    },
+    "unsupervised": {
+      "title": "Unsupervised Learning",
+      "description": "You give the model data without labels. It finds patterns, structures, or groupings on its own. Like exploring a new city without a guide - you discover neighborhoods, patterns, and clusters yourself."
+    },
+    "comparisonTable": {
+      "title": "Supervised vs Unsupervised Learning",
+      "headers": ["Aspect", "Supervised Learning", "Unsupervised Learning"],
+      "dataRequirements": ["Data Requirements", "Labeled data (input + output)", "Unlabeled data (input only)"],
+      "goal": ["Goal", "Predict outcomes for new data", "Find hidden patterns or structure"],
+      "examples": ["Examples", "Classification, Regression", "Clustering, Dimensionality Reduction"],
+      "useCases": ["Use Cases", "Email spam filter, Price prediction, Image recognition", "Customer segmentation, Anomaly detection, Topic modeling"],
+      "algorithms": ["Common Algorithms", "Linear Regression, Decision Trees, Neural Networks", "K-Means, PCA, Hierarchical Clustering"]
+    },
+    "keyPoints": [
+      "Supervised: Learn from labeled examples (input → output)",
+      "Unsupervised: Find patterns in unlabeled data",
+      "Supervised needs expensive labeled data, unsupervised does not",
+      "Most business applications use supervised learning",
+      "Unsupervised is great for exploration and discovery"
+    ]
+  },
+  "classificationVsRegression": {
+    "id": "classification-vs-regression",
+    "title": "Classification vs Regression: Prediction Types",
+    "description": "Two main types of supervised learning problems",
+    "overview": "In supervised learning, there are two main types of prediction problems based on what you're trying to predict: Classification (categories) and Regression (continuous values).",
+    "classification": {
+      "title": "Classification",
+      "description": "Predict which category/class an input belongs to. The output is discrete - a label from a fixed set of options.",
+      "types": {
+        "binary": "Binary: Two classes (spam/not spam, fraud/legitimate)",
+        "multiClass": "Multi-class: Multiple classes (dog/cat/bird, disease type A/B/C)"
+      }
+    },
+    "regression": {
+      "title": "Regression",
+      "description": "Predict a continuous numerical value. The output can be any number within a range.",
+      "examples": "House price, temperature, stock price, age"
+    },
+    "howToChoose": "Ask: 'Am I predicting a category or a number?' Category → Classification. Number → Regression.",
+    "comparisonTable": {
+      "title": "Classification vs Regression",
+      "headers": ["Aspect", "Classification", "Regression"],
+      "outputType": ["Output Type", "Discrete categories/labels", "Continuous numerical values"],
+      "examples": ["Examples", "Spam detection, Image recognition, Disease diagnosis", "Price prediction, Temperature forecast, Age estimation"],
+      "algorithms": ["Algorithms", "Logistic Regression, Decision Trees, SVM, Naive Bayes", "Linear Regression, Polynomial Regression, Ridge, Lasso"],
+      "metrics": ["Evaluation Metrics", "Accuracy, Precision, Recall, F1-Score, AUC", "MSE, RMSE, MAE, R² Score"]
+    }
+  },
+  "dataPreprocessing": {
+    "id": "data-preprocessing",
+    "title": "Data Preprocessing: Preparing Data for AI",
+    "description": "Transforming raw data into clean, structured formats",
+    "overview": "'Garbage in, garbage out' - the most important rule in AI. Raw data is messy, incomplete, and inconsistent. Data preprocessing transforms raw data into clean, structured formats that ML models can understand.",
+    "whyItMatters": [
+      "Real-world data has missing values, outliers, inconsistent formats",
+      "Models expect numerical input, but data has text, categories, dates",
+      "Different features have different scales (age: 0-100, salary: 30,000-200,000)",
+      "Without preprocessing, even the best algorithm will fail"
+    ],
+    "commonSteps": {
+      "missingData": "Handle Missing Data: Fill, remove, or impute missing values",
+      "encoding": "Encode Categorical Data: Convert text categories to numbers",
+      "scaling": "Scale Features: Normalize or standardize numerical features",
+      "outliers": "Remove Outliers: Handle extreme values that skew data",
+      "split": "Split Data: Separate into training and testing sets"
+    },
+    "keyPoints": [
+      "Missing data: Use mean/median/mode imputation or remove rows",
+      "Categorical encoding: Label encoding (ordinal) or one-hot encoding (nominal)",
+      "Feature scaling: Normalization (0-1) or standardization (mean=0, std=1)",
+      "Train/test split: Essential to prevent overfitting (typically 80/20)",
+      "Data preprocessing takes 70-80% of AI project time"
+    ]
+  },
+  "modelEvaluation": {
+    "id": "model-evaluation-metrics",
+    "title": "Model Evaluation: Measuring AI Performance",
+    "description": "Quantifying model performance with metrics",
+    "overview": "'How good is my model?' - the most critical question in AI. You can't improve what you don't measure. Evaluation metrics quantify model performance and guide optimization.",
+    "whyMultipleMetrics": "A model with 99% accuracy might be terrible! Imagine disease detection where only 1% of patients are sick. A model that always predicts 'healthy' gets 99% accuracy but misses all diseases. You need precision, recall, and F1-score to catch this.",
+    "classificationMetrics": {
+      "accuracy": "Accuracy: (Correct predictions / Total predictions) - overall correctness",
+      "precision": "Precision: Of predicted positives, how many are actually positive? (No false alarms)",
+      "recall": "Recall: Of actual positives, how many did we catch? (No missed cases)",
+      "f1Score": "F1-Score: Harmonic mean of precision and recall (balanced measure)"
+    },
+    "regressionMetrics": {
+      "mse": "MSE (Mean Squared Error): Average squared difference (penalizes large errors)",
+      "rmse": "RMSE (Root MSE): Square root of MSE (same units as target)",
+      "mae": "MAE (Mean Absolute Error): Average absolute difference (robust to outliers)",
+      "r2": "R² Score: How much variance is explained (0-1, closer to 1 is better)"
+    },
+    "confusionMatrix": "The Confusion Matrix: A table showing True Positives, False Positives, True Negatives, False Negatives - the foundation for all classification metrics."
+  },
+  "common": {
+    "labels": {
+      "keyPoints": "Key Points",
+      "useCases": "Use Cases",
+      "codeExample": "Code Example",
+      "dos": "Do's",
+      "donts": "Don'ts",
+      "bestPractices": "Best Practices",
+      "overview": "Overview",
+      "prerequisites": "Prerequisites",
+      "estimatedTime": "Estimated Time",
+      "difficulty": "Difficulty",
+      "quiz": "Quiz",
+      "explanation": "Explanation",
+      "example": "Example"
+    }
+  }
+}

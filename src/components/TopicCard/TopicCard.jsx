@@ -27,8 +27,8 @@ const TopicCard = ({ topic, pathId }) => {
   // Get translated topic if available
   const displayTopic = mergeTopicWithTranslation(topic, pathId);
   
-  const completed = isTopicComplete(displayTopic.id);
-  const bookmarked = isBookmarked(displayTopic.id);
+  const completed = isTopicComplete(String(displayTopic.id));
+  const bookmarked = isBookmarked(String(displayTopic.id));
 
   const handleClick = () => {
     navigate(`/path/${pathId}/topic/${displayTopic.id}`);
@@ -36,7 +36,7 @@ const TopicCard = ({ topic, pathId }) => {
 
   const handleBookmark = (e) => {
     e.stopPropagation();
-    toggleBookmark(displayTopic.id);
+    toggleBookmark(String(displayTopic.id));
   };
 
   // Get difficulty color

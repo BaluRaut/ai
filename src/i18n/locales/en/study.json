@@ -1,0 +1,50 @@
+{
+  "flashcards": {
+    "title": "Flash Cards",
+    "subtitle": "Review key concepts with interactive flashcards. Click a card to flip it!",
+    "card": "Card",
+    "of": "of",
+    "known": "Known",
+    "needReview": "Need Review",
+    "gotIt": "Got It!",
+    "shuffle": "Shuffle cards",
+    "reset": "Reset progress",
+    "clickToReveal": "Click to reveal answer",
+    "allCards": "All Cards in",
+    "categories": {
+      "pythonBasics": "Python Basics",
+      "numpyPandas": "NumPy & Pandas",
+      "machineLearning": "Machine Learning",
+      "deepLearning": "Deep Learning",
+      "nlp": "NLP & LLMs",
+      "statistics": "Statistics & Probability"
+    }
+  },
+  "cheatsheets": {
+    "title": "Cheat Sheets",
+    "subtitle": "Quick reference guides for Python, NumPy, Pandas, and more",
+    "print": "Print cheat sheet",
+    "copy": "Copy code",
+    "allSheets": "All Available Cheat Sheets",
+    "sections": "sections",
+    "sheets": {
+      "python": "Python Basics",
+      "numpy": "NumPy",
+      "pandas": "Pandas",
+      "sklearn": "Scikit-Learn",
+      "pytorch": "PyTorch",
+      "git": "Git Commands"
+    }
+  },
+  "practice": {
+    "title": "Practice Assignments",
+    "subtitle": "Hands-on coding exercises to reinforce your learning",
+    "startPractice": "Start Practice",
+    "viewSolution": "View Solution",
+    "hideSolution": "Hide Solution",
+    "runCode": "Run Code",
+    "resetCode": "Reset Code",
+    "difficulty": "Difficulty",
+    "estimatedTime": "Estimated Time"
+  }
+}
