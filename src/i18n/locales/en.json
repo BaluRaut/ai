@@ -1,0 +1,79 @@
+{
+  "app": {
+    "title": "Database Mastery",
+    "subtitle": "Master databases from SQL fundamentals to advanced cloud architectures"
+  },
+  "nav": {
+    "home": "Home",
+    "bookmarks": "Bookmarks",
+    "progress": "Progress",
+    "quizPractice": "Quiz Practice",
+    "playground": "SQL Playground"
+  },
+  "home": {
+    "learningPaths": "Learning Paths",
+    "whyLearn": "Why Learn Databases?",
+    "highDemand": "🚀 High Demand Skill",
+    "highDemandDesc": "Database skills are essential for backend developers, data engineers, and architects.",
+    "careerGrowth": "💼 Career Growth",
+    "careerGrowthDesc": "Master both SQL and NoSQL databases to advance your career in tech.",
+    "realWorld": "🎯 Real-World Projects",
+    "realWorldDesc": "Learn through practical examples and industry best practices.",
+    "progress": "Progress",
+    "topics": "topics"
+  },
+  "topic": {
+    "overview": "Overview",
+    "keyPoints": "Key Points",
+    "useCases": "Real-World Use Cases",
+    "bestPractices": "Best Practices",
+    "doAndDont": "Do's and Don'ts",
+    "do": "✓ Do",
+    "dont": "✗ Don't",
+    "codeExamples": "Code Examples",
+    "takeQuiz": "Take Quiz",
+    "markComplete": "Mark as Complete",
+    "review": "Review",
+    "startLearning": "Start Learning"
+  },
+  "quiz": {
+    "question": "Question",
+    "of": "of",
+    "submitAnswer": "Submit Answer",
+    "nextQuestion": "Next Question",
+    "finishQuiz": "Finish Quiz",
+    "currentScore": "Current Score",
+    "completed": "Quiz Completed!",
+    "completedMsg": "Great job! You've completed this topic."
+  },
+  "bookmarks": {
+    "title": "Bookmarked Topics",
+    "empty": "No bookmarks yet",
+    "emptyMsg": "Bookmark topics to save them for later review"
+  },
+  "progress": {
+    "title": "Your Progress",
+    "completed": "Topics Completed",
+    "overall": "Overall Progress",
+    "avgQuizScore": "Average Quiz Score",
+    "byPath": "Progress by Learning Path",
+    "congratulations": "🎉 Great job!",
+    "congratulationsMsg": "You've completed {{count}} topics so far. Keep up the excellent work!"
+  },
+  "playground": {
+    "title": "SQL Playground",
+    "subtitle": "Practice SQL queries in your browser with SQLite",
+    "runQuery": "Run Query",
+    "clearResults": "Clear Results",
+    "sampleQueries": "Sample Queries",
+    "createTable": "Create Table",
+    "insertData": "Insert Data",
+    "selectAll": "Select All",
+    "joinQuery": "Join Query",
+    "aggregation": "Aggregation",
+    "results": "Results",
+    "error": "Error",
+    "rowsAffected": "rows affected",
+    "queryExecuted": "Query executed successfully"
+  }
+}
