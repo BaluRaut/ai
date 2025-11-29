@@ -208,9 +208,7 @@ function Flashcards() {
               transition: 'transform 0.6s',
               transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
               position: 'relative',
-              bgcolor: isFlipped 
-                ? alpha(theme.palette.success.main, 0.05)
-                : alpha(theme.palette.primary.main, 0.05),
+              overflow: 'visible', // Important for 3D effect
               border: 2,
               borderColor: isFlipped ? 'success.main' : 'primary.main',
               '&:hover': {
@@ -225,11 +223,15 @@ function Flashcards() {
                 width: '100%',
                 height: '100%',
                 backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                p: 4
+                p: 4,
+                bgcolor: 'background.paper', // Opaque background
+                backgroundImage: `linear-gradient(${alpha(theme.palette.primary.main, 0.05)}, ${alpha(theme.palette.primary.main, 0.05)})`, // Tint
+                zIndex: isFlipped ? 0 : 1,
               }}
             >
               <Lightbulb sx={{ fontSize: 48, color: isReversedMode ? 'secondary.main' : 'primary.main', mb: 2 }} />
@@ -274,13 +276,17 @@ function Flashcards() {
                 width: '100%',
                 height: '100%',
                 backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
                 transform: 'rotateY(180deg)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 p: 4,
-                overflow: 'auto'
+                overflow: 'auto',
+                bgcolor: 'background.paper', // Opaque background
+                backgroundImage: `linear-gradient(${alpha(theme.palette.success.main, 0.05)}, ${alpha(theme.palette.success.main, 0.05)})`, // Tint
+                zIndex: isFlipped ? 1 : 0,
               }}
             >
               <Typography
