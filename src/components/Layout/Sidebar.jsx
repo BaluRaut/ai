@@ -24,6 +24,7 @@ import {
   RocketLaunch,
   BusinessCenter,
   VideoLibrary,
+  Insights,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
@@ -46,6 +47,7 @@ const Sidebar = ({ open, onClose, isMobile }) => {
     { text: 'Interview Prep', icon: <WorkOutline />, path: '/interview-prep' },
     { text: 'Flash Cards', icon: <Style />, path: '/flashcards' },
     { text: 'Cheat Sheets', icon: <Article />, path: '/cheatsheets' },
+    { text: 'Visualizations', icon: <Insights />, path: '/visualizations' },
     { text: 'Capstone Projects', icon: <RocketLaunch />, path: '/capstone-projects' },
     { text: 'Case Studies', icon: <BusinessCenter />, path: '/case-studies' },
     { text: 'Resources', icon: <VideoLibrary />, path: '/resources' },

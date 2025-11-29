@@ -1,0 +1,702 @@
+[
+  {
+    "id": "nlp-genai-001",
+    "question": "What is the primary function of the 'Attention' mechanism in Transformers?",
+    "options": [
+      "To compress the input sequence into a fixed-size vector",
+      "To weigh the importance of different words in the input sequence relative to the current word",
+      "To generate random noise for regularization",
+      "To convert words into phonetic representations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Attention mechanism allows the model to focus on different parts of the input sequence when processing a specific element, effectively weighing the relevance of other words.",
+    "difficulty": "medium",
+    "tags": ["Transformers", "Attention"]
+  },
+  {
+    "id": "nlp-genai-002",
+    "question": "In the self-attention mechanism, what do the vectors Q, K, and V represent?",
+    "options": [
+      "Quantity, Kernel, Vector",
+      "Query, Key, Value",
+      "Queue, Knot, Variable",
+      "Quality, Knowledge, Variance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Q, K, and V stand for Query, Key, and Value. These vectors are used to calculate attention scores and weighted sums of values.",
+    "difficulty": "medium",
+    "tags": ["Transformers", "Self-Attention"]
+  },
+  {
+    "id": "nlp-genai-003",
+    "question": "What is the main advantage of using Multi-Head Attention over single-head attention?",
+    "options": [
+      "It reduces the computational cost significantly",
+      "It allows the model to jointly attend to information from different representation subspaces at different positions",
+      "It eliminates the need for positional encodings",
+      "It ensures the model never overfits"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multi-Head Attention runs multiple attention mechanisms in parallel, allowing the model to capture different types of relationships (e.g., syntactic vs. semantic) simultaneously.",
+    "difficulty": "hard",
+    "tags": ["Transformers", "Multi-head attention"]
+  },
+  {
+    "id": "nlp-genai-004",
+    "question": "Why are Positional Encodings added to the input embeddings in a Transformer?",
+    "options": [
+      "To increase the vocabulary size",
+      "To provide information about the order of tokens, as the Transformer architecture is permutation-invariant",
+      "To encrypt the data for security",
+      "To normalize the input vectors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Unlike RNNs, Transformers process tokens in parallel and have no inherent sense of sequence order. Positional encodings inject this order information.",
+    "difficulty": "medium",
+    "tags": ["Transformers", "Positional Encoding"]
+  },
+  {
+    "id": "nlp-genai-005",
+    "question": "Which of the following best describes the architectural difference between BERT and GPT?",
+    "options": [
+      "BERT uses the Decoder stack (unidirectional), while GPT uses the Encoder stack (bidirectional)",
+      "BERT uses the Encoder stack (bidirectional), while GPT uses the Decoder stack (unidirectional)",
+      "Both use the Encoder stack only",
+      "Both use the Decoder stack only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BERT (Bidirectional Encoder Representations from Transformers) uses the Encoder to understand context from both sides. GPT (Generative Pre-trained Transformer) uses the Decoder to generate text left-to-right.",
+    "difficulty": "medium",
+    "tags": ["LLMs", "BERT", "GPT"]
+  },
+  {
+    "id": "nlp-genai-006",
+    "question": "What is the primary pre-training objective of BERT?",
+    "options": [
+      "Next Token Prediction",
+      "Masked Language Modeling (MLM) and Next Sentence Prediction (NSP)",
+      "Image Classification",
+      "Translation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BERT is trained to predict masked words in a sentence (MLM) and to determine if one sentence follows another (NSP).",
+    "difficulty": "medium",
+    "tags": ["LLMs", "BERT"]
+  },
+  {
+    "id": "nlp-genai-007",
+    "question": "What is the primary pre-training objective of GPT models?",
+    "options": [
+      "Masked Language Modeling",
+      "Causal Language Modeling (predicting the next token)",
+      "Sentence shuffling",
+      "Part-of-speech tagging"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GPT models are trained using Causal Language Modeling, where the objective is to predict the next token in the sequence given the previous tokens.",
+    "difficulty": "easy",
+    "tags": ["LLMs", "GPT"]
+  },
+  {
+    "id": "nlp-genai-008",
+    "question": "How does the T5 (Text-to-Text Transfer Transformer) model treat every NLP task?",
+    "options": [
+      "As a classification problem",
+      "As a regression problem",
+      "As a text-to-text problem",
+      "As a clustering problem"
+    ],
+    "correctAnswer": 2,
+    "explanation": "T5 unifies all NLP tasks (translation, summarization, classification) by converting inputs and outputs into text strings.",
+    "difficulty": "medium",
+    "tags": ["LLMs", "T5"]
+  },
+  {
+    "id": "nlp-genai-009",
+    "question": "What is a key characteristic of the LLaMA family of models compared to GPT-3?",
+    "options": [
+      "They are closed-source and only available via API",
+      "They are designed to be efficient and performant with fewer parameters by training on more tokens",
+      "They do not use the Transformer architecture",
+      "They are trained exclusively on medical data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LLaMA models focus on training smaller models (in terms of parameters) on significantly more data (tokens) to achieve high performance and inference efficiency.",
+    "difficulty": "medium",
+    "tags": ["LLMs", "LLaMA"]
+  },
+  {
+    "id": "nlp-genai-010",
+    "question": "How does Byte Pair Encoding (BPE) construct its vocabulary?",
+    "options": [
+      "By selecting the most frequent words in the corpus",
+      "By iteratively merging the most frequent pair of adjacent characters or character sequences",
+      "By randomly assigning IDs to characters",
+      "By using a fixed list of prefixes and suffixes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BPE starts with individual characters and iteratively merges the most frequently occurring adjacent pairs to form new subword tokens.",
+    "difficulty": "hard",
+    "tags": ["Tokenization", "BPE"]
+  },
+  {
+    "id": "nlp-genai-011",
+    "question": "Which tokenization algorithm is primarily used by BERT?",
+    "options": [
+      "Byte Pair Encoding (BPE)",
+      "WordPiece",
+      "SentencePiece",
+      "Unigram"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BERT uses WordPiece tokenization, which is similar to BPE but selects merges based on likelihood rather than just frequency.",
+    "difficulty": "hard",
+    "tags": ["Tokenization", "WordPiece", "BERT"]
+  },
+  {
+    "id": "nlp-genai-012",
+    "question": "How do subword tokenization methods like BPE and WordPiece handle Out-Of-Vocabulary (OOV) words?",
+    "options": [
+      "They discard the words",
+      "They replace them with a generic <UNK> token",
+      "They break them down into known subword units",
+      "They crash the system"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Subword tokenization can represent any word by breaking it down into smaller known subwords or characters, effectively eliminating the OOV problem.",
+    "difficulty": "medium",
+    "tags": ["Tokenization", "OOV"]
+  },
+  {
+    "id": "nlp-genai-013",
+    "question": "Which Word2Vec architecture predicts the context words given a target word?",
+    "options": [
+      "CBOW (Continuous Bag of Words)",
+      "Skip-gram",
+      "GloVe",
+      "FastText"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Skip-gram predicts the surrounding context words given a central target word. CBOW does the reverse (predicts target from context).",
+    "difficulty": "medium",
+    "tags": ["Embeddings", "Word2Vec"]
+  },
+  {
+    "id": "nlp-genai-014",
+    "question": "What is the fundamental idea behind GloVe (Global Vectors for Word Representation)?",
+    "options": [
+      "It uses a neural network to predict next words",
+      "It leverages global word-word co-occurrence statistics from a corpus",
+      "It relies solely on local context windows",
+      "It uses manual feature engineering"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GloVe constructs a co-occurrence matrix of words and factorizes it to learn vectors, capturing global statistical information.",
+    "difficulty": "medium",
+    "tags": ["Embeddings", "GloVe"]
+  },
+  {
+    "id": "nlp-genai-015",
+    "question": "How do contextual embeddings (like BERT) differ from static embeddings (like Word2Vec)?",
+    "options": [
+      "They are smaller in size",
+      "They generate different vector representations for the same word depending on its context",
+      "They are faster to compute",
+      "They only work for English"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Word2Vec, 'bank' has one vector. In BERT, 'bank' (river) and 'bank' (finance) have different vectors based on the surrounding sentence.",
+    "difficulty": "medium",
+    "tags": ["Embeddings", "Contextual embeddings"]
+  },
+  {
+    "id": "nlp-genai-016",
+    "question": "What is 'Zero-shot Learning' in the context of LLMs?",
+    "options": [
+      "Training a model with zero data",
+      "The ability of the model to perform a task without seeing any specific examples of that task in the prompt",
+      "Fine-tuning a model on a new language",
+      "Running the model with zero latency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Zero-shot prompting involves asking the model to perform a task (e.g., 'Translate this') without providing any examples of how to do it.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Prompt Engineering"]
+  },
+  {
+    "id": "nlp-genai-017",
+    "question": "What is 'Chain of Thought' prompting?",
+    "options": [
+      "Linking multiple prompts together in a chain",
+      "Encouraging the model to generate intermediate reasoning steps before producing the final answer",
+      "Repeating the same prompt multiple times",
+      "Using a chain of different models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chain of Thought (CoT) prompting guides the model to break down complex problems into steps, improving reasoning capabilities.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Prompt Engineering"]
+  },
+  {
+    "id": "nlp-genai-018",
+    "question": "What does RAG stand for in Generative AI?",
+    "options": [
+      "Random Access Generation",
+      "Retrieval-Augmented Generation",
+      "Recurrent Attention Grouping",
+      "Rapid AI Generation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RAG stands for Retrieval-Augmented Generation, a technique to ground LLM responses in external data.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "RAG"]
+  },
+  {
+    "id": "nlp-genai-019",
+    "question": "What is the primary role of a Vector Database in a RAG pipeline?",
+    "options": [
+      "To store the model weights",
+      "To store and efficiently search for semantic embeddings of external knowledge",
+      "To generate the final text output",
+      "To translate text into SQL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vector databases store embeddings of documents and allow for fast similarity search to retrieve relevant context for the LLM.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "RAG", "Vector Database"]
+  },
+  {
+    "id": "nlp-genai-020",
+    "question": "What is the difference between Pre-training and Fine-tuning?",
+    "options": [
+      "Pre-training uses labeled data; Fine-tuning uses unlabeled data",
+      "Pre-training learns general language patterns on massive data; Fine-tuning adapts the model to a specific task or dataset",
+      "They are the same thing",
+      "Fine-tuning is done before Pre-training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pre-training builds the base model on a large corpus. Fine-tuning specializes that model for a specific use case.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Fine-tuning"]
+  },
+  {
+    "id": "nlp-genai-021",
+    "question": "How does LoRA (Low-Rank Adaptation) make fine-tuning more efficient?",
+    "options": [
+      "By reducing the number of layers in the model",
+      "By freezing the pre-trained weights and injecting trainable rank decomposition matrices into each layer",
+      "By using a smaller vocabulary",
+      "By increasing the learning rate"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LoRA drastically reduces the number of trainable parameters by approximating weight updates with low-rank matrices, keeping the original weights frozen.",
+    "difficulty": "hard",
+    "tags": ["GenAI", "Fine-tuning", "PEFT"]
+  },
+  {
+    "id": "nlp-genai-022",
+    "question": "What is the goal of RLHF (Reinforcement Learning from Human Feedback)?",
+    "options": [
+      "To make the model train faster",
+      "To align the model's behavior with human values and preferences",
+      "To increase the model's vocabulary",
+      "To replace the Transformer architecture"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RLHF is used to fine-tune models so that their outputs are helpful, harmless, and honest, based on human rankings of responses.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "RLHF"]
+  },
+  {
+    "id": "nlp-genai-023",
+    "question": "Which Reinforcement Learning algorithm is commonly used in the RLHF process for training InstructGPT/ChatGPT?",
+    "options": [
+      "Q-Learning",
+      "PPO (Proximal Policy Optimization)",
+      "DQN (Deep Q-Network)",
+      "A3C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PPO is the standard policy gradient method used in RLHF due to its stability and efficiency.",
+    "difficulty": "hard",
+    "tags": ["GenAI", "RLHF"]
+  },
+  {
+    "id": "nlp-genai-024",
+    "question": "In sampling, what is the effect of increasing the 'Temperature' parameter?",
+    "options": [
+      "It makes the output more deterministic and repetitive",
+      "It makes the output more random and diverse by flattening the probability distribution",
+      "It increases the length of the output",
+      "It decreases the inference time"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Higher temperature increases entropy, making lower-probability tokens more likely to be selected, resulting in more creative/random output.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Temperature"]
+  },
+  {
+    "id": "nlp-genai-025",
+    "question": "What does 'Top-k' sampling do?",
+    "options": [
+      "It selects the top k sentences from the document",
+      "It restricts the sampling pool to the k most likely next tokens",
+      "It selects the k-th token in the sequence",
+      "It ignores the top k tokens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Top-k sampling filters the distribution to only the K most probable next tokens before sampling, cutting off the long tail of unlikely tokens.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Top-k"]
+  },
+  {
+    "id": "nlp-genai-026",
+    "question": "What is 'Top-p' (Nucleus) sampling?",
+    "options": [
+      "It selects the top p tokens by count",
+      "It selects from the smallest set of tokens whose cumulative probability exceeds a threshold p",
+      "It selects tokens starting with the letter p",
+      "It is the same as Top-k"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Top-p sampling dynamically adjusts the number of tokens considered based on their cumulative probability, allowing for more flexibility than fixed Top-k.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Top-p"]
+  },
+  {
+    "id": "nlp-genai-027",
+    "question": "What is the goal of Named Entity Recognition (NER)?",
+    "options": [
+      "To translate names into other languages",
+      "To identify and classify key information (entities) in text into predefined categories",
+      "To generate new names for entities",
+      "To remove names from text for privacy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NER is an information extraction task that locates and classifies named entities like people, organizations, locations, dates, etc.",
+    "difficulty": "easy",
+    "tags": ["NLP Tasks", "NER"]
+  },
+  {
+    "id": "nlp-genai-028",
+    "question": "Which of the following is a common challenge in Sentiment Analysis?",
+    "options": [
+      "Identifying the language of the text",
+      "Detecting sarcasm and irony",
+      "Counting the number of words",
+      "Converting text to uppercase"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sarcasm often uses positive words to convey a negative meaning, which is difficult for simple sentiment analysis models to detect.",
+    "difficulty": "medium",
+    "tags": ["NLP Tasks", "Sentiment Analysis"]
+  },
+  {
+    "id": "nlp-genai-029",
+    "question": "What is the BLEU score primarily used to evaluate?",
+    "options": [
+      "Sentiment Analysis",
+      "Machine Translation quality",
+      "Speech Recognition",
+      "Text Classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BLEU (Bilingual Evaluation Understudy) measures the overlap of n-grams between the machine-generated translation and human reference translations.",
+    "difficulty": "medium",
+    "tags": ["NLP Tasks", "Translation", "Metrics"]
+  },
+  {
+    "id": "nlp-genai-030",
+    "question": "What is 'Abstractive Summarization'?",
+    "options": [
+      "Selecting key sentences from the original text",
+      "Generating a summary that may contain new words and phrases not present in the original text",
+      "Summarizing abstract art",
+      "Removing all adjectives from the text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Abstractive summarization involves understanding the text and rewriting the core information, often using new vocabulary, unlike Extractive which just copies sentences.",
+    "difficulty": "medium",
+    "tags": ["NLP Tasks", "Summarization"]
+  },
+  {
+    "id": "nlp-genai-031",
+    "question": "What is a 'Hallucination' in the context of LLMs?",
+    "options": [
+      "When the model sees images",
+      "When the model generates factually incorrect or nonsensical information confidently",
+      "When the model crashes",
+      "When the model refuses to answer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Hallucination refers to the generation of content that looks plausible but is factually wrong or ungrounded in the input.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Hallucination"]
+  },
+  {
+    "id": "nlp-genai-032",
+    "question": "What happens if the input text exceeds an LLM's context window?",
+    "options": [
+      "The model automatically expands its memory",
+      "The text must be truncated, or the model will fail to process the excess part",
+      "The model processes it in the background",
+      "The model summarizes it automatically"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LLMs have a fixed maximum context length. Inputs longer than this must be shortened (truncated) or split (chunked).",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Context Window"]
+  },
+  {
+    "id": "nlp-genai-033",
+    "question": "What is the computational complexity of the standard self-attention mechanism with respect to sequence length N?",
+    "options": [
+      "O(N)",
+      "O(N^2)",
+      "O(log N)",
+      "O(N^3)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Standard self-attention requires calculating a matrix of size N x N (every token attending to every other token), leading to quadratic complexity.",
+    "difficulty": "hard",
+    "tags": ["Transformers", "Complexity"]
+  },
+  {
+    "id": "nlp-genai-034",
+    "question": "Why is 'Masked' Multi-Head Attention used in the Decoder of a Transformer?",
+    "options": [
+      "To hide the output from the user",
+      "To prevent positions from attending to subsequent positions (cheating) during training",
+      "To reduce the model size",
+      "To increase training speed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In autoregressive generation, the model should not see future tokens when predicting the current one. Masking ensures causality.",
+    "difficulty": "hard",
+    "tags": ["Transformers", "Decoder"]
+  },
+  {
+    "id": "nlp-genai-035",
+    "question": "What is the purpose of Layer Normalization in Transformers?",
+    "options": [
+      "To convert text to lowercase",
+      "To stabilize the learning process and reduce training time",
+      "To normalize the database",
+      "To remove stop words"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Layer Normalization normalizes the inputs across the features, helping to stabilize gradients and speed up convergence in deep networks.",
+    "difficulty": "medium",
+    "tags": ["Transformers", "Layer Norm"]
+  },
+  {
+    "id": "nlp-genai-036",
+    "question": "What role does the Feed-Forward Network (FFN) play in a Transformer block?",
+    "options": [
+      "It calculates attention scores",
+      "It processes the information from the attention layer independently for each position",
+      "It handles the tokenization",
+      "It connects the encoder to the decoder"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The FFN applies a non-linear transformation to the output of the attention layer, processing each token's representation individually.",
+    "difficulty": "medium",
+    "tags": ["Transformers", "FFN"]
+  },
+  {
+    "id": "nlp-genai-037",
+    "question": "What is the function of the Softmax layer at the output of an LLM?",
+    "options": [
+      "To make the output hard",
+      "To convert the raw logits into a probability distribution over the vocabulary",
+      "To select the single best token",
+      "To encrypt the output"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Softmax normalizes the raw output scores (logits) into probabilities that sum to 1, allowing for sampling or greedy selection.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Softmax"]
+  },
+  {
+    "id": "nlp-genai-038",
+    "question": "How does Beam Search differ from Greedy Search?",
+    "options": [
+      "Beam Search is faster",
+      "Beam Search keeps track of multiple most promising sequences (beams) at each step, whereas Greedy picks only the best one",
+      "Greedy Search is more accurate",
+      "Beam Search uses a laser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Greedy search only looks at the immediate best option. Beam search explores multiple paths to find a globally better sequence.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Beam Search"]
+  },
+  {
+    "id": "nlp-genai-039",
+    "question": "What does a lower Perplexity score indicate for a language model?",
+    "options": [
+      "The model is confused",
+      "The model is less surprised by the test data (better performance)",
+      "The model is performing poorly",
+      "The model has high latency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perplexity measures how well a probability model predicts a sample. Lower perplexity means the model assigns higher probabilities to the true text.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Metrics", "Perplexity"]
+  },
+  {
+    "id": "nlp-genai-040",
+    "question": "What is 'Catastrophic Forgetting' in fine-tuning?",
+    "options": [
+      "When the server crashes",
+      "When a model forgets previously learned knowledge while learning new information",
+      "When the user forgets the prompt",
+      "When the model deletes its own weights"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This occurs when fine-tuning on a new task drastically degrades performance on the original tasks the model was trained on.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Fine-tuning"]
+  },
+  {
+    "id": "nlp-genai-041",
+    "question": "What is 'Instruction Tuning'?",
+    "options": [
+      "Tuning the hyperparameters manually",
+      "Fine-tuning a model on a dataset of (instruction, output) pairs to improve its ability to follow commands",
+      "Teaching the model to play an instrument",
+      "Optimizing the inference engine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Instruction tuning bridges the gap between next-token prediction and following user instructions.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Instruction Tuning"]
+  },
+  {
+    "id": "nlp-genai-042",
+    "question": "Why do LLMs exhibit bias?",
+    "options": [
+      "They are programmed to be biased",
+      "Because they are trained on internet data that contains human biases",
+      "Because of hardware faults",
+      "They do not exhibit bias"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LLMs learn statistical patterns from their training data. If the data contains societal biases, the model will reproduce them.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Bias"]
+  },
+  {
+    "id": "nlp-genai-043",
+    "question": "What is 'Chunking' in the context of RAG and vector databases?",
+    "options": [
+      "Grouping similar words together",
+      "Splitting large documents into smaller segments to fit within context windows and improve retrieval",
+      "Deleting parts of the document",
+      "Compressing the database"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chunking is necessary to process large texts because embedding models and LLMs have token limits.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "RAG", "Chunking"]
+  },
+  {
+    "id": "nlp-genai-044",
+    "question": "Why is Cosine Similarity commonly used with embeddings?",
+    "options": [
+      "It is the fastest calculation",
+      "It measures the orientation (angle) between two vectors, which captures semantic similarity better than magnitude",
+      "It works with text strings directly",
+      "It is required by the Transformer architecture"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In high-dimensional embedding spaces, the direction of the vector often carries the semantic meaning, making cosine similarity a standard metric.",
+    "difficulty": "medium",
+    "tags": ["Embeddings", "Cosine Similarity"]
+  },
+  {
+    "id": "nlp-genai-045",
+    "question": "What does the 'dimension' of an embedding vector represent?",
+    "options": [
+      "The length of the word",
+      "The size of the vector (number of features) used to represent a token",
+      "The number of languages supported",
+      "The file size of the model"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The dimension (e.g., 768 for BERT-base) is the number of floating-point numbers used to represent the semantic meaning of a token.",
+    "difficulty": "easy",
+    "tags": ["Embeddings", "Dimensions"]
+  },
+  {
+    "id": "nlp-genai-046",
+    "question": "What is a 'Stop Sequence' in LLM generation?",
+    "options": [
+      "A sequence that crashes the model",
+      "A string that, when generated, signals the model to stop producing further output",
+      "A sequence of stop words",
+      "The end of the training data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Stop sequences are used to control generation, preventing the model from rambling or generating unwanted extra text (e.g., 'User:').",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Generation"]
+  },
+  {
+    "id": "nlp-genai-047",
+    "question": "What is the purpose of a 'System Prompt' (or System Message)?",
+    "options": [
+      "To debug the system",
+      "To set the overall behavior, persona, or constraints for the AI assistant",
+      "To prompt the user for input",
+      "To shut down the system"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The system prompt provides high-level instructions to the model, defining its role and rules before the conversation begins.",
+    "difficulty": "easy",
+    "tags": ["GenAI", "Prompt Engineering"]
+  },
+  {
+    "id": "nlp-genai-048",
+    "question": "What happens when you set the Temperature to 0?",
+    "options": [
+      "The model freezes",
+      "The model becomes deterministic, always choosing the most likely next token",
+      "The model becomes extremely creative",
+      "The model stops working"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Temperature 0 effectively turns sampling into greedy search (or argmax), resulting in the same output for the same input every time.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Temperature"]
+  },
+  {
+    "id": "nlp-genai-049",
+    "question": "What does the 'Frequency Penalty' parameter do?",
+    "options": [
+      "It penalizes frequent words in the language",
+      "It penalizes tokens based on how many times they have already appeared in the text",
+      "It increases the frequency of generation",
+      "It removes high-frequency noise"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Frequency penalty discourages repetition by lowering the probability of tokens that have appeared frequently in the generated text so far.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Parameters"]
+  },
+  {
+    "id": "nlp-genai-050",
+    "question": "What does the 'Presence Penalty' parameter do?",
+    "options": [
+      "It penalizes the user for being present",
+      "It penalizes tokens based on whether they have appeared in the text so far, encouraging new topics",
+      "It forces the model to stay on topic",
+      "It hides the model's presence"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Presence penalty applies a one-time penalty if a token has appeared at least once, encouraging the model to introduce new concepts.",
+    "difficulty": "medium",
+    "tags": ["GenAI", "Parameters"]
+  }
+]

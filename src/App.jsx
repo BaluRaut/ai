@@ -18,6 +18,7 @@ import CheatSheets from './pages/CheatSheets/CheatSheets';
 import CapstoneProjects from './pages/CapstoneProjects/CapstoneProjects';
 import CaseStudies from './pages/CaseStudies/CaseStudies';
 import Resources from './pages/Resources/Resources';
+import Visualizations from './pages/Visualizations/Visualizations';
 import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 
@@ -44,6 +45,7 @@ amplitude.init('cf9409dbde4fb96686ac8fabd345e057', {"autocapture":{"attribution"
             <Route path="/capstone-projects" element={<CapstoneProjects />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/visualizations" element={<Visualizations />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>
