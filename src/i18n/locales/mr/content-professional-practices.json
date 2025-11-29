@@ -1,218 +1,406 @@
 {
   "professionalPractices": {
-    "title": "व्यावसायिक AI/ML पद्धती",
-    "description": "प्रोडक्शन-तयार AI सिस्टम्स तयार करण्यासाठी उद्योग-मानक पद्धती",
+    "title": "व्यावसायिक ए. आय./एम. एल. पद्धती",
+    "description": "उत्पादन-सज्ज ए. आय. प्रणाली तयार करण्यासाठी उद्योग-मानक पद्धती",
     "topics": {
       "mlProjectStructure": {
-        "title": "ML प्रकल्प रचना",
-        "overview": "एक सुव्यवस्थित प्रकल्प रचना देखभाल करण्यायोग्य, पुनरुत्पादनक्षम आणि सहयोगी ML प्रकल्पांसाठी महत्त्वाची आहे. कोड, डेटा, मॉडेल्स आणि प्रयोग आयोजित करण्यासाठी उद्योग-मानक पॅटर्न शिका.",
+        "title": "एम. एल प्रकल्प रचना",
+        "overview": "देखरेख करण्यायोग्य, पुनरुत्पादक आणि सहयोगी एम. एल. प्रकल्पांसाठी एक सुव्यवस्थित प्रकल्प रचना महत्त्वपूर्ण आहे. संकेत, डेटा, मॉडेल आणि प्रयोग आयोजित करण्यासाठी उद्योग-मानक नमुने जाणून घ्या.",
         "keyPoints": [
-          "Cookiecutter Data Science प्रकल्प टेम्प्लेट",
-          "चिंतांचे पृथक्करण: डेटा, फीचर्स, मॉडेल्स, मूल्यांकन",
-          "YAML/JSON सह कॉन्फिगरेशन व्यवस्थापन",
-          "requirements.txt आणि conda सह एन्व्हायर्नमेंट व्यवस्थापन",
-          "ML प्रकल्पांसाठी डॉक्युमेंटेशन मानके",
-          "ML कोड आणि डेटासाठी Git सर्वोत्तम पद्धती"
+          "कुकी कटर डेटा सायन्स प्रकल्प नमुना",
+          "चिंतांचे पृथक्करणः माहिती, वैशिष्ट्ये, नमुने, मूल्यांकन",
+          "वाय. ए. एम. एल./जे. एस. ओ. एन. सह संरचना व्यवस्थापन",
+          "requirements.txt आणि कोंडासह पर्यावरण व्यवस्थापन",
+          "एम. एल. प्रकल्पांसाठी दस्तऐवजीकरण मानके",
+          "एम. एल. कोड आणि माहितीसाठी सर्वोत्तम पद्धती लिहा."
         ],
         "useCases": [
           {
-            "title": "एंटरप्राइझ ML टीम्स",
-            "description": "सोप्या सहयोगासाठी टीम्समध्ये प्रकल्प रचना मानकीकृत करा"
+            "title": "एंटरप्राइझ एम. एल. संघ",
+            "description": "सुलभ सहकार्यासाठी संघांमध्ये प्रकल्प संरचनांचे प्रमाणीकरण करा"
           },
           {
-            "title": "संशोधन ते प्रोडक्शन",
-            "description": "प्रायोगिक नोटबुक्स आणि प्रोडक्शन कोड यांच्यातील अंतर भरा"
+            "title": "उत्पादनासाठी संशोधन",
+            "description": "प्रायोगिक नोटबुक आणि उत्पादन कोड यांच्यातील अंतर कमी करा"
           },
           {
-            "title": "ओपन सोर्स प्रकल्प",
-            "description": "पुनरुत्पादनक्षम ML प्रकल्प तयार करा जे इतर वापरू शकतात आणि योगदान देऊ शकतात"
+            "title": "मुक्त स्रोत प्रकल्प",
+            "description": "इतर लोक वापरू शकतील आणि योगदान देऊ शकतील असे पुनरुत्पादक एम. एल. प्रकल्प तयार करा."
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "मानक प्रकल्प रचना",
+            "code": "my_ml_project/\n├── README.md                 # Project overview and setup instructions\n├── requirements.txt          # Python dependencies\n├── setup.py                  # Package installation\n├── config/\n│   ├── config.yaml          # Training configuration\n│   └── logging.yaml         # Logging configuration\n├── data/\n│   ├── raw/                  # Original, immutable data\n│   ├── processed/            # Cleaned, transformed data\n│   └── external/             # Data from third-party sources\n├── notebooks/\n│   ├── 01_exploration.ipynb  # Data exploration\n│   ├── 02_preprocessing.ipynb\n│   └── 03_modeling.ipynb\n├── src/\n│   ├── __init__.py\n│   ├── data/\n│   │   ├── make_dataset.py   # Data download/generation\n│   │   └── preprocess.py     # Data cleaning\n│   ├── features/\n│   │   └── build_features.py # Feature engineering\n│   ├── models/\n│   │   ├── train.py          # Training scripts\n│   │   ├── predict.py        # Inference scripts\n│   │   └── evaluate.py       # Model evaluation\n│   └── utils/\n│       ├── logger.py         # Logging utilities\n│       └── helpers.py        # Common helpers\n├── models/                    # Trained model files\n├── reports/\n│   └── figures/              # Generated graphics\n└── tests/                     # Unit tests\n    ├── test_data.py\n    └── test_models.py",
+            "explanation": "कुकी कटर डेटा सायन्स टेम्पलेटचे अनुसरण करणारी उद्योग-मानक प्रकल्प रचना."
+          },
+          {
+            "title": "संरचना व्यवस्थापन",
+            "code": "# config/config.yaml\nproject:\n  name: sentiment_classifier\n  version: 1.0.0\n  seed: 42\n\ndata:\n  raw_path: data/raw/reviews.csv\n  processed_path: data/processed/\n  test_size: 0.2\n  max_features: 10000\n\nmodel:\n  type: lstm\n  embedding_dim: 128\n  hidden_dim: 256\n  num_layers: 2\n  dropout: 0.3\n\ntraining:\n  batch_size: 32\n  epochs: 50\n  learning_rate: 0.001\n  early_stopping_patience: 5\n\nlogging:\n  level: INFO\n  mlflow_tracking_uri: http://localhost:5000\n  experiment_name: sentiment_v1\n\n---\n# Python code to load config\nimport yaml\nfrom pathlib import Path\n\ndef load_config(config_path: str = 'config/config.yaml'):\n    with open(config_path, 'r') as f:\n        config = yaml.safe_load(f)\n    return config\n\nconfig = load_config()\nprint(f\"Training with batch size: {config['training']['batch_size']}\")",
+            "explanation": "केंद्रीकृत संरचना हायपरपॅरामेटर्स आणि सेटिंग्ज एकाच ठिकाणी ठेवते, ज्यामुळे प्रयोग पुनरुत्पादित करता येतात."
+          },
+          {
+            "title": "प्रशिक्षण पाईपलाईन लिपी",
+            "code": "# src/models/train.py\nimport argparse\nimport logging\nfrom pathlib import Path\nimport mlflow\n\nfrom src.data.preprocess import load_and_preprocess\nfrom src.features.build_features import create_features\nfrom src.models.model import create_model\nfrom src.utils.logger import setup_logging\n\ndef train(config_path: str):\n    # Setup\n    config = load_config(config_path)\n    setup_logging(config['logging']['level'])\n    logger = logging.getLogger(__name__)\n    \n    # MLflow tracking\n    mlflow.set_tracking_uri(config['logging']['mlflow_tracking_uri'])\n    mlflow.set_experiment(config['logging']['experiment_name'])\n    \n    with mlflow.start_run():\n        # Log parameters\n        mlflow.log_params(config['model'])\n        mlflow.log_params(config['training'])\n        \n        # Data pipeline\n        logger.info('Loading and preprocessing data...')\n        X_train, X_test, y_train, y_test = load_and_preprocess(\n            config['data']['raw_path'],\n            config['data']['test_size']\n        )\n        \n        # Feature engineering\n        logger.info('Creating features...')\n        X_train_feat, X_test_feat = create_features(X_train, X_test, config)\n        \n        # Model training\n        logger.info('Training model...')\n        model = create_model(config['model'])\n        history = model.fit(\n            X_train_feat, y_train,\n            validation_data=(X_test_feat, y_test),\n            **config['training']\n        )\n        \n        # Evaluation & logging\n        metrics = evaluate_model(model, X_test_feat, y_test)\n        mlflow.log_metrics(metrics)\n        \n        # Save model\n        model_path = Path('models') / f\"{config['project']['name']}_v{config['project']['version']}.pkl\"\n        save_model(model, model_path)\n        mlflow.log_artifact(model_path)\n        \n        logger.info(f'Training complete. Accuracy: {metrics[\"accuracy\"]:.4f}')\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--config', default='config/config.yaml')\n    args = parser.parse_args()\n    train(args.config)",
+            "explanation": "लॉगिंग, संरचना आणि प्रयोग ट्रॅकिंगसह उत्पादन-सज्ज प्रशिक्षण स्क्रिप्ट."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "नोटबुकचे प्रकल्पात रूपांतर करा",
+            "description": "एम. एल. कोड असलेली विद्यमान ज्युपिटर नोटबुक घ्या आणि ती वेगळ्या मॉड्यूल्ससह योग्य प्रकल्प संरचनेत रिफॅक्टर करा.",
+            "hints": [
+              "एस. आर. सी./डेटा/मध्ये लोडिंग केलेला डेटा काढा",
+              "नमुना कोड src/models/वर हलवा",
+              "मापदंडांसाठी config.yaml तयार करा"
+            ]
           }
         ],
         "bestPractices": {
           "dos": [
-            "कोड आणि कॉन्फिगसाठी व्हर्जन कंट्रोल (Git) वापरा",
-            "डेटा व्हर्जनिंगसाठी DVC किंवा तत्सम वापरा",
-            "डॉकस्ट्रिंग्स आणि टाइप हिंट्स लिहा",
-            "सेटअप सूचनांसह README समाविष्ट करा"
+            "कोड आणि संरचनेसाठी आवृत्ती नियंत्रण वापरा (Git)",
+            "डेटा आवृत्तीसाठी डीव्हीसी किंवा तत्सम वापरा",
+            "दस्तऐवज लिहा आणि संकेत टाइप करा",
+            "सेटअप सूचनांसह आर. ए. डी. एम. ई. समाविष्ट करा"
           ],
           "donts": [
-            "मोठ्या डेटा फाइल्स Git मध्ये कमिट करू नका",
-            "पाथ आणि पॅरामीटर्स हार्डकोड करणे टाळा",
-            "टेस्ट्स लिहिणे टाळू नका",
-            "एक्सप्लोरेशन आणि प्रोडक्शन कोड मिसळणे टाळा"
+            "मोठ्या डेटा फाइल्स गिटला देऊ नका",
+            "हार्डकोडिंग मार्ग आणि मापदंड टाळा",
+            "चाचणी लिहिण्यास टाळा",
+            "शोध आणि उत्पादन संहिता यांचे मिश्रण करणे टाळा"
           ]
         }
       },
       "modelDeployment": {
-        "title": "मॉडेल डिप्लॉयमेंट",
-        "overview": "ML मॉडेल्स प्रोडक्शन सर्व्हिसेस म्हणून डिप्लॉय करायला शिका. Flask/FastAPI सह REST APIs, Docker सह कंटेनरायझेशन आणि क्लाउड डिप्लॉयमेंट स्ट्रॅटेजीज कव्हर करा.",
+        "title": "मॉडेलची उपयोजन",
+        "overview": "एम. एल. मॉडेल्सना उत्पादन सेवा म्हणून उपयोजित करायला शिका. आर. ई. एस. टी. ए. पी. आय. ला फ्लास्क/फास्टए. पी. आय. सह, कंटेनरायझेशनला डॉकरसह आणि क्लाऊड उपयोजन धोरणासह समाविष्ट करा.",
         "keyPoints": [
-          "मॉडेल इन्फरन्ससाठी REST APIs तयार करणे",
-          "उच्च-परफॉर्मन्स APIs साठी FastAPI",
-          "पुनरुत्पादनक्षमतेसाठी Docker कंटेनरायझेशन",
-          "मॉडेल सीरियलायझेशन (pickle, joblib, ONNX)",
-          "बॅच वि. रिअल-टाइम इन्फरन्स पॅटर्न",
-          "स्केलिंग आणि लोड बॅलन्सिंग स्ट्रॅटेजीज"
+          "मॉडेल अनुमानासाठी आरईएसटी एपीआय तयार करणे",
+          "उच्च कार्यक्षमतेच्या ए. पी. आय. साठी फास्टए. पी. आय.",
+          "पुनरुत्पादनक्षमतेसाठी डॉकर कंटेनरायझेशन",
+          "मॉडेल सिरिलायझेशन (लोणचे, जोबलिब, ओ. एन. एन. एक्स.)",
+          "बॅच विरुद्ध रिअल-टाइम अनुमान नमुने",
+          "स्केलिंग आणि लोड संतुलनाची धोरणे"
         ],
         "useCases": [
           {
-            "title": "मायक्रोसर्व्हिसेस आर्किटेक्चर",
-            "description": "मोठ्या सिस्टममध्ये स्वतंत्र सर्व्हिसेस म्हणून मॉडेल्स डिप्लॉय करा"
+            "title": "मायक्रोसर्व्हिस आर्किटेक्चर",
+            "description": "मोठ्या प्रणालीमध्ये स्वतंत्र सेवा म्हणून मॉडेल तैनात करा"
           },
           {
-            "title": "मोबाइल/एज डिप्लॉयमेंट",
-            "description": "एज डिव्हाइसेससाठी मॉडेल्स ऑप्टिमाइझ आणि डिप्लॉय करा"
+            "title": "भ्रमणध्वनी/काठावरील उपयोजन",
+            "description": "काठावरील उपकरणांसाठी मॉडेल अनुकूल करा आणि तैनात करा"
           },
           {
-            "title": "बॅच प्रोसेसिंग",
-            "description": "मॉडेल प्रेडिक्शन्ससह मोठ्या डेटासेट्स ऑफलाइन प्रोसेस करा"
+            "title": "बॅच प्रक्रिया",
+            "description": "मॉडेल अंदाजांसह मोठ्या डेटासेटवर ऑफलाईन प्रक्रिया करा"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "फास्टएपीआय मॉडेल सर्व्हर",
+            "code": "# app.py\nfrom fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport joblib\nimport numpy as np\n\napp = FastAPI(title='ML Model API', version='1.0.0')\n\n# Load model on startup\nmodel = None\n\n@app.on_event('startup')\nasync def load_model():\n    global model\n    model = joblib.load('models/classifier.pkl')\n\n# Request/Response schemas\nclass PredictionRequest(BaseModel):\n    features: list[float]\n    \n    class Config:\n        schema_extra = {\n            'example': {\n                'features': [5.1, 3.5, 1.4, 0.2]\n            }\n        }\n\nclass PredictionResponse(BaseModel):\n    prediction: int\n    probability: list[float]\n    class_name: str\n\n# Endpoints\n@app.get('/')\nasync def root():\n    return {'message': 'ML Model API is running'}\n\n@app.get('/health')\nasync def health():\n    return {'status': 'healthy', 'model_loaded': model is not None}\n\n@app.post('/predict', response_model=PredictionResponse)\nasync def predict(request: PredictionRequest):\n    try:\n        features = np.array(request.features).reshape(1, -1)\n        prediction = model.predict(features)[0]\n        probability = model.predict_proba(features)[0].tolist()\n        class_names = ['setosa', 'versicolor', 'virginica']\n        \n        return PredictionResponse(\n            prediction=int(prediction),\n            probability=probability,\n            class_name=class_names[prediction]\n        )\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))\n\n# Run: uvicorn app:app --reload",
+            "explanation": "स्वयंचलित दस्तऐवजीकरण, प्रमाणीकरण आणि त्रुटी हाताळणीसह उत्पादन-सज्ज फास्टएपीआय सर्व्हर."
+          },
+          {
+            "title": "एम. एल. ए. पी. आय. साठी डॉकरफाईल",
+            "code": "# Dockerfile\nFROM python:3.10-slim\n\n# Set working directory\nWORKDIR /app\n\n# Install dependencies\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\n# Copy application code\nCOPY app.py .\nCOPY models/ models/\n\n# Expose port\nEXPOSE 8000\n\n# Health check\nHEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \\\n    CMD curl -f http://localhost:8000/health || exit 1\n\n# Run the application\nCMD [\"uvicorn\", \"app:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]\n\n---\n# docker-compose.yml\nversion: '3.8'\n\nservices:\n  ml-api:\n    build: .\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - ./models:/app/models\n    environment:\n      - MODEL_PATH=/app/models/classifier.pkl\n    restart: unless-stopped\n\n---\n# Build and run\n# docker build -t ml-api .\n# docker run -p 8000:8000 ml-api",
+            "explanation": "आरोग्य तपासणीसह एम. एल. ए. पी. आय. चे कंटेनरकरण करण्यासाठी डॉकर संरचना आणि सुलभ उपयोजन करण्यासाठी डॉकर-उद्देश."
+          },
+          {
+            "title": "बॅच अनुमान पाईपलाईन",
+            "code": "# batch_predict.py\nimport pandas as pd\nimport joblib\nfrom pathlib import Path\nimport logging\nfrom datetime import datetime\n\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n\ndef batch_predict(\n    input_path: str,\n    output_path: str,\n    model_path: str,\n    batch_size: int = 1000\n):\n    \"\"\"Process large datasets in batches for memory efficiency.\"\"\"\n    \n    logger.info(f'Loading model from {model_path}')\n    model = joblib.load(model_path)\n    \n    logger.info(f'Processing {input_path}')\n    \n    # Process in chunks\n    predictions = []\n    for chunk_idx, chunk in enumerate(pd.read_csv(input_path, chunksize=batch_size)):\n        # Extract features\n        feature_cols = [c for c in chunk.columns if c.startswith('feature_')]\n        X = chunk[feature_cols].values\n        \n        # Predict\n        chunk_preds = model.predict(X)\n        chunk_proba = model.predict_proba(X).max(axis=1)\n        \n        # Store results\n        chunk['prediction'] = chunk_preds\n        chunk['confidence'] = chunk_proba\n        chunk['predicted_at'] = datetime.now().isoformat()\n        \n        predictions.append(chunk)\n        logger.info(f'Processed batch {chunk_idx + 1}')\n    \n    # Save results\n    result_df = pd.concat(predictions)\n    result_df.to_csv(output_path, index=False)\n    logger.info(f'Saved {len(result_df)} predictions to {output_path}')\n    \n    return result_df\n\nif __name__ == '__main__':\n    batch_predict(\n        input_path='data/new_customers.csv',\n        output_path='data/predictions.csv',\n        model_path='models/classifier.pkl'\n    )",
+            "explanation": "मोठ्या डेटासेटवर प्रक्रिया करण्यासाठी स्मृती-कार्यक्षम बॅच अंदाज."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "भावना एपीआय तैनात करा",
+            "description": "एक फास्टएपीआय सेवा तयार करा जी मजकूर स्वीकारते आणि भावनांचे अंदाज परत करते.",
+            "hints": [
+              "पूर्व-प्रशिक्षित प्रतिकृतीचा वापर करा किंवा साध्या प्रतिकृतीचा वापर करा",
+              "इनपुट प्रमाणन जोडा",
+              "आत्मविश्वासाचे गुण समाविष्ट करा"
+            ]
+          },
+          {
+            "title": "तुमचे प्रतिकृती संचयित करा",
+            "description": "कोणत्याही एम. एल. मॉडेल ए. पी. आय. साठी डॉकरफाईल तयार करा आणि ती स्थानिक पातळीवर तैनात करा.",
+            "hints": [
+              "बारीक पायथन प्रतिमेपासून सुरुवात करा",
+              "केवळ आवश्यक फाइल्सची नक्कल करा",
+              "डॉकर-उद्देशासह चाचणी करा"
+            ]
           }
         ],
         "bestPractices": {
           "dos": [
-            "I/O-बाउंड ऑपरेशन्ससाठी async/await वापरा",
-            "योग्य एरर हँडलिंग आणि लॉगिंग लागू करा",
-            "हेल्थ चेक एंडपॉइंट्स जोडा",
-            "कॉन्फिगरेशनसाठी एन्व्हायर्नमेंट व्हेरिएबल्स वापरा"
+            "आय/ओ-बद्ध कार्यांसाठी एसिंक्स/वेइट वापरा",
+            "त्रुटी हाताळणी आणि लॉगिंगची योग्य अंमलबजावणी करा",
+            "आरोग्य तपासणीचे अंतिम बिंदू जोडा",
+            "संरचनेसाठी पर्यावरणातील चल वापरा"
           ],
           "donts": [
-            "प्रत्येक रिक्वेस्टवर मॉडेल्स लोड करू नका",
-            "जड गणनेसह इव्हेंट लूप ब्लॉक करणे टाळा",
-            "क्लायंट्सना अंतर्गत एरर्स एक्सपोज करू नका",
-            "कंटेनर्समध्ये रूट म्हणून रन करणे टाळा"
+            "प्रत्येक विनंतीवर मॉडेल लोड करू नका",
+            "जड गणनेने इव्हेंट लूप अवरोधित करणे टाळा",
+            "ग्राहकांसमोर अंतर्गत त्रुटी उघड करू नका",
+            "कंटेनरमध्ये मूळ म्हणून धावणे टाळा"
           ]
         }
       },
       "automl": {
-        "title": "AutoML प्लॅटफॉर्म",
-        "overview": "AutoML मशीन लर्निंग पाइपलाइन स्वयंचलित करते ज्यात फीचर इंजिनिअरिंग, मॉडेल सिलेक्शन आणि हायपरपॅरामीटर ट्यूनिंग समाविष्ट आहे. Auto-sklearn, TPOT, H2O आणि क्लाउड AutoML सर्व्हिसेस सारखी टूल्स वापरायला शिका.",
+        "title": "ऑटोएमएल प्लॅटफॉर्म्स",
+        "overview": "ऑटोएमएल वैशिष्ट्य अभियांत्रिकी, मॉडेल निवड आणि हायपरपॅरामीटर ट्युनिंगसह मशीन लर्निंग पाइपलाइन स्वयंचलित करते. ऑटो-स्कीलर्न, टीपीओटी, एच2ओ आणि क्लाऊड ऑटोएमएल सेवा यासारखी साधने वापरण्यास शिका.",
         "keyPoints": [
-          "स्वयंचलित फीचर इंजिनिअरिंग",
-          "न्यूरल आर्किटेक्चर सर्च (NAS)",
-          "हायपरपॅरामीटर ऑप्टिमायझेशन स्ट्रॅटेजीज",
-          "मॉडेल सिलेक्शन आणि एन्सेम्बलिंग",
-          "क्लाउड AutoML सर्व्हिसेस (Google, AWS, Azure)",
-          "AutoML वि. मॅन्युअल ML कधी वापरायचे"
+          "स्वयंचलित वैशिष्ट्य अभियांत्रिकी",
+          "न्यूरल आर्किटेक्चर सर्च (एनएएस)",
+          "हायपरपॅरामीटर ऑप्टिमायझेशन धोरणे",
+          "प्रतिकृतीची निवड आणि संयोजन",
+          "क्लाउड ऑटोएमएल सेवा (गूगल, एडब्ल्यूएस, अझूर)",
+          "ऑटोएमएल विरुद्ध मॅन्युअल एम. एल. कधी वापरावे"
         ],
         "useCases": [
           {
-            "title": "रॅपिड प्रोटोटायपिंग",
-            "description": "नवीन समस्यांसाठी बेसलाइन मॉडेल्स द्रुतपणे स्थापित करा"
+            "title": "जलद प्रतिकृतीकरण",
+            "description": "नवीन समस्यांसाठी बेसलाइन मॉडेल त्वरित स्थापित करा"
           },
           {
-            "title": "गैर-ML टीम्स",
-            "description": "डोमेन तज्ञांना खोल ML कौशल्याशिवाय मॉडेल्स तयार करण्यास सक्षम करा"
+            "title": "बिगर-एम. एल. संघ",
+            "description": "सखोल एम. एल. कौशल्याशिवाय नमुने तयार करण्यासाठी क्षेत्र तज्ञांना सक्षम करा"
           },
           {
-            "title": "हायपरपॅरामीटर ट्यूनिंग",
-            "description": "विद्यमान मॉडेल आर्किटेक्चर्स ऑप्टिमाइझ करा"
+            "title": "हायपरपॅरामीटर ट्युनिंग",
+            "description": "विद्यमान प्रतिकृती संरचनांची अनुकूलता करा"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "स्वयंचलितपणे शिकण्याचे उदाहरण",
+            "code": "import autosklearn.classification\nfrom sklearn.datasets import load_breast_cancer\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score, classification_report\n\n# Load data\nX, y = load_breast_cancer(return_X_y=True)\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Create AutoML classifier\nautoml = autosklearn.classification.AutoSklearnClassifier(\n    time_left_for_this_task=300,  # 5 minutes total\n    per_run_time_limit=30,        # 30 seconds per model\n    n_jobs=-1,\n    memory_limit=4096,\n    seed=42\n)\n\n# Fit - AutoML handles everything\nprint('Starting AutoML training...')\nautoml.fit(X_train, y_train)\n\n# Results\nprint('\\nBest models found:')\nprint(automl.leaderboard())\n\n# Predictions\ny_pred = automl.predict(X_test)\nprint(f'\\nTest Accuracy: {accuracy_score(y_test, y_pred):.4f}')\nprint('\\nClassification Report:')\nprint(classification_report(y_test, y_pred))\n\n# Show final ensemble\nprint('\\nFinal Ensemble:')\nprint(automl.show_models())",
+            "explanation": "उत्तम मॉडेल शोधण्यासाठी ऑटो-स्कीलर्न स्वयंचलितपणे अनेक अल्गोरिदम आणि हायपरपॅरामेटर्सचा प्रयत्न करते."
+          },
+          {
+            "title": "ऑप्टुना हायपरपॅरामीटर ट्युनिंग",
+            "code": "import optuna\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn.datasets import load_iris\nimport joblib\n\n# Load data\nX, y = load_iris(return_X_y=True)\n\ndef objective(trial):\n    # Suggest hyperparameters\n    n_estimators = trial.suggest_int('n_estimators', 10, 200)\n    max_depth = trial.suggest_int('max_depth', 2, 32)\n    min_samples_split = trial.suggest_int('min_samples_split', 2, 20)\n    min_samples_leaf = trial.suggest_int('min_samples_leaf', 1, 10)\n    max_features = trial.suggest_categorical('max_features', ['sqrt', 'log2', None])\n    \n    # Create and evaluate model\n    model = RandomForestClassifier(\n        n_estimators=n_estimators,\n        max_depth=max_depth,\n        min_samples_split=min_samples_split,\n        min_samples_leaf=min_samples_leaf,\n        max_features=max_features,\n        random_state=42\n    )\n    \n    # Cross-validation score\n    scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')\n    return scores.mean()\n\n# Create study and optimize\nstudy = optuna.create_study(direction='maximize')\nstudy.optimize(objective, n_trials=100, show_progress_bar=True)\n\n# Best results\nprint(f'Best accuracy: {study.best_value:.4f}')\nprint(f'Best hyperparameters: {study.best_params}')\n\n# Train final model with best params\nbest_model = RandomForestClassifier(**study.best_params, random_state=42)\nbest_model.fit(X, y)\njoblib.dump(best_model, 'best_model.pkl')\n\n# Visualization\noptuna.visualization.plot_optimization_history(study).show()\noptuna.visualization.plot_param_importances(study).show()",
+            "explanation": "ऑप्टुना व्हिज्युअलायझेशन आणि छाटणी धोरणांसह प्रगत हायपरपॅरामीटर ऑप्टिमायझेशन प्रदान करते."
+          },
+          {
+            "title": "एच2ओ ऑटोएमएल",
+            "code": "import h2o\nfrom h2o.automl import H2OAutoML\n\n# Initialize H2O\nh2o.init()\n\n# Load data\ndata = h2o.import_file('data/train.csv')\n\n# Split data\ntrain, test = data.split_frame(ratios=[0.8], seed=42)\n\n# Define target and features\ny = 'target'\nx = [col for col in train.columns if col != y]\n\n# Convert target to factor for classification\ntrain[y] = train[y].asfactor()\ntest[y] = test[y].asfactor()\n\n# Run AutoML\naml = H2OAutoML(\n    max_runtime_secs=300,\n    max_models=20,\n    seed=42,\n    exclude_algos=['DeepLearning'],  # Optional: exclude slow algorithms\n    sort_metric='AUC'\n)\n\naml.train(x=x, y=y, training_frame=train)\n\n# Leaderboard\nlb = aml.leaderboard\nprint('AutoML Leaderboard:')\nprint(lb.head(10))\n\n# Best model performance\nbest_model = aml.leader\nperf = best_model.model_performance(test)\nprint(f'\\nBest Model AUC: {perf.auc():.4f}')\n\n# Save best model\nh2o.save_model(best_model, path='models/', force=True)\n\n# Shutdown H2O\nh2o.shutdown()",
+            "explanation": "एच2ओ ऑटोएमएल स्टॅक केलेल्या गणवेशांसह अनेक मॉडेल्सना प्रशिक्षण देते आणि ट्यून करते."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "ऑटोएमएल तुलना",
+            "description": "एकाच डेटासेटवर ऑटो-स्कीलर्न, टी. पी. ओ. टी. आणि एच. 2. ओ. ची तुलना करा. अचूकता, प्रशिक्षण वेळ आणि प्रतिकृतीची गुंतागुंत नोंदवा.",
+            "hints": [
+              "तीच गाडी/चाचणी विभागणी वापरा",
+              "समान वेळेची मर्यादा निश्चित करा",
+              "अंतिम सांगाड्यांच्या आकारांची तुलना करा"
+            ]
           }
         ],
         "bestPractices": {
           "dos": [
-            "प्रयोगांसाठी वाजवी वेळ मर्यादा सेट करा",
-            "बेसलाइन्ससाठी AutoML ने सुरुवात करा",
-            "AutoML निवडलेले मॉडेल्स समजून घ्या",
-            "विश्वासार्ह अंदाजांसाठी क्रॉस-व्हॅलिडेशन वापरा"
+            "प्रयोगांसाठी वाजवी कालमर्यादा निश्चित करा",
+            "बेसलाइनसाठी ऑटोएमएलसह प्रारंभ करा",
+            "ऑटोएमएल निवडलेले मॉडेल समजून घ्या",
+            "विश्वासार्ह अंदाजांसाठी प्रति-प्रमाणीकरण वापरा"
           ],
           "donts": [
-            "व्हॅलिडेशनशिवाय आंधळेपणाने AutoML वर विश्वास ठेवू नका",
-            "योग्य संसाधनांशिवाय खूप मोठ्या डेटासेट्ससाठी AutoML वापरणे टाळा",
-            "फीचर इंजिनिअरिंग पूर्णपणे वगळू नका",
-            "इंटरप्रिटेबिलिटी आवश्यकता दुर्लक्षित करणे टाळा"
+            "प्रमाणीकरण केल्याशिवाय ऑटोएमएलवर आंधळेपणाने विश्वास ठेवू नका",
+            "योग्य संसाधनांशिवाय खूप मोठ्या डेटासेटसाठी ऑटोएमएल वापरणे टाळा",
+            "वैशिष्ट्यपूर्ण अभियांत्रिकी पूर्णपणे सोडू नका",
+            "अर्थ लावण्याच्या आवश्यकतांकडे दुर्लक्ष करणे टाळा"
           ]
         }
       },
       "industryAI": {
-        "title": "उद्योग AI अॅप्लिकेशन्स",
-        "overview": "विविध उद्योगांमध्ये AI कसे लागू केले जाते ते एक्सप्लोर करा. हेल्थकेअर, फायनान्स, रिटेल आणि मॅन्युफॅक्चरिंगसाठी डोमेन-विशिष्ट आव्हाने, डेटासेट्स, मॉडेल्स आणि नैतिक विचार शिका.",
+        "title": "उद्योग ए. आय. अनुप्रयोग",
+        "overview": "विविध उद्योगांमध्ये ए. आय. चा वापर कसा केला जातो ते शोधा. आरोग्यसेवा, वित्त, किरकोळ विक्री आणि उत्पादनासाठी क्षेत्र-विशिष्ट आव्हाने, डेटासेट, मॉडेल आणि नैतिक विचार जाणून घ्या.",
         "keyPoints": [
-          "हेल्थकेअर: मेडिकल इमेजिंग, ड्रग डिस्कव्हरी, पेशंट आउटकम्स",
-          "फायनान्स: फ्रॉड डिटेक्शन, अल्गोरिदमिक ट्रेडिंग, क्रेडिट स्कोरिंग",
-          "रिटेल: रेकमेंडेशन सिस्टम्स, डिमांड फोरकास्टिंग, प्राइसिंग",
-          "मॅन्युफॅक्चरिंग: प्रेडिक्टिव्ह मेंटेनन्स, क्वालिटी कंट्रोल, ऑप्टिमायझेशन",
-          "डोमेन-विशिष्ट आव्हाने आणि नियम",
-          "एथिकल AI आणि फेअरनेस विचार"
+          "आरोग्यसेवाः वैद्यकीय प्रतिमा, औषधाचा शोध, रुग्णाचे परिणाम",
+          "वित्तः फसवणूक शोधणे, अल्गोरिदमिक ट्रेडिंग, क्रेडिट स्कोअरिंग",
+          "किरकोळः शिफारस प्रणाली, मागणीचा अंदाज, किंमत",
+          "उत्पादनः अंदाजित देखभाल, गुणवत्ता नियंत्रण, अनुकूलता",
+          "क्षेत्र-विशिष्ट आव्हाने आणि नियम",
+          "नैतिक ए. आय. आणि निष्पक्ष विचार"
         ],
         "useCases": [
           {
-            "title": "हेल्थकेअर AI",
-            "description": "डायग्नोस्टिक इमेजिंग, रोग अंदाज, ड्रग डिस्कव्हरी"
+            "title": "आरोग्यसेवा ए. आय.",
+            "description": "निदानात्मक प्रतिमा, रोगाचा अंदाज, औषधांचा शोध"
           },
           {
-            "title": "फायनान्शियल AI",
-            "description": "रिस्क अॅसेसमेंट, फ्रॉड डिटेक्शन, पोर्टफोलिओ ऑप्टिमायझेशन"
+            "title": "आर्थिक एआय",
+            "description": "जोखमीचे मूल्यांकन, फसवणूक शोधणे, पोर्टफोलिओ ऑप्टिमायझेशन"
           },
           {
-            "title": "रिटेल AI",
-            "description": "पर्सनलायझेशन, इन्व्हेंटरी ऑप्टिमायझेशन, कस्टमर अॅनालिटिक्स"
+            "title": "किरकोळ एआय",
+            "description": "वैयक्तिकरण, इन्व्हेंटरी ऑप्टिमायझेशन, ग्राहक विश्लेषण"
+          }
+        ],
+        "codeExamples": [
+          {
+            "title": "आरोग्यसेवाः रोगाचा अंदाज",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split, StratifiedKFold\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.ensemble import GradientBoostingClassifier\nfrom sklearn.metrics import classification_report, roc_auc_score, confusion_matrix\nimport shap\n\n# Load patient data (example: diabetes prediction)\n# Features: glucose, blood pressure, BMI, age, etc.\ndf = pd.read_csv('patient_data.csv')\n\n# Preprocessing\nX = df.drop(['patient_id', 'diabetes'], axis=1)\ny = df['diabetes']\n\n# Handle missing values (critical in healthcare)\nX = X.fillna(X.median())\n\n# Scale features\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X)\n\n# Stratified split (important for imbalanced medical data)\nX_train, X_test, y_train, y_test = train_test_split(\n    X_scaled, y, test_size=0.2, stratify=y, random_state=42\n)\n\n# Model with calibrated probabilities (important for medical decisions)\nmodel = GradientBoostingClassifier(\n    n_estimators=100,\n    max_depth=4,\n    min_samples_leaf=20,  # Regularization to prevent overfitting\n    random_state=42\n)\n\n# Cross-validation for reliable estimates\ncv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluation\ny_pred = model.predict(X_test)\ny_proba = model.predict_proba(X_test)[:, 1]\n\nprint('Classification Report:')\nprint(classification_report(y_test, y_pred))\nprint(f'AUC-ROC: {roc_auc_score(y_test, y_proba):.4f}')\n\n# SHAP for interpretability (required in healthcare)\nexplainer = shap.TreeExplainer(model)\nshap_values = explainer.shap_values(X_test)\nshap.summary_plot(shap_values, X_test, feature_names=X.columns)",
+            "explanation": "एस. एच. ए. पी. चा वापर करून अर्थ लावण्यायोग्य वैद्यकीय अंदाज मॉडेल-आरोग्यसेवा अनुप्रयोगांसाठी महत्त्वपूर्ण."
+          },
+          {
+            "title": "वित्तः फसवणूक शोधणे",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.ensemble import IsolationForest\nfrom imblearn.over_sampling import SMOTE\nfrom xgboost import XGBClassifier\nfrom sklearn.metrics import precision_recall_curve, average_precision_score\nimport matplotlib.pyplot as plt\n\n# Load transaction data\ndf = pd.read_csv('transactions.csv')\n\n# Feature engineering for fraud detection\ndf['hour'] = pd.to_datetime(df['timestamp']).dt.hour\ndf['is_weekend'] = pd.to_datetime(df['timestamp']).dt.dayofweek >= 5\ndf['amount_zscore'] = (df['amount'] - df['amount'].mean()) / df['amount'].std()\n\n# Features\nfeature_cols = ['amount', 'hour', 'is_weekend', 'amount_zscore', \n                'merchant_category', 'distance_from_home']\nX = df[feature_cols]\ny = df['is_fraud']\n\n# Handle class imbalance (fraud is rare: ~0.1%)\nprint(f'Fraud rate: {y.mean():.4%}')\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, stratify=y, random_state=42\n)\n\n# SMOTE for training data only\nsmote = SMOTE(random_state=42)\nX_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)\n\n# XGBoost with scale_pos_weight for imbalance\nmodel = XGBClassifier(\n    n_estimators=100,\n    max_depth=6,\n    scale_pos_weight=len(y_train[y_train==0]) / len(y_train[y_train==1]),\n    eval_metric='aucpr',\n    random_state=42\n)\n\nmodel.fit(X_train_balanced, y_train_balanced)\n\n# Precision-Recall curve (better than ROC for imbalanced data)\ny_proba = model.predict_proba(X_test)[:, 1]\nprecision, recall, thresholds = precision_recall_curve(y_test, y_proba)\nap = average_precision_score(y_test, y_proba)\n\nplt.figure(figsize=(8, 6))\nplt.plot(recall, precision, label=f'AP = {ap:.3f}')\nplt.xlabel('Recall')\nplt.ylabel('Precision')\nplt.title('Precision-Recall Curve for Fraud Detection')\nplt.legend()\nplt.show()\n\n# Choose threshold based on business requirements\n# High precision = fewer false positives = better customer experience\n# High recall = catch more fraud = less financial loss",
+            "explanation": "वर्ग असंतुलन हाताळणी आणि व्यवसाय-जागरूक थ्रेशोल्ड निवडीसह फसवणूक शोधणे."
+          },
+          {
+            "title": "किरकोळः शिफारस प्रणाली",
+            "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.metrics.pairwise import cosine_similarity\nfrom scipy.sparse import csr_matrix\nfrom sklearn.decomposition import TruncatedSVD\n\n# Load user-item interactions\nratings = pd.read_csv('user_ratings.csv')\n\n# Create user-item matrix\nuser_item_matrix = ratings.pivot(\n    index='user_id', \n    columns='product_id', \n    values='rating'\n).fillna(0)\n\n# Convert to sparse matrix for efficiency\nsparse_matrix = csr_matrix(user_item_matrix.values)\n\n# Matrix Factorization with SVD\nsvd = TruncatedSVD(n_components=50, random_state=42)\nuser_factors = svd.fit_transform(sparse_matrix)\nitem_factors = svd.components_.T\n\n# Recommendation function\ndef recommend_products(user_id, n_recommendations=5):\n    user_idx = user_item_matrix.index.get_loc(user_id)\n    user_vector = user_factors[user_idx]\n    \n    # Calculate scores for all items\n    scores = np.dot(item_factors, user_vector)\n    \n    # Get items user hasn't rated\n    rated_items = user_item_matrix.loc[user_id]\n    unrated_mask = rated_items == 0\n    \n    # Rank unrated items\n    item_scores = pd.Series(scores, index=user_item_matrix.columns)\n    recommendations = item_scores[unrated_mask].nlargest(n_recommendations)\n    \n    return recommendations\n\n# Content-based filtering (for cold start)\ndef content_based_recommend(product_id, product_features, n=5):\n    \"\"\"\n    Recommend similar products based on features.\n    product_features: DataFrame with product_id as index and feature columns\n    \"\"\"\n    product_vector = product_features.loc[product_id].values.reshape(1, -1)\n    similarities = cosine_similarity(product_vector, product_features.values)[0]\n    \n    similar_indices = similarities.argsort()[::-1][1:n+1]\n    similar_products = product_features.index[similar_indices]\n    \n    return list(zip(similar_products, similarities[similar_indices]))\n\n# Example usage\nprint('Recommendations for user 123:')\nprint(recommend_products(123))",
+            "explanation": "सहयोगी फिल्टरिंग आणि सामग्री-आधारित दृष्टिकोनांचे संयोजन करणारी संकरीत शिफारस प्रणाली."
+          }
+        ],
+        "practiceExercises": [
+          {
+            "title": "उद्योगविषयक उपाय तयार करा",
+            "description": "एखादा उद्योग (आरोग्यसेवा, वित्त किंवा किरकोळ) निवडा आणि योग्य पूर्वप्रक्रिया, मॉडेलिंग आणि मूल्यांकनासह संपूर्ण एम. एल. उपाय तयार करा.",
+            "hints": [
+              "क्षेत्र-विशिष्ट आव्हानांचा विचार करा",
+              "उपस्थित असल्यास वर्गातील असंतुलनाचे निराकरण करा",
+              "अर्थ लावण्यायोग्यता समाविष्ट करा"
+            ]
           }
         ],
         "bestPractices": {
           "dos": [
-            "डोमेन-विशिष्ट नियम (HIPAA, GDPR) समजून घ्या",
-            "उच्च-स्टेक्स निर्णयांमध्ये मॉडेल इंटरप्रिटेबिलिटीला प्राधान्य द्या",
-            "डोमेन तज्ञांसोबत मॉडेल्स व्हॅलिडेट करा",
-            "प्रोडक्शनमध्ये डेटा ड्रिफ्टसाठी मॉनिटर करा"
+            "क्षेत्र-विशिष्ट नियम समजून घ्या (एचआयपीएए, जीडीपीआर)",
+            "उच्च-जोखमीच्या निर्णयांमध्ये प्रतिमानाच्या अर्थ लावण्याला प्राधान्य द्या",
+            "डोमेन तज्ञांसह मॉडेल प्रमाणित करा",
+            "उत्पादनातील माहितीच्या प्रवाहावर लक्ष ठेवा"
           ],
           "donts": [
-            "योग्य व्हॅलिडेशनशिवाय डिप्लॉय करू नका",
-            "नियमित उद्योगांमध्ये ब्लॅक-बॉक्स मॉडेल्स टाळा",
-            "फेअरनेस आणि बायस समस्या दुर्लक्षित करू नका",
-            "योग्य हाताळणीशिवाय संवेदनशील ॲट्रिब्यूट्स वापरणे टाळा"
+            "योग्य प्रमाणीकरण केल्याशिवाय तैनात करू नका",
+            "नियंत्रित उद्योगांमध्ये ब्लॅक-बॉक्स मॉडेल्स टाळा",
+            "निष्पक्षता आणि पक्षपातीपणाच्या मुद्द्यांकडे दुर्लक्ष करू नका",
+            "योग्य हाताळणीशिवाय संवेदनशील वैशिष्ट्यांचा वापर करणे टाळा"
           ]
         }
       },
       "capstoneProjects": {
         "title": "कॅपस्टोन प्रकल्प",
-        "overview": "शिकलेली सर्व कौशल्ये एकत्र करणारे एंड-टू-एंड प्रकल्प. प्रत्येक प्रकल्प समस्या व्याख्या, डेटा संकलन, प्रीप्रोसेसिंग, मॉडेलिंग, मूल्यांकन आणि डिप्लॉयमेंट कव्हर करतो.",
+        "overview": "शिकलेली सर्व कौशल्ये एकत्रित करणारे एंड-टू-एंड प्रकल्प. प्रत्येक प्रकल्पात समस्येची व्याख्या, डेटा संकलन, पूर्वप्रक्रिया, मॉडेलिंग, मूल्यांकन आणि उपयोजन यांचा समावेश आहे.",
         "keyPoints": [
-          "डेटा ते डिप्लॉयमेंटपर्यंत संपूर्ण ML पाइपलाइन",
-          "वास्तविक-जगातील डेटासेट्स आणि समस्या",
-          "कोड संघटनेतील सर्वोत्तम पद्धती",
-          "मॉडेल मूल्यांकन आणि इटरेशन",
-          "डॉक्युमेंटेशन आणि प्रेझेंटेशन",
-          "पोर्टफोलिओ-तयार प्रकल्प"
+          "डेटापासून उपयोजनापर्यंत पूर्ण एम. एल. पाईपलाईन",
+          "वास्तविक जगाचे डेटासेट आणि समस्या",
+          "संहिता संस्थेतील सर्वोत्तम पद्धती",
+          "प्रतिमानाचे मूल्यांकन आणि पुनरावृत्ती",
+          "दस्तऐवजीकरण आणि सादरीकरण",
+          "विभागासाठी सज्ज प्रकल्प"
         ],
         "projects": [
           {
-            "title": "कस्टमर चर्न प्रेडिक्शन",
-            "description": "कोणते ग्राहक त्यांची सदस्यता रद्द करण्याची शक्यता आहे हे अंदाज लावणारी सिस्टम तयार करा.",
-            "skills": ["क्लासिफिकेशन", "फीचर इंजिनिअरिंग", "क्लास इम्बॅलन्स", "मॉडेल इंटरप्रिटेशन"]
+            "title": "ग्राहकांच्या कुरापतीचा अंदाज",
+            "description": "कोणते ग्राहक त्यांची सदस्यता रद्द करण्याची शक्यता आहे याचा अंदाज लावण्यासाठी एक प्रणाली तयार करा.",
+            "skills": [
+              "वर्गीकरण",
+              "वैशिष्ट्य अभियांत्रिकी",
+              "वर्ग असंतुलन",
+              "प्रतिकृती व्याख्या"
+            ],
+            "dataset": "टेल्को कस्टमर चर्न (कॅगल)",
+            "steps": [
+              "संशोधनात्मक डेटा विश्लेषण",
+              "वैशिष्ट्य अभियांत्रिकी (कार्यकाळ गट, सेवा समूह)",
+              "एस. एम. ओ. टी. ई. सह वर्ग असंतुलन हाताळा",
+              "अनेक मॉडेल्सना प्रशिक्षित करा आणि त्यांची तुलना करा",
+              "अर्थ लावण्यायोग्यतेसाठी SHAP विश्लेषण",
+              "धारणा शिफारशींसह ए. पी. आय. म्हणून तैनात करा"
+            ]
           },
           {
-            "title": "रिअल-टाइम ऑब्जेक्ट डिटेक्शन",
-            "description": "रिअल-टाइम व्हिडिओ स्ट्रीम्समध्ये ऑब्जेक्ट्स शोधणारी सिस्टम तयार करा.",
-            "skills": ["कॉम्प्युटर व्हिजन", "डीप लर्निंग", "ट्रान्सफर लर्निंग", "ऑप्टिमायझेशन"]
+            "title": "प्रत्यक्ष-वेळ ऑब्जेक्ट शोध",
+            "description": "रिअल-टाइम व्हिडिओ प्रवाहातील वस्तू शोधणारी प्रणाली तयार करा.",
+            "skills": [
+              "संगणकाची दृष्टी",
+              "सखोल शिक्षण",
+              "हस्तांतरण शिक्षण",
+              "इष्टतम करणे"
+            ],
+            "dataset": "सी. ओ. सी. ओ. माहिती संच किंवा सानुकूल माहिती संच",
+            "steps": [
+              "डेटासेट तयार करणे आणि वाढवणे",
+              "सानुकूलित वर्गांवर YOLOv8 चे बारीक-ट्यून करा",
+              "अनुमान गतीसाठी अनुकूल करा",
+              "प्रत्यक्ष-वेळेच्या प्रक्रियेसाठी ओपनसीव्हीसह उपयोजित करा",
+              "कायमस्वरूपी ऑब्जेक्ट आयडीसाठी ट्रॅकिंग जोडा"
+            ]
           },
           {
-            "title": "सेंटिमेंट अॅनालिसिस API",
-            "description": "अनेक भाषांमध्ये टेक्स्टचे सेंटिमेंट विश्लेषण करणारे API तयार करा.",
-            "skills": ["NLP", "ट्रान्सफॉर्मर्स", "API डेव्हलपमेंट", "मल्टिलिंग्वल"]
+            "title": "भावना विश्लेषण एपीआय",
+            "description": "एक एपीआय तयार करा जो अनेक भाषांमधील मजकुराच्या भावनेचे विश्लेषण करतो.",
+            "skills": [
+              "एनएलपी",
+              "परिवर्तक",
+              "एपीआय विकास",
+              "बहुभाषिक"
+            ],
+            "dataset": "अमेझॉन पुनरावलोकने किंवा ट्विटर डेटा",
+            "steps": [
+              "माहिती संकलन आणि पूर्वप्रक्रिया",
+              "बहुभाषिक बी. ई. आर. टी. चा उत्कृष्ट सूर",
+              "अनेक भाषांवर मूल्यमापन करा",
+              "फास्टएपीआय सर्व्हर तयार करा",
+              "डॉकर आणि सी. आय./सी. डी. सह उपयोजित करा"
+            ]
           },
           {
-            "title": "रेकमेंडर सिस्टम",
-            "description": "अनेक दृष्टिकोनांसह मूव्ही/प्रॉडक्ट रेकमेंडेशन इंजिन तयार करा.",
-            "skills": ["कोलॅबोरेटिव्ह फिल्टरिंग", "कंटेंट-बेस्ड", "मॅट्रिक्स फॅक्टरायझेशन", "A/B टेस्टिंग"]
+            "title": "शिफारस प्रणाली",
+            "description": "अनेक दृष्टिकोनांसह चित्रपट/उत्पाद शिफारस इंजिन तयार करा.",
+            "skills": [
+              "सहयोगात्मक गाळणी",
+              "सामग्री-आधारित",
+              "मॅट्रिक्स फॅक्टरायझेशन",
+              "ए/बी चाचणी"
+            ],
+            "dataset": "मूव्हीलेन्स किंवा ऍमेझॉन उत्पादनांचे पुनरावलोकने",
+            "steps": [
+              "वापरकर्त्याच्या वर्तणुकीच्या नमुन्यांवर ईडीए",
+              "सहयोगात्मक गाळणीची अंमलबजावणी करा",
+              "सामग्री-आधारित शिफारसी जोडा",
+              "संकरीत प्रणाली तयार करा",
+              "स्पष्टीकरणांसह स्ट्रीमलाइट डेमो तयार करा"
+            ]
           },
           {
-            "title": "टाइम सीरीज फोरकास्टिंग",
-            "description": "प्रगत टाइम सीरीज पद्धतींसह भविष्यातील सेल्स/स्टॉक किंमतींचा अंदाज लावा.",
-            "skills": ["टाइम सीरीज", "ARIMA", "Prophet", "LSTM", "फीचर इंजिनिअरिंग"]
+            "title": "वेळेच्या मालिकेचा अंदाज",
+            "description": "प्रगत वेळ मालिका पद्धतींनी भविष्यातील विक्री/समभागांच्या किंमतींचा अंदाज लावा.",
+            "skills": [
+              "वेळेची मालिका",
+              "एरीमा",
+              "पैगंबर",
+              "एलएसटीएम",
+              "वैशिष्ट्य अभियांत्रिकी"
+            ],
+            "dataset": "स्टोअर विक्री (कॅगल) किंवा स्टॉक डेटा",
+            "steps": [
+              "वेळेची मालिका विघटन आणि विश्लेषण",
+              "वैशिष्ट्य अभियांत्रिकी (मागे, रोलिंग आकडेवारी)",
+              "शास्त्रीय विरुद्ध एम. एल. पद्धतींची तुलना करा",
+              "अंदाज एकत्रित करा",
+              "देखरेखीसाठी पटल तयार करा"
+            ]
           }
         ],
         "bestPractices": {
           "dos": [
-            "स्पष्ट समस्या व्याख्येने सुरुवात करा",
-            "तुमच्या प्रक्रियेचा प्रत्येक टप्पा डॉक्युमेंट करा",
-            "कोड आणि प्रयोग व्हर्जन कंट्रोल करा",
-            "स्वच्छ, मॉड्युलर कोड लिहा"
+            "समस्येच्या स्पष्ट व्याख्येपासून सुरुवात करा",
+            "तुमच्या प्रक्रियेच्या प्रत्येक टप्प्याचे दस्तऐवजीकरण करा",
+            "आवृत्ती नियंत्रण संहिता आणि प्रयोग",
+            "स्वच्छ, मॉड्यूलर कोड लिहा"
           ],
           "donts": [
-            "EDA टप्पा वगळू नका",
-            "व्हॅलिडेशन डेटावर ओव्हरफिटिंग टाळा",
-            "एज केसेस टेस्ट करायला विसरू नका",
-            "साध्या समस्यांसाठी जटिल सोल्यूशन्स टाळा"
+            "ई. डी. ए. टप्पा सोडू नका.",
+            "प्रमाणीकरण माहितीशी अतिजोडणी करणे टाळा",
+            "काठावरील प्रकरणांची चाचणी करायला विसरू नका",
+            "साध्या समस्यांसाठी गुंतागुंतीचे उपाय टाळा"
           ]
         }
       }

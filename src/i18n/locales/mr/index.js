@@ -8,6 +8,11 @@ import study from './study.json';
 import legal from './legal.json';
 
 // Topic-specific content files
+import contentFundamentals from './content-fundamentals.json';
+import contentMachineLearning from './content-machine-learning.json';
+import contentDeepLearning from './content-deep-learning.json';
+import contentAdvancedAI from './content-advanced-ai.json';
+import contentSpecializations from './content-specializations.json';
 import contentDataVisualization from './content-data-visualization.json';
 import contentProfessionalPractices from './content-professional-practices.json';
 
@@ -19,6 +24,11 @@ const mr = {
   interview,
   study,
   content: {
+    fundamentals: contentFundamentals,
+    machineLearning: contentMachineLearning,
+    deepLearning: contentDeepLearning,
+    advancedAI: contentAdvancedAI,
+    specializations: contentSpecializations,
     dataVisualization: contentDataVisualization,
     professionalPractices: contentProfessionalPractices
   },
