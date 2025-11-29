@@ -583,28 +583,36 @@ data/cache/
                 </TableRow>
               </TableHead>
               <TableBody>
-                {topicContent.comparisonTable.rows.map((row, rowIndex) => (
-                  <TableRow 
-                    key={rowIndex}
-                    sx={{ 
-                      '&:nth-of-type(odd)': { bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50' },
-                      '&:hover': { bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100' }
-                    }}
-                  >
-                    {row.map((cell, cellIndex) => (
-                      <TableCell 
-                        key={cellIndex}
-                        sx={{
-                          fontWeight: cellIndex === 0 ? 600 : 400,
-                          fontSize: isMobile ? '0.7rem' : '0.875rem',
-                          color: cellIndex === 0 ? 'primary.main' : 'text.primary'
-                        }}
-                      >
-                        {cell}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
+                {(() => {
+                  // Handle both row array format and object field format
+                  const rows = topicContent.comparisonTable.rows || 
+                    Object.entries(topicContent.comparisonTable)
+                      .filter(([key]) => !['title', 'headers'].includes(key))
+                      .map(([, value]) => value);
+                  
+                  return rows.map((row, rowIndex) => (
+                    <TableRow 
+                      key={rowIndex}
+                      sx={{ 
+                        '&:nth-of-type(odd)': { bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.50' },
+                        '&:hover': { bgcolor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.100' }
+                      }}
+                    >
+                      {row.map((cell, cellIndex) => (
+                        <TableCell 
+                          key={cellIndex}
+                          sx={{
+                            fontWeight: cellIndex === 0 ? 600 : 400,
+                            fontSize: isMobile ? '0.7rem' : '0.875rem',
+                            color: cellIndex === 0 ? 'primary.main' : 'text.primary'
+                          }}
+                        >
+                          {cell}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ));
+                })()}
               </TableBody>
             </Table>
           </TableContainer>
@@ -663,7 +671,7 @@ data/cache/
           <Typography variant="h5" fontWeight={600} gutterBottom>
             💡 Real-World Use Cases
           </Typography>
-          {topicContent.useCases.map((useCase, index) => (
+          {Object.values(topicContent.useCases).map((useCase, index) => (
             <Card key={index} variant="outlined" sx={{ mb: 2 }}>
               <CardContent>
                 <Typography variant="h6" color="primary" gutterBottom>

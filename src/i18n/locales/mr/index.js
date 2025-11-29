@@ -23,16 +23,22 @@ const mr = {
   quiz,
   interview,
   study,
-  content: {
-    fundamentals: contentFundamentals,
-    machineLearning: contentMachineLearning,
-    deepLearning: contentDeepLearning,
-    advancedAI: contentAdvancedAI,
-    specializations: contentSpecializations,
-    dataVisualization: contentDataVisualization,
-    professionalPractices: contentProfessionalPractices
-  },
   ...legal
 };
+
+// Add content separately to ensure it's not overwritten by spread operators
+mr.content = {
+  fundamentals: contentFundamentals,
+  'machine-learning': contentMachineLearning,
+  'deep-learning': contentDeepLearning,
+  'advanced-ai': contentAdvancedAI,
+  specializations: contentSpecializations,
+  'data-visualization': contentDataVisualization,
+  'professional-practices': contentProfessionalPractices
+};
+
+console.log('[MR Index] Building mr object, content keys:', Object.keys(mr.content || {}));
+console.log('[MR Index] Full mr keys:', Object.keys(mr));
+console.log('[MR Index] Has content?', 'content' in mr);
 
 export default mr;

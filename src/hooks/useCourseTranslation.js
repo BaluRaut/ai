@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -8,49 +7,45 @@ import { useTranslation } from 'react-i18next';
  */
 export function useCourseTranslation() {
   const { i18n } = useTranslation();
-  const [translations, setTranslations] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // Only load translations for Marathi
-    if (i18n.language === 'mr') {
-      setLoading(true);
-      setError(null);
-
-      // Dynamically import the Marathi translation file
-      import('../../translation-batch/course-content-mr.json')
-        .then((module) => {
-          setTranslations(module.default || module);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.warn('Marathi translations not available yet:', err);
-          setError(err);
-          setLoading(false);
-        });
-    } else {
-      // Clear translations for English (use original content)
-      setTranslations(null);
-      setLoading(false);
-    }
-  }, [i18n.language]);
 
   /**
    * Get translated topic by course and topic ID
-   * @param {string} courseKey - 'beginner', 'intermediate', 'advanced', 'professional'
-   * @param {string} topicId - Topic ID
+   * @param {string} courseKey - 'fundamentals', 'machineLearning', etc.
+   * @param {string} topicId - Topic ID (e.g., 'what-is-ai')
    * @returns {object|null} - Translated topic or null if not available
    */
   const getTranslatedTopic = (courseKey, topicId) => {
-    if (!translations || i18n.language !== 'mr') {
+    if (i18n.language !== 'mr') {
+      console.log('[useCourseTranslation] Not Marathi, skipping translation');
       return null;
     }
 
-    const course = translations.courses?.[courseKey];
-    if (!course) return null;
+    // Get the full resource bundle for Marathi
+    // Note: This assumes resources are loaded. If using a backend loader, this might need adjustment.
+    // Since we bundle translations, this is synchronous and safe.
+    const resources = i18n.getResourceBundle('mr', 'translation');
+    
+    console.log('[useCourseTranslation] Resources:', resources ? 'Loaded' : 'NULL');
+    console.log('[useCourseTranslation] Full resource keys:', resources ? Object.keys(resources) : 'NONE');
+    console.log('[useCourseTranslation] Resources object:', resources);
+    console.log('[useCourseTranslation] Looking for courseKey:', courseKey, 'topicId:', topicId);
+    console.log('[useCourseTranslation] Available content keys:', resources?.content ? Object.keys(resources.content) : 'NONE');
+    
+    if (!resources || !resources.content || !resources.content[courseKey]) {
+      console.log('[useCourseTranslation] Course content not found for key:', courseKey);
+      return null;
+    }
 
-    return course.topics?.find(topic => topic.id === topicId);
+    const courseContent = resources.content[courseKey];
+    console.log('[useCourseTranslation] Course content found, keys:', Object.keys(courseContent));
+    
+    // Find the topic object that matches the ID
+    // We iterate over the values because the keys (e.g., 'whatIsAI') might not match the IDs (e.g., 'what-is-ai')
+    const topic = Object.values(courseContent).find(t => t && t.id === topicId);
+    
+    console.log('[useCourseTranslation] Found topic:', topic ? topic.title : 'NOT FOUND');
+    
+    return topic || null;
   };
 
   /**
@@ -70,20 +65,24 @@ export function useCourseTranslation() {
     }
 
     // Deep merge: translation takes priority for text, keep original code
+    // The translated topic has fields at root level (overview, keyPoints, etc.)
     return {
       ...originalTopic,
       title: translatedTopic.title || originalTopic.title,
       description: translatedTopic.description || originalTopic.description,
       content: {
         ...originalTopic.content,
-        overview: translatedTopic.content?.overview || originalTopic.content.overview,
-        keyPoints: translatedTopic.content?.keyPoints || originalTopic.content.keyPoints,
-        useCases: translatedTopic.content?.useCases || originalTopic.content.useCases,
-        dos: translatedTopic.content?.dos || originalTopic.content.dos,
-        donts: translatedTopic.content?.donts || originalTopic.content.donts,
-        bestPractices: translatedTopic.content?.bestPractices || originalTopic.content.bestPractices,
+        overview: translatedTopic.overview || translatedTopic.content?.overview || originalTopic.content.overview,
+        keyPoints: translatedTopic.keyPoints || translatedTopic.content?.keyPoints || originalTopic.content.keyPoints,
+        useCases: translatedTopic.useCases || translatedTopic.content?.useCases || originalTopic.content.useCases,
+        dos: translatedTopic.dos || translatedTopic.content?.dos || originalTopic.content.dos,
+        donts: translatedTopic.donts || translatedTopic.content?.donts || originalTopic.content.donts,
+        bestPractices: translatedTopic.bestPractices || translatedTopic.content?.bestPractices || originalTopic.content.bestPractices,
+        comparisonTable: translatedTopic.comparisonTable || translatedTopic.content?.comparisonTable || originalTopic.content.comparisonTable,
+        // Handle code examples if they exist in translation
         codeExamples: (originalTopic.content.codeExamples || []).map((example, idx) => {
-          const translatedExample = translatedTopic.content?.codeExamples?.[idx];
+          // Check if translated code examples exist and have this index
+          const translatedExample = (translatedTopic.codeExamples || translatedTopic.content?.codeExamples)?.[idx];
           return {
             ...example,
             title: translatedExample?.title || example.title,
@@ -98,9 +97,8 @@ export function useCourseTranslation() {
   };
 
   return {
-    translations,
-    loading,
-    error,
+    loading: false,
+    error: null,
     isMarathi: i18n.language === 'mr',
     getTranslatedTopic,
     mergeTopicWithTranslation,

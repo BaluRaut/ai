@@ -23,16 +23,21 @@ const en = {
   quiz,
   interview,
   study,
-  content: {
-    fundamentals: contentFundamentals,
-    machineLearning: contentMachineLearning,
-    deepLearning: contentDeepLearning,
-    advancedAI: contentAdvancedAI,
-    specializations: contentSpecializations,
-    dataVisualization: contentDataVisualization,
-    professionalPractices: contentProfessionalPractices
-  },
   ...legal
 };
+
+// Add content separately to ensure it's not overwritten by spread operators
+en.content = {
+  fundamentals: contentFundamentals,
+  'machine-learning': contentMachineLearning,
+  'deep-learning': contentDeepLearning,
+  'advanced-ai': contentAdvancedAI,
+  specializations: contentSpecializations,
+  'data-visualization': contentDataVisualization,
+  'professional-practices': contentProfessionalPractices
+};
+
+console.log('[EN Index] Has content?', 'content' in en);
+console.log('[EN Index] Content keys:', Object.keys(en.content || {}));
 
 export default en;

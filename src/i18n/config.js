@@ -2,8 +2,13 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import translationEN from './locales/en';
-import translationMR from './locales/mr';
+import translationEN from './locales/en/index.js';
+import translationMR from './locales/mr/index.js';
+
+console.log('[i18n Config] EN keys:', Object.keys(translationEN || {}));
+console.log('[i18n Config] EN has content?', 'content' in (translationEN || {}));
+console.log('[i18n Config] MR keys:', Object.keys(translationMR || {}));
+console.log('[i18n Config] MR has content?', 'content' in (translationMR || {}));
 
 const resources = {
   en: {

@@ -74,9 +74,13 @@
       "headers": ["Aspect", "Artificial Intelligence", "Machine Learning", "Deep Learning"],
       "definition": ["Definition", "Machines performing intelligent tasks", "Systems learning from data without explicit programming", "Neural networks with multiple layers learning hierarchical features"],
       "scope": ["Scope", "Broadest - includes all intelligent systems", "Subset of AI focused on learning", "Subset of ML using neural networks"],
+      "approach": ["Approach", "Can use rules, logic, ML, or other methods", "Statistical algorithms and pattern recognition", "Artificial neural networks inspired by brain"],
       "dataRequirements": ["Data Requirements", "Varies (can work with little or no data)", "Moderate datasets (hundreds to thousands)", "Large datasets (thousands to millions)"],
       "examples": ["Examples", "Rule-based chatbots, game AI, expert systems", "Spam filters, recommendation systems, linear regression", "Image recognition, speech synthesis, language models"],
-      "computingPower": ["Computing Power", "Low to moderate", "Moderate", "High - requires GPUs/TPUs"]
+      "programming": ["Programming", "Manually programmed rules and logic", "Algorithm learns patterns from labeled data", "Network learns features automatically"],
+      "humanIntervention": ["Human Intervention", "High - rules defined by humans", "Medium - features often engineered by humans", "Low - automatically discovers features"],
+      "computingPower": ["Computing Power", "Low to moderate", "Moderate", "High - requires GPUs/TPUs"],
+      "interpretability": ["Interpretability", "High - rules are explicit", "Medium - can inspect learned patterns", "Low - \"black box\" behavior"]
     },
     "keyPoints": [
       "AI: Broad field of making machines intelligent",
