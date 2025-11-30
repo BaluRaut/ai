@@ -35,41 +35,49 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { useProgress } from '../../context/ProgressContext';
 import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
+import { courseData } from '../../data/courseContent';
 
 const LearningTimeline = ({ open, onClose }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
   const { pathId, topicId } = useParams();
-  const { progress } = useProgress();
+  const { isTopicComplete } = useProgress();
   const [expandedPath, setExpandedPath] = useState(pathId || null);
 
+  // Get topics for a course
+  const getCourseTopics = (courseId) => {
+    return courseData[courseId]?.topics || [];
+  };
+
   // Calculate course statistics
-  const getCourseStats = (courseId, courseTopics) => {
-    const topicIds = Array.from({ length: courseTopics }, (_, i) => `${i + 1}`);
-    const completed = topicIds.filter(id => progress[`${courseId}-${id}`]?.completed).length;
-    const inProgress = topicIds.filter(id => 
-      progress[`${courseId}-${id}`]?.viewed && !progress[`${courseId}-${id}`]?.completed
-    ).length;
+  const getCourseStats = (courseId) => {
+    const topics = getCourseTopics(courseId);
+    if (!topics.length) return { total: 0, completed: 0, inProgress: 0, percentage: 0 };
+
+    const completed = topics.filter(topic => isTopicComplete(topic.id)).length;
+    // We don't track "in progress" (viewed but not complete) in the simple context yet, 
+    // so we'll assume 0 for now or check if it's the current topic
+    const inProgress = 0; 
     
     return {
-      total: courseTopics,
+      total: topics.length,
       completed,
       inProgress,
-      percentage: (completed / courseTopics) * 100
+      percentage: (completed / topics.length) * 100
     };
   };
 
   // Get status icon
-  const getStatusIcon = (courseId, topicIndex, stats) => {
-    const topicKey = `${courseId}-${topicIndex + 1}`;
-    const topicProgress = progress[topicKey];
+  const getStatusIcon = (courseId, topic, index) => {
+    const isCompleted = isTopicComplete(topic.id);
+    const isCurrent = pathId === courseId && topicId === topic.id;
 
-    if (topicProgress?.completed) {
+    if (isCompleted) {
       return <CheckCircle color="success" />;
-    } else if (topicProgress?.viewed) {
+    } else if (isCurrent) {
       return <PlayCircle color="primary" />;
-    } else if (topicIndex === 0 || progress[`${courseId}-${topicIndex}`]?.completed) {
+    } else if (index === 0 || isTopicComplete(getCourseTopics(courseId)[index - 1]?.id)) {
       // First topic or previous topic completed = unlocked
       return <RadioButtonUnchecked color="action" />;
     } else {
@@ -77,30 +85,23 @@ const LearningTimeline = ({ open, onClose }) => {
     }
   };
 
-  // Get dot color
-  const getDotColor = (courseId, topicIndex) => {
-    const topicKey = `${courseId}-${topicIndex + 1}`;
-    const topicProgress = progress[topicKey];
-
-    if (topicProgress?.completed) return 'success';
-    if (topicProgress?.viewed) return 'primary';
-    if (topicIndex === 0 || progress[`${courseId}-${topicIndex}`]?.completed) return 'grey';
-    return 'grey';
-  };
-
   // Check if topic is locked
-  const isTopicLocked = (courseId, topicIndex) => {
-    if (topicIndex === 0) return false;
-    const previousTopicKey = `${courseId}-${topicIndex}`;
-    return !progress[previousTopicKey]?.completed;
+  const isTopicLocked = (courseId, index) => {
+    if (index === 0) return false;
+    const topics = getCourseTopics(courseId);
+    const previousTopic = topics[index - 1];
+    return !isTopicComplete(previousTopic?.id);
   };
 
   // Navigate to topic
-  const handleTopicClick = (courseId, topicIndex) => {
-    if (isTopicLocked(courseId, topicIndex)) {
+  const handleTopicClick = (courseId, topic) => {
+    const topics = getCourseTopics(courseId);
+    const index = topics.findIndex(t => t.id === topic.id);
+    
+    if (isTopicLocked(courseId, index)) {
       return; // Don't navigate if locked
     }
-    navigate(`/learn/${courseId}/${topicIndex + 1}`);
+    navigate(`/learn/${courseId}/${topic.id}`);
     if (isMobile) {
       onClose();
     }
@@ -108,7 +109,7 @@ const LearningTimeline = ({ open, onClose }) => {
 
   // Calculate overall progress
   const overallStats = aiLearningPaths.reduce((acc, course) => {
-    const stats = getCourseStats(course.id, course.topics);
+    const stats = getCourseStats(course.id);
     return {
       totalTopics: acc.totalTopics + stats.total,
       completedTopics: acc.completedTopics + stats.completed,
@@ -116,7 +117,9 @@ const LearningTimeline = ({ open, onClose }) => {
     };
   }, { totalTopics: 0, completedTopics: 0, inProgressTopics: 0 });
 
-  const overallPercentage = (overallStats.completedTopics / overallStats.totalTopics) * 100;
+  const overallPercentage = overallStats.totalTopics > 0 
+    ? (overallStats.completedTopics / overallStats.totalTopics) * 100 
+    : 0;
 
   return (
     <Drawer
@@ -156,13 +159,6 @@ const LearningTimeline = ({ open, onClose }) => {
               color="success" 
               size="small" 
             />
-            {overallStats.inProgressTopics > 0 && (
-              <Chip 
-                label={`${overallStats.inProgressTopics} In Progress`} 
-                color="primary" 
-                size="small" 
-              />
-            )}
           </Box>
           <LinearProgress 
             variant="determinate" 
@@ -178,9 +174,10 @@ const LearningTimeline = ({ open, onClose }) => {
         <Box sx={{ flex: 1, overflow: 'auto', pr: 1 }}>
           <Timeline position="right" sx={{ p: 0, m: 0 }}>
             {aiLearningPaths.map((course, courseIndex) => {
-              const stats = getCourseStats(course.id, course.topics);
+              const stats = getCourseStats(course.id);
               const isExpanded = expandedPath === course.id;
               const isCurrentCourse = pathId === course.id;
+              const topics = getCourseTopics(course.id);
 
               return (
                 <TimelineItem key={course.id} sx={{ minHeight: isExpanded ? 'auto' : '100px' }}>
@@ -246,19 +243,18 @@ const LearningTimeline = ({ open, onClose }) => {
                       {/* Topics List */}
                       <Collapse in={isExpanded}>
                         <Box sx={{ mt: 2 }}>
-                          {Array.from({ length: course.topics }, (_, i) => {
-                            const topicNum = i + 1;
-                            const isCurrentTopic = pathId === course.id && topicId === `${topicNum}`;
+                          {topics.map((topic, i) => {
+                            const isCurrentTopic = pathId === course.id && topicId === topic.id;
                             const locked = isTopicLocked(course.id, i);
 
                             return (
                               <Tooltip 
-                                key={i} 
+                                key={topic.id} 
                                 title={locked ? 'Complete previous topic to unlock' : 'Click to open'}
                                 placement="right"
                               >
                                 <Box
-                                  onClick={() => handleTopicClick(course.id, i)}
+                                  onClick={() => handleTopicClick(course.id, topic)}
                                   sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -272,9 +268,9 @@ const LearningTimeline = ({ open, onClose }) => {
                                     '&:hover': locked ? {} : { bgcolor: 'action.hover' }
                                   }}
                                 >
-                                  {getStatusIcon(course.id, i, stats)}
+                                  {getStatusIcon(course.id, topic, i)}
                                   <Typography variant="caption" sx={{ flex: 1 }}>
-                                    Topic {topicNum}
+                                    {topic.title}
                                   </Typography>
                                 </Box>
                               </Tooltip>
@@ -302,11 +298,11 @@ const LearningTimeline = ({ open, onClose }) => {
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               <PlayCircle fontSize="small" color="primary" />
-              <Typography variant="caption">In Progress</Typography>
+              <Typography variant="caption">Current</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               <RadioButtonUnchecked fontSize="small" color="action" />
-              <Typography variant="caption">Not Started</Typography>
+              <Typography variant="caption">Available</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               <Lock fontSize="small" color="disabled" />

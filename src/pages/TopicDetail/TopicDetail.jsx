@@ -69,8 +69,6 @@ import BayesTheoremViz from '../../components/Visualizations/BayesTheoremViz';
 import CorrelationHeatmapViz from '../../components/Visualizations/CorrelationHeatmapViz';
 import PracticeAssignments from '../../components/PracticeAssignments/PracticeAssignments';
 import PersonalNotes from '../../components/PersonalNotes/PersonalNotes';
-import References from '../../components/References/References';
-import CareerGuide from '../../components/CareerGuide/CareerGuide';
 import { useProgress } from '../../context/ProgressContext';
 import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 import { useState, useMemo, useEffect } from 'react';
@@ -1185,12 +1183,6 @@ data/cache/
 
       {/* Personal Notes */}
       <PersonalNotes topicId={topicId} topicTitle={topic.title} />
-
-      {/* Learning References */}
-      <References pathId={pathId} topicId={topicId} />
-
-      {/* Career Guide */}
-      <CareerGuide />
 
       {/* AI Tutor Floating Button */}
       <Tooltip title="Ask AI Tutor" placement="left">

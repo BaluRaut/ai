@@ -1,21 +1,21 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import References from '../../components/References/References';
+import CareerGuide from '../../components/CareerGuide/CareerGuide';
 
-const Resources = () => {
+const Career = () => {
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
-          Learning Resources
+          AI Career Guide
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          A comprehensive collection of books, videos, courses, papers, and tools to support your AI learning journey.
+          Explore various career paths, roles, and requirements in the field of Artificial Intelligence and Machine Learning.
         </Typography>
       </Box>
-      <References />
+      <CareerGuide />
     </Container>
   );
 };
 
-export default Resources;
+export default Career;

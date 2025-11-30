@@ -25,6 +25,7 @@ import {
   BusinessCenter,
   VideoLibrary,
   Insights,
+  Map
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { aiLearningPaths } from '../../data/ai-courses/aiLearningPaths';
@@ -44,6 +45,7 @@ const Sidebar = ({ open, onClose, isMobile }) => {
   const menuItems = [
     { text: t('nav.home'), icon: <Home />, path: '/' },
     { text: t('nav.quizPractice'), icon: <Quiz />, path: '/quiz' },
+    { text: 'Career Guide', icon: <Map />, path: '/career' },
     { text: 'Interview Prep', icon: <WorkOutline />, path: '/interview-prep' },
     { text: 'Flash Cards', icon: <Style />, path: '/flashcards' },
     { text: 'Cheat Sheets', icon: <Article />, path: '/cheatsheets' },
