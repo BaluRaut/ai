@@ -45,6 +45,7 @@ import extendedQuizzes from '../../data/extendedQuizzes';
 import CodeBlock from '../../components/CodeBlock/CodeBlock';
 import CodeEditor from '../../components/CodeEditor/CodeEditor';
 import Quiz from '../../components/Quiz/Quiz';
+import PracticeAssignments from '../../components/PracticeAssignments/PracticeAssignments';
 import { useProgress } from '../../context/ProgressContext';
 import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 import { useState, useMemo } from 'react';
@@ -731,6 +732,9 @@ print("Fruits:", fruits)
           )}
         </Paper>
       )}
+
+      {/* Practice Assignments */}
+      <PracticeAssignments topicId={topicId} />
 
       {/* Navigation */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 4, gap: 2 }}>

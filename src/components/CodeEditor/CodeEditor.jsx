@@ -7,10 +7,26 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useThemeMode } from '../../context/ThemeContext';
 
-const CodeEditor = ({ initialCode = '', height = '400px', readOnly = false }) => {
+const CodeEditor = ({ 
+  initialCode = '', 
+  code: externalCode,
+  height = '400px', 
+  readOnly = false,
+  onChange,
+  language = 'python',
+  showOutput = true
+}) => {
   const { mode } = useThemeMode();
   const isDarkMode = mode === 'dark';
-  const [code, setCode] = useState(initialCode);
+  // Use external code if provided, otherwise use initialCode
+  const [code, setCode] = useState(externalCode ?? initialCode);
+  
+  // Sync with external code changes
+  useEffect(() => {
+    if (externalCode !== undefined) {
+      setCode(externalCode);
+    }
+  }, [externalCode]);
   const [output, setOutput] = useState('');
   const [plotImages, setPlotImages] = useState([]);
   const [isRunning, setIsRunning] = useState(false);
@@ -332,9 +348,34 @@ plot_result
   };
 
   const resetCode = () => {
-    setCode(initialCode);
+    setCode(externalCode ?? initialCode);
     clearOutput();
   };
+
+  // Simple read-only mode without Pyodide
+  if (readOnly && !showOutput) {
+    return (
+      <Box sx={{ width: '100%' }}>
+        <Editor
+          height={height}
+          defaultLanguage={language}
+          value={code}
+          theme={isDarkMode ? 'vs-dark' : 'light'}
+          options={{
+            readOnly: true,
+            minimap: { enabled: false },
+            fontSize: 14,
+            lineNumbers: 'on',
+            scrollBeyondLastLine: false,
+            automaticLayout: true,
+            tabSize: 4,
+            wordWrap: 'on',
+            domReadOnly: true,
+          }}
+        />
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ width: '100%', mb: 3 }}>
@@ -397,9 +438,12 @@ plot_result
           }}>
             <Editor
               height="100%"
-              defaultLanguage="python"
+              defaultLanguage={language}
               value={code}
-              onChange={(value) => setCode(value || '')}
+              onChange={(value) => {
+                setCode(value || '');
+                if (onChange) onChange(value || '');
+              }}
               theme={isDarkMode ? 'vs-dark' : 'light'}
               options={{
                 readOnly,

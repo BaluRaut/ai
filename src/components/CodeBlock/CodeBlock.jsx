@@ -67,13 +67,17 @@ const CodeBlock = ({ code, language = 'python' }) => {
               maxWidth: '100%',
             }}
           >
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
+            {tokens.map((line, i) => {
+              const lineProps = getLineProps({ line });
+              return (
+                <div key={i} {...lineProps}>
+                  {line.map((token, tokenIndex) => {
+                    const tokenProps = getTokenProps({ token });
+                    return <span key={tokenIndex} {...tokenProps} />;
+                  })}
+                </div>
+              );
+            })}
           </pre>
         )}
       </Highlight>
