@@ -174,14 +174,14 @@ function CaseStudies() {
             <Card sx={{ height: '100%' }}>
               <CardContent>
                 <Typography variant="h6" gutterBottom color="secondary">
-                  <Lightbulb sx={{ mr: 1, verticalAlign: 'middle' }} />
+                  <LightbulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
                   Key Takeaways
                 </Typography>
                 <List dense>
                   {selectedCase.keyTakeaways.map((takeaway, idx) => (
                     <ListItem key={idx}>
                       <ListItemIcon>
-                        <Lightbulb color="warning" fontSize="small" />
+                        <LightbulbIcon color="warning" fontSize="small" />
                       </ListItemIcon>
                       <ListItemText primary={takeaway} />
                     </ListItem>

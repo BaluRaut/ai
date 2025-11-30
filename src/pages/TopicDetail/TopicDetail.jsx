@@ -875,7 +875,7 @@ data/cache/
                 <Typography variant="body2" paragraph>
                   {example.explanation}
                 </Typography>
-                <CodeBlock code={example.code} />
+                <CodeBlock code={example.code} language={example.language || 'python'} />
                 {example.output && (
                   <Box sx={{ mt: 2, p: 2, bgcolor: 'background.default', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}>
                     <Typography variant="subtitle2" fontWeight={600} gutterBottom>
@@ -904,9 +904,11 @@ data/cache/
           title="🚀 Interactive Code Sandbox - Try & Modify the Code!"
           height="450px"
           supportedLanguages={
-            topicContent.codeExamples[0].jsCode 
-              ? ['python', 'javascript'] 
-              : ['python']
+            topicContent.codeExamples[0].language === 'javascript'
+              ? ['javascript']
+              : topicContent.codeExamples[0].jsCode 
+                ? ['python', 'javascript'] 
+                : ['python']
           }
         />
       )}

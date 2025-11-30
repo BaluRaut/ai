@@ -41,7 +41,8 @@ export function useCourseTranslation() {
     
     // Find the topic object that matches the ID
     // We iterate over the values because the keys (e.g., 'whatIsAI') might not match the IDs (e.g., 'what-is-ai')
-    const topic = Object.values(courseContent).find(t => t && t.id === topicId);
+    // Handle both numeric IDs (original) and string IDs (translations)
+    const topic = Object.values(courseContent).find(t => t && (t.id === topicId || String(t.id) === String(topicId)));
     
     console.log('[useCourseTranslation] Found topic:', topic ? topic.title : 'NOT FOUND');
     
@@ -66,21 +67,21 @@ export function useCourseTranslation() {
 
     // Deep merge: translation takes priority for text, keep original code
     // The translated topic has fields at root level (overview, keyPoints, etc.)
-    return {
+    const merged = {
       ...originalTopic,
       title: translatedTopic.title || originalTopic.title,
       description: translatedTopic.description || originalTopic.description,
       content: {
-        ...originalTopic.content,
-        overview: translatedTopic.overview || translatedTopic.content?.overview || originalTopic.content.overview,
-        keyPoints: translatedTopic.keyPoints || translatedTopic.content?.keyPoints || originalTopic.content.keyPoints,
-        useCases: translatedTopic.useCases || translatedTopic.content?.useCases || originalTopic.content.useCases,
-        dos: translatedTopic.dos || translatedTopic.content?.dos || originalTopic.content.dos,
-        donts: translatedTopic.donts || translatedTopic.content?.donts || originalTopic.content.donts,
-        bestPractices: translatedTopic.bestPractices || translatedTopic.content?.bestPractices || originalTopic.content.bestPractices,
-        comparisonTable: translatedTopic.comparisonTable || translatedTopic.content?.comparisonTable || originalTopic.content.comparisonTable,
+        ...(originalTopic.content || {}),
+        overview: translatedTopic.overview || translatedTopic.content?.overview || originalTopic.content?.overview || originalTopic.overview,
+        keyPoints: translatedTopic.keyPoints || translatedTopic.content?.keyPoints || originalTopic.content?.keyPoints || originalTopic.keyPoints,
+        useCases: translatedTopic.useCases || translatedTopic.content?.useCases || originalTopic.content?.useCases || originalTopic.useCases,
+        dos: translatedTopic.dos || translatedTopic.content?.dos || originalTopic.content?.dos || originalTopic.dos,
+        donts: translatedTopic.donts || translatedTopic.content?.donts || originalTopic.content?.donts || originalTopic.donts,
+        bestPractices: translatedTopic.bestPractices || translatedTopic.content?.bestPractices || originalTopic.content?.bestPractices || originalTopic.bestPractices,
+        comparisonTable: translatedTopic.comparisonTable || translatedTopic.content?.comparisonTable || originalTopic.content?.comparisonTable || originalTopic.comparisonTable,
         // Handle code examples if they exist in translation
-        codeExamples: (originalTopic.content.codeExamples || []).map((example, idx) => {
+        codeExamples: ((originalTopic.content?.codeExamples || originalTopic.codeExamples) || []).map((example, idx) => {
           // Check if translated code examples exist and have this index
           const translatedExample = (translatedTopic.codeExamples || translatedTopic.content?.codeExamples)?.[idx];
           return {
@@ -94,6 +95,14 @@ export function useCourseTranslation() {
         }),
       },
     };
+    
+    console.log('[mergeTopicWithTranslation] Original overview:', (originalTopic.content?.overview || originalTopic.overview)?.substring(0, 100));
+    console.log('[mergeTopicWithTranslation] Translated overview:', translatedTopic.overview?.substring(0, 100));
+    console.log('[mergeTopicWithTranslation] Merged overview:', merged.content.overview?.substring(0, 100));
+    console.log('[mergeTopicWithTranslation] Translated dos:', translatedTopic.dos);
+    console.log('[mergeTopicWithTranslation] Merged dos:', merged.content.dos);
+    
+    return merged;
   };
 
   return {
