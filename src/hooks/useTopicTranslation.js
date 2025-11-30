@@ -17,7 +17,6 @@ async function loadTranslations(courseName, language) {
     translationCache[cacheKey] = translations.default || translations;
     return translationCache[cacheKey];
   } catch (error) {
-    console.warn(`Translations not found for ${courseName} in ${language}`);
     return null;
   }
 }

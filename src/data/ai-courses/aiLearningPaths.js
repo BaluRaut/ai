@@ -1,7 +1,30 @@
 // AI Learning Paths Configuration
-// Defines the 7-level progressive learning structure
+// Defines the progressive learning structure
 
 export const aiLearningPaths = [
+  {
+    id: 'math-foundations',
+    title: 'Math for AI/ML',
+    titleMr: 'एआय/एमएलसाठी गणित',
+    description: 'Master essential mathematics: Linear Algebra, Calculus, Probability & Statistics',
+    descriptionMr: 'आवश्यक गणित मास्टर करा: रेखीय बीजगणित, कॅल्क्युलस, संभाव्यता आणि सांख्यिकी',
+    icon: '🔢',
+    color: '#9b59b6',
+    difficulty: 'Beginner-Intermediate',
+    estimatedHours: 32,
+    topics: 4,
+    outcomes: [
+      'Master vectors, matrices, and linear transformations',
+      'Understand derivatives, gradients, and chain rule',
+      'Apply probability theory and statistical inference',
+      'Solve optimization problems with calculus',
+      'Build real-world ML applications with math'
+    ],
+    prerequisites: [
+      'High school mathematics',
+      'Basic algebra knowledge'
+    ]
+  },
   {
     id: 'fundamentals',
     title: 'AI Fundamentals',

@@ -18,6 +18,7 @@ import {
   BookmarkBorder,
   Feedback,
   Search as SearchIcon,
+  Palette,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useThemeMode } from '../../context/ThemeContext';
@@ -25,6 +26,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import SearchBar from '../SearchBar/SearchBar';
 import GlobalSearch from '../GlobalSearch/GlobalSearch';
+import ThemeCustomizer from '../ThemeCustomizer/ThemeCustomizer';
 
 const Navbar = ({ onMenuClick }) => {
   const navigate = useNavigate();
@@ -33,6 +35,7 @@ const Navbar = ({ onMenuClick }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { t } = useTranslation();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [themeCustomizerOpen, setThemeCustomizerOpen] = useState(false);
 
   // Google Form URL - Replace this with your actual Google Form URL
   const FEEDBACK_FORM_URL = 'https://forms.gle/C4dADEyYM3VBxF7K8';
@@ -117,6 +120,10 @@ const Navbar = ({ onMenuClick }) => {
 
           <LanguageSelector />
 
+          <IconButton color="inherit" onClick={() => setThemeCustomizerOpen(true)} sx={{ mr: 1 }}>
+            <Palette />
+          </IconButton>
+
           <IconButton color="inherit" onClick={toggleTheme}>
             {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
@@ -125,6 +132,9 @@ const Navbar = ({ onMenuClick }) => {
 
       {/* Global Search Dialog */}
       <GlobalSearch open={searchOpen} onClose={() => setSearchOpen(false)} />
+      
+      {/* Theme Customizer Dialog */}
+      <ThemeCustomizer open={themeCustomizerOpen} onClose={() => setThemeCustomizerOpen(false)} />
     </>
   );
 };

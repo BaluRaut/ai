@@ -15,6 +15,7 @@ import contentAdvancedAI from './content-advanced-ai.json';
 import contentSpecializations from './content-specializations.json';
 import contentDataVisualization from './content-data-visualization.json';
 import contentProfessionalPractices from './content-professional-practices.json';
+import contentMathFoundations from './content-math-foundations.json';
 
 const mr = {
   ...common,
@@ -34,11 +35,8 @@ mr.content = {
   'advanced-ai': contentAdvancedAI,
   specializations: contentSpecializations,
   'data-visualization': contentDataVisualization,
-  'professional-practices': contentProfessionalPractices
+  'professional-practices': contentProfessionalPractices,
+  'math-foundations': contentMathFoundations
 };
-
-console.log('[MR Index] Building mr object, content keys:', Object.keys(mr.content || {}));
-console.log('[MR Index] Full mr keys:', Object.keys(mr));
-console.log('[MR Index] Has content?', 'content' in mr);
 
 export default mr;

@@ -56,7 +56,21 @@ import CodeSandbox from '../../components/CodeSandbox/CodeSandbox';
 import Quiz from '../../components/Quiz/Quiz';
 import AITutor from '../../components/AITutor/AITutor';
 import NeuralNetworkViz from '../../components/Visualizations/NeuralNetworkViz';
+import CNNVisualization from '../../components/Visualizations/CNNVisualization';
+import RNNVisualization from '../../components/Visualizations/RNNVisualization';
+import LSTMVisualization from '../../components/Visualizations/LSTMVisualization';
+import TransformerVisualization from '../../components/Visualizations/TransformerVisualization';
+import DecisionTreeVisualization from '../../components/Visualizations/DecisionTreeVisualization';
+import KMeansVisualization from '../../components/Visualizations/KMeansVisualization';
+import GradientDescentVisualization from '../../components/Visualizations/GradientDescentVisualization';
+import MatrixVisualization from '../../components/Visualizations/MatrixVisualization';
+import ProbabilityDistributionViz from '../../components/Visualizations/ProbabilityDistributionViz';
+import BayesTheoremViz from '../../components/Visualizations/BayesTheoremViz';
+import CorrelationHeatmapViz from '../../components/Visualizations/CorrelationHeatmapViz';
 import PracticeAssignments from '../../components/PracticeAssignments/PracticeAssignments';
+import PersonalNotes from '../../components/PersonalNotes/PersonalNotes';
+import References from '../../components/References/References';
+import CareerGuide from '../../components/CareerGuide/CareerGuide';
 import { useProgress } from '../../context/ProgressContext';
 import { useCourseTranslation } from '../../hooks/useCourseTranslation';
 import { useState, useMemo, useEffect } from 'react';
@@ -86,13 +100,7 @@ const TopicDetail = () => {
   const path = learningPaths.find(p => p.id === pathId);
   const topics = courseData[pathId]?.topics || [];
   
-  // Debug logging
-  console.log('Looking for topic:', { pathId, topicId, topicIdType: typeof topicId });
-  console.log('Available topics:', topics.map(t => ({ id: t.id, idType: typeof t.id, title: t.title })));
-  
   const originalTopic = topics.find(t => String(t.id) === String(topicId));
-  
-  console.log('Found topic:', originalTopic?.title || 'NOT FOUND');
   
   // Get translated topic
   const topic = originalTopic ? mergeTopicWithTranslation(originalTopic, pathId) : null;
@@ -687,6 +695,131 @@ data/cache/
         </Paper>
       )}
 
+      {/* Real-World Use Cases (Math Format) */}
+      {topicContent.realWorldUseCases && (
+        <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom>
+            🌍 Real-World Applications
+          </Typography>
+          {Object.values(topicContent.realWorldUseCases).map((useCase, index) => (
+            <Card key={index} variant="outlined" sx={{ mb: 2 }}>
+              <CardContent>
+                <Typography variant="h6" color="primary" gutterBottom>
+                  {useCase.title}
+                </Typography>
+                <Typography variant="body2" paragraph>
+                  {useCase.description}
+                </Typography>
+                <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2, mt: 2 }}>
+                  <Box>
+                    <Typography variant="caption" fontWeight={600} display="block" color="text.secondary">
+                      Input:
+                    </Typography>
+                    <Typography variant="body2">{useCase.input}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" fontWeight={600} display="block" color="text.secondary">
+                      Output:
+                    </Typography>
+                    <Typography variant="body2">{useCase.output}</Typography>
+                  </Box>
+                  <Box sx={{ gridColumn: { xs: '1', md: '1 / -1' } }}>
+                    <Typography variant="caption" fontWeight={600} display="block" color="text.secondary">
+                      Mathematics:
+                    </Typography>
+                    <Typography variant="body2" fontFamily="monospace" sx={{ bgcolor: 'background.default', p: 1, borderRadius: 1 }}>
+                      {useCase.math}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ gridColumn: { xs: '1', md: '1 / -1' } }}>
+                    <Chip label={`Impact: ${useCase.impact}`} size="small" color="success" variant="outlined" />
+                  </Box>
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
+        </Paper>
+      )}
+
+      {/* Mathematical Foundations */}
+      {topicContent.mathematicalFoundations && (
+        <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3, bgcolor: 'background.default' }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom>
+            📐 Mathematical Foundations
+          </Typography>
+          {topicContent.mathematicalFoundations.map((item, index) => (
+            <Box key={index} sx={{ mb: 3, p: 2, bgcolor: 'background.paper', borderRadius: 2, borderLeft: '4px solid', borderColor: 'primary.main' }}>
+              <Typography variant="h6" color="primary" gutterBottom>
+                {item.concept}
+              </Typography>
+              <Typography variant="body2" fontFamily="monospace" sx={{ bgcolor: 'background.default', p: 2, borderRadius: 1, mb: 1 }}>
+                {item.formula}
+              </Typography>
+              <Typography variant="body2" paragraph color="text.secondary">
+                {item.explanation}
+              </Typography>
+              <Chip label={`Application: ${item.application}`} size="small" variant="outlined" />
+            </Box>
+          ))}
+        </Paper>
+      )}
+
+      {/* Practical Assignments */}
+      {topicContent.practicalAssignments && (
+        <Paper elevation={2} sx={{ p: isMobile ? 2 : 3, mb: 3 }}>
+          <Typography variant="h5" fontWeight={600} gutterBottom>
+            🎯 Hands-On Assignments
+          </Typography>
+          {topicContent.practicalAssignments.map((assignment, index) => (
+            <Accordion key={index} sx={{ mb: 2 }}>
+              <AccordionSummary expandIcon={<ExpandMore />}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, width: '100%' }}>
+                  <Typography variant="h6">{assignment.title}</Typography>
+                  <Chip label={assignment.difficulty} size="small" color={assignment.difficulty === 'Easy' ? 'success' : assignment.difficulty === 'Medium' ? 'warning' : 'error'} />
+                  <Chip label={assignment.estimatedTime} size="small" variant="outlined" icon={<Schedule />} />
+                </Box>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body2" paragraph>
+                  {assignment.description}
+                </Typography>
+                <Typography variant="subtitle2" fontWeight={600} gutterBottom>
+                  Tasks:
+                </Typography>
+                <List dense>
+                  {assignment.tasks.map((task, idx) => (
+                    <ListItem key={idx}>
+                      <ListItemIcon>
+                        <CheckCircle color="primary" fontSize="small" />
+                      </ListItemIcon>
+                      <ListItemText primary={task} />
+                    </ListItem>
+                  ))}
+                </List>
+                {assignment.starterCode && (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="subtitle2" fontWeight={600} gutterBottom>
+                      Starter Code:
+                    </Typography>
+                    <CodeBlock code={assignment.starterCode} language="python" />
+                  </Box>
+                )}
+                {assignment.expectedOutput && (
+                  <Box sx={{ mt: 2, p: 2, bgcolor: 'success.light', borderRadius: 1 }}>
+                    <Typography variant="caption" fontWeight={600} color="success.dark">
+                      Expected Output:
+                    </Typography>
+                    <Typography variant="body2" color="success.dark">
+                      {assignment.expectedOutput}
+                    </Typography>
+                  </Box>
+                )}
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Paper>
+      )}
+
       {/* Do's and Don'ts */}
       {(topicContent.dos || topicContent.donts) && (
         <Paper elevation={2} sx={{ p: isMobile ? '16px 4px' : 3, mb: 3 }}>
@@ -991,6 +1124,73 @@ data/cache/
           />
         </Paper>
       )}
+
+      {/* Special Visualizations for Deep Learning Topics */}
+      {pathId === 'deep-learning' && topicId === '2' && (
+        <CNNVisualization />
+      )}
+      
+      {/* RNN Visualization */}
+      {pathId === 'deep-learning' && topicId === '3' && (
+        <RNNVisualization />
+      )}
+
+      {/* LSTM Visualization */}
+      {pathId === 'deep-learning' && topicId === '4' && (
+        <LSTMVisualization />
+      )}
+
+      {/* Transformer Visualization */}
+      {pathId === 'advanced-ai' && (topicId === '1' || topicId === '2') && (
+        <TransformerVisualization />
+      )}
+
+      {/* Gradient Descent Visualization */}
+      {pathId === 'machine-learning' && (topicId === '3' || topicId === '4') && (
+        <GradientDescentVisualization />
+      )}
+
+      {/* Decision Tree Visualization */}
+      {pathId === 'machine-learning' && topicId === '6' && (
+        <DecisionTreeVisualization />
+      )}
+
+      {/* K-Means Visualization */}
+      {pathId === 'machine-learning' && topicId === '9' && (
+        <KMeansVisualization />
+      )}
+
+      {/* Matrix Operations Visualization */}
+      {pathId === 'math-foundations' && topicId === '1' && (
+        <MatrixVisualization />
+      )}
+
+      {/* Gradient Descent for Calculus */}
+      {pathId === 'math-foundations' && topicId === '2' && (
+        <GradientDescentVisualization />
+      )}
+
+      {/* Probability Visualizations */}
+      {pathId === 'math-foundations' && topicId === '3' && (
+        <>
+          <ProbabilityDistributionViz />
+          <BayesTheoremViz />
+        </>
+      )}
+
+      {/* Statistics Visualization */}
+      {pathId === 'math-foundations' && topicId === '4' && (
+        <CorrelationHeatmapViz />
+      )}
+
+      {/* Personal Notes */}
+      <PersonalNotes topicId={topicId} topicTitle={topic.title} />
+
+      {/* Learning References */}
+      <References pathId={pathId} topicId={topicId} />
+
+      {/* Career Guide */}
+      <CareerGuide />
 
       {/* AI Tutor Floating Button */}
       <Tooltip title="Ask AI Tutor" placement="left">

@@ -16,35 +16,18 @@ export function useCourseTranslation() {
    */
   const getTranslatedTopic = (courseKey, topicId) => {
     if (i18n.language !== 'mr') {
-      console.log('[useCourseTranslation] Not Marathi, skipping translation');
       return null;
     }
 
-    // Get the full resource bundle for Marathi
-    // Note: This assumes resources are loaded. If using a backend loader, this might need adjustment.
-    // Since we bundle translations, this is synchronous and safe.
     const resources = i18n.getResourceBundle('mr', 'translation');
     
-    console.log('[useCourseTranslation] Resources:', resources ? 'Loaded' : 'NULL');
-    console.log('[useCourseTranslation] Full resource keys:', resources ? Object.keys(resources) : 'NONE');
-    console.log('[useCourseTranslation] Resources object:', resources);
-    console.log('[useCourseTranslation] Looking for courseKey:', courseKey, 'topicId:', topicId);
-    console.log('[useCourseTranslation] Available content keys:', resources?.content ? Object.keys(resources.content) : 'NONE');
-    
     if (!resources || !resources.content || !resources.content[courseKey]) {
-      console.log('[useCourseTranslation] Course content not found for key:', courseKey);
       return null;
     }
 
     const courseContent = resources.content[courseKey];
-    console.log('[useCourseTranslation] Course content found, keys:', Object.keys(courseContent));
     
-    // Find the topic object that matches the ID
-    // We iterate over the values because the keys (e.g., 'whatIsAI') might not match the IDs (e.g., 'what-is-ai')
-    // Handle both numeric IDs (original) and string IDs (translations)
     const topic = Object.values(courseContent).find(t => t && (t.id === topicId || String(t.id) === String(topicId)));
-    
-    console.log('[useCourseTranslation] Found topic:', topic ? topic.title : 'NOT FOUND');
     
     return topic || null;
   };
@@ -95,12 +78,6 @@ export function useCourseTranslation() {
         }),
       },
     };
-    
-    console.log('[mergeTopicWithTranslation] Original overview:', (originalTopic.content?.overview || originalTopic.overview)?.substring(0, 100));
-    console.log('[mergeTopicWithTranslation] Translated overview:', translatedTopic.overview?.substring(0, 100));
-    console.log('[mergeTopicWithTranslation] Merged overview:', merged.content.overview?.substring(0, 100));
-    console.log('[mergeTopicWithTranslation] Translated dos:', translatedTopic.dos);
-    console.log('[mergeTopicWithTranslation] Merged dos:', merged.content.dos);
     
     return merged;
   };

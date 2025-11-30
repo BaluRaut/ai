@@ -23,8 +23,8 @@ import Terms from './pages/Terms/Terms';
 import Privacy from './pages/Privacy/Privacy';
 
 function AppContent() {
-  const { mode } = useThemeMode();
-  const theme = getTheme(mode);
+  const { mode, customSettings } = useThemeMode();
+  const theme = getTheme(mode, customSettings);
 amplitude.add(sessionReplayPlugin());
 amplitude.init('cf9409dbde4fb96686ac8fabd345e057', {"autocapture":{"attribution":true,"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});
   return (

@@ -37,7 +37,4 @@ en.content = {
   'professional-practices': contentProfessionalPractices
 };
 
-console.log('[EN Index] Has content?', 'content' in en);
-console.log('[EN Index] Content keys:', Object.keys(en.content || {}));
-
 export default en;

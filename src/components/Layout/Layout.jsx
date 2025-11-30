@@ -3,14 +3,20 @@ import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import LearningTimeline, { TimelineFAB } from '../LearningTimeline/LearningTimeline';
 
 const Layout = ({ children }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [timelineOpen, setTimelineOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const handleTimelineToggle = () => {
+    setTimelineOpen(!timelineOpen);
   };
 
   return (
@@ -23,6 +29,15 @@ const Layout = ({ children }) => {
           onClose={handleDrawerToggle}
           isMobile={isMobile}
         />
+
+        {/* Learning Timeline Drawer */}
+        <LearningTimeline 
+          open={timelineOpen} 
+          onClose={() => setTimelineOpen(false)} 
+        />
+
+        {/* Timeline FAB */}
+        <TimelineFAB onClick={handleTimelineToggle} />
 
         <Box
           component="main"

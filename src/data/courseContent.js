@@ -2,6 +2,7 @@
 // Progressive learning from AI fundamentals to specializations
 
 import { aiLearningPaths } from './ai-courses/aiLearningPaths.js';
+import { mathFoundations } from './ai-courses/math-foundations.js';
 import { fundamentals } from './ai-courses/fundamentals.js';
 import { machineLearning } from './ai-courses/machine-learning.js';
 import { deepLearning } from './ai-courses/deep-learning.js';
@@ -13,8 +14,9 @@ import { professionalPractices } from './ai-courses/professional-practices.js';
 // Re-export learning paths configuration
 export { aiLearningPaths as learningPaths };
 
-// Aggregate all AI course data
+// Aggregate all course data
 export const courseData = {
+  'math-foundations': mathFoundations,
   fundamentals,
   'machine-learning': machineLearning,
   'deep-learning': deepLearning,

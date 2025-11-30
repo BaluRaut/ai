@@ -13,6 +13,7 @@ import { TrendingUp, CheckCircle, EmojiEvents, School } from '@mui/icons-materia
 import { useProgress } from '../../context/ProgressContext';
 import { courseData, learningPaths } from '../../data/courseContent';
 import { useTranslation } from 'react-i18next';
+import ActivityHeatmap from '../../components/ActivityHeatmap/ActivityHeatmap';
 
 const Progress = () => {
   const { completedTopics, quizScores } = useProgress();
@@ -128,6 +129,11 @@ const Progress = () => {
           </Card>
         </Grid>
       </Grid>
+
+      {/* Activity Heatmap */}
+      <Box sx={{ mt: 4, mb: 4 }}>
+        <ActivityHeatmap />
+      </Box>
 
       {/* Path Progress */}
       <Typography variant="h5" fontWeight={600} gutterBottom sx={{ mb: 3 }}>
