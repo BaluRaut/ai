@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback, memo } from 'react';
 import {
   Box,
   Container,
@@ -51,7 +51,7 @@ import {
 } from '../../data/interview/questions';
 import { pythonInterviewTopics, companies } from '../../data/interview/topics';
 
-const InterviewPrep = () => {
+const InterviewPrep = memo(() => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -62,28 +62,8 @@ const InterviewPrep = () => {
   const [selectedMock, setSelectedMock] = useState(null);
   const [mockTimer, setMockTimer] = useState(0);
 
-  // Filter questions by topic
-  const getQuestionsByTopic = (topicId) => {
-    return interviewQuestions.filter(q => q.category === topicId);
-  };
-
-  // Get questions for selected topic
-  const topicQuestions = selectedTopic 
-    ? getQuestionsByTopic(selectedTopic.id) 
-    : [];
-
-  // Difficulty colors
-  const getDifficultyColor = (difficulty) => {
-    switch (difficulty) {
-      case 'easy': return 'success';
-      case 'medium': return 'warning';
-      case 'hard': return 'error';
-      default: return 'default';
-    }
-  };
-
-  // Markdown components with syntax highlighting
-  const markdownComponents = {
+  // Memoize markdown components to prevent recreation
+  const markdownComponents = useMemo(() => ({
     code({ node, inline, className, children, ...props }) {
       const match = /language-(\w+)/.exec(className || '');
       return !inline && match ? (
@@ -101,7 +81,23 @@ const InterviewPrep = () => {
         </code>
       );
     },
-  };
+  }), []);
+
+  // Memoize questions filtering
+  const topicQuestions = useMemo(() => {
+    if (!selectedTopic) return [];
+    return interviewQuestions.filter(q => q.category === selectedTopic.id);
+  }, [selectedTopic]);
+
+  // Memoize difficulty color function
+  const getDifficultyColor = useCallback((difficulty) => {
+    switch (difficulty) {
+      case 'easy': return 'success';
+      case 'medium': return 'warning';
+      case 'hard': return 'error';
+      default: return 'default';
+    }
+  }, []);
 
   // Start mock interview
   const startMockInterview = (mock) => {
@@ -456,6 +452,6 @@ const InterviewPrep = () => {
       {activeTab === 2 && renderMockTab()}
     </Container>
   );
-};
+});
 
 export default InterviewPrep;

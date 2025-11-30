@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo, lazy, Suspense } from 'react';
 import {
   Box,
   Typography,
@@ -20,7 +20,8 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions
+  DialogActions,
+  Skeleton
 } from '@mui/material';
 import {
   Code,
@@ -30,10 +31,73 @@ import {
   ExpandLess,
   Visibility,
   VisibilityOff,
-  EmojiEvents
+  EmojiEvents,
+  ContentCopy
 } from '@mui/icons-material';
-import CodeEditor from '../CodeEditor/CodeEditor';
 import { getAssignmentsForTopic } from '../../data/assignments';
+
+// Lazy load CodeEditor - it's heavy (Monaco)
+const CodeEditor = lazy(() => import('../CodeEditor/CodeEditor'));
+
+// Simple code display for solutions (much lighter than Monaco)
+const CodeBlock = memo(({ code, language = 'python' }) => {
+  const [copied, setCopied] = useState(false);
+  
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  
+  return (
+    <Box sx={{ position: 'relative' }}>
+      <IconButton
+        size="small"
+        onClick={handleCopy}
+        sx={{ position: 'absolute', top: 8, right: 8, zIndex: 1 }}
+      >
+        <ContentCopy fontSize="small" />
+      </IconButton>
+      {copied && (
+        <Typography
+          variant="caption"
+          sx={{ position: 'absolute', top: 12, right: 48, color: 'success.main' }}
+        >
+          Copied!
+        </Typography>
+      )}
+      <Box
+        component="pre"
+        sx={{
+          p: 2,
+          m: 0,
+          overflow: 'auto',
+          maxHeight: 300,
+          fontSize: '0.875rem',
+          fontFamily: 'Consolas, Monaco, monospace',
+          bgcolor: 'grey.900',
+          color: 'grey.100',
+          borderRadius: 1,
+          '&::-webkit-scrollbar': { width: 8, height: 8 },
+          '&::-webkit-scrollbar-thumb': { bgcolor: 'grey.700', borderRadius: 4 }
+        }}
+      >
+        <code>{code}</code>
+      </Box>
+    </Box>
+  );
+});
+
+// Loading placeholder for editor
+const EditorLoader = () => (
+  <Box sx={{ p: 2 }}>
+    <Skeleton variant="rectangular" height={200} sx={{ borderRadius: 1 }} />
+    <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+      <Skeleton variant="rectangular" width={80} height={36} sx={{ borderRadius: 1 }} />
+      <Skeleton variant="rectangular" width={80} height={36} sx={{ borderRadius: 1 }} />
+    </Box>
+  </Box>
+);
 
 const difficultyColors = {
   'Easy': 'success',
@@ -41,8 +105,9 @@ const difficultyColors = {
   'Hard': 'error'
 };
 
-const PracticeAssignments = ({ topicId }) => {
+const PracticeAssignments = memo(({ topicId }) => {
   const [expandedAssignment, setExpandedAssignment] = useState(null);
+  const [openedAssignments, setOpenedAssignments] = useState(new Set()); // Track which have been opened
   const [showSolution, setShowSolution] = useState({});
   const [showHints, setShowHints] = useState({});
   const [userCode, setUserCode] = useState({});
@@ -52,7 +117,27 @@ const PracticeAssignments = ({ topicId }) => {
   });
   const [showCelebration, setShowCelebration] = useState(false);
 
-  const assignments = getAssignmentsForTopic(topicId);
+  // Memoize assignments to prevent recalculation
+  const assignments = useMemo(() => getAssignmentsForTopic(topicId), [topicId]);
+
+  // Memoize handlers
+  const handleToggleExpand = useCallback((assignmentId) => {
+    setExpandedAssignment(prev => prev === assignmentId ? null : assignmentId);
+    // Mark as opened (for lazy loading the editor)
+    setOpenedAssignments(prev => new Set(prev).add(assignmentId));
+  }, []);
+
+  const handleToggleHints = useCallback((assignmentId) => {
+    setShowHints(prev => ({ ...prev, [assignmentId]: !prev[assignmentId] }));
+  }, []);
+
+  const handleToggleSolution = useCallback((assignmentId) => {
+    setShowSolution(prev => ({ ...prev, [assignmentId]: !prev[assignmentId] }));
+  }, []);
+
+  const handleCodeChange = useCallback((assignmentId, code) => {
+    setUserCode(prev => ({ ...prev, [assignmentId]: code }));
+  }, []);
 
   if (!assignments || assignments.length === 0) {
     return null;
@@ -61,22 +146,6 @@ const PracticeAssignments = ({ topicId }) => {
   const completedCount = completedAssignments.length;
   const totalCount = assignments.length;
   const progressPercent = (completedCount / totalCount) * 100;
-
-  const handleToggleExpand = (assignmentId) => {
-    setExpandedAssignment(expandedAssignment === assignmentId ? null : assignmentId);
-  };
-
-  const handleToggleHints = (assignmentId) => {
-    setShowHints(prev => ({ ...prev, [assignmentId]: !prev[assignmentId] }));
-  };
-
-  const handleToggleSolution = (assignmentId) => {
-    setShowSolution(prev => ({ ...prev, [assignmentId]: !prev[assignmentId] }));
-  };
-
-  const handleCodeChange = (assignmentId, code) => {
-    setUserCode(prev => ({ ...prev, [assignmentId]: code }));
-  };
 
   const handleMarkComplete = (assignmentId) => {
     if (!completedAssignments.includes(assignmentId)) {
@@ -138,6 +207,7 @@ const PracticeAssignments = ({ topicId }) => {
         {assignments.map((assignment, index) => {
           const isCompleted = completedAssignments.includes(assignment.id);
           const isExpanded = expandedAssignment === assignment.id;
+          const hasBeenOpened = openedAssignments.has(assignment.id);
           const hintsVisible = showHints[assignment.id];
           const solutionVisible = showSolution[assignment.id];
           const currentCode = userCode[assignment.id] || assignment.starterCode;
@@ -206,8 +276,8 @@ const PracticeAssignments = ({ topicId }) => {
                   </IconButton>
                 </Box>
 
-                {/* Expanded Content */}
-                <Collapse in={isExpanded}>
+                {/* Expanded Content - unmountOnExit saves memory */}
+                <Collapse in={isExpanded} timeout="auto" unmountOnExit={false}>
                   <Divider sx={{ my: 2 }} />
 
                   {/* Description */}
@@ -228,7 +298,7 @@ const PracticeAssignments = ({ topicId }) => {
                     >
                       {hintsVisible ? 'Hide Hints' : `Show Hints (${assignment.hints.length})`}
                     </Button>
-                    <Collapse in={hintsVisible}>
+                    <Collapse in={hintsVisible} timeout="auto">
                       <Alert severity="info" sx={{ mt: 1 }}>
                         <List dense disablePadding>
                           {assignment.hints.map((hint, i) => (
@@ -244,19 +314,25 @@ const PracticeAssignments = ({ topicId }) => {
                     </Collapse>
                   </Box>
 
-                  {/* Code Editor */}
+                  {/* Code Editor - Only load when opened */}
                   <Box sx={{ mb: 2 }}>
                     <Typography variant="subtitle2" gutterBottom>
                       Your Solution:
                     </Typography>
                     <Paper variant="outlined" sx={{ overflow: 'hidden' }}>
-                      <CodeEditor
-                        initialCode={assignment.starterCode}
-                        code={currentCode}
-                        language="python"
-                        onChange={(code) => handleCodeChange(assignment.id, code)}
-                        height="250px"
-                      />
+                      {hasBeenOpened ? (
+                        <Suspense fallback={<EditorLoader />}>
+                          <CodeEditor
+                            initialCode={assignment.starterCode}
+                            code={currentCode}
+                            language="python"
+                            onChange={(code) => handleCodeChange(assignment.id, code)}
+                            height="250px"
+                          />
+                        </Suspense>
+                      ) : (
+                        <EditorLoader />
+                      )}
                     </Paper>
                   </Box>
 
@@ -283,8 +359,8 @@ const PracticeAssignments = ({ topicId }) => {
                     </Button>
                   </Box>
 
-                  {/* Solution */}
-                  <Collapse in={solutionVisible}>
+                  {/* Solution - Use lightweight CodeBlock instead of Monaco */}
+                  <Collapse in={solutionVisible} timeout="auto">
                     <Box sx={{ mt: 2 }}>
                       <Typography variant="subtitle2" color="success.main" gutterBottom>
                         Solution:
@@ -292,18 +368,11 @@ const PracticeAssignments = ({ topicId }) => {
                       <Paper
                         variant="outlined"
                         sx={{
-                          bgcolor: 'success.50',
                           borderColor: 'success.main',
                           overflow: 'hidden'
                         }}
                       >
-                        <CodeEditor
-                          code={assignment.solution}
-                          language="python"
-                          readOnly
-                          showOutput={false}
-                          height="200px"
-                        />
+                        <CodeBlock code={assignment.solution} language="python" />
                       </Paper>
                     </Box>
                   </Collapse>
@@ -340,6 +409,6 @@ const PracticeAssignments = ({ topicId }) => {
       </Dialog>
     </Paper>
   );
-};
+});
 
 export default PracticeAssignments;

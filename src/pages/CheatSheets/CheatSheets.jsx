@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import {
   Box,
   Container,
@@ -29,17 +29,17 @@ import {
 import { useTranslation } from 'react-i18next';
 import { cheatSheets } from '../../data/cheatsheets';
 
-const CheatSheets = () => {
+const CheatSheets = memo(() => {
   const { t } = useTranslation();
   const [selectedSheet, setSelectedSheet] = useState(null);
   const [copiedItem, setCopiedItem] = useState(null);
 
-  // Copy to clipboard
-  const handleCopy = (text) => {
+  // Copy to clipboard - memoized
+  const handleCopy = useCallback((text) => {
     navigator.clipboard.writeText(text);
     setCopiedItem(text);
     setTimeout(() => setCopiedItem(null), 2000);
-  };
+  }, []);
 
   // Print sheet
   const handlePrint = () => {
@@ -239,6 +239,6 @@ const CheatSheets = () => {
       {selectedSheet ? renderSheet() : renderSheetSelection()}
     </Container>
   );
-};
+});
 
 export default CheatSheets;

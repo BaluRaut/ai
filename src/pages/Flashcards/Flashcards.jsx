@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import {
   Box,
   Container,
@@ -27,6 +27,44 @@ import {
 import { useTranslation } from 'react-i18next';
 import { flashcardSets, getTotalFlashcardCount } from '../../data/flashcards';
 
+// Memoized flashcard set card
+const FlashcardSetCard = memo(({ set, onClick, getDifficultyColor }) => (
+  <Card 
+    sx={{ 
+      height: '100%', 
+      cursor: 'pointer',
+      transition: 'transform 0.2s, box-shadow 0.2s',
+      '&:hover': {
+        transform: 'translateY(-4px)',
+        boxShadow: 4,
+      }
+    }}
+    onClick={() => onClick(set)}
+  >
+    <CardContent>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+        <Typography variant="h2" component="span">
+          {set.icon}
+        </Typography>
+        <Box>
+          <Typography variant="h6">{set.title}</Typography>
+          <Chip 
+            label={set.difficulty} 
+            size="small" 
+            color={getDifficultyColor(set.difficulty)}
+          />
+        </Box>
+      </Box>
+      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        {set.description}
+      </Typography>
+      <Typography variant="caption" color="primary">
+        {set.count} cards
+      </Typography>
+    </CardContent>
+  </Card>
+));
+
 const Flashcards = () => {
   const { t } = useTranslation();
   const [selectedSet, setSelectedSet] = useState(null);
@@ -37,25 +75,28 @@ const Flashcards = () => {
   const [unknownCards, setUnknownCards] = useState(new Set());
   const [filterDifficulty, setFilterDifficulty] = useState('all');
 
+  // Memoize total count
+  const totalCount = useMemo(() => getTotalFlashcardCount(), []);
+
   // Shuffle function
-  const shuffleArray = (array) => {
+  const shuffleArray = useCallback((array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
-  };
+  }, []);
 
   // Start a flashcard set
-  const startSet = (set) => {
+  const startSet = useCallback((set) => {
     setSelectedSet(set);
     setShuffledCards([...set.flashcards]);
     setCurrentIndex(0);
     setIsFlipped(false);
     setKnownCards(new Set());
     setUnknownCards(new Set());
-  };
+  }, []);
 
   // Shuffle current set
   const handleShuffle = () => {
@@ -88,21 +129,27 @@ const Flashcards = () => {
   }, [currentIndex]);
 
   // Mark card as known/unknown
-  const markKnown = () => {
+  const markKnown = useCallback(() => {
     const cardId = shuffledCards[currentIndex].id;
-    setKnownCards(new Set([...knownCards, cardId]));
-    unknownCards.delete(cardId);
-    setUnknownCards(new Set(unknownCards));
+    setKnownCards(prev => new Set([...prev, cardId]));
+    setUnknownCards(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(cardId);
+      return newSet;
+    });
     goNext();
-  };
+  }, [shuffledCards, currentIndex, goNext]);
 
-  const markUnknown = () => {
+  const markUnknown = useCallback(() => {
     const cardId = shuffledCards[currentIndex].id;
-    setUnknownCards(new Set([...unknownCards, cardId]));
-    knownCards.delete(cardId);
-    setKnownCards(new Set(knownCards));
+    setUnknownCards(prev => new Set([...prev, cardId]));
+    setKnownCards(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(cardId);
+      return newSet;
+    });
     goNext();
-  };
+  }, [shuffledCards, currentIndex, goNext]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -113,7 +160,7 @@ const Flashcards = () => {
         case ' ':
         case 'Enter':
           e.preventDefault();
-          setIsFlipped(!isFlipped);
+          setIsFlipped(f => !f);
           break;
         case 'ArrowRight':
           goNext();
@@ -134,20 +181,23 @@ const Flashcards = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedSet, isFlipped, goNext, goPrev]);
+  }, [selectedSet, goNext, goPrev, markKnown, markUnknown]);
 
-  // Filter sets by difficulty
-  const filteredSets = filterDifficulty === 'all' 
-    ? flashcardSets 
-    : flashcardSets.filter(set => set.difficulty === filterDifficulty);
+  // Memoize filtered sets
+  const filteredSets = useMemo(() => 
+    filterDifficulty === 'all' 
+      ? flashcardSets 
+      : flashcardSets.filter(set => set.difficulty === filterDifficulty),
+    [filterDifficulty]
+  );
 
   // Back to set selection
-  const backToSets = () => {
+  const backToSets = useCallback(() => {
     setSelectedSet(null);
     setShuffledCards([]);
     setCurrentIndex(0);
     setIsFlipped(false);
-  };
+  }, []);
 
   // Current card
   const currentCard = shuffledCards[currentIndex];
@@ -156,14 +206,14 @@ const Flashcards = () => {
     : 0;
 
   // Difficulty colors
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyColor = useCallback((difficulty) => {
     switch (difficulty) {
       case 'beginner': return 'success';
       case 'intermediate': return 'warning';
       case 'advanced': return 'error';
       default: return 'default';
     }
-  };
+  }, []);
 
   // Set selection view
   if (!selectedSet) {
@@ -174,7 +224,7 @@ const Flashcards = () => {
             <Style /> {t('nav.flashcards', 'Flashcards')}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            {getTotalFlashcardCount()} flashcards across {flashcardSets.length} sets
+            {totalCount} flashcards across {flashcardSets.length} sets
           </Typography>
         </Box>
 
@@ -197,47 +247,17 @@ const Flashcards = () => {
         <Grid container spacing={3}>
           {filteredSets.map((set) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={set.id}>
-              <Card 
-                sx={{ 
-                  height: '100%', 
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: 4,
-                  }
-                }}
-                onClick={() => startSet(set)}
-              >
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                    <Typography variant="h2" component="span">
-                      {set.icon}
-                    </Typography>
-                    <Box>
-                      <Typography variant="h6">{set.title}</Typography>
-                      <Chip 
-                        label={set.difficulty} 
-                        size="small" 
-                        color={getDifficultyColor(set.difficulty)}
-                      />
-                    </Box>
-                  </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                    {set.description}
-                  </Typography>
-                  <Typography variant="caption" color="primary">
-                    {set.count} cards
-                  </Typography>
-                </CardContent>
-              </Card>
+              <FlashcardSetCard 
+                set={set} 
+                onClick={startSet} 
+                getDifficultyColor={getDifficultyColor} 
+              />
             </Grid>
           ))}
         </Grid>
       </Container>
     );
   }
-
   // Flashcard study view
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
