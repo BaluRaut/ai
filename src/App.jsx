@@ -12,6 +12,9 @@ import TopicDetail from './pages/TopicDetail/TopicDetail';
 import Bookmarks from './pages/Bookmarks/Bookmarks';
 import Progress from './pages/Progress/Progress';
 import QuizPractice from './pages/QuizPractice/QuizPractice';
+import Flashcards from './pages/Flashcards/Flashcards';
+import InterviewPrep from './pages/InterviewPrep/InterviewPrep';
+import CheatSheets from './pages/CheatSheets/CheatSheets';
 import Terms from './pages/Terms/Terms';
 
 function AppContent() {
@@ -31,6 +34,9 @@ amplitude.init('cf9409dbde4fb96686ac8fabd345e057', {"autocapture":{"attribution"
             <Route path="/bookmarks" element={<Bookmarks />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/quiz" element={<QuizPractice />} />
+            <Route path="/flashcards" element={<Flashcards />} />
+            <Route path="/interview" element={<InterviewPrep />} />
+            <Route path="/cheatsheets" element={<CheatSheets />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>
         </Layout>

@@ -18,6 +18,9 @@ import {
   TrendingUp,
   Quiz,
   Feedback,
+  Style,
+  Work,
+  Description,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { learningPaths } from '../../data/courseContent';
@@ -37,9 +40,11 @@ const Sidebar = ({ open, onClose, isMobile }) => {
   const menuItems = [
     { text: t('nav.home'), icon: <Home />, path: '/' },
     { text: t('nav.quizPractice'), icon: <Quiz />, path: '/quiz' },
+    { text: t('nav.flashcards', 'Flashcards'), icon: <Style />, path: '/flashcards' },
+    { text: 'Interview Prep', icon: <Work />, path: '/interview' },
+    { text: 'Cheat Sheets', icon: <Description />, path: '/cheatsheets' },
     { text: t('nav.bookmarks'), icon: <BookmarkBorder />, path: '/bookmarks' },
     { text: t('nav.progress'), icon: <TrendingUp />, path: '/progress' },
-    { text: t('nav.achievements'), icon: <EmojiEvents />, path: '/achievements' },
   ];
 
   const handleNavigation = (path) => {

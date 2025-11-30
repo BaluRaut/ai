@@ -130,7 +130,7 @@ cart.add_item("Laptop", 999.99)
 cart.add_item("Mouse", 29.99, 2)
 cart.add_item("Keyboard", 79.99)
 cart.display()
-print(f"Total: \\${cart.get_total():.2f}")
+print(f"Total: \${cart.get_total():.2f}")
 `,
     solution: `class ShoppingCart:
     def __init__(self):
@@ -176,11 +176,11 @@ print(f"Total: \\${cart.get_total():.2f}")
         print("=" * 40)
         for name, item in self.items.items():
             line_total = item['price'] * item['quantity']
-            print(f"{name}: \\${item['price']:.2f} x {item['quantity']} = \\${line_total:.2f}")
+            print(f"{name}: \${item['price']:.2f} x {item['quantity']} = \${line_total:.2f}")
         print("-" * 40)
-        print(f"Subtotal: \\${self.get_subtotal():.2f}")
-        print(f"Discount: -\\${self.get_discount():.2f}")
-        print(f"Total: \\${self.get_total():.2f}")
+        print(f"Subtotal: \${self.get_subtotal():.2f}")
+        print(f"Discount: -\${self.get_discount():.2f}")
+        print(f"Total: \${self.get_total():.2f}")
 
 # Test
 cart = ShoppingCart()
